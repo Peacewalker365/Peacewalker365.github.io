@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>myStack</title>
+    <link>https://Peacewalker365.github.io/</link>
+    <description>Recent content on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 14:32:14 -0500</lastBuildDate><atom:link href="https://Peacewalker365.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First_post</title>
+      <link>https://Peacewalker365.github.io/posts/first_post/</link>
+      <pubDate>Sun, 12 Dec 2021 14:32:14 -0500</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/posts/first_post/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
