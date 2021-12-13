@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on myStack</title>
+    <link>https://Peacewalker365.github.io/blogs/</link>
+    <description>Recent content in Blogs on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Post</title>
+      <link>https://Peacewalker365.github.io/blogs/first-post/</link>
+      <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/blogs/first-post/</guid>
+      <description>It’s 2021 now, and I just begin to write my first blog. Well, it&amp;rsquo;s better late than never.</description>
+    </item>
+    
+  </channel>
+</rss>

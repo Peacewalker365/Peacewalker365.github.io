@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.90.1" />
+  <link rel="canonical" href="https://Peacewalker365.github.io/notes/javase/">
+
+  
+    
+    <meta name="description" content="JavaSE Environment variable: set JAVA_HOME to the addr of install java Then add %JAVA_HOME%/bin to path. We do so to let Tomcat to recognize the java dir by looking at the JAVA_HOME
+.java -&gt; javac.exe -&gt; .class -&gt; java.exe -&gt; result
+bytecode file .class has the name of the class name in .java
+javac HelloWorld.java then java HelloWorldClassName
+class HelloWorldClassName { public static void main(String[] args) { System.out.println(&#34;Hello, World!&#34;); } } Important   You can declare multiple classes in a source code file, but you can only have 1 public class at most in it.">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/css/paper.css">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+  
+  
+  <title>Java Note | myStack</title>
+</head>
+  <body>
+    <div class="container paper">
+      <nav class="border split-nav">
+  <div class="nav-brand">
+    <h3><a href="/">myStack</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+    <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+      
+        <li><a href="/blogs/">Blog</a></li>
+      
+        <li><a href="/notes/">Note</a></li>
+      
+        <li><a href="/tags/">Tags</a></li>
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="https://github.com/Peacewalker365">Github</a></li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+      <main>
+        
+
+<h1>Java Note</h1>
+<h1 id="javase">JavaSE</h1>
+<p>Environment variable: set JAVA_HOME to the addr of install java
+Then add <code>%JAVA_HOME%/bin</code> to path.
+We do so to let Tomcat to recognize the java dir by looking at the JAVA_HOME</p>
+<p>.java -&gt; javac.exe -&gt; .class -&gt; java.exe -&gt; result</p>
+<p>bytecode file .class has the name of the class name in .java</p>
+<p><code>javac HelloWorld.java</code> then <code>java HelloWorldClassName</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorldClassName</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello, World!&#34;</span><span style="color:#f92672">);</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div><h4 id="important">Important</h4>
+<ol>
+<li>
+<p>You can declare multiple classes in a source code file, but you can only have 1 public class at most in it.</p>
+</li>
+<li>
+<p>if declare a public class, then the source code file name has to be the same name of the class!</p>
+</li>
+<li>
+<p>Depending on the number of class you have in a source file, the compile process may generate 1 or more bytecode files.</p>
+</li>
+</ol>
+<h3 id="comment">Comment</h3>
+<ol>
+<li>//</li>
+<li>/* */</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"></code></pre></div></li>
+</ol>
+<p>/**
+@author nameOfAuthor
+@version verOfSourceCode
+*/</p>
+<pre tabindex="0"><code>Notice this can be extracted by javadoc
+and produce a document.
+`javadoc -d docName -author -version HelloWorld.java`
+Find the index.html in the docName.
+Maybe need -encoding UTF-8
+Also notice that if you want to illustrate the func(),
+you should write the /** xxx */ out of the func() not inside it.
+
+### Java API Document
+
+### Coding Style
+
+### String
+Sting is not a primitive data type
+而是引用数据类型
+
+When print function has multiple data types doing concatination using +, one String in it will make everything a string and concatinate to one big String.
+
+```java
+System.out.println('*' + '\t');
+System.out.println('*' + &quot;\t&quot;);
+System.out.println(&quot;*&quot; + '\t');
+System.out.println(&quot;*&quot; + &quot;\t&quot;);
+</code></pre><h3 id="var">Var</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">byte</span> b <span style="color:#f92672">=</span> 5<span style="color:#f92672">;</span>
+b <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> 2<span style="color:#f92672">;</span> <span style="color:#75715e">//wrong! here 2 is int
+</span></code></pre></div><h3 id="base">Base</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">0b or 0B 
+0<span style="color:#f92672">-</span>7
+0xA or 0Xa
+
+<span style="color:#66d9ef">int</span> num1 <span style="color:#f92672">=</span> 0b1001<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">int</span> num2 <span style="color:#f92672">=</span> 0123<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">int</span> num3 <span style="color:#f92672">=</span> 0x110A<span style="color:#f92672">;</span>
+
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>num1<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>num2<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>num3<span style="color:#f92672">);</span>
+<span style="color:#75715e">// all in base of 10 after printing out
+</span></code></pre></div><h3 id="operator">Operator</h3>
+<p>int res = m % n
+res has the same sign of m!</p>
+<p>-12 % 5 == -12 % -5</p>
+<h3 id="scanner">Scanner</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.Scanner<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ScannerTest</span><span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+        Scanner scan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
+        String str <span style="color:#f92672">=</span> scan<span style="color:#f92672">.</span><span style="color:#a6e22e">nextLine</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> scan<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div><h3 id="control-flow-with-label">Control Flow with Label</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">label: <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 4<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;=</span> 10<span style="color:#f92672">;</span> j<span style="color:#f92672">++){</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>j <span style="color:#f92672">%</span> 4 <span style="color:#f92672">===</span> 0<span style="color:#f92672">)</span>
+          <span style="color:#66d9ef">continue</span> label<span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>j<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+</code></pre></div><h3 id="variable-number-of-args">Variable Number of args</h3>
+<p>public static void test(String &hellip; strs);
+The number of String passed in can be any amount including no string at all.</p>
+<p>看到226</p>
+
+  
+
+      </main>
+      
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </div>
+  </body>
+</html>

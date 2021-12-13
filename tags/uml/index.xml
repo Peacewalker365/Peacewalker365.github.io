@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UML on myStack</title>
+    <link>https://Peacewalker365.github.io/tags/uml/</link>
+    <description>Recent content in UML on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/uml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UML Note</title>
+      <link>https://Peacewalker365.github.io/notes/uml-class-diagrams/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/notes/uml-class-diagrams/</guid>
+      <description>UML Class Diagrams Introduction In object-oriented programming, it&amp;rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
+Basic Class Diagram Consider the following UML class diagram:
+The diagram consists of a rectangle broken up vertically into three sections:
+  Class name. In this case, the fully qualified name of the class is given.</description>
+    </item>
+    
+  </channel>
+</rss>

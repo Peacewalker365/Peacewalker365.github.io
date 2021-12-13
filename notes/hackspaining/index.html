@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.90.1" />
+  <link rel="canonical" href="https://Peacewalker365.github.io/notes/hackspaining/">
+
+  
+    
+    <meta name="description" content="https://www.hacksplaining.com/lessons
+SQL Injection Harm Extract sensitive information, like Social Security numbers, or credit card details. Enumerate the authentication details of users registered on a website, so these logins can be used in attacks on other sites. Delete data or drop tables, corrupting the database, and making the website unusable. Inject further malicious code to be executed when users visit the site.
+Parameterized Statements Make sure that the parameters passed into SQL statements are treated in a safe manner.">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/css/paper.css">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+  
+  
+  <title>Hacking Defense Note | myStack</title>
+</head>
+  <body>
+    <div class="container paper">
+      <nav class="border split-nav">
+  <div class="nav-brand">
+    <h3><a href="/">myStack</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+    <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+      
+        <li><a href="/blogs/">Blog</a></li>
+      
+        <li><a href="/notes/">Note</a></li>
+      
+        <li><a href="/tags/">Tags</a></li>
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="https://github.com/Peacewalker365">Github</a></li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+      <main>
+        
+
+<h1>Hacking Defense Note</h1>
+<p><a href="https://www.hacksplaining.com/lessons">https://www.hacksplaining.com/lessons</a></p>
+<h2 id="sql-injection">SQL Injection</h2>
+<h3 id="harm">Harm</h3>
+<p>Extract sensitive information, like Social Security numbers, or credit card details.
+Enumerate the authentication details of users registered on a website, so these logins can be used in attacks on other sites.
+Delete data or drop tables, corrupting the database, and making the website unusable.
+Inject further malicious code to be executed when users visit the site.</p>
+<h4 id="parameterized-statements">Parameterized Statements</h4>
+<p>Make sure that the parameters passed into SQL statements are treated in a safe manner.</p>
+<h4 id="object-relational-mapping">Object Relational Mapping</h4>
+<p>ORM makes the translation of SQL result sets into code objects more seamless. Using an ORM does not automatically make you immune to SQL injection, however.
+As a general rule of thumb: if you find yourself writing SQL statements by concatenating strings, think very carefully about what you are doing.</p>
+<h4 id="escaping-inputs">Escaping Inputs</h4>
+<p>Programming languages have standard ways to describe strings containing quotes within them – SQL is no different in this respect. Typically, doubling up the quote character – replacing ' with '' – means “treat this quote as part of the string, not the end of the string”.</p>
+<h4 id="sanitizing-inputs">Sanitizing Inputs</h4>
+<p>Client-side validation (i.e. in JavaScript) is useful for giving the user immediate feedback when filling out a form, but is no defense against a serious hacker. Most hack attempts are performed using scripts, rather than the browser itself.</p>
+<h2 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)</h2>
+<p>Spreading worms on social media sites. Facebook, Twitter and YouTube have all been successfully attacked in this way.
+Session hijacking. Malicious JavaScript may be able to send the session ID to a remote site under the hacker’s control, allowing the hacker to impersonate that user by hijacking a session in progress.
+Identity theft. If the user enters confidential information such as credit card numbers into a compromised website, these details can be stolen using malicious JavaScript.
+Denial of service attacks and website vandalism.
+Theft of sensitive data, like passwords.
+Financial fraud on banking sites.</p>
+<h4 id="escape-dynamic-content">Escape Dynamic Content</h4>
+<p>you should escape all dynamic content coming from a data store, so the browser knows it is to be treated as the contents of HTML tags, as opposed to raw HTML.</p>
+<p>Escaping dynamic content generally consists of replacing significant characters with the HTML entity encoding:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&#34;	<span style="color:#960050;background-color:#1e0010">&amp;</span>#34
+#	<span style="color:#960050;background-color:#1e0010">&amp;</span>#35
+<span style="color:#960050;background-color:#1e0010">&amp;</span>	<span style="color:#960050;background-color:#1e0010">&amp;</span>#38
+&#39;	<span style="color:#960050;background-color:#1e0010">&amp;</span>#39
+(	<span style="color:#960050;background-color:#1e0010">&amp;</span>#40
+)	<span style="color:#960050;background-color:#1e0010">&amp;</span>#41
+/	<span style="color:#960050;background-color:#1e0010">&amp;</span>#47
+;	<span style="color:#960050;background-color:#1e0010">&amp;</span>#59
+<span style="color:#960050;background-color:#1e0010">&lt;</span>	<span style="color:#960050;background-color:#1e0010">&amp;</span>#60
+&gt;	<span style="color:#960050;background-color:#1e0010">&amp;</span>#62
+</code></pre></div><h4 id="whitelist-values">Whitelist Values</h4>
+<p>instead of asking a user to type in their country of residence, have them select from a drop-down list.</p>
+<h4 id="implement-a-content-security-policy">Implement a Content-Security Policy</h4>
+<p>allow the author of a web-page to control where JavaScript (and other resources) can be loaded and executed from.
+The content security policy can also be set in a <meta> tag in the <head> element of the page:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-Security-Policy&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;script-src &#39;self&#39; https://apis.google.com&#34;</span>&gt;
+
+</code></pre></div><p>This approach will protect your users very effectively!</p>
+<h4 id="sanitize-html">Sanitize HTML</h4>
+<p>Some sites have a legitimate need to store and render raw HTML, especially now that <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable">contentEditable</a> has become part of the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">HTML5 standard</a>. If
+your site stores and renders rich content, you need to use a HTML sanitization library to ensure malicious users cannot inject scripts in their HTML submissions.</p>
+<h2 id="command-execution">Command Execution</h2>
+<p><strong>Remote code execution</strong> is a major security lapse, and the last step along the road to complete system takeover. After gaining access, an attacker will attempt to escalate their privileges on the server, install malicious scripts, or make your server part of a <a href="https://www.hacksplaining.com/glossary/botnets">botnet</a> to be used at a later date.</p>
+<p><strong>Command injection vulnerabilities often occur in older, legacy code, such as CGI scripts.</strong></p>
+<h4 id="try-to-avoid-command-line-calls-altogether">Try to Avoid Command Line Calls Altogether</h4>
+<p><strong>Use APIs wherever possible –</strong> only use shell commands where absolutely necessary.</p>
+<h4 id="escape-inputs-correctly">Escape Inputs Correctly</h4>
+<p><strong>Injection vulnerabilities occur when untrusted input is not sanitized correctly.</strong> If you use shell commands, be sure to scrub input values for potentially malicious characters:</p>
+<table>
+<thead>
+<tr>
+<th>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+</tr>
+<tr>
+<td>|</td>
+</tr>
+<tr>
+<td>`</td>
+</tr>
+</tbody>
+</table>
+<p>Even better, restrict input by testing it against a regular expression of known safe characters. (For example, alphanumeric characters.)</p>
+<h4 id="restrict-the-permitted-commands">Restrict the Permitted Commands</h4>
+<h4 id="perform-thorough-code-reviews">Perform Thorough Code Reviews</h4>
+<h4 id="run-with-restricted-permissions">Run with Restricted Permissions</h4>
+<h2 id="clickjacking">Clickjacking</h2>
+<ul>
+<li><strong>Harvest login credentials</strong>, by rendering a fake login box on top of the real one.</li>
+<li><strong>Trick users into turning on their web-cam or microphone</strong>, by rendering invisible elements over the Adobe Flash settings page.</li>
+<li><strong>Spread <a href="https://www.hacksplaining.com/glossary/worms">worms</a> on social media sites</strong> like Twitter and MySpace.</li>
+<li><strong>Promote online scams</strong> by tricking people into clicking on things they otherwise would not.</li>
+<li><strong>Spread malware</strong> by diverting users to malicious download links.</li>
+</ul>
+<h4 id="x-frame-options">X-Frame-Options</h4>
+<p>The <code>X-Frame-Options</code> <a href="https://www.hacksplaining.com/glossary/http">HTTP header</a> can be used to indicate whether or not a browser should be allowed to render a page in a <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code> or <code>&lt;object&gt;</code> tag. It was designed specifically to help protect against clickjacking.</p>
+<p>There are three permitted values for the header:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">DENY</th>
+<th>The page cannot be displayed in a frame, regardless of the site attempting to do so.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SAMEORIGIN</td>
+<td>The page can only be displayed in a frame on the same origin as the page itself.</td>
+</tr>
+<tr>
+<td style="text-align:left">ALLOW-FROM <em>uri</em></td>
+<td>The page can only be displayed in a frame on the specified origins.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="content-security-policy">Content Security Policy</h4>
+<h4 id="frame-killing">Frame-Killing</h4>
+<p>In older browsers, the most common way to protect users against clickjacking was to include a frame-killing JavaScript snippet in pages to prevent them being included in foreign iframes.</p>
+<p>Frame-killing offers a large degree of protection against clickjacking, but it can be error-prone. Be sure to set appropriate HTTP headers as the first recourse in protecting your site.</p>
+<h2 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)</h2>
+<p><a href="http://www.darkreading.com/attacks-breaches/hacker-steals-data-on-18m-auction-customers-in-south-korea/d/d-id/1129325?">
+Steal confidential data.</a></p>
+<p><a href="https://news.softpedia.com/news/CSRF-Worm-Released-on-Twitter-158085.shtml">Spread worms on social media.</a></p>
+<p><a href="https://www.zdnet.com/article/bug-allowed-full-takeover-of-samsung-user-accounts/">Install malware on mobile phones.</a></p>
+<h4 id="rest">REST</h4>
+<p><a href="https://www.hacksplaining.com/glossary/rest">Representation State Transfer (REST)</a> is a series of design principles that assign certain types of action (view, create, delete, update) to different <a href="https://www.hacksplaining.com/glossary/http">HTTP verbs</a>. Following REST-ful designs will keep your code clean and help your site scale. Moreover, REST insists that GET requests are used only to <em>view</em> resources. Keeping your GET requests side-effect free will limit the harm that can be done by maliciously crafted URLs–an attacker will have to work much harder to generate harmful POST requests.</p>
+<h4 id="anti-forgery-tokens">Anti-Forgery Tokens</h4>
+<p>This is called an <strong>anti-forgery</strong> token. Each time your server renders a page that performs sensitive actions, it should write out an anti-forgery token in a hidden HTML form field. This token must be included with form submissions, or AJAX calls. The server should validate the token when it is returned in subsequent requests, and reject any calls with missing or invalid tokens.</p>
+<h4 id="ensure-cookies-are-sent-with-the-samesite-cookie-attribute">Ensure Cookies are sent with the SameSite Cookie Attribute</h4>
+<p>A value of <code>Strict</code> will mean than <em>any</em> request initiated by a third-party domain to <em>your</em> domain will have any cookies stripped by the browser. This is the most secure setting, since it prevents malicious sites attempting to perform harmful actions under a user’s session.</p>
+<p>A value of <code>Lax</code> permits GET request from a third-party domain to <em>your</em> domain to have cookies attached - but <em>only</em> GET requests. With this setting a user will not have to sign in again to your site if the follow a link from another site (say, Google search results). This makes for a friendlier user-experience - but make sure your GET requests are side-effect free!</p>
+<h4 id="include-addition-authentication-for-sensitive-actions">Include Addition Authentication for Sensitive Actions</h4>
+<h2 id="reflected-xss">Reflected XSS</h2>
+<ul>
+<li><strong>Search results</strong> - does the search criteria get displayed back to the user? Is it written out in the page title? Are you <em>sure</em> it is being escaped properly?</li>
+<li><strong>Error pages</strong> - if you have error messages that complain about invalid inputs, does the input get escaped properly when it is displayed back to the user? Does your 404 page mention the path being searched for?</li>
+<li><strong>Form submissions</strong> - if a page POSTs data, does any part of the data being submitted by the form get displayed back to the user? What if the form submission is rejected – does the error page allow injection of malicious code? Does an erroneously submitted form get pre-populated with the values previously submitted?</li>
+</ul>
+<h4 id="escape-dynamic-content-1">Escape Dynamic Content</h4>
+<h4 id="whitelist-values-1">Whitelist Values</h4>
+<h4 id="implement-a-content-security-policy-1">Implement a Content-Security Policy</h4>
+<h2 id="file-upload-vulnerabilities">File Upload Vulnerabilities</h2>
+<p><strong>Sophisticated hackers typically exploit a combination of vulnerabilities when attacking your site – uploading malicious code to a server is step one in the hacker playbook.</strong> The next step is finding a way to execute the malicious code.</p>
+<p>Even <a href="https://threatpost.com/ebay-fixes-file-upload-and-patch-disclosure-bugs/111898">big companies</a> fall foul to this vulnerability, particularly if they are running complex, legacy code bases.</p>
+<h4 id="segregate-your-uploads">Segregate Your Uploads</h4>
+<p>File uploads are generally intended to be inert. Unless you are building a very particular type of website, you are typically expecting images, videos, or document files, rather than executable code. If this is the case, making sure uploaded files are kept separate from application code is a key security consideration.</p>
+<p>Consider using <a href="http://aws.amazon.com/s3/">cloud-based storage</a> or a <a href="https://www.hacksplaining.com/glossary/content-management-systems">content management system</a> to store uploaded files. Alternatively, if you are sure of your ability to scale your backend, you could write uploaded files to your database. Both of these approaches prevent accidental execution of an executable file.</p>
+<h4 id="ensure-upload-files-cannot-be-executed">Ensure Upload Files Cannot Be Executed</h4>
+<h4 id="rename-files-on-upload">Rename Files on Upload</h4>
+<h4 id="validate-file-formats-and-extensions">Validate File Formats and Extensions</h4>
+<h4 id="validate-the-content-type-header">Validate the Content-Type Header</h4>
+<h4 id="use-a-virus-scanner">Use a Virus Scanner</h4>
+<h2 id="open-redirects">Open Redirects</h2>
+<p>Redirects are a useful function to have when building a website. If a user attempts to access a resource before they are logged in, it is conventional to redirect them to the login page, put the original URL in a query parameter, and after they have logged in, automatically redirect them to their original destination. This type of functionality shows you are putting thought into the user experience, and is to be encouraged. However, you need to be sure anywhere you do redirects, they are done safely – otherwise you are putting your users in harm’s way by enabling <a href="https://www.hacksplaining.com/glossary/phishing">phishing attacks</a>.</p>
+<h4 id="disallow-offsite-redirects">Disallow Offsite Redirects</h4>
+<p>Make sure all redirect URLs are <strong>relative paths</strong> – i.e. they start with a single <code>/</code> character. (Note that URLs starting with <code>//</code> will be interpreted by the browser as a protocol agnostic, absolute URL – so they should be rejected too.)</p>
+<p>If you <em>do</em> need to perform external redirects, consider whitelisting the individual sites that you permit redirects to.</p>
+<h4 id="check-the-referrer-when-doing-redirects">Check the Referrer When Doing Redirects</h4>
+<p>Redirects to URLs passed in query parameters should only be triggered by pages on your site.</p>
+<p>As a second layer of defense, check that the <code>Referer</code> in the HTTP request matches your domain whenever you perform a redirect.</p>
+<h2 id="unencrypted-communication">Unencrypted Communication</h2>
+<p>Insecure Wi-Fi hotspots, <a href="https://www.hacksplaining.com/exercises/unencrypted-communication">as illustrated in our exercise</a>, are just one way enterprising hackers have found to take advantage of unencrypted communication. They may also try to sniff traffic within your network, and if they get access, inspect traffic going through compromised edge devices.</p>
+<h4 id="buy-a-certificate-install-it-and-configure-your-web-server-to-use-it"><strong>Buy a certificate, install it, and configure your web server to use it.</strong></h4>
+<p>It’s really as simple as that. Web servers are typically able to serve the same content over HTTP (on port 80) and HTTPS (on port 443). Any non-trivial website should use HTTPS. <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/">Facebook</a> and <a href="https://blog.twitter.com/2011/making-twitter-more-secure-https">Twitter</a> use HTTPS by default, and this a good example to follow.</p>
+<p><strong>But make sure you know how to force your web server to elevate to a secure connection, and do so whenever a user is authenticating or establishing a session.</strong></p>
+<p>A common way of enforcing this is to make sure that cookies are set to <code>secure</code> – that way, sessions can <em>only</em> be established over HTTPS.</p>
+<h2 id="user-enumeration">User Enumeration</h2>
+<h4 id="login">Login</h4>
+<ul>
+<li>Make sure to return a <strong>generic</strong> “No such username or password” message when a login failure occurs.</li>
+<li>Make sure the <strong>HTTP response</strong>, and the <strong>time taken</strong> to respond are no different when a username does not exist, and an incorrect password is entered.</li>
+</ul>
+<h4 id="password-reset">Password Reset</h4>
+<ul>
+<li>Make sure your “forgotten password” page does not reveal usernames.</li>
+<li>If your password reset process involves sending an email, have the user enter their email address. Then send an email with a password reset link if the account exists.</li>
+</ul>
+<h4 id="registration">Registration</h4>
+<ul>
+<li>Avoid having your site tell people that a supplied username is already taken.</li>
+<li>If your usernames are email addresses, send a password reset email if a user tries to sign-up with an existing address.</li>
+<li>If usernames are <em>not</em> email addresses, protect your sign-up page with a CAPTCHA.</li>
+</ul>
+<h4 id="profile-pages">Profile Pages</h4>
+<ul>
+<li>If your users have profile pages, make sure they are only visible to other users who are already logged in.</li>
+<li>If you hide a profile page, ensure a hidden profile is indistinguishable from a non-existent profile.</li>
+</ul>
+<h2 id="password-mismanagement">Password Mismanagement</h2>
+<h4 id="use-third-party-authentication-if-possible">Use Third-Party Authentication if Possible</h4>
+<h4 id="ensure-password-complexity">Ensure Password Complexity</h4>
+<h4 id="allow-password-resets-via-email">Allow Password Resets via Email</h4>
+<h4 id="confirm-old-password-on-reset">Confirm Old Password On Reset</h4>
+<h4 id="prevent-brute-forcing">Prevent Brute-Forcing</h4>
+<h4 id="store-passwords-with-a-strong-hash-salted">Store Passwords With A Strong Hash, Salted</h4>
+<p><strong>Passwords should always be stored as salted hashes.</strong></p>
+<h4 id="timeout-sessions-after-inactivity-and-provide-a-logout-function">Timeout Sessions After Inactivity, and Provide a Logout Function</h4>
+<h4 id="use-https-for-secure-communication">Use HTTPS for Secure Communication</h4>
+<h2 id="email-spoofing">Email Spoofing</h2>
+<ul>
+<li><strong>Steal their credentials</strong> by sending “phishing” messages.</li>
+<li><strong>Trick them into falling for online scams</strong> by abusing the trust they have in your site.</li>
+<li><strong>Spread malware</strong> by sharing malicious attachments.</li>
+</ul>
+<h4 id="spf">SPF</h4>
+<ul>
+<li><strong>Implement the Sender Policy Framework (SPF):</strong> publish a <a href="https://www.cloudflare.com/learning/dns/dns-records/">DNS record</a> to explicitly state which servers are allowed to send email from your domain.</li>
+<li><strong>Implement Domain Key Identified Mail (DKIM):</strong> use a <a href="https://www.hacksplaining.com/glossary/digital_signatures">digital signature</a> to prove that outgoing email was legitimately sent from your domain, and that it wasn’t modified in transit.</li>
+</ul>
+<h4 id="dmarc">DMARC</h4>
+<p>There is also an emerging umbrella standard called <strong>DMARC</strong> (“Domain-based Message Authentication, Reporting &amp; Conformance”) that you should be aware of. <a href="https://dmarc.org/overview/">Read more about DMARC here</a>.</p>
+<h3 id="configuration">configuration</h3>
+<p>mplementing SPF and DKIM requires publishing new DNS records and making configuration changes to your technology stack - consult the documentation for your email sending service or software for details. Here are the relevant documentation links for some of the more common methods of sending email.</p>
+<h4 id="transactional-email-services">Transactional Email Services</h4>
+<h4 id="email-marketing-services">Email Marketing Services</h4>
+<h4 id="mail-transfer-agents">Mail Transfer Agents</h4>
+<h2 id="malvertising">Malvertising</h2>
+<ul>
+<li><strong>Malicious downloads,</strong> including ransomware. “Drive-by” downloads don’t even require the user to click on an advert - simply viewing the page may be enough to deliver the payload. Malware is usually delivered through vulnerable versions of Flash or Adobe Acrobat.</li>
+<li><strong>Redirects to phishing sites</strong> that attempt to steal a user’s credentials.</li>
+<li><strong>Scareware</strong> - adverts designed to trick a user into downloading unnecessary and potentially dangerous software, such as fake antivirus protection.</li>
+<li><strong>Browser lockers</strong> - malware that locks up the browser, often posing as a security alert.</li>
+</ul>
+<h3 id="protection">Protection</h3>
+<ul>
+<li><strong>Working with reputable ad networks.</strong> Choose networks that are certified by e.g. Google. If you are evaluating a new ad network, see if they have any existing big-name clients. Avoid advertising networks that use deceptive practices pop-ups and pop-under windows.</li>
+<li><strong>Performing due diligence on agencies and advertisers.</strong> Restrict your advertising to relevant market segments, and if your ad networks permits it, consider individually whitelisting advertisers.</li>
+<li><strong>Implementing a content security policy.</strong> Implementing a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content-Security Policy</a> will help control what domains can host content used in your web-pages. Unfortunately, many advertising toolkits (e.g. Google Adsense) cannot be restricted in this fashion - so you may have to create a “soft” whitelist using the <code>Content-Security-Policy-Report-Only</code> header, and monitor unexpected domains.</li>
+<li><strong>Using client-side error reporting tools.</strong> Tools for recording errors in the browser - like <a href="https://sentry.io/for/javascript/">Sentry</a>, <a href="https://trackjs.com/">TrackJS</a>, <a href="https://rollbar.com/">Rollbar</a> and <a href="https://airbrake.io/">Airbrake</a> - will help you detect unexpected and anomalous behavior that could indicate a malvertising infection.</li>
+<li><strong>Logging out-going URLs.</strong> Capturing click-strings for adverts will help with forensic analysis in the case of a malvertising outbreak.</li>
+</ul>
+<h2 id="logging-and-monitoring">Logging And Monitoring</h2>
+<p><a href="https://www.hacksplaining.com/prevention/logging-and-monitoring">https://www.hacksplaining.com/prevention/logging-and-monitoring</a></p>
+<h2 id="buffer-overflows">Buffer Overflows</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Insecure Function</th>
+<th style="text-align:left">Secure Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>gets()</code></td>
+<td style="text-align:left"><code>fgets()</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>strcpy()</code></td>
+<td style="text-align:left"><code>strncpy()</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>strcat()</code></td>
+<td style="text-align:left"><code>strncat()</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>sprintf()</code></td>
+<td style="text-align:left"><code>snprintf()</code></td>
+</tr>
+</tbody>
+</table>
+<p>It’s pretty rare for web-developers to write low-level code in languages like C or C++, so the biggest risk of buffer overflows for must of us in the applications we use.</p>
+<h5 id="web-servers">Web Servers</h5>
+<p>Most websites are deployed using a <em>web server</em> to serve static content. (This is distinct from the <em>application server</em> that executes dynamic content.) The three most common web-servers are:</p>
+<ul>
+<li>Apache HTTP Server</li>
+<li>Microsoft Internet Information Services (IIS)</li>
+<li>Nginx</li>
+</ul>
+<p>Each of these has been found to be vulnerable to buffer overflows at different times. Web-server vendors are very quick to patch vulnerabilities, so the key to keeping yourself secure is deploying security patches as soon as they become available.</p>
+<h5 id="operating-systems-and-language-runtimes">Operating Systems and Language Runtimes</h5>
+<p>Buffer overflow attacks have been launched against websites by taking advantage of vulnerabilities in operating systems and language runtimes. The <a href="http://heartbleed.com/">Heartbleed</a> attack took advantage of a serious vulnerability in the OpenSSL cryptographic software library that Linux-based web-servers use to encrypt SSL/TLS traffic. Similarly, security researchers have discovered vulnerabilities in various functions in the PHP runtime which allow attackers to launch buffer overflow attacks remotely by crafting malicious input.</p>
+<h5 id="remediation">Remediation</h5>
+<p>To avoid being exposed to buffer overflow vulnerabilities in the applications you use, you need to keep them up-to-date with the latest security patches. These are the key things to need to do:</p>
+<ul>
+<li><strong>Automate your build and deployment process.</strong> You need to know which versions of each application your are running on each server. This means writing deployment scripts for web-servers and language runtimes, and retaining copies of deployment logs.</li>
+<li><strong>Keep on top of security bulletins.</strong> Make sure your team is on the lookout for security announcements for the applications you use. Sign up for mailing lists, join forums, and follow software vendors on social media.</li>
+<li><strong>Deploy security patches as soon as they become available!</strong> Hackers will find ways to take advantage of security vulnerabilities as soon as they are made public, so make sure you are not amongst the target audience.</li>
+</ul>
+
+  
+
+      </main>
+      
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </div>
+  </body>
+</html>

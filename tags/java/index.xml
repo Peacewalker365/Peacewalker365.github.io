@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on myStack</title>
+    <link>https://Peacewalker365.github.io/tags/java/</link>
+    <description>Recent content in Java on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Note</title>
+      <link>https://Peacewalker365.github.io/notes/javase/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/notes/javase/</guid>
+      <description>JavaSE Environment variable: set JAVA_HOME to the addr of install java Then add %JAVA_HOME%/bin to path. We do so to let Tomcat to recognize the java dir by looking at the JAVA_HOME
+.java -&amp;gt; javac.exe -&amp;gt; .class -&amp;gt; java.exe -&amp;gt; result
+bytecode file .class has the name of the class name in .java
+javac HelloWorld.java then java HelloWorldClassName
+class HelloWorldClassName { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } Important   You can declare multiple classes in a source code file, but you can only have 1 public class at most in it.</description>
+    </item>
+    
+  </channel>
+</rss>

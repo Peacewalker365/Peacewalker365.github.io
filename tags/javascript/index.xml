@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on myStack</title>
+    <link>https://Peacewalker365.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JS Note</title>
+      <link>https://Peacewalker365.github.io/notes/javascript/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/notes/javascript/</guid>
+      <description>JS Let/Const function sayHello() { for (var i = 0; i &amp;lt; 5; i++) { console.log(i); } console.log(i); } sayHello(); problem with var: the scope! To solve this problem, we have let.
+Scope var -&amp;gt; function let -&amp;gt; block const -&amp;gt; block
+const person = { name: &amp;#39;Mosh&amp;#39;, walk: function() {}, talk() {} //neat way }; person.talk(); person[&amp;#39;name&amp;#39;] = &amp;#39;John&amp;#39;; const targetMember = &amp;#39;name&amp;#39;; // think about this can be user input person[targetMember] = &amp;#39;John&amp;#39;; // dynamically manage the access  Objects this const person = { name: &amp;#34;Mosh&amp;#34;, walk() { console.</description>
+    </item>
+    
+  </channel>
+</rss>

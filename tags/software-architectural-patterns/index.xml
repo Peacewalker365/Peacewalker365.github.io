@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Architectural Patterns on myStack</title>
+    <link>https://Peacewalker365.github.io/tags/software-architectural-patterns/</link>
+    <description>Recent content in Software Architectural Patterns on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/software-architectural-patterns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Patterns Note</title>
+      <link>https://Peacewalker365.github.io/notes/software-architectural-patterns/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/notes/software-architectural-patterns/</guid>
+      <description>Software Architectural Patterns Layered pattern Client-server pattern Master-slave pattern Pipe-filter pattern Broker pattern Peer-to-peer pattern Event-bus pattern Model-view-controller pattern Blackboard pattern Interpreter pattern </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on myStack</title>
+    <link>https://Peacewalker365.github.io/tags/docker/</link>
+    <description>Recent content in Docker on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker_note</title>
+      <link>https://Peacewalker365.github.io/notes/docker/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/notes/docker/</guid>
+      <description>Why Docker? Your proj can only run on your machine but not others.
+ One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
+HYPERVISORS  VitualBox VMware Hyper-v (win only)  ![Virtual Machines](/img/Virtual Machines.png)
+Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&amp;rsquo;t need to give cores to it specifically)  Arch of Docker Installing # docs.</description>
+    </item>
+    
+  </channel>
+</rss>

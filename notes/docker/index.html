@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.90.1" />
+  <link rel="canonical" href="https://Peacewalker365.github.io/notes/docker/">
+
+  
+    
+    <meta name="description" content="Why Docker? Your proj can only run on your machine but not others.
+ One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
+HYPERVISORS  VitualBox VMware Hyper-v (win only)  ![Virtual Machines](/img/Virtual Machines.png)
+Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don’t need to give cores to it specifically)  Arch of Docker Installing # docs.">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/css/paper.css">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+  
+  
+  <title>Docker_note | myStack</title>
+</head>
+  <body>
+    <div class="container paper">
+      <nav class="border split-nav">
+  <div class="nav-brand">
+    <h3><a href="/">myStack</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+    <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+      
+        <li><a href="/blogs/">Blog</a></li>
+      
+        <li><a href="/notes/">Note</a></li>
+      
+        <li><a href="/tags/">Tags</a></li>
+      
+        <li><a href="/about/">About</a></li>
+      
+        <li><a href="https://github.com/Peacewalker365">Github</a></li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+      <main>
+        
+
+<h1>Docker_note</h1>
+<h3 id="why-docker">Why Docker?</h3>
+<p>Your proj can only run on your machine but not others.</p>
+<ul>
+<li>One or more file missing.</li>
+<li>Software version mismatch.</li>
+<li>Diff config setting.</li>
+</ul>
+<p>Docker can pack everything in an isolated env and make it run anywhere.
+And diff docker containers can run on same machine.</p>
+<h4 id="hypervisors">HYPERVISORS</h4>
+<ul>
+<li>VitualBox</li>
+<li>VMware</li>
+<li>Hyper-v (win only)</li>
+</ul>
+<p><img src="/img/Hypervisor.png" alt="Hypervisor"></p>
+<p>![Virtual Machines](/img/Virtual Machines.png)</p>
+<h4 id="probs-with-virtual-machines">Probs With Virtual Machines</h4>
+<ul>
+<li>Each VM needs a full-blown OS</li>
+<li>Slow to start</li>
+<li>Resource intensive (it takes a slice of the hardware)</li>
+</ul>
+<h4 id="containers">Containers</h4>
+<ul>
+<li>Allow running multiple apps in isolation</li>
+<li>Lightweight</li>
+<li>Use OS of the host (all containers share the same host OS)</li>
+<li>Start quickly</li>
+<li>Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)</li>
+</ul>
+<h3 id="arch-of-docker">Arch of Docker</h3>
+<p><img src="/img/Arch_of_Docker.png" alt="Arch of Docker"></p>
+<p><img src="/img/Container_As_a_Process_And_Sharing_the_Kernel.png" alt="Container As a Process And Sharing the Kernel"></p>
+<p><img src="/img/Docker_on_Diff_OS.png" alt="Docker on Diff OS"></p>
+<h3 id="installing">Installing</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># docs.docker.com/get-docker/</span>
+<span style="color:#75715e"># open dockerHub</span>
+
+docker version
+
+</code></pre></div><h3 id="dev-workflow">Dev Workflow</h3>
+<p><img src="/img/Dockerfile_to_Image.png" alt="Dockerfile to Image"></p>
+<p>The images get loaded in a container.</p>
+<p><code>docker run appName</code> to run it in a container.</p>
+<p><img src="/img/Docker_Registry_Like_github_to_git.png" alt="Docker Registry Like github to git"></p>
+<h3 id="docker-in-action">Docker in Action</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+mkdir hello-docker
+cd hello-docker
+code . <span style="color:#75715e"># open in vsCode, you can use others like vim</span>
+
+</code></pre></div><p>add a new file -&gt; app.js
+add one line -&gt; <code>console.log(&quot;Hello Docker!&quot;);</code>
+You need Node installed.
+<code>node app.js</code>
+then it should print Hello Docker! in terminal</p>
+<h4 id="instructions">Instructions</h4>
+<ul>
+<li>start with an others</li>
+<li>install Node</li>
+<li>Copy app files</li>
+<li>Run node app.js</li>
+</ul>
+<h4 id="but-now-we-can-write-this-instructions-in-the-dockerfile">BUT NOW we can write this instructions in the dockerfile!</h4>
+<p>add another file named <code>Dockerfile</code> with no extensions.
+install the docker extension for vsCode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:alpine</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . /app <span style="color:#75715e"># we gonna copy all the files in the current dir to the /app of that image</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> node /app/app.js<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>or use<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> node app.js<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># go to dockerHub to find these image like linux or node etc.</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># after the : is the tag of the image, for example alpine is a specific ver of linux</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t hello-docker .
+<span style="color:#75715e"># -t for tag that to identify the image</span>
+<span style="color:#75715e"># then the app name</span>
+<span style="color:#75715e"># then the dir to find it</span>
+</code></pre></div><p>notice that the image is not in the app dir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker image ls 
+
+</code></pre></div><p>![Docker Image(latest) with Node, Linux alpine, and the app files](/img/Docker_Image(latest)_with_Node,_Linux alpine,_and_the_app_files.png)</p>
+<p><code>docker run hello-docker</code> run it using image name</p>
+<p>You can publish it on dockerhub to run it anywhere.</p>
+<p>you can also go to play with docker to have a try.
+<code>docker run PceWlkr/hello-docker</code></p>
+<h3 id="linux-distros">Linux Distros</h3>
+<ul>
+<li>Ubuntu</li>
+<li>Debian</li>
+<li>Alpine</li>
+<li>Fedora</li>
+<li>CentOS</li>
+</ul>
+<h4 id="ubuntu">Ubuntu</h4>
+<p>go to dockerhub, search for Ubuntu.
+we can use <code>docker pull ubuntu</code>
+but here I will use a shortcut
+we can use <code>docker run ubuntu</code>, if docker cannot find it locally then it will download it and run it in a container.
+However, since we didn&rsquo;t interact with the container, it stopped.
+if we <code>docker ps</code> we cannot see it
+if we <code>docker ps -a</code> we can see it&rsquo;s stopped
+We need to use <code>docker run -it ubuntu</code> to start it in interactive mode</p>
+<p>And then we entered its shell.
+<code>root@2f856e34654e5:/# </code>
+root indicates I&rsquo;m having the root user mode having the highest access permission
+After the @ is the name of the container.
+The / means the dir we are at.
+And there is a # meaning we have the highest privilege since we are in root mode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">whoami
+echo $0
+<span style="color:#75715e"># /bin/bash</span>
+<span style="color:#75715e"># we can see the location of shell program</span>
+
+history
+
+!2
+<span style="color:#75715e"># will run the 2nd command in history</span>
+
+</code></pre></div><h4 id="package-manager">Package Manager</h4>
+<p><code>apt</code>
+list - list oackages based on names
+search - search in package descriptions
+show - show package details
+install
+reinstall
+remove
+autoremove - remove automatically all unused packages
+update - update list of available packages
+upgrade - upgrade the sys by installing/upgrading packages
+full-upgrade - upgrade the sys by removing/installing/upgrading
+edit-sources - edit the source information file
+satisfy - satisfy dependency strings</p>
+<p><code>apt-get</code> - look it up yourself LMAO</p>
+<p><code>apt install nano</code> will give a error msg since you may not have nano in your package list
+<code>apt update</code> to update the package database
+<code>apt install nano</code></p>
+<h3 id="file-system">File System</h3>
+<p><img src="/img/Linux_File_Tree.png" alt="Linux File Tree"></p>
+<p>bin: binaries
+boot: booting related
+dev: devices, in linux, everything is a file
+etc: editable text configuration
+home: the home dir of users
+root: the home dir of root user
+lib: libs, e.g. software dependencies
+var: varibles, updated frequently, like logs or app data
+proc: running processes (as files)</p>
+<p><code>pwd</code> print current dir
+<code>ls</code>
+<code>ls -1</code> one item per line
+<code>ls -l</code> full info list
+<code>cd ../..</code> 2 level up
+<code>cd ~</code>
+<code>mv hello.txt /etc hello123.txt</code>
+notice that &lt;ctrl + w&gt; remove one word in shell
+<code>rm file1.txt file2.txt</code>
+<code>rm file*</code>
+<code>rm -r fileDir/</code>
+<code>touch file1.txt</code>
+<code>cat file1.txt</code>
+<code>more fileLong.txt</code> use more if the file is long. we can use space or enter
+<code>apt install less</code>
+<code>less file1.txt</code> we can you up and down and space and enter</p>
+<p><code>head -n 5 file1.txt</code>
+<code>tail -n 2 file2.txt</code></p>
+<h4 id="redirectory">Redirectory</h4>
+<p><code>cat file1.txt &gt; file2.txt</code>
+<code>cat file1.txt file2.txt &gt; combined.txt</code>
+<code>echo hello &gt; hello.txt</code>
+<code>ls -l /etc &gt; files.txt</code></p>
+<p><code>&lt;</code> Redirectory for input</p>
+<p><img src="/img/Workflow_with_Docker.png" alt="Workflow with Docker"></p>
+<h2 id="demo-project">Demo Project</h2>
+
+  
+
+      </main>
+      
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hadoop on myStack</title>
+    <link>https://Peacewalker365.github.io/tags/hadoop/</link>
+    <description>Recent content in Hadoop on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hadoop Cluster Setup</title>
+      <link>https://Peacewalker365.github.io/notes/setup-hadoop-cluster-on-ms-azure/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/notes/setup-hadoop-cluster-on-ms-azure/</guid>
+      <description>Report: Setup Hadoop Cluster on MS Azure https://klasserom.azurewebsites.net/Lessons/Binder/2410
+Notice: In this report, the ssh .pem is named SSH_keypair.pem, and the user name in Linux by default is set to PceWlkr.
+set up virtual machine Basics use the B1s as the bare bone std
+The first vm set in the group will need to generate a new key pair of SSH public key, and give it a name.
+Others can just use the SSH we had already.</description>
+    </item>
+    
+  </channel>
+</rss>

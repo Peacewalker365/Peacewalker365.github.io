@@ -6,14 +6,16 @@
     <description>Recent content in Posts on myStack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 14:32:14 -0500</lastBuildDate><atom:link href="https://Peacewalker365.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 18:32:14 -0500</lastBuildDate><atom:link href="https://Peacewalker365.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First_post</title>
+      <title>Test</title>
       <link>https://Peacewalker365.github.io/posts/first_post/</link>
-      <pubDate>Sun, 12 Dec 2021 14:32:14 -0500</pubDate>
+      <pubDate>Sun, 12 Dec 2021 18:32:14 -0500</pubDate>
       
       <guid>https://Peacewalker365.github.io/posts/first_post/</guid>
-      <description></description>
+      <description>Headings # Heading 1 ## Heading 2 ### Heading 3 #### Heading 4 ##### Heading 5 ###### Heading 6 Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 Text *This text will be italic* _This will also be italic_ **This text will be bold** __This will also be bold__ _You **can** combine them_ This text will be italic
+This will also be italic
+This text will be bold</description>
     </item>
     
   </channel>
