@@ -1,25 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Golang on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/golang/</link>
-    <description>Recent content in Golang on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Golang Note</title>
-      <link>https://Peacewalker365.github.io/notes/golang/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/golang/</guid>
-      <description>Golang why golang
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Golang - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/golang/</link>
+        <description>Golang - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>Golang Note</title>
+    <link>https://Peacewalker365.github.io/golang/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/golang/</guid>
+    <description><![CDATA[Golang why golang
 c/c++ fast but have to carry historical burdens, slow compile
 java kinda same
 python, easy to use but slow.
 None of these are developed toward to the best performance in terms of concurrency
- Strong and staticaaly typed excellent comm. Key features  simplicity fast compile times garbage collected compile to standaline binaries(all dependencies are in there) built-in concurrency    package main // have to specify the package name  import ( &amp;#34;fmt&amp;#34; ) func main() { fmt.</description>
-    </item>
-    
-  </channel>
+ Strong and staticaaly typed excellent comm. Key features  simplicity fast compile times garbage collected compile to standaline binaries(all dependencies are in there) built-in concurrency    1 2 3 4 5 6 7 8 9 10  package main // have to specify the package name  import ( &#34;fmt&#34; ) func main() { fmt.]]></description>
+</item></channel>
 </rss>

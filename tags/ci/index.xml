@@ -1,19 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>CI on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/ci/</link>
-    <description>Recent content in CI on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/ci/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CI Tools</title>
-      <link>https://Peacewalker365.github.io/notes/ci-tools/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/ci-tools/</guid>
-      <description>CI Tools
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CI - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/ci/</link>
+        <description>CI - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/ci/" rel="self" type="application/rss+xml" /><item>
+    <title>CI Tools</title>
+    <link>https://Peacewalker365.github.io/ci-tools/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/ci-tools/</guid>
+    <description><![CDATA[CI Tools
 Bamboo
 run multiple builds in parallel for faster compilation
 built in functionality to connect with repos and has built tasks for Ant, Maven, etc.
@@ -27,8 +23,6 @@ Great for java
 Travis CI
 a hosted, continuous integration service used to built and test software projs hosted at GitHub.
 for team of all sizes
-support 20 diff langs</description>
-    </item>
-    
-  </channel>
+support 20 diff langs]]></description>
+</item></channel>
 </rss>

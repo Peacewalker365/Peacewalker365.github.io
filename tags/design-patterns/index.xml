@@ -1,25 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Design Patterns on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/design-patterns/</link>
-    <description>Recent content in Design Patterns on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Design Patterns For OOL</title>
-      <link>https://Peacewalker365.github.io/notes/design-patterns-for-ool/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/design-patterns-for-ool/</guid>
-      <description>Design Patterns For OOL Terms Association
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Design Patterns - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/design-patterns/</link>
+        <description>Design Patterns - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/design-patterns/" rel="self" type="application/rss+xml" /><item>
+    <title>Design Patterns For OOL</title>
+    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
 Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
-Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&amp;rsquo;t exist separate to a House.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
 SOLID Design Principles S: Single-responsibility principle
 O: Open-closed principle
-L: Liskov&amp;rsquo;s substitution principle</description>
-    </item>
-    
-  </channel>
+L: Liskov&rsquo;s substitution principle]]></description>
+</item></channel>
 </rss>

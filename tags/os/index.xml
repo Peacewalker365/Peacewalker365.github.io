@@ -1,33 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OS on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/os/</link>
-    <description>Recent content in OS on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/os/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OS Review Note</title>
-      <link>https://Peacewalker365.github.io/notes/os_review/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/os_review/</guid>
-      <description>von Neumann Architecture (realization of Turing Machine)
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>OS - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/os/</link>
+        <description>OS - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/os/" rel="self" type="application/rss+xml" /><item>
+    <title>OS Review Note</title>
+    <link>https://Peacewalker365.github.io/os_review/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/os_review/</guid>
+    <description><![CDATA[von Neumann Architecture (realization of Turing Machine)
 What are programs?   Process – a running program
   To allow for running multiple processes, a running program must be able to be interrupted
   OS provides a virtualization of CPUs, so each program can assume they have their “own” virtual CPU at its disposal
-  Memory Space of a Program   A variable of a program corresponds to a location in memory</description>
-    </item>
-    
-    <item>
-      <title>Persistence Note</title>
-      <link>https://Peacewalker365.github.io/notes/persistence/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/persistence/</guid>
-      <description>persistence Closer to the CPU, faster
-CPU&amp;ndash;Mem&amp;ndash;Graphics&amp;ndash;
+  Memory Space of a Program   A variable of a program corresponds to a location in memory]]></description>
+</item><item>
+    <title>Persistence Note</title>
+    <link>https://Peacewalker365.github.io/persistence/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/persistence/</guid>
+    <description><![CDATA[persistence Closer to the CPU, faster
+CPU&ndash;Mem&ndash;Graphics&ndash;
 canonical protocol for programmed I/O Interface:
 statue: busy or not
 command
@@ -38,29 +32,23 @@ MEM
 other chips
 Q should the program running in kernel or user mode?
 in kernel.
-you don&amp;rsquo;t want the user level program to touch the devices directly, since devices are shared bewteen processes. Device doesn&amp;rsquo;t not have any protection from other processes. It can change the data on behalf of anyone.</description>
-    </item>
-    
-    <item>
-      <title>Virtual Memory and Concurrency Note</title>
-      <link>https://Peacewalker365.github.io/notes/os_reading_note/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/os_reading_note/</guid>
-      <description>OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
+you don&rsquo;t want the user level program to touch the devices directly, since devices are shared bewteen processes. Device doesn&rsquo;t not have any protection from other processes. It can change the data on behalf of anyone.]]></description>
+</item><item>
+    <title>Virtual Memory and Concurrency Note</title>
+    <link>https://Peacewalker365.github.io/os_reading_note/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/os_reading_note/</guid>
+    <description><![CDATA[OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
 Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
-Paging gives us flexibility so that we don&amp;rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
-Paging also gives us the simplicity of free-space management that paging affords.</description>
-    </item>
-    
-    <item>
-      <title>Virtual Memory and Concurrency Note 2</title>
-      <link>https://Peacewalker365.github.io/notes/os_slides_note/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/os_slides_note/</guid>
-      <description>Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&amp;rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&amp;rsquo;t know what it is!</description>
-    </item>
-    
-  </channel>
+Paging gives us flexibility so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
+Paging also gives us the simplicity of free-space management that paging affords.]]></description>
+</item><item>
+    <title>Virtual Memory and Concurrency Note 2</title>
+    <link>https://Peacewalker365.github.io/os_slides_note/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/os_slides_note/</guid>
+    <description><![CDATA[Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!]]></description>
+</item></channel>
 </rss>

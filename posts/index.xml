@@ -1,22 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on myStack</title>
-    <link>https://Peacewalker365.github.io/posts/</link>
-    <description>Recent content in Posts on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 18:32:14 -0500</lastBuildDate><atom:link href="https://Peacewalker365.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>https://Peacewalker365.github.io/posts/first_post/</link>
-      <pubDate>Sun, 12 Dec 2021 18:32:14 -0500</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/posts/first_post/</guid>
-      <description>Headings # Heading 1 ## Heading 2 ### Heading 3 #### Heading 4 ##### Heading 5 ###### Heading 6 Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 Text *This text will be italic* _This will also be italic_ **This text will be bold** __This will also be bold__ _You **can** combine them_ This text will be italic
-This will also be italic
-This text will be bold</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - myStack</title>
+        <link>https://Peacewalker365.github.io/posts/</link>
+        <description>All Posts | myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 21:29:01 &#43;0800</lastBuildDate><atom:link href="https://Peacewalker365.github.io/posts/" rel="self" type="application/rss+xml" /></channel>
 </rss>

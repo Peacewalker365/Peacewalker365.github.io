@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Hadoop Cluster Setup - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="Hadoop Cluster Setup" />
+<meta property="og:description" content="Report: Setup Hadoop Cluster on MS Azure https://klasserom.azurewebsites.net/Lessons/Binder/2410
+Notice: In this report, the ssh .pem is named SSH_keypair.pem, and the user name in Linux by default is set to PceWlkr.
+set up virtual machine Basics use the B1s as the bare bone std
+The first vm set in the group will need to generate a new key pair of SSH public key, and give it a name.
+Others can just use the SSH we had already." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-12T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="Hadoop Cluster Setup"/>
+<meta name="twitter:description" content="Report: Setup Hadoop Cluster on MS Azure https://klasserom.azurewebsites.net/Lessons/Binder/2410
+Notice: In this report, the ssh .pem is named SSH_keypair.pem, and the user name in Linux by default is set to PceWlkr.
+set up virtual machine Basics use the B1s as the bare bone std
+The first vm set in the group will need to generate a new key pair of SSH public key, and give it a name.
+Others can just use the SSH we had already."/>
+<meta name="application-name" content="myStack">
+<meta name="apple-mobile-web-app-title" content="myStack">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" /><link rel="prev" href="https://Peacewalker365.github.io/javase/" /><link rel="next" href="https://Peacewalker365.github.io/hackspaining/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.c15c0690492dbad20daaa10e3c14781fe6ff24bdf1d93af9fca99629dc74060c.css" integrity="sha256-wVwGkEktutINqqEOPBR4H&#43;b/JL3x2Tr5/KmWKdx0Bgw="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript><meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hadoop Cluster Setup",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/setup-hadoop-cluster-on-ms-azure\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "Hadoop, Note","wordcount":  4091 ,
+        "url": "https:\/\/Peacewalker365.github.io\/setup-hadoop-cluster-on-ms-azure\/","datePublished": "2021-12-12T00:00:00+00:00","dateModified": "2021-12-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"author": {
+                "@type": "Person",
+                "name": "PceWlkr"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/setup-hadoop-cluster-on-ms-azure/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/showcase/" title="">Showcase</a><a class="menu-item" href="/categories/note/" title="">Notes</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/setup-hadoop-cluster-on-ms-azure/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hadoop Cluster Setup</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/Peacewalker365" title="Author" target="_blank" rel="noopener noreffer author" class="author">PceWlkr</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-12">2021-12-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-12">2021-12-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4091 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;20 minutes&nbsp;<span id="/setup-hadoop-cluster-on-ms-azure/" class="leancloud_visitors" data-flag-title="Hadoop Cluster Setup">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
+                    </span>&nbsp;<span id="/setup-hadoop-cluster-on-ms-azure/" class="comment_count" data-flag-title="Hadoop Cluster Setup">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#set-up-virtual-machine">set up virtual machine</a>
+      <ul>
+        <li><a href="#basics">Basics</a></li>
+        <li><a href="#disks">Disks</a></li>
+        <li><a href="#networking">Networking</a></li>
+        <li><a href="#management">Management</a></li>
+        <li><a href="#advanced">Advanced</a></li>
+        <li><a href="#tags">Tags</a></li>
+        <li><a href="#review-and-create">Review and create</a></li>
+        <li><a href="#additional-info">Additional info</a>
+          <ul>
+            <li><a href="#better-to-have-winscp-available">Better to have WinSCP available</a></li>
+            <li><a href="#putty">Putty</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#add-vmi-to-your-virtual-network">Add VMI to your Virtual Network</a></li>
+    <li><a href="#add-a-dns-to-your-vmi">Add a DNS to your VMI</a></li>
+    <li><a href="#network-security-ports">Network Security Ports</a></li>
+    <li><a href="#updateupgrade-packages">Update/Upgrade Packages</a>
+      <ul>
+        <li><a href="#disable-unattended-upgrades">Disable Unattended Upgrades</a></li>
+        <li><a href="#update-and-upgrade-packages">Update and Upgrade Packages</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-installation-and-configuration">Hadoop Installation and Configuration</a>
+      <ul>
+        <li><a href="#cluster-environment-setup">Cluster Environment Setup</a>
+          <ul>
+            <li><a href="#secure-admin-account">Secure Admin Account</a></li>
+            <li><a href="#common-environment-variables-for-hadoop-clusters">Common Environment Variables for Hadoop Clusters</a></li>
+            <li><a href="#map-virtual-machine-cluster-environment-variables">Map Virtual Machine Cluster Environment Variables</a></li>
+            <li><a href="#passwordless-ssh-for-cluster-using-config-and-pem-files">Passwordless SSH for Cluster: Using .config and .pem files</a></li>
+          </ul>
+        </li>
+        <li><a href="#java-developers-kit-jdk">Java Developers Kit (JDK)</a>
+          <ul>
+            <li><a href="#add-environment-variables-to-etcprofiledbigdatash">Add Environment Variables to /etc/profile.d/bigdata.sh</a></li>
+            <li><a href="#confirm-the-java-version-and-environment-variables">Confirm the Java Version and Environment Variables</a></li>
+            <li><a href="#java-developers-kit-jdk-for-datanodes-in-a-cluster">Java Developers Kit (JDK) for DataNodes in a Cluster</a>
+              <ul>
+                <li><a href="#update-packages-on-the-server">Update packages on the server</a></li>
+              </ul>
+            </li>
+            <li><a href="#pdsh">pdsh</a></li>
+            <li><a href="#rsync">rsync</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#install-and-configure-hadoop-as-a-single-node-cluster">Install and Configure Hadoop as a Single Node Cluster</a>
+      <ul>
+        <li><a href="#download-hadoop-from-apache">Download Hadoop from Apache</a></li>
+        <li><a href="#uncompress-the-hadoop-tar-file-into-the-usrlocal-folder">Uncompress the Hadoop tar file into the /usr/local folder</a></li>
+        <li><a href="#rename-the-hadoop--directory-to-usrlocalhadoop">Rename the hadoop-* directory to /usr/local/hadoop</a></li>
+        <li><a href="#modify-permissions-on-usrlocalhadoop">Modify permissions on /usr/local/hadoop/</a>
+          <ul>
+            <li><a href="#double-check">Double Check!</a>
+              <ul>
+                <li><a href="#hadoop-user-named-hduser-and-user-group-named-hadoop">Hadoop User named (hduser) and User Group named (hadoop)</a>
+                  <ul>
+                    <li><a href="#add-the-hadoop-user-group">Add the hadoop User Group</a></li>
+                    <li><a href="#add-hduser-to-user-groups">Add hduser to User Groups</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#back-to-topic">Back to Topic</a></li>
+            <li><a href="#set-environment-variables">Set Environment Variables</a></li>
+            <li><a href="#instantiate-environment-variables">Instantiate Environment Variables</a></li>
+            <li><a href="#test-environment-variables">Test Environment Variables</a></li>
+            <li><a href="#test-hadoop-version">Test Hadoop Version</a></li>
+          </ul>
+        </li>
+        <li><a href="#hadoop-configuration-files">Hadoop Configuration Files</a>
+          <ul>
+            <li><a href="#add-java_home-variable-to-hadoop_conf_dirhadoop-envsh">Add JAVA_HOME Variable to $HADOOP_CONF_DIR/hadoop-env.sh</a></li>
+            <li><a href="#modify-hadoop_conf_dircore-sitexml">Modify $HADOOP_CONF_DIR/core-site.xml</a></li>
+            <li><a href="#modify-hadoop_conf_diryarn-sitexml">Modify $HADOOP_CONF_DIR/yarn-site.xml</a></li>
+            <li><a href="#modify-hadoop_conf_dirmapred-sitexml">Modify $HADOOP_CONF_DIR/mapred-site.xml</a></li>
+            <li><a href="#modify-hadoop_conf_dirhdfs-sitexml">Modify $HADOOP_CONF_DIR/hdfs-site.xml</a></li>
+          </ul>
+        </li>
+        <li><a href="#format-the-hdfs">Format the HDFS</a></li>
+        <li><a href="#start-up-your-hadoop-cluster">Start up your Hadoop Cluster</a></li>
+        <li><a href="#test-the-hdfs">Test the HDFS</a></li>
+      </ul>
+    </li>
+    <li><a href="#fully-distributed-hadoop-cluster-on-a-cloud-provider">Fully Distributed Hadoop Cluster on a Cloud Provider</a>
+      <ul>
+        <li><a href="#configure-masters-file">Configure .masters File</a></li>
+        <li><a href="#configure-workers-file">Configure .workers File</a></li>
+        <li><a href="#modify-configuration-files-for-fully-distributed-cluster">Modify configuration files for Fully Distributed Cluster</a></li>
+        <li><a href="#add-a-datanode-to-your-hadoop-cluster">Add a DataNode to your Hadoop Cluster</a></li>
+        <li><a href="#test-the-hdfs-again">Test the HDFS Again</a></li>
+        <li><a href="#test-mapreduce">Test MapReduce</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#the-hadoop-config-directory">The hadoop config directory</a></li>
+            <li><a href="#the-directory-of-the-progtram">The directory of the progtram</a></li>
+            <li><a href="#the-path-of-the-files-under-ssh">The path of the files under ~/.ssh/</a></li>
+            <li><a href="#the-following-are-dns-and-ip-for-all-nodes">The following are DNS and IP for all nodes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#hdfs-test-result">HDFS Test Result</a></li>
+    <li><a href="#mapreduce-test-result">MapReduce Test Result</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="report-setup-hadoop-cluster-on-ms-azure">Report: Setup Hadoop Cluster on MS Azure</h1>
+<p><a href="https://klasserom.azurewebsites.net/Lessons/Binder/2410" target="_blank" rel="noopener noreffer">https://klasserom.azurewebsites.net/Lessons/Binder/2410</a></p>
+<p>Notice: In this report, the ssh .pem is named SSH_keypair.pem, and the user name in Linux by default is set to PceWlkr.</p>
+<h2 id="set-up-virtual-machine">set up virtual machine</h2>
+<h3 id="basics">Basics</h3>
+<p>use the B1s as the bare bone std</p>
+<p>The first vm set in the group will need to generate a new key pair of SSH public key, and give it a name.</p>
+<p>Others can just use the SSH we had already.</p>
+<p>Set the public inbound ports.</p>
+<p>(we set this up for testing purpose only, so the fact that all IP addrs will be allowed to access my vms doesn&rsquo;t bother.)</p>
+<h3 id="disks">Disks</h3>
+<p>go with standard SSD</p>
+<p>encryption type: default</p>
+<h3 id="networking">Networking</h3>
+<p>virtual network: default</p>
+<p>subnet: default</p>
+<p>public IP: use the namenode ip</p>
+<p>NIC network security group: Basic</p>
+<p>Public inbound ports: allow selected ports</p>
+<p>inbound ports</p>
+<h3 id="management">Management</h3>
+<p>auto-shutdown: do this since we may forgot shut then down and lose money for that</p>
+<h3 id="advanced">Advanced</h3>
+<h3 id="tags">Tags</h3>
+<h3 id="review-and-create">Review and create</h3>
+<p>review the price with extra cautions</p>
+<h3 id="additional-info">Additional info</h3>
+<p>it takes some time to create/</p>
+<p>Download the private SSH key pair and store it carefully</p>
+<h4 id="better-to-have-winscp-available">Better to have WinSCP available</h4>
+<p>SFTP</p>
+<p>host name is the public ip</p>
+<p>port num is what we set before</p>
+<p>input the .pem file, which is the OpenSSH private key</p>
+<ul>
+<li>WinSCP will convert it to .ppk</li>
+</ul>
+<p>call this node namenode</p>
+<p>when connected, you can see the /home/PceWlkr/</p>
+<h4 id="putty">Putty</h4>
+<p>use putty to login the server</p>
+<p><code>sudo apt-get update </code> //update the linux sys and everything installed</p>
+<h2 id="add-vmi-to-your-virtual-network">Add VMI to your Virtual Network</h2>
+<p>Now we should have a public IP addr 
+Everytime you restart the VM, it will give you a new public IP.
+Remember to update the IP you used for WinSCP.</p>
+<p>We are going to create more VMs as the DataNodes.</p>
+<p>Resource group: VirtualMachines
+name: DataNode001
+image: Ubuntu Server 20.04 LTS Gen 1 
+Size: Std B1s</p>
+<p>Username: PceWlkr 
+SSH: SSH_keypair
+inbound ports: SSH(22)</p>
+<p>OS disk type: std
+subnet: make it on the same network as last time
+security group: Basic (will adjust later)</p>
+<p>enable the auto-shutdown like before</p>
+<p>Go to Virtual Machines on the dash board, check if everything is there. 
+Go to the namenode and copy the IP addr and then go the WinSCP to change the host.
+Clone it to a new site. 
+Edit the newsite to register the datanode001 on WinSCP like before.</p>
+<p>Go the terminal to check if things are there.</p>
+<p>![VM Network](img/VM Network.png)</p>
+<h2 id="add-a-dns-to-your-vmi">Add a DNS to your VMI</h2>
+<p>Go to the namenode and click the DNS name.
+Enter a DNS name label which must be unique that nobody else has reserved.
+Now we can use the DNS in the WinSCP instead of IP.</p>
+<h2 id="network-security-ports">Network Security Ports</h2>
+<p>Go to the VM and then go to the Networking setting.
+Add inbound port rule.
+Service shoule be changed to SSH.
+Priority: 100
+Name: SSH_22</p>
+<p>Then add another inbound port for the remote desktop.
+Service:RDP
+Priority: 110 (lower then SSH)
+Name: RDP_3389</p>
+<p><img
+        class="lazyload"
+        data-src="/img/Common_Setting_for_Ports.png"
+        data-srcset="/img/Common_Setting_for_Ports.png, /img/Common_Setting_for_Ports.png 1.5x, /img/Common_Setting_for_Ports.png 2x"
+        data-sizes="auto"
+        alt="/img/Common_Setting_for_Ports.png"
+        title="Common Setting for Ports"
+    /></p>
+<p>Also set up a PPK SSH for the namenode.
+Go to Advanced and Authentication, and go for the .pub in the private key file.
+Convert it and then save and login.</p>
+<h2 id="updateupgrade-packages">Update/Upgrade Packages</h2>
+<h3 id="disable-unattended-upgrades">Disable Unattended Upgrades</h3>
+<p><code>sudo apt -y remove unattended-upgrades</code>
+or if you do not want to remove Unattended-Upgrades, use
+<code>sudo dpkg-reconfigure unattended-upgrades</code> to turn on or off the features.</p>
+<h3 id="update-and-upgrade-packages">Update and Upgrade Packages</h3>
+<p><code>sudo apt-get update -y &amp;&amp; sudo apt-get upgrade -y</code></p>
+<h2 id="hadoop-installation-and-configuration">Hadoop Installation and Configuration</h2>
+<p>You will learn the following:</p>
+<p>Administrate users in Ubuntu
+Manage environment variables in Ubuntu
+Use Secure Shell (SSH) to communicate with Virtual Machines
+Hadoop Prerequistes
+Java Developers Kit (JDK)
+pdsh
+rsync
+Install and Configure Hadoop
+Administrate Hadoop configuration files
+Test HDFS commands
+Test MapReduce using sample applications</p>
+<h3 id="cluster-environment-setup">Cluster Environment Setup</h3>
+<p>We have done this:
+<code>sudo apt -y remove unattended-upgrades &amp;&amp; sudo apt-get update -y &amp;&amp; sudo apt-get upgrade -y</code></p>
+<h4 id="secure-admin-account">Secure Admin Account</h4>
+<p>In this case, my admin account&rsquo;s name is PceWlkr.
+<code>sudo passwd PceWlkr</code></p>
+<h4 id="common-environment-variables-for-hadoop-clusters">Common Environment Variables for Hadoop Clusters</h4>
+<p>In general, these include:</p>
+<p>Java - JAVA_HOME
+Hadoop - HADOOP_HOME
+Hive - HIVE_HOME
+Pig - PIG_HOME</p>
+<p>The <code>etc/profile.d</code> dir holding shell script will be run at start-up and install fuatures for all users.
+So we&rsquo;ll create a file <code>bigdata.sh</code> for later installations.</p>
+<p><code>sudo touch /etc/profile.d/bigdata.sh</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">BigDataSH</span><span class="o">=</span>/etc/profile.d/bigdata.sh
+<span class="nb">export</span> <span class="nv">IdentityFile</span><span class="o">=</span><span class="s2">&#34;/.ssh/SSH_keypair.pem&#34;</span>
+<span class="nb">export</span> <span class="nv">SSHConfigFile</span><span class="o">=</span><span class="s2">&#34;/.ssh/config&#34;</span>
+
+sudo rm <span class="nv">$BigDataSH</span>
+<span class="nb">echo</span> -e <span class="s1">&#39;#!/bin/bash \n&#39;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;# Environment Variables for Big Data tools\n&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export BigDataSH=</span><span class="si">${</span><span class="nv">BigDataSH</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export IdentityFile=~</span><span class="si">${</span><span class="nv">IdentityFile</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export SSHConfigFile=~</span><span class="si">${</span><span class="nv">SSHConfigFile</span><span class="si">}</span><span class="s2">\n&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+
+sudo chmod <span class="m">644</span> <span class="nv">$BigDataSH</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>cat $BigDataSH</code></p>
+<p>The result should be:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1"># Environment Variables for Big Data tools</span>
+
+<span class="nb">export</span> <span class="nv">BigDataSH</span><span class="o">=</span>/etc/profile.d/bigdata.sh
+<span class="nb">export</span> <span class="nv">IdentityFile</span><span class="o">=</span>~/.ssh/SSH_keypair.pem
+<span class="nb">export</span> <span class="nv">SSHConfigFile</span><span class="o">=</span>~/.ssh/config
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo reboot</code></p>
+<p>After rebooting, confirm the vars exist.
+<code>echo $BigDataSH $IdentityFile $SSHConfigFile</code></p>
+<p>The result should be:
+/etc/profile.d/bigdata.sh /home/PceWlkr/.ssh/SSH_keypair.pem /home/PceWlkr/.ssh/config</p>
+<h4 id="map-virtual-machine-cluster-environment-variables">Map Virtual Machine Cluster Environment Variables</h4>
+<ol>
+<li>Collect the Public DNS and &ldquo;Internal&rdquo; IP addresses from your Virtual Machine Instances</li>
+<li>Copy and paste the following commands into a text editor:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">export NameNodeDNS=&#34;Namenode&#34;
+export DataNode001DNS=&#34;Datanode001&#34;
+export DataNode002DNS=&#34;Datanode002&#34;
+export DataNode003DNS=&#34;Datanode003&#34;
+export DataNode004DNS=&#34;Datanode004&#34;
+
+export NameNodeIP=&#34;10.0.0.4&#34;
+export DataNode001IP=&#34;10.0.0.5&#34;
+export DataNode002IP=&#34;10.0.0.6&#34;
+export DataNode003IP=&#34;10.0.0.7&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>Notice:
+you can use <code>hostname</code> and <code>hostname -I</code> to find the hostname and private IP</p>
+<p>Copy all of the commands above from the text editor
+Paste the commands into the SSH session at the command line for your Virtual Machine Instance
+When you pasted the commands, they were executed automatically.
+Try to use one of the variables we set:
+<code>echo $DataNode001DNS</code></p>
+<p>The result should look something like this:</p>
+<p><code>Datanode001</code></p>
+<p>Execute the following to add the schema to the bigdata.sh file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">&#34;# Cluster Variables START&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export NameNodeDNS=\&#34;</span><span class="si">${</span><span class="nv">NameNodeDNS</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode001DNS=\&#34;</span><span class="si">${</span><span class="nv">DataNode001DNS</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode002DNS=\&#34;</span><span class="si">${</span><span class="nv">DataNode002DNS</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode003DNS=\&#34;</span><span class="si">${</span><span class="nv">DataNode003DNS</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode004DNS=\&#34;</span><span class="si">${</span><span class="nv">DataNode004DNS</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export NameNodeIP=\&#34;</span><span class="si">${</span><span class="nv">NameNodeIP</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode001IP=\&#34;</span><span class="si">${</span><span class="nv">DataNode001IP</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode002IP=\&#34;</span><span class="si">${</span><span class="nv">DataNode002IP</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode003IP=\&#34;</span><span class="si">${</span><span class="nv">DataNode003IP</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export DataNode004IP=\&#34;</span><span class="si">${</span><span class="nv">DataNode004IP</span><span class="si">}</span><span class="s2">\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;# Cluster Variables END&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+</code></pre></td></tr></table>
+</div>
+</div><p>Then Display the contents of the $BigDataSh file:
+<code>cat $BigDataSH</code></p>
+<p>result should be like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1"># Environment Variables for Big Data tools</span>
+
+<span class="nb">export</span> <span class="nv">BigDataSH</span><span class="o">=</span>/etc/profile.d/bigdata.sh
+<span class="nb">export</span> <span class="nv">IdentityFile</span><span class="o">=</span>~/.ssh/SSH_keypair.pem
+<span class="nb">export</span> <span class="nv">SSHConfigFile</span><span class="o">=</span>~/.ssh/config
+
+<span class="c1"># Cluster Variables START</span>
+<span class="nb">export</span> <span class="nv">NameNodeDNS</span><span class="o">=</span><span class="s2">&#34;Namenode&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode001DNS</span><span class="o">=</span><span class="s2">&#34;Datanode001&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode002DNS</span><span class="o">=</span><span class="s2">&#34;Datanode002&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode003DNS</span><span class="o">=</span><span class="s2">&#34;Datanode003&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode004DNS</span><span class="o">=</span><span class="s2">&#34;Datanode004&#34;</span>
+
+<span class="nb">export</span> <span class="nv">NameNodeIP</span><span class="o">=</span><span class="s2">&#34;10.0.0.4&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode001IP</span><span class="o">=</span><span class="s2">&#34;10.0.0.5&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode002IP</span><span class="o">=</span><span class="s2">&#34;10.0.0.6&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode003IP</span><span class="o">=</span><span class="s2">&#34;10.0.0.7&#34;</span>
+<span class="nb">export</span> <span class="nv">DataNode004IP</span><span class="o">=</span><span class="s2">&#34;10.0.0.8&#34;</span>
+<span class="c1"># Cluster Variables END</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo reboot</code>
+test if the var is still accessible:
+<code>echo $Datanode001DNS</code>
+result should be like:
+Datanode001</p>
+<h4 id="passwordless-ssh-for-cluster-using-config-and-pem-files">Passwordless SSH for Cluster: Using .config and .pem files</h4>
+<p>Edit a file named config:
+The file maintains information about SSH connections for our cluster:</p>
+<p>HostName - entry is the Public DNS or IPV4 value for the Virtual Machine instance.
+User - the default user name for your Virtual Machine instance is ubuntu
+IdentityFile - path to the Private Key (.pem) file you created while setting up your instances
+The default key files that are created by SSH are: 
+id_rsa - private key file
+The .pem file is simply the id_rsa file with the extension of .pem 
+id_rsa.pub - public key file generated during ssh-keygen or the creation of the first Virtual Machine Instance
+id_rsa.ppk - private key file created by PuTTY when you connect through WinSCP</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+Host *
+  User PceWlkr
+  IdentityFile ~/.ssh/SSH_keypair.pem
+
+Host 0.0.0.0
+  HostName 127.0.0.1
+
+Host Namenode
+  Hostname 10.0.0.4
+
+Host Datanode001
+  Hostname 10.0.0.5
+
+Host Datanode002
+  Hostname 10.0.0.6
+
+#Host Datanode00n
+#  Hostname xxx.xxx.xxx.xxx
+</code></pre></td></tr></table>
+</div>
+</div><p>Then put <code>config</code> and <code>.pem file</code> into the ~/.ssh/</p>
+<p>The following code will build the config file from the command line:</p>
+<p>Previously, we set up the $SSHConfigFile variable in bigdata.sh. It should point to ~/.ssh/config.</p>
+<p>The following commands will build a config file based on environment variables that were set up earlier:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo rm -rf <span class="nv">$SSHConfigFile</span>
+
+<span class="nb">echo</span> -e <span class="s2">&#34;Host *&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  User PceWlkr&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  IdentityFile </span><span class="si">${</span><span class="nv">IdentityFile</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;Host </span><span class="si">${</span><span class="nv">NameNodeDNS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  Hostname </span><span class="si">${</span><span class="nv">NameNodeIP</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;Host </span><span class="si">${</span><span class="nv">DataNode001DNS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  Hostname </span><span class="si">${</span><span class="nv">DataNode001IP</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;Host </span><span class="si">${</span><span class="nv">DataNode002DNS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  Hostname </span><span class="si">${</span><span class="nv">DataNode002IP</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;Host </span><span class="si">${</span><span class="nv">DataNode003DNS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  Hostname </span><span class="si">${</span><span class="nv">DataNode003IP</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;Host </span><span class="si">${</span><span class="nv">DataNode004DNS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;  Hostname </span><span class="si">${</span><span class="nv">DataNode004IP</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$SSHConfigFile</span> &gt; /dev/null
+</code></pre></td></tr></table>
+</div>
+</div><p>Set the permissions levels of the $SSHConfigFile file:
+<code>sudo chmod 644 $SSHConfigFile</code></p>
+<p>Then copy the config file and .pem from namenode to other nodes using:
+<code>scp ~/.ssh/config ~/.ssh/SSH_keypair.pem PceWlkr@Datanode001:~/.ssh/</code>
+or <code>scp -p $SSHConfigFile $IdentityFile PceWlkr@Datanode001:~/.ssh/</code></p>
+<p>Then use <code>ssh Datanode001</code> to access a node.
+<code>exit</code> to quit.</p>
+<p><strong>Repeat till all other nodes realize the same functions</strong></p>
+<h3 id="java-developers-kit-jdk">Java Developers Kit (JDK)</h3>
+<p><code>sudo apt-get -y update</code>
+<code>sudo apt-get -y install default-jdk</code></p>
+<p>confirm you have it:
+<code>cd /usr/lib/jvm/ &amp;&amp; ls</code>
+result should be like:
+default-java  java-1.11.0-openjdk-amd64  java-11-openjdk-amd64  openjdk-11</p>
+<h4 id="add-environment-variables-to-etcprofiledbigdatash">Add Environment Variables to /etc/profile.d/bigdata.sh</h4>
+<p>Open the file /etc/profile.d/bigdata.sh
+<code>sudo nano $BigDataSH</code></p>
+<p>Add these lines to the end of the bigdata.sh file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/default-java
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin
+</code></pre></td></tr></table>
+</div>
+</div><p>Or, copy the following code and paste it at the command line. This will echo the entries into the bigdata.sh file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;# JAVA Variables START&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> <span class="s2">&#34;export JAVA_HOME=/usr/lib/jvm/default-java&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> <span class="s2">&#34;PATH=\$PATH:\$JAVA_HOME/bin&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> <span class="s2">&#34;# JAVA Variables END&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+</code></pre></td></tr></table>
+</div>
+</div><p>Confirm that your Java variables were added, open the /etc/profile.d/bigdata.sh file:
+<code>cat $BigDataSH</code></p>
+<p>Your bigdata.sh file output should look like this now:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># Environment Variables for Big Data tools</span>
+<span class="nb">export</span> <span class="nv">BigDataSH</span><span class="o">=</span>/etc/profile.d/bigdata.sh
+<span class="nb">export</span> <span class="nv">IdentityFile</span><span class="o">=</span>/etc/ssh/ssh_config.d/SSH_keypair.pem
+<span class="nb">export</span> <span class="nv">SSHConfigFile</span><span class="o">=</span>/etc/ssh/ssh_config.d/config.conf
+
+<span class="c1"># JAVA Variables START</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/default-java
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin
+<span class="c1"># JAVA Variables END</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo reboot</code></p>
+<h4 id="confirm-the-java-version-and-environment-variables">Confirm the Java Version and Environment Variables</h4>
+<p><code>java -version</code></p>
+<p>result should be like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">openjdk version &#34;11.0.11&#34; 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.18.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.18.04, mixed mode, sharing)
+</code></pre></td></tr></table>
+</div>
+</div><p>confirm you have it:
+<code>echo $JAVA_HOME</code>
+result should be like:
+/usr/lib/jvm/default-java</p>
+<h4 id="java-developers-kit-jdk-for-datanodes-in-a-cluster">Java Developers Kit (JDK) for DataNodes in a Cluster</h4>
+<p>To send a command to a DateNode using SSH, we wrap the command with quotes &quot;&quot; and ssh into the Node:
+<code>ssh DataNode001 &quot;{command}&quot;</code></p>
+<h5 id="update-packages-on-the-server">Update packages on the server</h5>
+<p><code>ssh Datanode001 &quot;sudo apt-get -y update&quot;</code>
+<code>ssh Datanode001 &quot;sudo apt-get -y install default-jdk&quot;</code></p>
+<p>Notice:
+You will synchronize your DataNodes with the NameNode later, so you do not need to set up environment variables yet.</p>
+<h4 id="pdsh">pdsh</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pdsh is a variant of the rsh(1) command. Unlike rsh(1), which runs commands on a single remote host, pdsh can run multiple remote commands in parallel. pdsh uses a &#34;sliding window&#34; (or fanout) of threads to conserve resources on the initiating host while allowing some connections to time out.
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo apt-get -y install pdsh</code>
+Add the following variable to your bigdata.sh file:
+<code>export PDSH_RCMD_TYPE=ssh</code></p>
+<p>or run this commands:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">&#34;# PDSH Variables START&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export PDSH_RCMD_TYPE=ssh&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;# PDSH Variables END&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo reboot</code></p>
+<h4 id="rsync">rsync</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">rsync is a utility for efficiently transferring and synchronizing files across computer systems by checking the timestamp and size of files. It is commonly found on Unix-like systems and functions as both a file synchronization and file transfer program. The rsync algorithm is a type of delta encoding and is used for minimizing network usage. Zlib may be used for additional compression, and SSH or stunnel can be used for data security. rsync(1) - Linux man page
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo apt-get -y install rsync</code></p>
+<p><code>sudo reboot</code></p>
+<h2 id="install-and-configure-hadoop-as-a-single-node-cluster">Install and Configure Hadoop as a Single Node Cluster</h2>
+<h3 id="download-hadoop-from-apache">Download Hadoop from Apache</h3>
+<p><code>wget http://apache.forsale.plus/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz -P ~/Downloads/Hadoop</code></p>
+<h3 id="uncompress-the-hadoop-tar-file-into-the-usrlocal-folder">Uncompress the Hadoop tar file into the /usr/local folder</h3>
+<p><code>sudo tar -zxvf ~/Downloads/Hadoop/hadoop-*.tar.gz -C /usr/local</code></p>
+<h3 id="rename-the-hadoop--directory-to-usrlocalhadoop">Rename the hadoop-* directory to /usr/local/hadoop</h3>
+<p><code>sudo mv /usr/local/hadoop-* /usr/local/hadoop/</code></p>
+<h3 id="modify-permissions-on-usrlocalhadoop">Modify permissions on /usr/local/hadoop/</h3>
+<p>Allow read+write on the /usr/local/hadoop/ directory for anyone in the hadoop user group.</p>
+<h4 id="double-check">Double Check!</h4>
+<p>Before you run this command, confirm that you have created a hadoop user group. See Hadoop User and Group</p>
+<h5 id="hadoop-user-named-hduser-and-user-group-named-hadoop">Hadoop User named (hduser) and User Group named (hadoop)</h5>
+<h6 id="add-the-hadoop-user-group">Add the hadoop User Group</h6>
+<p><code>sudo addgroup hadoop</code>
+<code>sudo adduser hduser</code></p>
+<h6 id="add-hduser-to-user-groups">Add hduser to User Groups</h6>
+<p>Run this command to add hduser to the hadoop user group:
+<code>sudo usermod -a -G hadoop hduser</code></p>
+<p>Run this command to add hduser to the sudo (superuser) user group:
+<code>sudo usermod -a -G sudo hduser</code></p>
+<p>We will also add the  user to the hadoop user group.
+<code>sudo usermod -a -G hadoop PceWlkr</code></p>
+<p>Now you can switch to hduser when you type this command:
+<code>su - hduser</code></p>
+<p>Confirm which groups hduser is a member of:
+<code>groups hduser</code></p>
+<p>The result should look something like this:
+hduser : hduser sudo hadoop</p>
+<p><code>sudo reboot</code>
+<code>su - hduser</code></p>
+<h4 id="back-to-topic">Back to Topic</h4>
+<p>This command will set ownership of all files and directories in the /usr/local/hadoop/ directory:
+<code>sudo chown PceWlkr:PceWlkr -R /usr/local/hadoop/</code></p>
+<p>Set the permissions on the /usr/local/hadoop/ directory to rwxrwxr&ndash;:</p>
+<p>rwxrwxr&ndash;
+User and Group: Read + Write + Execute
+Other users: read</p>
+<p><code>sudo chmod -R 774 /usr/local/hadoop/</code></p>
+<h4 id="set-environment-variables">Set Environment Variables</h4>
+<p>Use this command to edit the /etc/profile.d/bigdata.sh file:</p>
+<p><code>sudo nano $BigDataSH</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">export HADOOP_HOME=&#34;/usr/local/hadoop&#34;
+export HADOOP_CONF_DIR=&#34;${HADOOP_HOME}/etc/hadoop&#34;
+export YARN_EXAMPLES=&#34;${HADOOP_HOME}/share/hadoop/mapreduce&#34;
+PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+</code></pre></td></tr></table>
+</div>
+</div><p>or run these:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">&#34;# HADOOP Variables START&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export HADOOP_HOME=\&#34;/usr/local/hadoop\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export HADOOP_CONF_DIR=\&#34;\${HADOOP_HOME}/etc/hadoop\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;export YARN_EXAMPLES=\&#34;\${HADOOP_HOME}/share/hadoop/mapreduce\&#34;&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;PATH=\$PATH:\$HADOOP_HOME/bin:\$HADOOP_HOME/sbin&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+<span class="nb">echo</span> -e <span class="s2">&#34;# HADOOP Variables END&#34;</span> <span class="p">|</span> sudo tee --append <span class="nv">$BigDataSH</span> &gt; /dev/null
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="instantiate-environment-variables">Instantiate Environment Variables</h4>
+<p>The following command will instantiate the new variables available immediately.  You can use this method to instantiate variables in any of the modified shell scripts .sh files:</p>
+<p><code>source $BigDataSH</code></p>
+<p>test if it&rsquo;s there:
+<code>echo $HADOOP_HOME</code></p>
+<p>result should be:
+/usr/local/hadoop</p>
+<p><code>sudo reboot</code></p>
+<h4 id="test-environment-variables">Test Environment Variables</h4>
+<p><code>echo $HADOOP_HOME</code></p>
+<h4 id="test-hadoop-version">Test Hadoop Version</h4>
+<p><code>hadoop version</code></p>
+<h3 id="hadoop-configuration-files">Hadoop Configuration Files</h3>
+<h4 id="add-java_home-variable-to-hadoop_conf_dirhadoop-envsh">Add JAVA_HOME Variable to $HADOOP_CONF_DIR/hadoop-env.sh</h4>
+<p><code>echo $JAVA_HOME</code></p>
+<p><code>sudo nano $HADOOP_CONF_DIR/hadoop-env.sh</code></p>
+<p>Locate the area in the hadoop-env.sh file that indicates the JAVA_HOME variable. For Hadoop 3.3.1, this is on line 54.</p>
+<p>The line should look something like this:</p>
+<p><code># export JAVA_HOME=</code></p>
+<p>Change the line entry to look like this statement; this value should be the same as your JAVA_HOME environment variable:</p>
+<p><code>export JAVA_HOME=/usr/lib/jvm/default-java</code>
+<code>sed -i 's/# export JAVA_HOME=/export JAVA_HOME=\/usr\/lib\/jvm\/default-java # export JAVA_HOME=/g' $HADOOP_CONF_DIR/hadoop-env.sh</code></p>
+<p><code>cat $BigDataSH</code>
+result should be:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># The java implementation to use. By default, this environment
+# variable is REQUIRED on ALL platforms except OS X!
+export JAVA_HOME=/usr/lib/jvm/default-java
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="modify-hadoop_conf_dircore-sitexml">Modify $HADOOP_CONF_DIR/core-site.xml</h4>
+<p><code>sudo nano $HADOOP_CONF_DIR/core-site.xml</code>
+Replace the contents of the core-site.xml file <configuration></configuration> section with the following lines:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
+
+	<span class="c">&lt;!--Custom Properties--&gt;</span>
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>thisnamenode<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>localhost<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>This used as a variable throughout the configuration files.
+		localhost may be replaced with a DNS that points to the NameNode.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>homefolder<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>/home/${user.name}<span class="nt">&lt;/value&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>hdfs://${thisnamenode}:9000<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>localhost may be replaced with a DNS that points to the NameNode.<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="c">&lt;!-- Do not enable permission check --&gt;</span>
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.permissions.enabled<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>false<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>If &#34;true&#34;, enable permission checking in HDFS. If &#34;false&#34;, permission checking is turned off, but all other behavior is unchanged.
+		Switching from one parameter value to the other does not change the mode, owner or group of files or directories.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+
+	<span class="c">&lt;!-- The current user is all set to root --&gt;</span>
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>hadoop.http.staticuser.user<span class="nt">&lt;/name&gt;</span>
+
+		<span class="c">&lt;!-- For Virtual Machine Instances in the Cloud, use ubuntu --&gt;</span>
+		<span class="c">&lt;!-- &lt;value&gt;Pcewlkr&lt;/value&gt; --&gt;</span>
+		<span class="nt">&lt;value&gt;</span>Pcewlkr<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>Pcewlkr is the default user for our NameNode. This property sets the WebUI user for file browsing.
+For Virtual Machine Instances in the Cloud, use Pcewlkr
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="modify-hadoop_conf_diryarn-sitexml">Modify $HADOOP_CONF_DIR/yarn-site.xml</h4>
+<p><code>sudo nano $HADOOP_CONF_DIR/yarn-site.xml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>yarn.nodemanager.aux-services<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>mapreduce_shuffle<span class="nt">&lt;/value&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>mapred.job.tracker<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>${thisnamenode}:9001<span class="nt">&lt;/value&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>yarn.nodemanager.env-whitelist<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME<span class="nt">&lt;/value&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="modify-hadoop_conf_dirmapred-sitexml">Modify $HADOOP_CONF_DIR/mapred-site.xml</h4>
+<p><code>sudo nano $HADOOP_CONF_DIR/mapred-site.xml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>mapreduce.jobtracker.address<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>local<span class="nt">&lt;/value&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>mapreduce.framework.name<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>yarn<span class="nt">&lt;/value&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="modify-hadoop_conf_dirhdfs-sitexml">Modify $HADOOP_CONF_DIR/hdfs-site.xml</h4>
+<p><code>sudo nano $HADOOP_CONF_DIR/hdfs-site.xml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+
+		<span class="c">&lt;!--&lt;value&gt;3&lt;/value&gt;--&gt;</span>
+		<span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>Default block replication.
+
+The actual number of replications can be specified when the file is created.
+
+The default is used if replication is not specified in create time.
+
+When migrating your cluster to a Fully Distributed Cluster, change this to 3.
+
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.permissions.enabled<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>false<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>If &#34;true&#34;, enable permission checking in HDFS. If &#34;false&#34;, permission checking is turned off, but all other behavior is unchanged.
+		Switching from one parameter value to the other does not change the mode, owner or group of files or directories.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>file:///home/${user.name}/hadoop/dfs/name<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>Determines where on the local filesystem the DFS name node should store the name table(fsimage).
+		If this is a comma-delimited list of directories then the name table is replicated in all of the directories, for redundancy.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>file:///home/${user.name}/hadoop/dfs/data<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>Determines where on the local filesystem an DFS data node should store its blocks. If this is a comma-delimited list of directories,
+		then data will be stored in all named directories, typically on different devices. Directories that do not exist are ignored.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.namenode.checkpoint.dir<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>file:///home/${user.name}/hadoop/dfs/namesecondary<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>Determines where on the local filesystem the DFS secondary name node should store the temporary images to merge.
+		If this is a comma-delimited list of directories then the image is replicated in all of the directories for redundancy.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+	<span class="nt">&lt;property&gt;</span>
+
+		<span class="nt">&lt;name&gt;</span>dfs.journalnode.edits.dir<span class="nt">&lt;/name&gt;</span>
+
+		<span class="nt">&lt;value&gt;</span>file:///home/${user.name}/hadoop/dfs/journalnode<span class="nt">&lt;/value&gt;</span>
+
+		<span class="nt">&lt;description&gt;</span>
+		The directory where the journal edit files are stored.
+		<span class="nt">&lt;/description&gt;</span>
+
+	<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="format-the-hdfs">Format the HDFS</h3>
+<p><code>hdfs namenode -format</code></p>
+<h3 id="start-up-your-hadoop-cluster">Start up your Hadoop Cluster</h3>
+<p><code>start-dfs.sh</code></p>
+<p>check the namenode  <code>http://DNSofNameNode:9870</code></p>
+<p><code>start-yarn.sh</code></p>
+<p><code>mapred --daemon start historyserver</code></p>
+<p>check the history website  <code>http://DNSofNameNode:19888</code></p>
+<p>check the resource manager website  <code>http://DNSofNameNode:8088</code></p>
+<p><code>jps</code> will show you the running java processes</p>
+<p>On windows, edit <code>C:\Windows\System32\drivers\etc\hosts</code>, add</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">xxx.xxx.xxx.xxx   namenode.internal.cloudapp.net  namenode
+xxx.xxx.xxx.xxx   datanode001.internal.cloudapp.net  datanode001
+xxx.xxx.xxx.xxx   datanode002.internal.cloudapp.net  datanode002
+</code></pre></td></tr></table>
+</div>
+</div><p>So that Windows can find the interal website http://namenode:9870 or <a href="http://namenode.internal.cloudapp.net:9870" target="_blank" rel="noopener noreffer">http://namenode.internal.cloudapp.net:9870</a></p>
+<h3 id="test-the-hdfs">Test the HDFS</h3>
+<p><code>hdfs dfsadmin -report</code></p>
+<p><code>hdfs dfs -mkdir -p /user/PceWlkr/hdfs/tests</code></p>
+<p><code>mkdir -p ~/Documents/HDFS/Tests</code></p>
+<p><code>touch ~/Documents/HDFS/Tests/test.txt</code></p>
+<p><code>hdfs dfs -put ~/Documents/HDFS/Tests/test.txt /user/PceWlkr/hdfs/tests</code></p>
+<p><code>hdfs dfs -ls /user/PceWlkr/hdfs/tests</code></p>
+<h2 id="fully-distributed-hadoop-cluster-on-a-cloud-provider">Fully Distributed Hadoop Cluster on a Cloud Provider</h2>
+<p><img
+        class="lazyload"
+        data-src="/img/Fully_Distributed_Mode_Config_Files.png"
+        data-srcset="/img/Fully_Distributed_Mode_Config_Files.png, /img/Fully_Distributed_Mode_Config_Files.png 1.5x, /img/Fully_Distributed_Mode_Config_Files.png 2x"
+        data-sizes="auto"
+        alt="/img/Fully_Distributed_Mode_Config_Files.png"
+        title="Fully Distributed Mode Config Files"
+    /></p>
+<p>These configuration files include:</p>
+<ul>
+<li>SSH
+<ul>
+<li>config</li>
+<li>SSH_keypair.pem</li>
+</ul>
+</li>
+<li>Environment Variables
+<ul>
+<li>bigdata.sh</li>
+</ul>
+</li>
+<li>Environment Setup
+<ul>
+<li>Java JDK</li>
+<li>pdsh</li>
+<li>rsync</li>
+</ul>
+</li>
+<li>Hadoop Configuration - the Hadoop entire directory is usually copied directly to the new DataNodes
+<ul>
+<li>hadoop-env.sh</li>
+<li>hdfs.site.xml</li>
+<li>core-site.xml</li>
+<li>yarn-site.xml</li>
+<li>mapred-site.xml</li>
+<li>masters</li>
+<li>workers</li>
+</ul>
+</li>
+</ul>
+<h3 id="configure-masters-file">Configure .masters File</h3>
+<p><code>sudo touch $HADOOP_CONF_DIR/masters</code>
+Add the DNS of your Master Node:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Namenode
+Datanode001 
+Datanode002 
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo chown ubuntu $HADOOP_CONF_DIR/masters</code>
+<code>sudo chmod 0644 $HADOOP_CONF_DIR/masters</code></p>
+<h3 id="configure-workers-file">Configure .workers File</h3>
+<p>&lsquo;sudo nano $HADOOP_CONF_DIR/workers&rsquo;
+Add the entries for the Data Nodes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Datanode001 
+Datanode002 
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo chown ubuntu $HADOOP_CONF_DIR/workers</code>
+<code>sudo chmod 0644 $HADOOP_CONF_DIR/workers</code></p>
+<h3 id="modify-configuration-files-for-fully-distributed-cluster">Modify configuration files for Fully Distributed Cluster</h3>
+<p><code>sudo nano $HADOOP_CONF_DIR/core-site.xml</code></p>
+<p>Change the thisnamenode property value to NameNode in the core-site.xml file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;property&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>thisnamenode<span class="nt">&lt;/name&gt;</span>
+
+    <span class="nt">&lt;value&gt;</span>NameNode<span class="nt">&lt;/value&gt;</span>
+
+    <span class="nt">&lt;description&gt;</span>NameNode is the hostname specified in the config file and etc/hosts file.
+It may be replaced with a DNS that points to your NameNode.<span class="nt">&lt;/description&gt;</span>
+
+  <span class="nt">&lt;/property&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo nano $HADOOP_CONF_DIR/hdfs-site.xml</code></p>
+<p>Edit the dfs.replication property in hdfs-site.xml.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;property&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+
+    <span class="nt">&lt;value&gt;</span>3<span class="nt">&lt;/value&gt;</span>
+
+    <span class="nt">&lt;description&gt;</span>Default block replication.
+
+The actual number of replications can be specified when the file is created.
+
+The default is used if replication is not specified in create time.
+
+    <span class="nt">&lt;/description&gt;</span>
+
+  <span class="nt">&lt;/property&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="add-a-datanode-to-your-hadoop-cluster">Add a DataNode to your Hadoop Cluster</h3>
+<p><code>stop-dfs.sh</code></p>
+<p><code>scp -p $SSHConfigFile $IdentityFile PceWlkr@Datanode001:~/.ssh/</code></p>
+<p><code>scp -p $SSHConfigFile $IdentityFile PceWlkr@Datanode002:~/.ssh/</code></p>
+<p><code>ssh Datanode001</code></p>
+<p><code>sudo apt -y remove unattended-upgrades &amp;&amp; sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade &amp;&amp; sudo apt-get -y install default-jdk pdsh rsync</code></p>
+<p><code>exit</code></p>
+<p><code>ssh Datanode002</code></p>
+<p><code>sudo apt -y remove unattended-upgrades &amp;&amp; sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade &amp;&amp; sudo apt-get -y install default-jdk pdsh rsync</code></p>
+<p><code>exit</code></p>
+<p>If the <code>hadoop</code> directory does not exist on the DataNode, you must first create it. Do this for each DataNode in your Cluster.
+Create the <code>hadoop</code> directory:</p>
+<p><code>ssh PceWlkr@Datanode001 &quot;sudo mkdir -p ${HADOOP_HOME}/&quot;</code></p>
+<p><code>ssh PceWlkr@Datanode001 &quot;sudo chown -R PceWlkr:PceWlkr ${HADOOP_HOME}/&quot;</code></p>
+<p><code>ssh PceWlkr@Datanode001 &quot;sudo chmod -R 774 ${HADOOP_HOME}/&quot;</code></p>
+<p><code>ssh PceWlkr@Datanode002 &quot;sudo mkdir -p ${HADOOP_HOME}/&quot;</code></p>
+<p><code>ssh PceWlkr@Datanode002 &quot;sudo chown -R PceWlkr:PceWlkr ${HADOOP_HOME}/&quot;</code></p>
+<p><code>ssh PceWlkr@Datanode002 &quot;sudo chmod -R 774 ${HADOOP_HOME}/&quot;</code></p>
+<p><code>cat $BigDataSH | ssh PceWlkr@Datanode001 &quot;sudo tee ${BigDataSH}&quot;</code></p>
+<p><code>cat $BigDataSH | ssh PceWlkr@Datanode002 &quot;sudo tee ${BigDataSH}&quot;</code></p>
+<p><code>sudo rm $HADOOP_HOME/logs/*.*</code></p>
+<p><code>rsync -ravl $HADOOP_HOME PceWlkr@Datanode001:/usr/local/</code></p>
+<p><code>rsync -ravl $HADOOP_HOME PceWlkr@Datanode002:/usr/local/</code></p>
+<p>Then reboot the Datanode001 and Datanode002</p>
+<h3 id="test-the-hdfs-again">Test the HDFS Again</h3>
+<h3 id="test-mapreduce">Test MapReduce</h3>
+<p><code>hadoop jar $YARN_EXAMPLES/hadoop-mapreduce-examples-3.3.1.jar</code></p>
+<p><code>hdfs dfs -mkdir -p /user/PceWlkr/wordcount/input</code></p>
+<p><code>hdfs dfs -chmod -R 777 /user</code></p>
+<p><code>hdfs dfs -put $HADOOP_HOME/*.txt    /user/PceWlkr/wordcount/input</code></p>
+<p><code>hadoop jar $YARN_EXAMPLES/hadoop-mapreduce-examples-3.3.1.jar  wordcount /user/ubPceWlkrntu/wordcount/input /user/PceWlkr/wordcount/output</code></p>
+<p><code>hdfs dfs -cat /user/PceWlkr/wordcount/output/*</code></p>
+<h1 id="env-vars">Env Vars</h1>
+<h4 id="the-hadoop-config-directory">The hadoop config directory</h4>
+<p>HADOOP_CONF_DIR</p>
+<h4 id="the-directory-of-the-progtram">The directory of the progtram</h4>
+<p>JAVA_HOME</p>
+<p>HADOOP_HOME</p>
+<p>HIVE_HOME</p>
+<p>PIG_HOME</p>
+<p>HADOOP_YARN_HOME</p>
+<p>HADOOP_MAPRED_HOME</p>
+<h4 id="the-path-of-the-files-under-ssh">The path of the files under ~/.ssh/</h4>
+<p>BigDataSH=/etc/profile.d/bigdata.sh</p>
+<p>IdentityFile=~/.ssh/SSH_keypair.pem</p>
+<p>SSHConfigFile=~/.ssh/config</p>
+<h4 id="the-following-are-dns-and-ip-for-all-nodes">The following are DNS and IP for all nodes</h4>
+<p>NameNodeDNS=&ldquo;Namenode&rdquo;</p>
+<p>DataNode001DNS=&ldquo;Datanode001&rdquo;</p>
+<p>DataNode002DNS=&ldquo;Datanode002&rdquo;</p>
+<p>NameNodeIP=&ldquo;10.0.0.4&rdquo;</p>
+<p>DataNode001IP=&ldquo;10.0.0.5&rdquo;</p>
+<p>DataNode002IP=&ldquo;10.0.0.6&rdquo;</p>
+<h1 id="configs">Configs</h1>
+<ul>
+<li>SSH
+<ul>
+<li>config &ndash;&gt; give a identity to anyone enter through ssh, and give all host a IP and DNS so that ssh can recognize them</li>
+<li>SSH_keypair.pem &ndash;&gt; The ssh key</li>
+</ul>
+</li>
+<li>Environment Variables
+<ul>
+<li>bigdata.sh &ndash;&gt; storing env vars for ssh config and files, java vars, pdsh vars, and other vars</li>
+</ul>
+</li>
+<li>Hadoop Configuration - the Hadoop entire directory is usually copied directly to the new DataNodes
+<ul>
+<li>hadoop-env.sh &ndash;&gt; some env vars</li>
+<li>hdfs.site.xml &ndash;&gt; config for HDFS</li>
+<li>core-site.xml &ndash;&gt; config for Hadoop and Namenode</li>
+<li>yarn-site.xml &ndash;&gt; config for yarn</li>
+<li>mapred-site.xml &ndash;&gt; config for MapReduce</li>
+<li>masters &ndash;&gt; specify the master nodes</li>
+<li>workers &ndash;&gt; specify the slave nodes</li>
+</ul>
+</li>
+</ul>
+<h1 id="daemons">Daemons</h1>
+<p>HDFS Daemons: <strong>They are configured by masters and workers and hdfs.site.xml and core-site.xml</strong></p>
+<p>Name Node</p>
+<p>Secondary Name Node</p>
+<p>Data Node</p>
+<p>YARN Daemons: <strong>They are configured by yarn-site.xml</strong></p>
+<p>Resource Manager</p>
+<p>Node Manager</p>
+<p>MapReduce Daemon: <strong>They are configured by mapred-site.xml</strong></p>
+<p>Job History Server</p>
+<h1 id="cluster-tests">Cluster Tests</h1>
+<h2 id="hdfs-test-result">HDFS Test Result</h2>
+<h2 id="mapreduce-test-result">MapReduce Test Result</h2>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar.png"
+        data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x"
+        data-sizes="auto"
+        alt="/avatar.png"
+        title="/avatar.png"
+    /></div><p class="sponsor-bio"><em>Find this post helpful?</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/pcewlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/setup-hadoop-cluster-on-ms-azure/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" data-title="Hadoop Cluster Setup" data-hashtags="Hadoop,Note"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" data-hashtag="Hadoop"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" data-title="Hadoop Cluster Setup" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" data-title="Hadoop Cluster Setup"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" data-title="Hadoop Cluster Setup"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/" data-title="Hadoop Cluster Setup"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hadoop/">Hadoop</a>,&nbsp;<a href="/tags/note/">Note</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/javase/" class="prev" rel="prev" title="Java Note"><i class="fas fa-angle-left fa-fw"></i>Java Note</a>
+            <a href="/hackspaining/" class="next" rel="next" title="Hacking Defense Note">Hacking Defense Note<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/fuse/fuse.min.d3e13f020a1205ff114005e71493513b696e4a7a3b88229e6ec2c36d34b61d75.js" integrity="sha256-0&#43;E/AgoSBf8RQAXnFJNRO2luSno7iCKebsLDbTS2HXU="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.6562fdbc05c340fee3709f768f6c003a2763e2fe3ddf98638ae07af0ffe3a85d.js" integrity="sha256-ZWL9vAXDQP7jcJ92j2wAOidj4v4935hjiuB68P/jqF0="></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4="></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://doit-docs-comment-twikoo.vercel.app/","lang":"en"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":300,"threshold":0.1,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>

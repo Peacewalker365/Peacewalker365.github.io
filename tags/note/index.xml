@@ -1,40 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Note on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/note/</link>
-    <description>Recent content in Note on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/note/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Advice for Solo Dev</title>
-      <link>https://Peacewalker365.github.io/notes/advice-on-being-solo-dev/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/advice-on-being-solo-dev/</guid>
-      <description>Advice Read book for learning in depth
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Note - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/note/</link>
+        <description>Note - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/note/" rel="self" type="application/rss+xml" /><item>
+    <title>Advice for Solo Dev</title>
+    <link>https://Peacewalker365.github.io/advice-on-being-solo-dev/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/advice-on-being-solo-dev/</guid>
+    <description><![CDATA[Advice Read book for learning in depth
 Learn and talk to successful people (in terms of indie dev, not the money)
- Your friends may not know your field, though they may support you mentally or the otherwise Don&amp;rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
- The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&amp;rsquo;s your problem?</description>
-    </item>
-    
-    <item>
-      <title>Arch Patterns Note</title>
-      <link>https://Peacewalker365.github.io/notes/software-architectural-patterns/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/software-architectural-patterns/</guid>
-      <description>Software Architectural Patterns Layered pattern Client-server pattern Master-slave pattern Pipe-filter pattern Broker pattern Peer-to-peer pattern Event-bus pattern Model-view-controller pattern Blackboard pattern Interpreter pattern </description>
-    </item>
-    
-    <item>
-      <title>CI Tools</title>
-      <link>https://Peacewalker365.github.io/notes/ci-tools/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/ci-tools/</guid>
-      <description>CI Tools
+ Your friends may not know your field, though they may support you mentally or the otherwise Don&rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
+ The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&rsquo;s your problem?]]></description>
+</item><item>
+    <title>Arch Patterns Note</title>
+    <link>https://Peacewalker365.github.io/software-architectural-patterns/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/software-architectural-patterns/</guid>
+    <description><![CDATA[Software Architectural Patterns Layered pattern Client-server pattern Master-slave pattern Pipe-filter pattern Broker pattern Peer-to-peer pattern Event-bus pattern Model-view-controller pattern Blackboard pattern Interpreter pattern ]]></description>
+</item><item>
+    <title>CI Tools</title>
+    <link>https://Peacewalker365.github.io/ci-tools/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/ci-tools/</guid>
+    <description><![CDATA[CI Tools
 Bamboo
 run multiple builds in parallel for faster compilation
 built in functionality to connect with repos and has built tasks for Ant, Maven, etc.
@@ -48,197 +40,73 @@ Great for java
 Travis CI
 a hosted, continuous integration service used to built and test software projs hosted at GitHub.
 for team of all sizes
-support 20 diff langs</description>
-    </item>
-    
-    <item>
-      <title>Design Patterns For OOL</title>
-      <link>https://Peacewalker365.github.io/notes/design-patterns-for-ool/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/design-patterns-for-ool/</guid>
-      <description>Design Patterns For OOL Terms Association
+support 20 diff langs]]></description>
+</item><item>
+    <title>Design Patterns For OOL</title>
+    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
 Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
-Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&amp;rsquo;t exist separate to a House.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
 SOLID Design Principles S: Single-responsibility principle
 O: Open-closed principle
-L: Liskov&amp;rsquo;s substitution principle</description>
-    </item>
-    
-    <item>
-      <title>Docker_note</title>
-      <link>https://Peacewalker365.github.io/notes/docker/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/docker/</guid>
-      <description>Why Docker? Your proj can only run on your machine but not others.
+L: Liskov&rsquo;s substitution principle]]></description>
+</item><item>
+    <title>Docker_note</title>
+    <link>https://Peacewalker365.github.io/docker/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/docker/</guid>
+    <description><![CDATA[Why Docker? Your proj can only run on your machine but not others.
  One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
-HYPERVISORS  VitualBox VMware Hyper-v (win only)  ![Virtual Machines](/img/Virtual Machines.png)
-Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&amp;rsquo;t need to give cores to it specifically)  Arch of Docker Installing # docs.</description>
-    </item>
-    
-    <item>
-      <title>Git Review</title>
-      <link>https://Peacewalker365.github.io/notes/gitreview/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/gitreview/</guid>
-      <description>Git First Run #need sudo /etc/gitconfig git config --system #work on all git repos of the current user, ~/.gitconfig 或 ~/.config/git/config git config --global #this is by default. If you are at a git repo, this r/w .git/config for this repo git config --local #每一个级别会覆盖上一级别的配置 #check all the config and their paths git config --list --show-origin 首先设置用户名和邮件地址，每一次commit都会写入信息，且无法更改。
-git config --global user.name &amp;#34;John Doe&amp;#34; git config --global user.email johndoe@example.com 设置编辑器
-$ git config --global core.</description>
-    </item>
-    
-    <item>
-      <title>Golang Note</title>
-      <link>https://Peacewalker365.github.io/notes/golang/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/golang/</guid>
-      <description>Golang why golang
+HYPERVISORS  VitualBox VMware Hyper-v (win only)  Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)  Arch of Docker Installing 1 2 3 4 5  # docs.]]></description>
+</item><item>
+    <title>Git Review</title>
+    <link>https://Peacewalker365.github.io/gitreview/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/gitreview/</guid>
+    <description><![CDATA[Git First Run 1 2 3 4 5 6 7 8 9 10 11 12 13 #need sudo /etc/gitconfig git config --system #work on all git repos of the current user, ~/.gitconfig 或 ~/.config/git/config git config --global #this is by default. If you are at a git repo, this r/w .git/config for this repo git config --local #每一个级别会覆盖上一级别]]></description>
+</item><item>
+    <title>Golang Note</title>
+    <link>https://Peacewalker365.github.io/golang/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/golang/</guid>
+    <description><![CDATA[Golang why golang
 c/c++ fast but have to carry historical burdens, slow compile
 java kinda same
 python, easy to use but slow.
 None of these are developed toward to the best performance in terms of concurrency
- Strong and staticaaly typed excellent comm. Key features  simplicity fast compile times garbage collected compile to standaline binaries(all dependencies are in there) built-in concurrency    package main // have to specify the package name  import ( &amp;#34;fmt&amp;#34; ) func main() { fmt.</description>
-    </item>
-    
-    <item>
-      <title>Hacking Defense Note</title>
-      <link>https://Peacewalker365.github.io/notes/hackspaining/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/hackspaining/</guid>
-      <description>https://www.hacksplaining.com/lessons
+ Strong and staticaaly typed excellent comm. Key features  simplicity fast compile times garbage collected compile to standaline binaries(all dependencies are in there) built-in concurrency    1 2 3 4 5 6 7 8 9 10  package main // have to specify the package name  import ( &#34;fmt&#34; ) func main() { fmt.]]></description>
+</item><item>
+    <title>Hacking Defense Note</title>
+    <link>https://Peacewalker365.github.io/hackspaining/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/hackspaining/</guid>
+    <description><![CDATA[https://www.hacksplaining.com/lessons
 SQL Injection Harm Extract sensitive information, like Social Security numbers, or credit card details. Enumerate the authentication details of users registered on a website, so these logins can be used in attacks on other sites. Delete data or drop tables, corrupting the database, and making the website unusable. Inject further malicious code to be executed when users visit the site.
-Parameterized Statements Make sure that the parameters passed into SQL statements are treated in a safe manner.</description>
-    </item>
-    
-    <item>
-      <title>Hadoop Cluster Setup</title>
-      <link>https://Peacewalker365.github.io/notes/setup-hadoop-cluster-on-ms-azure/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/setup-hadoop-cluster-on-ms-azure/</guid>
-      <description>Report: Setup Hadoop Cluster on MS Azure https://klasserom.azurewebsites.net/Lessons/Binder/2410
+Parameterized Statements Make sure that the parameters passed into SQL statements are treated in a safe manner.]]></description>
+</item><item>
+    <title>Hadoop Cluster Setup</title>
+    <link>https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/setup-hadoop-cluster-on-ms-azure/</guid>
+    <description><![CDATA[Report: Setup Hadoop Cluster on MS Azure https://klasserom.azurewebsites.net/Lessons/Binder/2410
 Notice: In this report, the ssh .pem is named SSH_keypair.pem, and the user name in Linux by default is set to PceWlkr.
 set up virtual machine Basics use the B1s as the bare bone std
 The first vm set in the group will need to generate a new key pair of SSH public key, and give it a name.
-Others can just use the SSH we had already.</description>
-    </item>
-    
-    <item>
-      <title>Java Note</title>
-      <link>https://Peacewalker365.github.io/notes/javase/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/javase/</guid>
-      <description>JavaSE Environment variable: set JAVA_HOME to the addr of install java Then add %JAVA_HOME%/bin to path. We do so to let Tomcat to recognize the java dir by looking at the JAVA_HOME
-.java -&amp;gt; javac.exe -&amp;gt; .class -&amp;gt; java.exe -&amp;gt; result
-bytecode file .class has the name of the class name in .java
-javac HelloWorld.java then java HelloWorldClassName
-class HelloWorldClassName { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } Important   You can declare multiple classes in a source code file, but you can only have 1 public class at most in it.</description>
-    </item>
-    
-    <item>
-      <title>JS Note</title>
-      <link>https://Peacewalker365.github.io/notes/javascript/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/javascript/</guid>
-      <description>JS Let/Const function sayHello() { for (var i = 0; i &amp;lt; 5; i++) { console.log(i); } console.log(i); } sayHello(); problem with var: the scope! To solve this problem, we have let.
-Scope var -&amp;gt; function let -&amp;gt; block const -&amp;gt; block
-const person = { name: &amp;#39;Mosh&amp;#39;, walk: function() {}, talk() {} //neat way }; person.talk(); person[&amp;#39;name&amp;#39;] = &amp;#39;John&amp;#39;; const targetMember = &amp;#39;name&amp;#39;; // think about this can be user input person[targetMember] = &amp;#39;John&amp;#39;; // dynamically manage the access  Objects this const person = { name: &amp;#34;Mosh&amp;#34;, walk() { console.</description>
-    </item>
-    
-    <item>
-      <title>OS Review Note</title>
-      <link>https://Peacewalker365.github.io/notes/os_review/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/os_review/</guid>
-      <description>von Neumann Architecture (realization of Turing Machine)
-What are programs?   Process – a running program
-  To allow for running multiple processes, a running program must be able to be interrupted
-  OS provides a virtualization of CPUs, so each program can assume they have their “own” virtual CPU at its disposal
-  Memory Space of a Program   A variable of a program corresponds to a location in memory</description>
-    </item>
-    
-    <item>
-      <title>Persistence Note</title>
-      <link>https://Peacewalker365.github.io/notes/persistence/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/persistence/</guid>
-      <description>persistence Closer to the CPU, faster
-CPU&amp;ndash;Mem&amp;ndash;Graphics&amp;ndash;
-canonical protocol for programmed I/O Interface:
-statue: busy or not
-command
-data
-internal:
-CPU
-MEM
-other chips
-Q should the program running in kernel or user mode?
-in kernel.
-you don&amp;rsquo;t want the user level program to touch the devices directly, since devices are shared bewteen processes. Device doesn&amp;rsquo;t not have any protection from other processes. It can change the data on behalf of anyone.</description>
-    </item>
-    
-    <item>
-      <title>UML Note</title>
-      <link>https://Peacewalker365.github.io/notes/uml-class-diagrams/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/uml-class-diagrams/</guid>
-      <description>UML Class Diagrams Introduction In object-oriented programming, it&amp;rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
-Basic Class Diagram Consider the following UML class diagram:
-The diagram consists of a rectangle broken up vertically into three sections:
-  Class name. In this case, the fully qualified name of the class is given.</description>
-    </item>
-    
-    <item>
-      <title>Vim Note</title>
-      <link>https://Peacewalker365.github.io/notes/vimnotes/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/vimnotes/</guid>
-      <description>Termial Oriented Programming Some Useful Info https://vim-adventures.com/
-This is a game for vim beginner.
-https://www.destroyallsoftware.com/screencasts
-This is an amazing guy introducing the power of the terminal.
-Doing everything in one terminal window is powerful.
-Jobs Control jobs
-ps
-fg
-bg
-fg %1
-kill %2
-kill -9 24153
-./some_codes.sh &amp;amp;
-ctrl + z to suspend the current job including when you are in the Vim
-ctrl + c to kill the current job</description>
-    </item>
-    
-    <item>
-      <title>Virtual Memory and Concurrency Note</title>
-      <link>https://Peacewalker365.github.io/notes/os_reading_note/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/os_reading_note/</guid>
-      <description>OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
-Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
-Paging gives us flexibility so that we don&amp;rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
-Paging also gives us the simplicity of free-space management that paging affords.</description>
-    </item>
-    
-    <item>
-      <title>Virtual Memory and Concurrency Note 2</title>
-      <link>https://Peacewalker365.github.io/notes/os_slides_note/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/os_slides_note/</guid>
-      <description>Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&amp;rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&amp;rsquo;t know what it is!</description>
-    </item>
-    
-  </channel>
+Others can just use the SSH we had already.]]></description>
+</item><item>
+    <title>Java Note</title>
+    <link>https://Peacewalker365.github.io/javase/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/javase/</guid>
+    <description><![CDATA[JavaSE Environment variable: set JAVA_HOME to the addr of install java Then add %JAVA_HOME%/bin to path. We do so to let Tomcat to recognize the java dir by looking at the JAVA_HOME .java -&gt; javac.exe -&gt; .class -&gt; java.exe -&gt; result bytecode file .class has the name of the class name in .java javac HelloWorld.java then java HelloWorldClassName 1 2 3 4 5 class HelloWorldClassName { public static void main(String[]]]></description>
+</item></channel>
 </rss>

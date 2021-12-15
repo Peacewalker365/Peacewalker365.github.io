@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">UML Note - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="UML Note" />
+<meta property="og:description" content="UML Class Diagrams Introduction In object-oriented programming, it&rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
+Basic Class Diagram Consider the following UML class diagram:
+The diagram consists of a rectangle broken up vertically into three sections:
+  Class name. In this case, the fully qualified name of the class is given." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/uml-class-diagrams/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-12T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="UML Note"/>
+<meta name="twitter:description" content="UML Class Diagrams Introduction In object-oriented programming, it&rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
+Basic Class Diagram Consider the following UML class diagram:
+The diagram consists of a rectangle broken up vertically into three sections:
+  Class name. In this case, the fully qualified name of the class is given."/>
+<meta name="application-name" content="myStack">
+<meta name="apple-mobile-web-app-title" content="myStack">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/uml-class-diagrams/" /><link rel="prev" href="https://Peacewalker365.github.io/vimnotes/" /><link rel="next" href="https://Peacewalker365.github.io/persistence/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.c15c0690492dbad20daaa10e3c14781fe6ff24bdf1d93af9fca99629dc74060c.css" integrity="sha256-wVwGkEktutINqqEOPBR4H&#43;b/JL3x2Tr5/KmWKdx0Bgw="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript><meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "UML Note",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/uml-class-diagrams\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "UML, Note","wordcount":  998 ,
+        "url": "https:\/\/Peacewalker365.github.io\/uml-class-diagrams\/","datePublished": "2021-12-12T00:00:00+00:00","dateModified": "2021-12-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"author": {
+                "@type": "Person",
+                "name": "PceWlkr"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/uml-class-diagrams/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/showcase/" title="">Showcase</a><a class="menu-item" href="/categories/note/" title="">Notes</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/uml-class-diagrams/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">UML Note</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/Peacewalker365" title="Author" target="_blank" rel="noopener noreffer author" class="author">PceWlkr</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-12">2021-12-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-12">2021-12-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;998 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;<span id="/uml-class-diagrams/" class="leancloud_visitors" data-flag-title="UML Note">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
+                    </span>&nbsp;<span id="/uml-class-diagrams/" class="comment_count" data-flag-title="UML Note">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#basic-class-diagram">Basic Class Diagram</a></li>
+        <li><a href="#visibilities">Visibilities</a></li>
+        <li><a href="#atributes-and-parameters-variables">Atributes and Parameters (Variables)</a></li>
+        <li><a href="#operations-methods">Operations (Methods)</a></li>
+        <li><a href="#stereotypes">Stereotypes</a></li>
+        <li><a href="#abstract-classes-and-operations">Abstract Classes and Operations</a></li>
+        <li><a href="#associations">Associations</a></li>
+      </ul>
+    </li>
+    <li><a href="#uml-software-and-tools">UML Software and Tools</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="uml-class-diagrams">UML Class Diagrams</h1>
+<p><img
+        class="lazyload"
+        data-src="https://img.shields.io/badge/Approved%20for-Fall%202021-blue"
+        data-srcset="https://img.shields.io/badge/Approved%20for-Fall%202021-blue, https://img.shields.io/badge/Approved%20for-Fall%202021-blue 1.5x, https://img.shields.io/badge/Approved%20for-Fall%202021-blue 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/Approved%20for-Fall%202021-blue"
+        title="Approved for: Fall 2021"
+    /></p>
+<h2 id="introduction">Introduction</h2>
+<p>In object-oriented programming, it&rsquo;s not uncommon to visualize classes
+and their relationships using the Unified Modeling Language (UML).
+While UML has many different types of diagrams, this reading focusses only
+on UML class diagrams.</p>
+<h3 id="basic-class-diagram">Basic Class Diagram</h3>
+<p>Consider the following UML class diagram:</p>
+<p><img
+        class="lazyload"
+        data-src="/img/cs1302.example.Person.png"
+        data-srcset="/img/cs1302.example.Person.png, /img/cs1302.example.Person.png 1.5x, /img/cs1302.example.Person.png 2x"
+        data-sizes="auto"
+        alt="/img/cs1302.example.Person.png"
+        title="cs1302.example.Person Class"
+    /></p>
+<p>The diagram consists of a rectangle broken up vertically into three sections:</p>
+<ol>
+<li>
+<p><strong>Class name.</strong> In this case, the fully qualified name of the class is given.
+Sometimes, if multiple classes are given and assumed to be in the same package,
+then the simple name is used here instead.</p>
+</li>
+<li>
+<p><strong>Variables.</strong> In UML, the variables of a class are called <em>attributes</em>. In
+this example, there are two private instance variables (indicated with a <code>-</code>)
+and one private static variable. In UML, attributes and methods are shown
+to be public with a <code>+</code> symbol to the left of the name. Static variables are underlined.</p>
+</li>
+<li>
+<p><strong>Methods.</strong> In UML, the methods of a class are called <em>operations</em>. In this
+example, there is one public constructor, two public (indicated by <code>+</code>) instance
+methods, and one public static method. In UML, attributes and methods are shown
+to be public with a <code>+</code> symbol to the left of the name. Static methods are underlined.</p>
+</li>
+</ol>
+<p>The diagram above gives enough information for a programmer (or a program) to generate the following
+<code>Person.java</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">cs1302.example</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">personCounter</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span> <span class="c1">// Person
+</span><span class="c1"></span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span> <span class="c1">// getName
+</span><span class="c1"></span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span> <span class="c1">// getAge
+</span><span class="c1"></span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getPersonCounter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span> <span class="c1">// getPersonCounter
+</span><span class="c1"></span>
+<span class="o">}</span> <span class="c1">// Person
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="visibilities">Visibilities</h3>
+<p>UML supports the standard four visibilities:</p>
+<table>
+<thead>
+<tr>
+<th>Visibility Name</th>
+<th>Modifier Keyword</th>
+<th>UML Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td><code>private</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td>package private</td>
+<td></td>
+<td><code>~</code></td>
+</tr>
+<tr>
+<td>protected</td>
+<td><code>protected</code></td>
+<td><code>#</code></td>
+</tr>
+<tr>
+<td>public</td>
+<td><code>public</code></td>
+<td><code>+</code></td>
+</tr>
+</tbody>
+</table>
+<p>For an in-depth discussion on visibilities, see the <a href="/visibility/" rel="">Visibility Reading</a>.</p>
+<h3 id="atributes-and-parameters-variables">Atributes and Parameters (Variables)</h3>
+<p>In UML, attributes and parameters are written in the following format:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">visibility name : type
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="operations-methods">Operations (Methods)</h3>
+<p>In UML, operations are written in the following format:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">visibility [&lt;&lt;stereotype&gt;&gt;] methodName(param1: type, param2: type): returnType
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="stereotypes">Stereotypes</h3>
+<p>A <em>stereotype</em> is optional and is used to convey additional information. For
+example, you might use the following stereotypes in different situations:</p>
+<table>
+<thead>
+<tr>
+<th>Stereotype</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;&lt;new&gt;&gt;</code></td>
+<td>Denotes constructor.</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;abstract&gt;&gt;</code></td>
+<td>Denotes abstract.</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;override&gt;&gt;</code></td>
+<td>Denotes override.</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;interface&gt;&gt;</code></td>
+<td>Denotes interface.</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;final&gt;&gt;</code></td>
+<td>Denotes final.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="abstract-classes-and-operations">Abstract Classes and Operations</h3>
+<p>The usual way to denote that a class or operation is abstract is to italicize the
+name of class or operation. Sometimes this is impractical in situations where it&rsquo;s
+difficult to discern the difference between the normal lettering of a font and
+its italicized version. In such casses, the names might also be prefixed with
+an <code>&lt;&lt;abstract&gt;&gt;</code> stereotype in order to better communicate the intention to the
+viewer of the diagram.</p>
+<p>To illustrate the differences, consider the following three <code>Shape</code> classes:</p>
+<p><img
+        class="lazyload"
+        data-src="/img/abstract.png"
+        data-srcset="/img/abstract.png, /img/abstract.png 1.5x, /img/abstract.png 2x"
+        data-sizes="auto"
+        alt="/img/abstract.png"
+        title="Abstract Comparison"
+    /></p>
+<p>In the diagram, the first class on the left is not abstract and the other two
+are. While the italics in the middle class indicate that its abstract, it
+can be easily confused as a non-abstract class if viewed quickly. For this
+reason, we suggest you italicize and use a stereotype to indicate that a
+class is abstract just as is done with the third class in the diagram.</p>
+<h3 id="associations">Associations</h3>
+<p>When you have more than one class in a diagram, you often want to express
+how they are associated. In UML, this is done with association arrows.
+While UML supports many different kinds of association arrows, the following
+are arguably the most common:</p>
+<table>
+<thead>
+<tr>
+<th>Association</th>
+<th>Description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img
+        class="lazyload"
+        data-src="/img/uses.svg"
+        data-srcset="/img/uses.svg, /img/uses.svg 1.5x, /img/uses.svg 2x"
+        data-sizes="auto"
+        alt="/img/uses.svg"
+        title="uses"
+    /></td>
+<td>Solid line; open arrowhead.</td>
+<td><code>ClassA</code> uses <code>ClassB</code></td>
+</tr>
+<tr>
+<td><img
+        class="lazyload"
+        data-src="/img/extends.svg"
+        data-srcset="/img/extends.svg, /img/extends.svg 1.5x, /img/extends.svg 2x"
+        data-sizes="auto"
+        alt="/img/extends.svg"
+        title="extends"
+    /></td>
+<td>Solid line; unfilled triangle arrowhead.</td>
+<td><code>Child</code> extends <code>Parent</code></td>
+</tr>
+<tr>
+<td><img
+        class="lazyload"
+        data-src="/img/implements.svg"
+        data-srcset="/img/implements.svg, /img/implements.svg 1.5x, /img/implements.svg 2x"
+        data-sizes="auto"
+        alt="/img/implements.svg"
+        title="implements"
+    /></td>
+<td>Dashed line; unfilled triangle arrowhead.</td>
+<td><code>SomeClass</code> implements <code>SomeInterface</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>It may seem nit picky,</strong> but each of these arrows is visually different
+with respect to its line and its arrowhead!</p>
+<h2 id="uml-software-and-tools">UML Software and Tools</h2>
+<p>Before you continue reading, it&rsquo;s important to note that you do not need a special program to work with UML.
+It&rsquo;s quite possible (and encouraged) that you practice drawing UML digrams by hand either on paper or in
+your note-taking software. The purpose of a UML class diagram is to help visualize multiple classes and
+their relationships. Over the years, we&rsquo;ve seen many students skip directly to using UML software and
+get frustrated. Since these programs have a learning curve, students spend too much time trying to
+figure out, for example, how to mark something as protected in the program when they could have simply
+written <code>#</code> had they done it by hand. Don&rsquo;t get us wrong, these tools are great, and if you want to learn
+them, then you should. Just try to make sure it doesn&rsquo;t impact your productivity, especially near a
+deadline.</p>
+<p>Below is a list of popular UML software programs. <strong>You are not required to have access to one for
+this course.</strong> While many of these programs do require a paid license, you are encouraged to seek
+out a free community edition or a free/reduced-price student license before making any purchases.
+If you find a tool that&rsquo;s not in the list, then please share it on Piazza!</p>
+<ul>
+<li><a href="https://astah.net/products/astah-uml/" target="_blank" rel="noopener noreffer">Astah UML</a></li>
+<li><a href="https://www.diagrams.net/" target="_blank" rel="noopener noreffer">Diagrams.net</a></li>
+<li><a href="https://staruml.io/" target="_blank" rel="noopener noreffer">StarUML</a></li>
+<li><a href="https://umbrello.kde.org/" target="_blank" rel="noopener noreffer">Umbrello</a></li>
+<li><a href="http://www.umldesigner.org/" target="_blank" rel="noopener noreffer">UML Designer</a></li>
+<li><a href="https://www.visual-paradigm.com/" target="_blank" rel="noopener noreffer">Visual Paradigm</a></li>
+</ul>
+<p>You may be surprised by how much a regular license costs for some of the programs above. In practice,
+if you need a program like this for your job, then it&rsquo;s not uncommon for your company to
+pay for the license just as many companies do for programs like Microsoft Word, Adobe Photoshop, etc.</p>
+<hr/>
+<p><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreffer"><img
+        class="lazyload"
+        data-src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg"
+        data-srcset="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg, https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg 1.5x, https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg"
+        title="License: CC BY-NC-ND 4.0"
+    /></a></p>
+<small>
+Copyright &copy; Michael E. Cotterell, Bradley J. Barnes, and the University of Georgia.
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> to students and the public.
+The content and opinions expressed on this Web page do not necessarily reflect the views of nor are they endorsed by the University of Georgia or the University System of Georgia.
+</small>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar.png"
+        data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x"
+        data-sizes="auto"
+        alt="/avatar.png"
+        title="/avatar.png"
+    /></div><p class="sponsor-bio"><em>Find this post helpful?</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/pcewlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/uml-class-diagrams/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/uml-class-diagrams/" data-title="UML Note" data-hashtags="UML,Note"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/uml-class-diagrams/" data-hashtag="UML"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/uml-class-diagrams/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/uml-class-diagrams/" data-title="UML Note" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/uml-class-diagrams/" data-title="UML Note"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/uml-class-diagrams/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/uml-class-diagrams/" data-title="UML Note"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/uml-class-diagrams/" data-title="UML Note"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/uml/">UML</a>,&nbsp;<a href="/tags/note/">Note</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/vimnotes/" class="prev" rel="prev" title="Vim Note"><i class="fas fa-angle-left fa-fw"></i>Vim Note</a>
+            <a href="/persistence/" class="next" rel="next" title="Persistence Note">Persistence Note<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/fuse/fuse.min.d3e13f020a1205ff114005e71493513b696e4a7a3b88229e6ec2c36d34b61d75.js" integrity="sha256-0&#43;E/AgoSBf8RQAXnFJNRO2luSno7iCKebsLDbTS2HXU="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.6562fdbc05c340fee3709f768f6c003a2763e2fe3ddf98638ae07af0ffe3a85d.js" integrity="sha256-ZWL9vAXDQP7jcJ92j2wAOidj4v4935hjiuB68P/jqF0="></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4="></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://doit-docs-comment-twikoo.vercel.app/","lang":"en"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":300,"threshold":0.1,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Casual - Series - myStack</title>
+        <link>https://Peacewalker365.github.io/series/casual/</link>
+        <description>Casual - Series - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 21:29:01 &#43;0800</lastBuildDate><atom:link href="https://Peacewalker365.github.io/series/casual/" rel="self" type="application/rss+xml" /><item>
+    <title>First Post</title>
+    <link>https://Peacewalker365.github.io/first-post/</link>
+    <pubDate>Sun, 12 Dec 2021 21:29:01 &#43;0800</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/first-post/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/blackhole.webp" referrerpolicy="no-referrer">
+            </div>It’s 2021 now, and I just begin to write my first blog. Well, it&rsquo;s better late than never.]]></description>
+</item></channel>
+</rss>

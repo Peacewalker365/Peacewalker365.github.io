@@ -1,22 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Git on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/git/</link>
-    <description>Recent content in Git on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Git Review</title>
-      <link>https://Peacewalker365.github.io/notes/gitreview/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/gitreview/</guid>
-      <description>Git First Run #need sudo /etc/gitconfig git config --system #work on all git repos of the current user, ~/.gitconfig 或 ~/.config/git/config git config --global #this is by default. If you are at a git repo, this r/w .git/config for this repo git config --local #每一个级别会覆盖上一级别的配置 #check all the config and their paths git config --list --show-origin 首先设置用户名和邮件地址，每一次commit都会写入信息，且无法更改。
-git config --global user.name &amp;#34;John Doe&amp;#34; git config --global user.email johndoe@example.com 设置编辑器
-$ git config --global core.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Git - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/git/</link>
+        <description>Git - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>Git Review</title>
+    <link>https://Peacewalker365.github.io/gitreview/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/gitreview/</guid>
+    <description><![CDATA[Git First Run 1 2 3 4 5 6 7 8 9 10 11 12 13 #need sudo /etc/gitconfig git config --system #work on all git repos of the current user, ~/.gitconfig 或 ~/.config/git/config git config --global #this is by default. If you are at a git repo, this r/w .git/config for this repo git config --local #每一个级别会覆盖上一级别]]></description>
+</item></channel>
 </rss>

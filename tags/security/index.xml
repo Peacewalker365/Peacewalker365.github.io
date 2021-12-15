@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Security on myStack</title>
-    <link>https://Peacewalker365.github.io/tags/security/</link>
-    <description>Recent content in Security on myStack</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hacking Defense Note</title>
-      <link>https://Peacewalker365.github.io/notes/hackspaining/</link>
-      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Peacewalker365.github.io/notes/hackspaining/</guid>
-      <description>https://www.hacksplaining.com/lessons
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Security - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/security/</link>
+        <description>Security - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/security/" rel="self" type="application/rss+xml" /><item>
+    <title>Hacking Defense Note</title>
+    <link>https://Peacewalker365.github.io/hackspaining/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+        <name>PceWlkr</name>
+    </author><guid>https://Peacewalker365.github.io/hackspaining/</guid>
+    <description><![CDATA[https://www.hacksplaining.com/lessons
 SQL Injection Harm Extract sensitive information, like Social Security numbers, or credit card details. Enumerate the authentication details of users registered on a website, so these logins can be used in attacks on other sites. Delete data or drop tables, corrupting the database, and making the website unusable. Inject further malicious code to be executed when users visit the site.
-Parameterized Statements Make sure that the parameters passed into SQL statements are treated in a safe manner.</description>
-    </item>
-    
-  </channel>
+Parameterized Statements Make sure that the parameters passed into SQL statements are treated in a safe manner.]]></description>
+</item></channel>
 </rss>
