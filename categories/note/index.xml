@@ -16,22 +16,6 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/docker_cn/</guid>
     <description><![CDATA[Docker 容器操作 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 docker version #版本信息 docker info #系统信息 docker images # 可选项 -a --all #列出所有镜像 -q --quiet #只显示镜像的id，-aq常用]]></description>
 </item><item>
-    <title>Git vs SVN</title>
-    <link>https://Peacewalker365.github.io/git-vs-svn/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/git-vs-svn/</guid>
-    <description><![CDATA[Git vs SVN 版本控制，版本迭代。 GIt and SVN SVN是集中式的版本控制系统，版本库在中央服务器，首先要从中央服务器更新到最新的版本才可以开发。必须联网，对]]></description>
-</item><item>
-    <title>How to Speak</title>
-    <link>https://Peacewalker365.github.io/how-to-speak/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/how-to-speak/</guid>
-    <description><![CDATA[How to Speak &ndash;by Patrick Winston How to Start A joke? &ndash; Not recommended.
-The reason is while the others are not quite concentrate on the talk, your joke may just fall flat.
-A Promise? &ndash; Great idea
-e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you don&rsquo;t know now, and something among those will make a difference in your life.&rdquo;
-4 Samples Cycle the Subjects You&rsquo;ll need to talk about the subject multiple times with different approaches, or people will not remember.]]></description>
-</item><item>
     <title>HTML5</title>
     <link>https://Peacewalker365.github.io/html5-cn/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -50,12 +34,6 @@ e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/maven/</guid>
     <description><![CDATA[浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri]]></description>
 </item><item>
-    <title>Serialization</title>
-    <link>https://Peacewalker365.github.io/serialization-java/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/serialization-java/</guid>
-    <description><![CDATA[Serialization and Deserialization in Java What 把Java对象转换为字节序列的过程&mdash;&mdash;&mdash;&ndash;&gt; 序列化 把字节序列恢复为Java]]></description>
-</item><item>
     <title>Spring5</title>
     <link>https://Peacewalker365.github.io/spring5/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -67,5 +45,34 @@ e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-pattern-cn/</guid>
     <description><![CDATA[设计模式 Watch the Video Watch the Video2 设计模式： 模式名称 问题，或应用范围 解决方案 效果及其权衡（优缺点） 创建型模式： 单例模式， 工厂模式，抽象工厂模式，建造者模式]]></description>
+</item><item>
+    <title>Design Patterns</title>
+    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
+Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
+SOLID Design Principles S: Single-responsibility principle
+O: Open-closed principle
+L: Liskov&rsquo;s substitution principle]]></description>
+</item><item>
+    <title>Docker</title>
+    <link>https://Peacewalker365.github.io/docker/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/docker/</guid>
+    <description><![CDATA[Why Docker? Your proj can only run on your machine but not others.
+ One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
+HYPERVISORS  VitualBox VMware Hyper-v (win only)  Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)  Arch of Docker Installing 1 2 3 4 5  # docs.]]></description>
+</item><item>
+    <title>Karp-Rabin</title>
+    <link>https://Peacewalker365.github.io/table-doubling-karp-rabin/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/table-doubling-karp-rabin/</guid>
+    <description><![CDATA[Table Doubling, Karp-Rabin how to choose m?
+  want m = Θ(n) =&gt; 𝛼 = Θ(1)
+  Idea: start small: m = 8
+ grow/shrink as necessary If m &gt; n, grow a table  make table of size m' build new hash f' rehash insert them in new table T' Θ(n+m+m')      in the case above
+ if m' = m + 1  the cost of n insert is Θ(1+2+3+&hellip;+n) = Θ(n2)   if m' = 2m Oh, Golden  cost of n insert is Θ(1+2+4+8+&hellip;+n) = Θ(n)      Table Doubling =&gt; Amortization]]></description>
 </item></channel>
 </rss>

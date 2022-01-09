@@ -4,30 +4,10 @@
         <link>https://Peacewalker365.github.io/tags/network/</link>
         <description>Network - Tag - myStack</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/network/" rel="self" type="application/rss+xml" /><item>
-    <title>FTP</title>
-    <link>https://Peacewalker365.github.io/ftp-sftp-tftp/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/ftp-sftp-tftp/</guid>
-    <description><![CDATA[FTP, SFTP, TFTP FTP (File Transfer Protocol) FTP is the lang that computers use to transfer files over a TCP/IP network. You can use web browser to upload and download files. For example, you can go to ftp.example.com and browse the files.
-SFTP FTP with a secure layer added.
-Notice FTP&amp;SFTP are based on TCP so the delivery is secured.
-TFTP (Trivial) It mainly used to transfer file in local network.]]></description>
-</item><item>
     <title>SSHD Setup</title>
     <link>https://Peacewalker365.github.io/sshd-setup/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/sshd-setup/</guid>
     <description><![CDATA[SSHD Setup  Install openssh-server sudo apt-get install openssh-server Check if the sshd service is running ps -e | grep sshd If not, sudo /etc/init.d/ssh start  If it&rsquo;s for your LAN, then you may want to setup the static IP for your server  Check your current ip ifconfig en0 Check current gateway  For macOS user: netstat -nr | grep default For Linux user: ip route | grep default     Notice that the sshd will start automatically on boot.]]></description>
-</item><item>
-    <title>Static IP Setup</title>
-    <link>https://Peacewalker365.github.io/set-up-static-ip/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/set-up-static-ip/</guid>
-    <description><![CDATA[#Solve the Prob: No Internet After Static IP Setup
-The reason is that we didn&rsquo;t manually set up the DNS. So you may Ping 8.8.8.8 successfully, but not a regular website.
-sudo nano /etc/resolvconf/resolv.conf.d/head
-Write nameserver x.x.x.x y.y.y.y z.z.z.z
-Then reboot.
-This should solve your problem.]]></description>
 </item></channel>
 </rss>
