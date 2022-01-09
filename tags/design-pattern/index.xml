@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Design Pattern - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/design-pattern/</link>
+        <description>Design Pattern - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/design-pattern/" rel="self" type="application/rss+xml" /><item>
+    <title>设计模式</title>
+    <link>https://Peacewalker365.github.io/design-pattern-cn/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-pattern-cn/</guid>
+    <description><![CDATA[设计模式 Watch the Video Watch the Video2 设计模式： 模式名称 问题，或应用范围 解决方案 效果及其权衡（优缺点） 创建型模式： 单例模式， 工厂模式，抽象工厂模式，建造者模式]]></description>
+</item><item>
+    <title>Design Patterns</title>
+    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
+Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
+SOLID Design Principles S: Single-responsibility principle
+O: Open-closed principle
+L: Liskov&rsquo;s substitution principle]]></description>
+</item></channel>
+</rss>

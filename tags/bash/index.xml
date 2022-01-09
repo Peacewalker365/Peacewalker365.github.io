@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Bash - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/bash/</link>
+        <description>Bash - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/bash/" rel="self" type="application/rss+xml" /><item>
+    <title>Calculator in Bash</title>
+    <link>https://Peacewalker365.github.io/calculator/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/calculator/</guid>
+    <description><![CDATA[#!/bin/bash #Command line calculator Ver0.1
+read -t 30 -p &ldquo;Please enter the first operand: &quot; num1 read -t 30 -p &ldquo;Please enter the operator: &quot; op read -t 30 -p &ldquo;Please enter the second operand: &quot; num2
+if [ -n &ldquo;$num1&rdquo; -a -n &ldquo;$num2&rdquo; -a -n &ldquo;$op&rdquo; ] then ifInt1=$(echo $num1 | sed ' s/[0-9]//g') ifInt2=$(echo $num2 | sed ' s/[0-9]//g')
+if [ &quot;$ifInt1&quot; == &quot;&quot; -a -z &quot;$ifInt2&quot; ] then if [ &quot;$op&quot; == &quot;+&quot; ] then result=$(($num1 + $num2)) elif [ &quot;$op&quot; == &quot;-&quot; ] then result=$(($num1 - $num2)) elif [ &quot;$op&quot; == &quot;*&quot; ] then result=$(($num1 * $num2)) elif [ &quot;$op&quot; == &quot;/&quot; ] then result=$(($num1 / $num2)) else echo &quot;Please enter a valid operator&quot; exit 11 fi else echo &quot;Please enter valid operands&quot; exit 11 fi  else echo &ldquo;Please assign all 3 variables properly&rdquo; exit 11 fi]]></description>
+</item></channel>
+</rss>
