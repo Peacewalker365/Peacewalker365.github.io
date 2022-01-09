@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>C# - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/c#/</link>
+        <description>C# - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/c#/" rel="self" type="application/rss+xml" /><item>
+    <title>C# Advanced</title>
+    <link>https://Peacewalker365.github.io/c#-advanced/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/c#-advanced/</guid>
+    <description><![CDATA[C# advanced Delegate 委托 vs 接口 委托可以解决的问题，接口也可以 什么时候更适合用委托？ 接口只能定义一个方法 需要多播能力 订阅者需要多次实现接口 委托的兼容性 委托类]]></description>
+</item></channel>
+</rss>

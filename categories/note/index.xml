@@ -46,33 +46,25 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-pattern-cn/</guid>
     <description><![CDATA[设计模式 Watch the Video Watch the Video2 设计模式： 模式名称 问题，或应用范围 解决方案 效果及其权衡（优缺点） 创建型模式： 单例模式， 工厂模式，抽象工厂模式，建造者模式]]></description>
 </item><item>
-    <title>Design Patterns</title>
-    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <title>Advice for Solo Dev</title>
+    <link>https://Peacewalker365.github.io/advice/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
-    <description><![CDATA[Design Patterns For OOL Terms Association
-Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
-Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
-SOLID Design Principles S: Single-responsibility principle
-O: Open-closed principle
-L: Liskov&rsquo;s substitution principle]]></description>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/advice/</guid>
+    <description><![CDATA[Advice Read book for learning in depth
+Learn and talk to successful people (in terms of indie dev, not the money)
+ Your friends may not know your field, though they may support you mentally or the otherwise Don&rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
+ The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&rsquo;s your problem?]]></description>
 </item><item>
-    <title>Docker</title>
-    <link>https://Peacewalker365.github.io/docker/</link>
+    <title>Bellman Ford</title>
+    <link>https://Peacewalker365.github.io/bellman-ford/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/docker/</guid>
-    <description><![CDATA[Why Docker? Your proj can only run on your machine but not others.
- One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
-HYPERVISORS  VitualBox VMware Hyper-v (win only)  Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)  Arch of Docker Installing 1 2 3 4 5  # docs.]]></description>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/bellman-ford/</guid>
+    <description><![CDATA[Bellman-Ford Generic S.P. Algo review  Complexity could be exponential time (even for +ve weights) might not even terminate if there is a -ve weight cycle reachable from the source  Bellman-Ford(G,W,s) to solve prob 2 above 1 2 3 4 5 6 7  Initialize() for i=1 to |v|-1 for each edge(u,v)∈E Relax(u,v,w) for each edge(u,v)∈E if d[v] &gt; d[u] + w(u,v) then report -ve cycle exists    O(VE) Correctness  Theorem: If G = (V,E) contains no -ve weight cycles then after B-F executes, d[v] = ẟ[s,v] for all v∈V Corollary: If a value d[v] fails to converge after |v|-1 passes, there exists a -ve weight cycle reachable from s Proof by induction  Proof      Notice B-F algo doesn&rsquo;t sovle the -ve cycle but give an option to abort for the sake of termination]]></description>
 </item><item>
-    <title>Karp-Rabin</title>
-    <link>https://Peacewalker365.github.io/table-doubling-karp-rabin/</link>
+    <title>BFS</title>
+    <link>https://Peacewalker365.github.io/breadth-first-search-bfs/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/table-doubling-karp-rabin/</guid>
-    <description><![CDATA[Table Doubling, Karp-Rabin how to choose m?
-  want m = Θ(n) =&gt; 𝛼 = Θ(1)
-  Idea: start small: m = 8
- grow/shrink as necessary If m &gt; n, grow a table  make table of size m' build new hash f' rehash insert them in new table T' Θ(n+m+m')      in the case above
- if m' = m + 1  the cost of n insert is Θ(1+2+3+&hellip;+n) = Θ(n2)   if m' = 2m Oh, Golden  cost of n insert is Θ(1+2+4+8+&hellip;+n) = Θ(n)      Table Doubling =&gt; Amortization]]></description>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/breadth-first-search-bfs/</guid>
+    <description><![CDATA[Breadth-First Search (BFS) Basic Graph Review Graph search  find paths from one state to another  Recall: graph G = (V,E)  V = set of vertices E = set of edges  undirected e = {v,w} unordered pairs directed e = (v,w) ordered pairs    Aplications of graph search  web crawling social networking (search the friend near you than friends of a friend) network broadcast garbage collection model checking check mathematical conj.]]></description>
 </item></channel>
 </rss>
