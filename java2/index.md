@@ -5,13 +5,14 @@ JAVA
 
 **Java_Ternary Conditional Operator**
 
+```java
 String name = "Jessie";
 
 int i = name.equals("Jessie") ? 1 : 3;
 
 //If true, i = 1. If false, i = 3.
 
-
+```
 
 **ava_Continue**
 
@@ -21,6 +22,8 @@ it in the current loop and then enter the next time of the loop.
 
 
 **Java_toString() and deepToString()**
+
+```java
 
 Array a = {1,2,3,4,4,5,6,7,4,3,2,3};
 
@@ -41,12 +44,13 @@ System.out.println(Array.toString(b));
 //{1,2,3,4},{4,5,6,7,4,3,2,3}
 
 //You'll get two addresses of the inner arraies.
-
+```
 
 
 
 **Java_sort() and parallelSort()**
 
+```java
 int[] grades = {4,3,7,6,1,5,2};
 
 Array.sort(grades);
@@ -54,11 +58,12 @@ Array.sort(grades);
 System.out.println(Array.toString(grades));
 
 //{1,2,3,4,5,6,7}
-
+```
 
 
 **Java_Array.equals(a, b) .fill(a, value) .asList(a)**
 
+```java
 int[] grades1 = {1,2,3,4,123};
 
 int[] grades2 = {1,2,3,4,123};
@@ -94,7 +99,7 @@ if(Array.equals(grades1, grades2)) {
 //.fill(a, val) fill every index of the array a with the val.
 
 //.asList(a) returns a list.
-
+```
 
 **Notice**
 
@@ -109,6 +114,7 @@ array.
 
 Plz see "Issue of moving data from one array to another"
 
+```java
 // Why every element in the array list is the last one, which is the card object when i = 0.
 
 public static ArrayList initialization() {
@@ -159,7 +165,7 @@ return cardDB;
 
 }
 
-
+```
 
 
 
@@ -172,6 +178,7 @@ return cardDB;
 **Notice**
 
 When you want to use a condition like the following:
+```java
 
 while (string.equals(null))
 
@@ -184,5 +191,5 @@ Please revise it as:
 
 while(string == null)
 
-
+```
 
