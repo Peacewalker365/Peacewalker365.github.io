@@ -149,7 +149,7 @@ We have to consider cache replacement. Specifically, when we are installing a ne
 
 #### A Real TLB Entry
 
-![MISP TLB Entry.png](img/MISP TLB Entry.png)
+![MISP TLB Entry.png](img/MISP_TLB_Entry.png)
 
 G is the global bit indicating whether the page is global shared among processes. Thus if global bit is set, the ASID is ignored.
 
@@ -204,7 +204,7 @@ However, the problem is that if we have a large but sparsely-used heap. This wil
 It turns the linear page table like a tree.
 We use **page directory** to find the valid page tables.
 
-![Multi-level Page Tables](img/Multi-level Page Tables.png)
+![Multi-level Page Tables](img/Multi-level_Page_Tables.png)
 
 The page directory, in a simple two-level table, contains of a number of **PDE**(page directory entry).
 
@@ -223,11 +223,11 @@ So there is a **time-space trade-off**. Smaller cache is faster but not for free
 
 ![PDE](img/PDE.png)
 
-![Page Directory and Page of PT](img/Page Directory and Page of PT.png)
+![Page Directory and Page of PT](img/Page_Directory_and_Page_of_PT.png)
 
 #### More Than Two Levels
 
-![More than two levels](img/More than two levels.png)
+![More than two levels](img/More_than_two_levels.png)
 
 #### IMPORTANT: The PDT's PA will be stored in a register, but it does not mean that the addr of PDT has to be in a fixed PA, it just has to be memorized.
 
@@ -247,7 +247,7 @@ Then the OS need to remember the disk address of a given page.
 
 The size of the swap space is important since it determines the maximum number of memory pages that can be in use by a system in a ginven time.
 
-![Physical Memory and Swap Space](img/Physical Memory and Swap Space.png)
+![Physical Memory and Swap Space](img/Physical_Memory_and_Swap_Space.png)
 
 #### The Present Bit
 

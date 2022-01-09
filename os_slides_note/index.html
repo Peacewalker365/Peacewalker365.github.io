@@ -37,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/Peacewalker365.github.io\/os_slides_note\/"
-        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "OS","wordcount":  4259 ,
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "OS","wordcount":  4240 ,
         "url": "https:\/\/Peacewalker365.github.io\/os_slides_note\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
@@ -153,7 +153,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4259 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4240 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;20 minutes&nbsp;<span id="/os_slides_note/" class="leancloud_visitors" data-flag-title="OS 2">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
                     </span>&nbsp;<span id="/os_slides_note/" class="comment_count" data-flag-title="OS 2">
@@ -630,7 +630,14 @@ End of interrupt handler calls thread_switch()
 when resumed, return from handler resumes kernel thread or uer process.
 Thus, processor context is saved/restored twice.(once by thread switch, and once by interrupt handler)</li>
 </ol>
-<p>![After an interrupt at x86](img/After an interrupt at x86.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/After_an_interrupt_at_x86.png"
+        data-srcset="img/After_an_interrupt_at_x86.png, img/After_an_interrupt_at_x86.png 1.5x, img/After_an_interrupt_at_x86.png 2x"
+        data-sizes="auto"
+        alt="img/After_an_interrupt_at_x86.png"
+        title="After an interrupt at x86"
+    /></p>
 <p>It seems that we need to do sth like in the yield(), call the scheduler to run to give us a chosen pcb and call swith(), in the switch() we use iret after popad.</p>
 <p>However, think about this. Since you are already in an interrupt, we have states saved in the trap frame, on top of that we also do pushad in the swith(), which is redundant.</p>
 <p>Resuming a thread from the switch() which is also interrupted let the resumed thread start at the interrupt handler, which will next do the popad again followed by an iret.</p>
@@ -928,10 +935,8 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 <h2 id="lecture-20-ordering-condition-variable">Lecture 20 Ordering, Condition Variable</h2>
 <p><strong>IMPORTANT</strong>, <strong>EXAM</strong>:</p>
 <ul>
-<li>
-<p>why should we release the lock in suspend() rather than in the acquire() after waiting.add()</p>
-<ul>
-<li>
+<li>why should we release the lock in suspend() rather than in the acquire() after waiting.add()</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -944,12 +949,8 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 </span><span class="c1">// So when get resumed, it kind of walking back the time. Since the pointer to the code section may still point to somewhere it has executed in the past.
 </span></code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>Exam may ask where the lastest timing we can put the release()</p>
-</li>
-</ul>
-</li>
+</div><ul>
+<li>Exam may ask where the lastest timing we can put the release()</li>
 </ul>
 <h3 id="ordering">Ordering</h3>
 <p>we can do thread_join() for every thread</p>
@@ -1008,9 +1009,12 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 </span><span class="lnt">42
 </span><span class="lnt">43
 </span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Consumer
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++">
+<span class="c1">// Consumer
 </span><span class="c1"></span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">tryget</span><span class="p">()))</span> <span class="p">{</span>
   
 <span class="p">}</span>
@@ -1054,7 +1058,8 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 <span class="p">}</span>
       
 <span class="c1">// need to have separate waiting queues for differnent conditions of interest
-</span></code></pre></td></tr></table>
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
 </div>
 </div><p>Should we assume the condition is right after being waken up.</p>
 <p>NO!! Since other threads may take over in between right after the thread was woken up.</p>
@@ -1285,8 +1290,8 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 </li>
 <li>
 <p>Wait MUST be in a loop</p>
-<ul>
-<li>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1299,9 +1304,7 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-</li>
+</div><ul>
 <li>
 <p>simplified implementation</p>
 <ul>
@@ -1448,12 +1451,26 @@ Thus, processor context is saved/restored twice.(once by thread switch, and once
 <p>The init val determines the behavior of the semaphore in subsequent use</p>
 <h4 id="using-sem-for-mutual-exclusion">Using Sem for Mutual Exclusion</h4>
 <p>Sem.init(1)</p>
-<p>![Sem for Mutual Exclusion](img/Sem for Mutual Exclusion.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/Sem_for_Mutual_Exclusion.png"
+        data-srcset="img/Sem_for_Mutual_Exclusion.png, img/Sem_for_Mutual_Exclusion.png 1.5x, img/Sem_for_Mutual_Exclusion.png 2x"
+        data-sizes="auto"
+        alt="img/Sem_for_Mutual_Exclusion.png"
+        title="Sem for Mutual Exclusion"
+    /></p>
 <p>EXAM: how to implement sth in Semaphore!</p>
 <p>The atomic means the whole things have to be atomic. From sem operations to wake up funciont and increment/decrement are all atomic!</p>
 <p>When we use with a init of 1, we call it binary sem, since it works like a lock.</p>
 <h4 id="using-sem-for-ordering">Using Sem for Ordering</h4>
-<p>![Sem for Ordering](img/Sem for Ordering.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/Sem_for_Ordering.png"
+        data-srcset="img/Sem_for_Ordering.png, img/Sem_for_Ordering.png 1.5x, img/Sem_for_Ordering.png 2x"
+        data-sizes="auto"
+        alt="img/Sem_for_Ordering.png"
+        title="Sem for Ordering"
+    /></p>
 <h5 id="why-you-cant-do-sem_mutexp-first">why you can&rsquo;t do sem_mutex.P() first?</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -266,7 +266,7 @@ The popad will add those random vals into the stack but it doesn't matter since 
     when resumed, return from handler resumes kernel thread or uer process.
     Thus, processor context is saved/restored twice.(once by thread switch, and once by interrupt handler)
 
-![After an interrupt at x86](img/After an interrupt at x86.png)
+![After an interrupt at x86](img/After_an_interrupt_at_x86.png)
 
 It seems that we need to do sth like in the yield(), call the scheduler to run to give us a chosen pcb and call swith(), in the switch() we use iret after popad.
 
@@ -485,13 +485,13 @@ Sched::makeReady(TCB* thread) {
 
 - why should we release the lock in suspend() rather than in the acquire() after waiting.add()
 
-  - ```c++
-    // If we release the spinLock right after the waiting.add(), we will fail to keep the consistency. Other thread may get in and put that thread we just added in to the waiting list in the ready list.
-    // And since the state update and switch() does not get to run, the vals of the TCB get put in the ready list is stale.
-    // So when get resumed, it kind of walking back the time. Since the pointer to the code section may still point to somewhere it has executed in the past.
-    ```
+```c++
+// If we release the spinLock right after the waiting.add(), we will fail to keep the consistency. Other thread may get in and put that thread we just added in to the waiting list in the ready list.
+// And since the state update and switch() does not get to run, the vals of the TCB get put in the ready list is stale.
+// So when get resumed, it kind of walking back the time. Since the pointer to the code section may still point to somewhere it has executed in the past.
+```
 
-  - Exam may ask where the lastest timing we can put the release()
+- Exam may ask where the lastest timing we can put the release()
 
 ### Ordering
 
@@ -511,6 +511,7 @@ thread_join() is like a waiting list to synchronize all threads
 ##### implementation
 
 ```c++
+
 // Consumer
 while(!(item=tryget())) {
   
@@ -555,6 +556,7 @@ tryput(item) {
 }
       
 // need to have separate waiting queues for differnent conditions of interest
+
 ```
 
 Should we assume the condition is right after being waken up.
@@ -697,11 +699,11 @@ pre/post CV
 
 - Wait MUST be in a loop
 
-  - ```c++
-    while(needToWait()) {
-      condition.Wait(&lock);
-    }
-    ```
+```c++
+while(needToWait()) {
+  condition.Wait(&lock);
+}
+```
 
 - simplified implementation
 
@@ -799,7 +801,7 @@ The init val determines the behavior of the semaphore in subsequent use
 
 Sem.init(1)
 
-![Sem for Mutual Exclusion](img/Sem for Mutual Exclusion.png)
+![Sem for Mutual Exclusion](img/Sem_for_Mutual_Exclusion.png)
 
 
 EXAM: how to implement sth in Semaphore!
@@ -810,7 +812,7 @@ When we use with a init of 1, we call it binary sem, since it works like a lock.
 
 #### Using Sem for Ordering
 
-![Sem for Ordering](img/Sem for Ordering.png)
+![Sem for Ordering](img/Sem_for_Ordering.png)
 
 ##### why you can't do sem_mutex.P() first?
 ```c++

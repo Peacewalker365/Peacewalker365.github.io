@@ -114,7 +114,7 @@ Edit the newsite to register the datanode001 on WinSCP like before.
 
 Go the terminal to check if things are there.
 
-![VM Network](img/VM Network.png)
+![VM Network](img/VM_Network.png)
 
 ## Add a DNS to your VMI
 

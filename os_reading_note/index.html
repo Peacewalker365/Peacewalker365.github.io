@@ -43,7 +43,7 @@ Paging also gives us the simplicity of free-space management that paging affords
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/Peacewalker365.github.io\/os_reading_note\/"
-        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "OS","wordcount":  4002 ,
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "OS","wordcount":  3965 ,
         "url": "https:\/\/Peacewalker365.github.io\/os_reading_note\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
@@ -159,7 +159,7 @@ Paging also gives us the simplicity of free-space management that paging affords
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4002 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3965 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;19 minutes&nbsp;<span id="/os_reading_note/" class="leancloud_visitors" data-flag-title="OS">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
                     </span>&nbsp;<span id="/os_reading_note/" class="comment_count" data-flag-title="OS">
@@ -378,7 +378,14 @@ The OS indexes the array by the virtual page number, and looks up the page-table
 <li>Random policy &ndash;&gt; avoid corner-case behaviors + simplicity</li>
 </ol>
 <h4 id="a-real-tlb-entry">A Real TLB Entry</h4>
-<p>![MISP TLB Entry.png](img/MISP TLB Entry.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/MISP_TLB_Entry.png"
+        data-srcset="img/MISP_TLB_Entry.png, img/MISP_TLB_Entry.png 1.5x, img/MISP_TLB_Entry.png 2x"
+        data-sizes="auto"
+        alt="img/MISP_TLB_Entry.png"
+        title="MISP TLB Entry.png"
+    /></p>
 <p>G is the global bit indicating whether the page is global shared among processes. Thus if global bit is set, the ASID is ignored.</p>
 <p>C is the coherence bits indicating how a page is cached by the hardware.</p>
 <p>D is the dirty bit indicating whether the page has been written to. (notice that this is the Intel&rsquo;s way of implementation.)</p>
@@ -406,7 +413,14 @@ Seg | VPN | Offset</p>
 <h4 id="multi-level-page-tables">Multi-level Page Tables</h4>
 <p>It turns the linear page table like a tree.
 We use <strong>page directory</strong> to find the valid page tables.</p>
-<p>![Multi-level Page Tables](img/Multi-level Page Tables.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/Multi-level_Page_Tables.png"
+        data-srcset="img/Multi-level_Page_Tables.png, img/Multi-level_Page_Tables.png 1.5x, img/Multi-level_Page_Tables.png 2x"
+        data-sizes="auto"
+        alt="img/Multi-level_Page_Tables.png"
+        title="Multi-level Page Tables"
+    /></p>
 <p>The page directory, in a simple two-level table, contains of a number of <strong>PDE</strong>(page directory entry).</p>
 <p>A PDE has a valid bit and a PFN, similar to PTE. However, the valid bit in PDE indcates whether at least one of the PTEs on the page pointed to by this PDE is valid. If the PDE is not valid, then the rest of the PDE is not defined. (The valid bit is the first bit in PDE)</p>
 <h5 id="advantage">Advantage:</h5>
@@ -425,9 +439,23 @@ We use <strong>page directory</strong> to find the valid page tables.</p>
         alt="img/PDE.png"
         title="PDE"
     /></p>
-<p>![Page Directory and Page of PT](img/Page Directory and Page of PT.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/Page_Directory_and_Page_of_PT.png"
+        data-srcset="img/Page_Directory_and_Page_of_PT.png, img/Page_Directory_and_Page_of_PT.png 1.5x, img/Page_Directory_and_Page_of_PT.png 2x"
+        data-sizes="auto"
+        alt="img/Page_Directory_and_Page_of_PT.png"
+        title="Page Directory and Page of PT"
+    /></p>
 <h4 id="more-than-two-levels">More Than Two Levels</h4>
-<p>![More than two levels](img/More than two levels.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/More_than_two_levels.png"
+        data-srcset="img/More_than_two_levels.png, img/More_than_two_levels.png 1.5x, img/More_than_two_levels.png 2x"
+        data-sizes="auto"
+        alt="img/More_than_two_levels.png"
+        title="More than two levels"
+    /></p>
 <h4 id="important-the-pdts-pa-will-be-stored-in-a-register-but-it-does-not-mean-that-the-addr-of-pdt-has-to-be-in-a-fixed-pa-it-just-has-to-be-memorized">IMPORTANT: The PDT&rsquo;s PA will be stored in a register, but it does not mean that the addr of PDT has to be in a fixed PA, it just has to be memorized.</h4>
 <h4 id="inverted-page-tables">Inverted Page Tables</h4>
 <p><strong>Inverted page tables</strong> are even more space saving.</p>
@@ -437,7 +465,14 @@ We use <strong>page directory</strong> to find the valid page tables.</p>
 <p>Firstly, we need to reserve some space on the disk for moving pages back and forth.</p>
 <p>Then the OS need to remember the disk address of a given page.</p>
 <p>The size of the swap space is important since it determines the maximum number of memory pages that can be in use by a system in a ginven time.</p>
-<p>![Physical Memory and Swap Space](img/Physical Memory and Swap Space.png)</p>
+<p><img
+        class="lazyload"
+        data-src="img/Physical_Memory_and_Swap_Space.png"
+        data-srcset="img/Physical_Memory_and_Swap_Space.png, img/Physical_Memory_and_Swap_Space.png 1.5x, img/Physical_Memory_and_Swap_Space.png 2x"
+        data-sizes="auto"
+        alt="img/Physical_Memory_and_Swap_Space.png"
+        title="Physical Memory and Swap Space"
+    /></p>
 <h4 id="the-present-bit">The Present Bit</h4>
 <p>The hardware first extract the VPN from the VA, the check the TLB for a match. If a miss, the hardware locates the PDT and corresponding page tables and look up the PTE, and the present bit on the PTE is 0, it means that the page is not in physical memory, which is commonly referred to as a <strong>page fault</strong>.</p>
 <p>Nowadays not only swapping will trigger page fault but also illegal memory accesses and so on. It becomes a more general term for &ldquo;page missing&rdquo;.</p>
