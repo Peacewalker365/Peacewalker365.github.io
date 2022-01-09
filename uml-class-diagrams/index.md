@@ -1,4 +1,4 @@
-# UML Note
+# UML
 
 # UML Class Diagrams
 

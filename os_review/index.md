@@ -1,4 +1,4 @@
-# OS Review Note
+# OS Review
 
 von Neumann Architecture (realization of Turing Machine)
 

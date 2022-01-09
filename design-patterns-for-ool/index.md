@@ -1,4 +1,4 @@
-# Design Patterns For OOL
+# Design Patterns
 
 # Design Patterns For OOL
 

@@ -1,4 +1,4 @@
-# Virtual Memory and Concurrency Note 2
+# OS 2
 
 #### Memory Sharing
 - can we share memory between processors?

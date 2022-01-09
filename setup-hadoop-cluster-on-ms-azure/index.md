@@ -1,4 +1,4 @@
-# Hadoop Cluster Setup
+# Hadoop Setup
 
 # Report: Setup Hadoop Cluster on MS Azure
 

@@ -1,14 +1,19 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Git - Tag - myStack</title>
+        <title>git - Tag - myStack</title>
         <link>https://Peacewalker365.github.io/tags/git/</link>
-        <description>Git - Tag - myStack</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+        <description>git - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>Git vs SVN</title>
+    <link>https://Peacewalker365.github.io/git-vs-svn/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/git-vs-svn/</guid>
+    <description><![CDATA[Git vs SVN 版本控制，版本迭代。 GIt and SVN SVN是集中式的版本控制系统，版本库在中央服务器，首先要从中央服务器更新到最新的版本才可以开发。必须联网，对]]></description>
+</item><item>
     <title>Git Review</title>
     <link>https://Peacewalker365.github.io/gitreview/</link>
-    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-        <name>PceWlkr</name>
-    </author><guid>https://Peacewalker365.github.io/gitreview/</guid>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/gitreview/</guid>
     <description><![CDATA[Git First Run 1 2 3 4 5 6 7 8 9 10 11 12 13 #need sudo /etc/gitconfig git config --system #work on all git repos of the current user, ~/.gitconfig 或 ~/.config/git/config git config --global #this is by default. If you are at a git repo, this r/w .git/config for this repo git config --local #每一个级别会覆盖上一级别]]></description>
 </item></channel>
 </rss>
