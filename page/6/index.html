@@ -147,57 +147,72 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/sshd-setup/">SSHD Setup</a>
+        <a href="/open-addressing-cryptographic-hashing/">Hashing 2</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">SSHD Setup  Install openssh-server sudo apt-get install openssh-server Check if the sshd service is running ps -e | grep sshd If not, sudo /etc/init.d/ssh start  If it&rsquo;s for your LAN, then you may want to setup the static IP for your server  Check your current ip ifconfig en0 Check current gateway  For macOS user: netstat -nr | grep default For Linux user: ip route | grep default     Notice that the sshd will start automatically on boot.</div><div class="post-footer">
-        <a href="/sshd-setup/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/network/">Network</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/swift_note/">Swift</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Swift Optional Pointer ~&gt; is as closure 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31  let coffee: [String] = [&#34;Cappuccino&#34;, &#34;Espresso&#34;, &#34;Latte&#34;, &#34;Ristretto&#34;] // normal func backward(_ n1: String, _ n2: String) -&gt; Bool { return n1 &gt; n2 } var reverseOrder = coffee.sorted(by: backward) /* RESULT: [&#34;Ristretto&#34;, &#34;Latte&#34;, &#34;Espresso&#34;, &#34;Cappuccino&#34;] */ // inline reverseOrder = coffee.</div><div class="post-footer">
-        <a href="/swift_note/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/swift/">Swift</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/topics-in-algorithms-research/">Topics in Algorithm Research</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Topics in Algorithms Research Heometric folding algorithm  folding a crease pattern -&gt; NP-complete design a crease pattern from a folded shape -&gt; P   </div><div class="post-footer">
-        <a href="/topics-in-algorithms-research/">Read more...</a><div class="post-tags">
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Open Addressing, Cryptographic Hashing Open Addressing  no chaining one item per slot =&gt; m ≥ n where m is the # of slot and n is the # of keys  Probing   Hash function specifies order of slots to probe for a key (for insert/search/delete)
+  h: U x {0,1,&hellip;,m-1} -&gt; {0,1,&hellip;,m-1}
+ U is universe of keys first {} is the trial count the latter {} is the slot in table we want to design a function h, with the property that for all k in U:  h(k,1), h(k,2),&hellip;,h(k,m-1)  k is an arbitrary key to be permutation of 0,1,&hellip;,m-1 i.</div><div class="post-footer">
+        <a href="/open-addressing-cryptographic-hashing/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/uml-class-diagrams/">UML</a>
+        <a href="/java/">Java 2</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">UML Class Diagrams Introduction In object-oriented programming, it&rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
-Basic Class Diagram Consider the following UML class diagram:
-The diagram consists of a rectangle broken up vertically into three sections:
-  Class name. In this case, the fully qualified name of the class is given.</div><div class="post-footer">
-        <a href="/uml-class-diagrams/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/uml/">UML</a></div></div>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Java 可变参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public void show(String ... strs){ System.out.println(&#34;sths&#34;); } public void show(String str){ System.out.println(&#34;sth&#34;); } //public void show(String[] strs){} 冲突 /* Test test = new Test(); test.show(&#34;hey&#34;); 此时调用的是后者 因为它更加确定 */ 可变个数形参的格</div><div class="post-footer">
+        <a href="/java/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/java/">Java</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/vim/">Vim</a>
+        <a href="/java2/">Java 3</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Termial Oriented Programming Some Useful Info https://vim-adventures.com/
-This is a game for vim beginner.
-https://www.destroyallsoftware.com/screencasts
-This is an amazing guy introducing the power of the terminal.
-Doing everything in one terminal window is powerful.
-Jobs Control jobs
-ps
-fg
-bg
-fg %1
-kill %2
-kill -9 24153
-./some_codes.sh &amp;
-ctrl + z to suspend the current job including when you are in the Vim
-ctrl + c to kill the current job</div><div class="post-footer">
-        <a href="/vim/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">Vim</a></div></div>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">JAVA
+Java_Ternary Conditional Operator
+String name = &ldquo;Jessie&rdquo;;
+int i = name.equals(&ldquo;Jessie&rdquo;) ? 1 : 3;
+//If true, i = 1. If false, i = 3.
+ava_Continue
+//Different from break that let the program jump out of a loop, continue will skip the code after it in the current loop and then enter the next time of the loop.
+Java_toString() and deepToString()
+Array a = {1,2,3,4,4,5,6,7,4,3,2,3};
+System.out.println(a);
+//You&rsquo;ll get the address of a.</div><div class="post-footer">
+        <a href="/java2/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/java/">Java</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/javascript/">JavaScript</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">JS Let/Const 1 2 3 4 5 6 7 8 9 10 11  function sayHello() { for (var i = 0; i &lt; 5; i++) { console.log(i); } console.log(i); } sayHello();   problem with var: the scope! To solve this problem, we have let.
+Scope var -&gt; function let -&gt; block const -&gt; block
+1 2 3 4 5 6 7 8 9 10 11  const person = { name: &#39;Mosh&#39;, walk: function() {}, talk() {} //neat way }; person.</div><div class="post-footer">
+        <a href="/javascript/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">JavaScript</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/integer-arithmetic-karatsuba-multiplication/">Karatsuba Multiplication</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Integer Arithmetic, Karatsuba Multiplication Irrationals Catalan numbers (cardinality of the set)  Set P of balanced parentheses strings  𝜆 ∈ P (𝜆 is the empty string) if 𝛂,𝛃 ∈ P, then (𝛂)𝛃 ∈ P we can get every nonempty balanced paren string via Rule 2 from unique 𝛂,𝛃 pair  (())()() obtained by 𝛂=() 𝛃=()()   Enumeration  Cn: number of balanced paren strings with exactly n pairs of parens C0 = 1 as the base case (empty string) C1 = 1 C2 = C0C1 + C1C0 = 2 Cn+1 = ∑CkCn-k n ≥ 0 from k = 0 to n      Newton&rsquo;s Method  say you have y = f(x) and we want to find root of f(x) = 0 through successive approx f(x) = x2 - a [Explaination]([https://amsi.</div><div class="post-footer">
+        <a href="/integer-arithmetic-karatsuba-multiplication/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/table-doubling-karp-rabin/">Karp-Rabin</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Table Doubling, Karp-Rabin how to choose m?
+  want m = Θ(n) =&gt; 𝛼 = Θ(1)
+  Idea: start small: m = 8
+ grow/shrink as necessary If m &gt; n, grow a table  make table of size m' build new hash f' rehash insert them in new table T' Θ(n+m+m')      in the case above
+ if m' = m + 1  the cost of n insert is Θ(1+2+3+&hellip;+n) = Θ(n2)   if m' = 2m Oh, Golden  cost of n insert is Θ(1+2+4+8+&hellip;+n) = Θ(n)      Table Doubling =&gt; Amortization</div><div class="post-footer">
+        <a href="/table-doubling-karp-rabin/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/linux/">Linux</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Linux Installation VMware Partition Editior 主分区最多只能有4个 扩展分区只能有一个 主分区加扩展分区只能有4个 扩展分区不能写入数据 只能包含逻辑分区 逻辑分区内可以写入数据 格式化（</div><div class="post-footer">
+        <a href="/linux/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">Linux</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -215,6 +230,18 @@ ctrl + c to kill the current job</div><div class="post-footer">
                 </li><li class="page-item active">
                     <span class="page-link">
                         <a href="/page/6/">6</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/7/">7</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/8/">8</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/9/">9</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">

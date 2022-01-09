@@ -9,5 +9,27 @@
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/javase/</guid>
     <description><![CDATA[JavaSE Environment variable: set JAVA_HOME to the addr of install java Then add %JAVA_HOME%/bin to path. We do so to let Tomcat to recognize the java dir by looking at the JAVA_HOME .java -&gt; javac.exe -&gt; .class -&gt; java.exe -&gt; result bytecode file .class has the name of the class name in .java javac HelloWorld.java then java HelloWorldClassName 1 2 3 4 5 class HelloWorldClassName { public static void main(String[]]]></description>
+</item><item>
+    <title>Java 2</title>
+    <link>https://Peacewalker365.github.io/java/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/java/</guid>
+    <description><![CDATA[Java 可变参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public void show(String ... strs){ System.out.println(&#34;sths&#34;); } public void show(String str){ System.out.println(&#34;sth&#34;); } //public void show(String[] strs){} 冲突 /* Test test = new Test(); test.show(&#34;hey&#34;); 此时调用的是后者 因为它更加确定 */ 可变个数形参的格]]></description>
+</item><item>
+    <title>Java 3</title>
+    <link>https://Peacewalker365.github.io/java2/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/java2/</guid>
+    <description><![CDATA[JAVA
+Java_Ternary Conditional Operator
+String name = &ldquo;Jessie&rdquo;;
+int i = name.equals(&ldquo;Jessie&rdquo;) ? 1 : 3;
+//If true, i = 1. If false, i = 3.
+ava_Continue
+//Different from break that let the program jump out of a loop, continue will skip the code after it in the current loop and then enter the next time of the loop.
+Java_toString() and deepToString()
+Array a = {1,2,3,4,4,5,6,7,4,3,2,3};
+System.out.println(a);
+//You&rsquo;ll get the address of a.]]></description>
 </item></channel>
 </rss>

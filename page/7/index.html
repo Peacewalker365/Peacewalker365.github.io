@@ -147,65 +147,79 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/single-source-shortest-paths-problem/">Single-Source Shortest Paths Problem</a>
+        <a href="/square-roots-newtons-method/">Newton&#39;s Method</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Single-Source Shortest Paths Problem Motivation G(V,E,W) where V is the vertices, E is the edges, W is the weights
-Dijkstra (for non-negative weight edges)  O(VlgV + E) where E = O(V2)  Bellmen-Ford  O(VE)  Weighted graphs   path p = &lt; v0, v1,&hellip;, vk&gt;
-( vi, vi+1 ) ∈ E for 0 ≤ i &lt; k
-w(p) = ∑w( vi, vi+1 ) from 0 to k-1</div><div class="post-footer">
-        <a href="/single-source-shortest-paths-problem/">Read more...</a><div class="post-tags">
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Square Roots, Newton&rsquo;s Method Square Roots  recall the sqrt(2) problem
+xi+1 = (xi + a/xi) / 2
+Notice the division in it
+that&rsquo;s what we&rsquo;ll settle down  Error Analysis of Newton&rsquo;s Method  xn = √a (1 + 𝛆n) 𝛆n may +/-
+xn+1 = ( √a ( 1 + 𝛆n ) + a / ( √a ( 1 + 𝛆n ) ) / 2
+= ( √a ( 1 + 𝛆n ) + 1 / ( 1 + 𝛆n ) ) / 2</div><div class="post-footer">
+        <a href="/square-roots-newtons-method/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/sql/">SQL</a>
+        <a href="/speeding-up-dijkstra/">Optimized Dijkstra</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">SQL Intro DB is any collection of related info Computer is great for storing databases DBMS is the software to create, maintain, and secure a database. SQL is a language DBMS allow you to perform the CRUD operations and other administrative tasks Two types of DB, Relational and Non-Relational Relational DB use SQL and store data in tables with rows and columes Non-Relational data store data using other data structures</div><div class="post-footer">
-        <a href="/sql/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sql/">SQL</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/sshd-setup/">SSHD Setup</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">SSHD Setup  Install openssh-server sudo apt-get install openssh-server Check if the sshd service is running ps -e | grep sshd If not, sudo /etc/init.d/ssh start  If it&rsquo;s for your LAN, then you may want to setup the static IP for your server  Check your current ip ifconfig en0 Check current gateway  For macOS user: netstat -nr | grep default For Linux user: ip route | grep default     Notice that the sshd will start automatically on boot.</div><div class="post-footer">
-        <a href="/sshd-setup/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/network/">Network</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/set-up-static-ip/">Static IP Setup</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">#Solve the Prob: No Internet After Static IP Setup
-The reason is that we didn&rsquo;t manually set up the DNS. So you may Ping 8.8.8.8 successfully, but not a regular website.
-sudo nano /etc/resolvconf/resolv.conf.d/head
-Write nameserver x.x.x.x y.y.y.y z.z.z.z
-Then reboot.
-This should solve your problem.</div><div class="post-footer">
-        <a href="/set-up-static-ip/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/network/">Network</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/swift_note/">Swift</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Swift Optional Pointer ~&gt; is as closure 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31  let coffee: [String] = [&#34;Cappuccino&#34;, &#34;Espresso&#34;, &#34;Latte&#34;, &#34;Ristretto&#34;] // normal func backward(_ n1: String, _ n2: String) -&gt; Bool { return n1 &gt; n2 } var reverseOrder = coffee.sorted(by: backward) /* RESULT: [&#34;Ristretto&#34;, &#34;Latte&#34;, &#34;Espresso&#34;, &#34;Cappuccino&#34;] */ // inline reverseOrder = coffee.</div><div class="post-footer">
-        <a href="/swift_note/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/swift/">Swift</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/topics-in-algorithms-research/">Topics in Algorithm Research</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Topics in Algorithms Research Heometric folding algorithm  folding a crease pattern -&gt; NP-complete design a crease pattern from a folded shape -&gt; P   </div><div class="post-footer">
-        <a href="/topics-in-algorithms-research/">Read more...</a><div class="post-tags">
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Speeding up Dijkstra Optimize Dijkstra Single-Source, single target: s -&gt; t 1 2 3 4 5 6  Initialize() where d[s] = 0 d[u≠s] = ∞ Q &lt;- V[a] while Q ≠ 𝜑 do u &lt;- EXTRACT-MIN(Q) for each vertex v∈Adj[u] do Relax(u,v,w)   you can add (stop if u == t) rather than quit until Q is null to accelerate it
+Bi-Directional Search Alternate forward search from s and backward search from t, and we sorts of doubles all the data structures, like we have Qf and Qb, df[u] and db[u] &hellip;</div><div class="post-footer">
+        <a href="/speeding-up-dijkstra/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/uml-class-diagrams/">UML</a>
+        <a href="/os_reading_note/">OS</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">UML Class Diagrams Introduction In object-oriented programming, it&rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
-Basic Class Diagram Consider the following UML class diagram:
-The diagram consists of a rectangle broken up vertically into three sections:
-  Class name. In this case, the fully qualified name of the class is given.</div><div class="post-footer">
-        <a href="/uml-class-diagrams/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/uml/">UML</a></div></div>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
+Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
+Paging gives us flexibility so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
+Paging also gives us the simplicity of free-space management that paging affords.</div><div class="post-footer">
+        <a href="/os_reading_note/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/os_slides_note/">OS 2</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!</div><div class="post-footer">
+        <a href="/os_slides_note/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/persistence/">OS 3</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">persistence Closer to the CPU, faster
+CPU&ndash;Mem&ndash;Graphics&ndash;
+canonical protocol for programmed I/O Interface:
+statue: busy or not
+command
+data
+internal:
+CPU
+MEM
+other chips
+Q should the program running in kernel or user mode?
+in kernel.
+you don&rsquo;t want the user level program to touch the devices directly, since devices are shared bewteen processes. Device doesn&rsquo;t not have any protection from other processes. It can change the data on behalf of anyone.</div><div class="post-footer">
+        <a href="/persistence/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/os_review/">OS Review</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">von Neumann Architecture (realization of Turing Machine)
+What are programs?   Process – a running program
+  To allow for running multiple processes, a running program must be able to be interrupted
+  OS provides a virtualization of CPUs, so each program can assume they have their “own” virtual CPU at its disposal
+  Memory Space of a Program   A variable of a program corresponds to a location in memory</div><div class="post-footer">
+        <a href="/os_review/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/pitfalls/">Pitfalls in C</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">关于C的函数套娃！以下为错误案例！ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 void LevelOne(Obj* ptr) {LevelTwo(ptr)} void LevelTwo(Obj* ptr){...} {LevelThree(&amp;ptr)} void LevelThree(Obj** ptr){...} {......} int main(void) { Object* ptr = BuildObjArr(); LevelOne(ptr); } 上述code中，我们试图在第三层</div><div class="post-footer">
+        <a href="/pitfalls/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c/">C</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -227,6 +241,10 @@ The diagram consists of a rectangle broken up vertically into three sections:
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/8/">8</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/9/">9</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">
