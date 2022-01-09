@@ -4,12 +4,6 @@
         <link>https://Peacewalker365.github.io/tags/c&#43;&#43;/</link>
         <description>C&#43;&#43; - Tag - myStack</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
-    <title>C&#43;&#43;</title>
-    <link>https://Peacewalker365.github.io/c-self-learn/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/c-self-learn/</guid>
-    <description><![CDATA[C++ self-learn gdb/lldb Key Words  const  New in C++ String basic 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  #include &lt;string&gt;using namespace std; int main() { string str1; string str2 = &#34;init&#34;; string str3(&#34;init&#34;); string str4{&#34;init&#34;}; string str = &#34;This is a test!&#34;; char c = str.at(0); str.substr(3,6) //s is a  int thisIndex = str.find(&#34;This&#34;); str.]]></description>
-</item><item>
     <title>C&#43;&#43; Review</title>
     <link>https://Peacewalker365.github.io/c-review/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>

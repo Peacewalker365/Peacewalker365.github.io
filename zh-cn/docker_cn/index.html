@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Docker - myStack</title><meta name="Description" content="Hugo DoIt 主题官方文档"><meta property="og:title" content="Docker" />
+<meta property="og:description" content="Docker 容器操作 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 docker version #版本信息 docker info #系统信息 docker images # 可选项 -a --all #列出所有镜像 -q --quiet #只显示镜像的id，-aq常用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/zh-cn/docker_cn/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-09T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="Docker 容器操作 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 docker version #版本信息 docker info #系统信息 docker images # 可选项 -a --all #列出所有镜像 -q --quiet #只显示镜像的id，-aq常用"/>
+<meta name="application-name" content="DoIt">
+<meta name="apple-mobile-web-app-title" content="DoIt">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/zh-cn/docker_cn/" /><link rel="prev" href="https://Peacewalker365.github.io/zh-cn/html5-cn/" /><link rel="next" href="https://Peacewalker365.github.io/zh-cn/css-cn/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
+    
+    
+    
+    <meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/zh-cn\/docker_cn\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "Docker","wordcount":  1633 ,
+        "url": "https:\/\/Peacewalker365.github.io\/zh-cn\/docker_cn\/","datePublished": "2022-01-09T00:00:00+00:00","dateModified": "2022-01-09T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
+                    "@type": "Person",
+                    "name": "PceWlkr"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/series/"> 系列 </a><a class="menu-item" href="/zh-cn/authors/"> 作者 </a><a class="menu-item" href="/zh-cn/showcase/"> 作品 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/HEIGE-PCloud/DoIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/docker_cn/">English</option><option value="/zh-cn/docker_cn/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/series/" title="">系列</a><a class="menu-item" href="/zh-cn/authors/" title="">作者</a><a class="menu-item" href="/zh-cn/showcase/" title="">作品</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/HEIGE-PCloud/DoIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/docker_cn/">English</option><option value="/zh-cn/docker_cn/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/zh-cn/authors/pcewlkr'>PceWlkr</a></span>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/note/"><i class="far fa-folder fa-fw"></i>笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-09">2022-01-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-09">2022-01-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1633 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/zh-cn/docker_cn/" class="leancloud_visitors" data-flag-title="Docker">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;次阅读
+                    </span>&nbsp;<span id="/zh-cn/docker_cn/" class="comment_count" data-flag-title="Docker">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;条评论
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#容器操作">容器操作</a>
+      <ul>
+        <li><a href="#下载容器">下载容器</a></li>
+        <li><a href="#查看容器">查看容器</a></li>
+        <li><a href="#启动容器">启动容器</a></li>
+        <li><a href="#端口映射">端口映射</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改容器内容">修改容器内容</a>
+      <ul>
+        <li><a href="#修改内部内容">修改内部内容</a></li>
+        <li><a href="#提交改变">提交改变</a></li>
+        <li><a href="#镜像保存">镜像保存</a></li>
+        <li><a href="#挂载数据外部修改">挂载数据外部修改</a></li>
+        <li><a href="#其他">其他</a></li>
+      </ul>
+    </li>
+    <li><a href="#进阶实战">进阶实战</a>
+      <ul>
+        <li><a href="#编写自己的应用">编写自己的应用</a></li>
+        <li><a href="#部署redis">部署redis</a></li>
+        <li><a href="#将应用打包成镜像">将应用打包成镜像</a>
+          <ul>
+            <li><a href="#以前的步骤">以前的步骤</a></li>
+            <li><a href="#现在">现在</a></li>
+            <li><a href="#how----dockerfile">How? &ndash;&gt; Dockerfile</a></li>
+          </ul>
+        </li>
+        <li><a href="#将镜像上传仓库">将镜像上传仓库</a></li>
+        <li><a href="#在其他机器上pull-and-run">在其他机器上pull and run</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="docker">Docker</h1>
+<h2 id="容器操作">容器操作</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker version <span class="c1">#版本信息</span>
+docker info <span class="c1">#系统信息</span>
+
+docker images
+<span class="c1"># 可选项</span>
+-a --all <span class="c1">#列出所有镜像</span>
+-q --quiet <span class="c1">#只显示镜像的id，-aq常用</span>
+
+docker search &lt;name&gt;
+docker search mysql
+<span class="c1"># 可选项</span>
+--filter<span class="o">=</span><span class="nv">STARS</span><span class="o">=</span><span class="m">3000</span> <span class="c1">#stars大于3000的</span>
+
+docker pull &lt;name:tag&gt;
+<span class="c1">#不写tag，默认latest</span>
+<span class="c1">#分层下载</span>
+
+docker rmi -f &lt;id&gt;
+docker rmi -f <span class="k">$(</span>docker images -aq<span class="k">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=11" target="_blank" rel="noopener noreffer">docker tutorial</a></p>
+<p><a href="https://www.bilibili.com/video/BV1kv411q7Qc/" target="_blank" rel="noopener noreffer">advanced</a></p>
+<h3 id="下载容器">下载容器</h3>
+<p>installation omitted</p>
+<p>设置开机启动</p>
+<p>Go to dockerhub</p>
+<p>find nginx</p>
+<p><code>docker pull nginx</code></p>
+<p>or</p>
+<p><code>docker pull nginx:1.20.1</code></p>
+<p><code>docker pull redis:6.2.4</code></p>
+<h3 id="查看容器">查看容器</h3>
+<p>下载来的镜像都在本地</p>
+<p><code>docker images</code> 查看镜像</p>
+<p><code>docker rmi redis</code> 删除redis镜像，这里redis = redis:latest</p>
+<p><code>docker rmi 镜像名:版本号/镜像uid</code></p>
+<h3 id="启动容器">启动容器</h3>
+<p>启动nginx容器（应用容器，映射88端口）</p>
+<p><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></p>
+<p>一般docker run [OPTIONS] IMAGE就够了 因为剩下的一般有default setting</p>
+<p><code>docker run --name=my_nginx -d nginx</code> -d后台运行 -name设置名字 &ndash;restart=always 开机自启动</p>
+<p>如果一开始没有设置好，我们也可以更新容器的设置项:</p>
+<p><code>docker update my_nginx --restart=always</code></p>
+<p><code>docker ps -a</code>  查看所有容器 去掉-a查看运行中的容器</p>
+<p><code>docker rm &lt;ID/name&gt;</code> 移除不在运行的容器，加-f可强行移除运行中的容器</p>
+<p><code>docker stop &lt;ID/name&gt;</code> 停掉容器</p>
+<h3 id="端口映射">端口映射</h3>
+<p>把容器端口映射到公网IP端口</p>
+<p>update不能修改端口，所以需要先删除</p>
+<p><code>docker rm -f my_nginx</code></p>
+<p>然后重新启动：</p>
+<p><code>docker run --name=my_nginx -d --restart=always -p 88:80 nginx</code> 把公网88端口映射到容器80端口</p>
+<p>如果部署在云服务上，一定要设置安全组规则使端口88能够访问！</p>
+<h2 id="修改容器内容">修改容器内容</h2>
+<h3 id="修改内部内容">修改内部内容</h3>
+<p><code>docker exec -it 341d87f8940f /bin/bash</code>以交互模式启动</p>
+<p>所以我们进入了容器内的linux环境的bash终端</p>
+<p>具体怎么修改 参照dockerhub对应页面的doc</p>
+<p><code>echo &lt;h1&gt; Welcome to my Nginx&lt;/h1&gt; &gt; index.html</code></p>
+<p><code>exit</code></p>
+<p><code>docker ps</code></p>
+<h3 id="提交改变">提交改变</h3>
+<p><code>docker commit -a &quot;author-name&quot; -m &quot;commit msg here&quot; &lt;ID&gt; edited_nginx:v1.0</code></p>
+<p>把更改的容器提交成新的镜像edited_nginx</p>
+<p><code>docker run -d -p 88:80 edited_nginx:v1.0</code></p>
+<h3 id="镜像保存">镜像保存</h3>
+<p>如何把镜像给到另一台机器</p>
+<ul>
+<li>镜像传输
+<ul>
+<li><code>docker save -o name.tar edited_nginx:v1.0</code> 镜像打包成压缩包</li>
+<li>通过ssh scp传输 或者sftp等</li>
+<li><code>docker load -i name.tar</code>读取压缩包</li>
+<li><code>docker images</code></li>
+<li><code>docker run -d -p 88:80 edited_nginx:v1.0</code></li>
+</ul>
+</li>
+<li>推送到远程仓库
+<ul>
+<li>去dockerhub创建一个nginx仓库（在你的用户名下）</li>
+<li><code>docker tag nginx:v1.0 name/nginx:v1.0</code> 把镜像名字改成需要的名字（加上repo-name）</li>
+<li><code>docker login</code></li>
+<li><code>docker push name/nginx:v1.0</code></li>
+<li><code>docker logout</code></li>
+<li>其他机器使用<code>docker pull</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="挂载数据外部修改">挂载数据外部修改</h3>
+<p><code>docker run -d -p 88:80 nginx</code></p>
+<p>修改时每次都要进去，繁琐</p>
+<p>假设 nginx的页面藏在/usr/share/nginx/html</p>
+<p>我们能不能把它跟本地的文件关联？</p>
+<p><code>docker run --name my_nginx -d -p 88:80 -v /data/html:/usr/share/nginx/html:ro nginx</code> ro就是只读，这个意思是在容器内部只读，在外部仍然可以改</p>
+<p>注意这时候很可能/data/html是空的，所以容器的那些也是空的</p>
+<p><code>echo &quot;something to show&quot; &gt; /data/html/index.html</code></p>
+<h3 id="其他">其他</h3>
+<p><code>docker logs &lt;id&gt;</code> 查看日志，助于排查错误</p>
+<p><code>docker exec -it &lt;id/name&gt; /bin/bash</code> 交互模式 并进入控制台</p>
+<p><code> vi /etc/nginx/nginx.conf</code>  然后可以进入修改配置文件</p>
+<p>当然，如果经常要修改的配置文件，可以挂载出来，外部修改</p>
+<p><code>-v</code>是可以挂载多个目标的，空格隔开即可</p>
+<p>另外，我们可以将其他容器的文件拷贝出来或者拷贝进其他容器</p>
+<p><code>docker cp &lt;id&gt;:/etc/nginx/nginx.conf /data/conf/nginx.conf</code></p>
+<p>然后在挂载之后，内部配置同步成为外部复制好的配置</p>
+<h2 id="进阶实战">进阶实战</h2>
+<h3 id="编写自己的应用">编写自己的应用</h3>
+<p>spring.io</p>
+<h3 id="部署redis">部署redis</h3>
+<p><code>docker pull redis</code></p>
+<p>我们希望把redis的 redis.conf和/data挂载出来</p>
+<p>并且在docker run命令后面追加redis command去启用使用自定义配置文件启动</p>
+<p><code>docker --name my_redis -d -v /data/redis/redis.conf:/etc/redis/redis.conf -v /data/redis/data:/data -p 6379:6379 run redis:latest redis-server /usr/local/etc/redis/redis.conf</code></p>
+<p>如果映射到了公网，一定要给redis配置账户密码，以防编程矿机。</p>
+<p>修改redis.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">appendonly yes
+requirepass password_here
+</code></pre></td></tr></table>
+</div>
+</div><p><code>docker restart my_redis</code></p>
+<h3 id="将应用打包成镜像">将应用打包成镜像</h3>
+<h4 id="以前的步骤">以前的步骤</h4>
+<ul>
+<li>用springBoot打包成可执行jar包 (<code>java -jar name.jar</code>来执行jar进行检查)</li>
+<li>把jar包上传服务器</li>
+<li>服务器运行java -jar &lt;文件名&gt;</li>
+</ul>
+<h4 id="现在">现在</h4>
+<p>所有机器都安装docker，任何应用都是镜像，所有的机器都能运行。</p>
+<h4 id="how----dockerfile">How? &ndash;&gt; Dockerfile</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> openjdk:8-jdk-slim</span><span class="err">
+</span><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span>author_name_here
+
+<span class="k">COPY</span> target/java-demo-0.0.1-SNAPSHOT.jar /app.jar<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;java&#34;</span><span class="p">,</span> <span class="s2">&#34;-jar&#34;</span><span class="p">,</span> <span class="s2">&#34;/app.jar&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>FROM</code>后面是基础环境，这里是jdk8的版本</p>
+<p><code>LABEL</code> 后面是写维护者的名字</p>
+<p><code>COPY</code>是从一个本地目录拷贝到一个容器内的目录，上面是从本地target下的一个文件拷贝到了容器中的根目录下</p>
+<p><code>ENTRYPOINT</code>后面是命令，每一个命令要隔开</p>
+<p><code>docker build -t java-demo:v1.0 .</code></p>
+<p>. 指在当前目录下工作，Dockerfile里面的path都以此为根据</p>
+<p>-t 后面是tag</p>
+<p>如果构建文件不叫Dockerfile，则加上 -f 文件名</p>
+<p><code>docker run -d -p 8080:8080 java-demo:v1.0</code></p>
+<p>多用<code>docker ps</code>检查几遍，因为有问题的话，一般几秒之后就停了。</p>
+<h3 id="将镜像上传仓库">将镜像上传仓库</h3>
+<h3 id="在其他机器上pull-and-run">在其他机器上pull and run</h3>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar_trans.png"
+        data-srcset="/avatar_trans.png, /avatar_trans.png 1.5x, /avatar_trans.png 2x"
+        data-sizes="auto"
+        alt="/avatar_trans.png"
+        title="/avatar_trans.png"
+    /></div><p class="sponsor-bio"><em>如果你觉得这篇文章对你有所帮助，欢迎赞赏~</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/PceWlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/docker_cn/index.md" target="_blank" rel="noopener noreferrer">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/" data-title="Docker" data-hashtags="Docker"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/" data-hashtag="Docker"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/" data-title="Docker" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/" data-title="Docker"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/" data-title="Docker"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/zh-cn/docker_cn/" data-title="Docker"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-cn/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/html5-cn/" class="prev" rel="prev" title="HTML5"><i class="fas fa-angle-left fa-fw"></i>HTML5</a>
+            <a href="/zh-cn/css-cn/" class="next" rel="next" title="CSS">CSS<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/lunr/lunr.min.08a93c0120364b01159db3c287f39b2180bb740334472bda0675bd3f18981676.js" integrity="sha256-CKk8ASA2SwEVnbPCh/ObIYC7dAM0RyvaBnW9PxiYFnY="></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.115461812ca5b093f9bcc2f15d2693a6c90e8fe38dabf2375e5f18e1c348d97c.js" integrity="sha256-EVRhgSylsJP5vMLxXSaTpskOj&#43;ONq/I3Xl8Y4cNI2Xw="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.b3aab24bd69b746d28f433f4a82ecfa1556a75ba5ef9f4caa2bcc7ab8d327c14.js" integrity="sha256-s6qyS9abdG0o9DP0qC7PoVVqdbpe&#43;fTKorzHq40yfBQ="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://twikoo-comment-ochre.vercel.app/","lang":"zh-cn"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4=" defer></script><script type="text/javascript" src="/js/twikoo.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>

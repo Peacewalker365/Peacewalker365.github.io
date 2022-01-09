@@ -29,10 +29,33 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/categories/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/tags/communication/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/css/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/css-cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/design-pattern/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://Peacewalker365.github.io/tags/css/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/css/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/css/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/css-cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/css-cn/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/css-cn/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/design-pattern/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/design-pattern/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/design-pattern/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/tags/docker/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -42,18 +65,87 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/tags/docker/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/docker_cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/git/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/git-vs-svn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/how-to-speak/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/html5/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/html5-cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/hyukoh/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/java/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/javase/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/maven/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/maven/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/categories/music/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://Peacewalker365.github.io/docker_cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/docker_cn/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/docker_cn/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/html5/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/html5/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/html5/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/html5-cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/html5-cn/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/html5-cn/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/hyukoh/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/hyukoh/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/hyukoh/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/java/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/java/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/java/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/javase/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/javase/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/javase/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/maven/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/maven/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/maven/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/maven/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/maven/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/maven/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/categories/music/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/categories/music/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/categories/music/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -90,8 +182,24 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/posts/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/tags/spring5/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/spring5/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://Peacewalker365.github.io/tags/spring5/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/spring5/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/spring5/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/spring5/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/spring5/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/spring5/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/tags/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -101,8 +209,24 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/tags/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/wing-wing-lyrics/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Peacewalker365.github.io/design-pattern-cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://Peacewalker365.github.io/wing-wing-lyrics/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/wing-wing-lyrics/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/wing-wing-lyrics/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/design-pattern-cn/</loc><lastmod>2022-01-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/design-pattern-cn/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/design-pattern-cn/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/tags/advice/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -121,20 +245,96 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/advice/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/tags/algorithm/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/bash/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/bellman-ford/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/breadth-first-search-bfs/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/c#/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/c#-advanced/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/c&#43;&#43;/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/c-self-learn/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/c-review/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/calculator/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/computational-complexity/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/design-patterns-for-ool/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/depth-first-search-dfs-topological-sort/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/dijkstra-also-check-a-algo/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://Peacewalker365.github.io/tags/algorithm/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/algorithm/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/algorithm/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/bash/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/bash/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/bash/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/bellman-ford/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/bellman-ford/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/bellman-ford/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/breadth-first-search-bfs/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/breadth-first-search-bfs/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/breadth-first-search-bfs/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/c#/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/c#/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/c#/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/c#-advanced/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/c#-advanced/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/c#-advanced/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/c&#43;&#43;/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/c&#43;&#43;/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/c&#43;&#43;/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/c-review/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/c-review/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/c-review/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/calculator/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/calculator/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/calculator/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/design-patterns-for-ool/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/design-patterns-for-ool/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/design-patterns-for-ool/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/docker/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -144,18 +344,15 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/docker/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/dynamic-programming-i-fibonacci-shortest-paths/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/dp-iii-parenthesization-edit-distance-knapsack/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/dp-iv-guitar-fingering-tetris-super-mario-bros/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/dual-boot/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/dual-boot/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/ftp-sftp-tftp/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/gitreview/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/golang/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/golang/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/hackspaining/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/hashing-with-chaining/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/table-doubling-karp-rabin/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://Peacewalker365.github.io/table-doubling-karp-rabin/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/table-doubling-karp-rabin/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/table-doubling-karp-rabin/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/tags/linux/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -174,17 +371,87 @@
                     hreflang="en"
                     href="https://Peacewalker365.github.io/linux/"
                     /></url><url>
-            <loc>https://Peacewalker365.github.io/tags/network/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/square-roots-newtons-method/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/security/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/sql/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/sql/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/sshd-setup/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/swift/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/swift_note/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/topics-in-algorithms-research/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/tags/uml/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://Peacewalker365.github.io/uml-class-diagrams/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://Peacewalker365.github.io/tags/network/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/network/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/network/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/square-roots-newtons-method/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/square-roots-newtons-method/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/square-roots-newtons-method/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/sql/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/sql/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/sql/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/sql/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/sql/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/sql/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/sshd-setup/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/sshd-setup/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/sshd-setup/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/swift/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/swift/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/swift/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/swift_note/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/swift_note/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/swift_note/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/tags/uml/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/tags/uml/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/tags/uml/"
+                    /></url><url>
+            <loc>https://Peacewalker365.github.io/uml-class-diagrams/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://Peacewalker365.github.io/zh-cn/uml-class-diagrams/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://Peacewalker365.github.io/uml-class-diagrams/"
+                    /></url><url>
             <loc>https://Peacewalker365.github.io/tags/vim/</loc><lastmod>2021-12-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
