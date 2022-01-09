@@ -117,7 +117,7 @@ Git 支持多种数据传输协议。 上面的例子使用的是 `https://` 协
 
 ## Recording Changes to the Repository
 
-![The lifecycle of the status of your files](https://git-scm.com/book/en/v2/images/lifecycle.png)
+`![The lifecycle of the status of your files](https://git-scm.com/book/en/v2/images/lifecycle.png)`
 
 ### 检查当前文件状态
 

@@ -2,8 +2,6 @@
 
 # UML Class Diagrams
 
-![Approved for: Fall 2021](https://img.shields.io/badge/Approved%20for-Fall%202021-blue)
-
 ## Introduction
 
 In object-oriented programming, it's not uncommon to visualize classes

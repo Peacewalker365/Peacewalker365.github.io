@@ -641,7 +641,7 @@ We can uses ER Diagrams to design database schemas
 - Weak Entity
 - Identifying relationship
 
-![ER Diagrams](/Users/wenchaoli/Desktop/Images/ER Diagrams.png)
+`![ER Diagrams](img/ER Diagrams.png)`
 
 
 
@@ -651,9 +651,9 @@ We can uses ER Diagrams to design database schemas
 
 #### Converting ERD to Schema
 
-![ConvertingERD](/Users/wenchaoli/Desktop/Images/ConvertingERD.png)
+`![ConvertingERD](img/ConvertingERD.png)`
 
-![ConvertedERD](/Users/wenchaoli/Desktop/Images/ConvertedERD.png)
+`![ConvertedERD](img/ConvertedERD.png)`
 
 1. mapping of regular entity types
    - For each regular entity type create a relation(table) that includes all the simple attributes of that entity
