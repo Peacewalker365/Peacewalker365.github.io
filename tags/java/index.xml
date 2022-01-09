@@ -22,7 +22,7 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/java2/</guid>
     <description><![CDATA[JAVA
 Java_Ternary Conditional Operator
-1 2 3 4 5 6  String name = &#34;Jessie&#34;; int i = name.equals(&#34;Jessie&#34;) ? 1 : 3; //If true, i = 1. If false, i = 3.    ava_Continue
+1 2 3 4 5 6  String name = &#34;Jessie&#34;; int i = name.equals(&#34;Jessie&#34;) ? 1 : 3; //If true, i = 1. If false, i = 3.    Java_Continue
 //Different from break that let the program jump out of a loop, continue will skip the code after it in the current loop and then enter the next time of the loop.
 Java_toString() and deepToString()]]></description>
 </item></channel>
