@@ -5,24 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">Pitfalls in C - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="Pitfalls in C" />
-<meta property="og:description" content="关于C的函数套娃！以下为错误案例！ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 void LevelOne(Obj* ptr) {LevelTwo(ptr)} void LevelTwo(Obj* ptr){...} {LevelThree(&amp;ptr)} void LevelThree(Obj** ptr){...} {......} int main(void) { Object* ptr = BuildObjArr(); LevelOne(ptr); } 上述code中，我们试图在第三层" />
+    <title class="pjax-title">DP 2 - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="DP 2" />
+<meta property="og:description" content="Dynamic Programming II: Text Justification, Blackjack 5 &ldquo;easy&rdquo; steps to DP  define subprob guess(part of solution) relate subprob solution (recurrence) recurse &amp; memoize or build DP table bottom-up  acyclic topo order time = #subprobs•time per subprob   solve original problem?  Note
+Text justification  split text into &ldquo;good&rdquo; lines text = list of words badness(i-j): how bad it is as words[i:j] fit a line
+if don&rsquo;t fit =&gt; infinity" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Peacewalker365.github.io/pitfalls/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-12-25T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
 
-<meta name="twitter:title" content="Pitfalls in C"/>
-<meta name="twitter:description" content="关于C的函数套娃！以下为错误案例！ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 void LevelOne(Obj* ptr) {LevelTwo(ptr)} void LevelTwo(Obj* ptr){...} {LevelThree(&amp;ptr)} void LevelThree(Obj** ptr){...} {......} int main(void) { Object* ptr = BuildObjArr(); LevelOne(ptr); } 上述code中，我们试图在第三层"/>
+<meta name="twitter:title" content="DP 2"/>
+<meta name="twitter:description" content="Dynamic Programming II: Text Justification, Blackjack 5 &ldquo;easy&rdquo; steps to DP  define subprob guess(part of solution) relate subprob solution (recurrence) recurse &amp; memoize or build DP table bottom-up  acyclic topo order time = #subprobs•time per subprob   solve original problem?  Note
+Text justification  split text into &ldquo;good&rdquo; lines text = list of words badness(i-j): how bad it is as words[i:j] fit a line
+if don&rsquo;t fit =&gt; infinity"/>
 <meta name="application-name" content="myStack">
 <meta name="apple-mobile-web-app-title" content="myStack">
 
 <meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/pitfalls/" /><link rel="prev" href="https://Peacewalker365.github.io/single-source-shortest-paths-problem/" /><link rel="next" href="https://Peacewalker365.github.io/speeding-up-dijkstra/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" /><link rel="prev" href="https://Peacewalker365.github.io/dp-iii-parenthesization-edit-distance-knapsack/" /><link rel="next" href="https://Peacewalker365.github.io/dynamic-programming-i-fibonacci-shortest-paths/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
     
@@ -32,13 +36,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Pitfalls in C",
+        "headline": "DP 2",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/Peacewalker365.github.io\/pitfalls\/"
-        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "C","wordcount":  1431 ,
-        "url": "https:\/\/Peacewalker365.github.io\/pitfalls\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/Peacewalker365.github.io\/dynamic-programming-ii-text-justification-blackjack\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "Algorithm","wordcount":  203 ,
+        "url": "https:\/\/Peacewalker365.github.io\/dynamic-programming-ii-text-justification-blackjack\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
                     "@type": "Person",
@@ -70,7 +74,7 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/pitfalls/" selected>English</option></select>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/dynamic-programming-ii-text-justification-blackjack/" selected>English</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
@@ -135,7 +139,7 @@
                     <option value="auto">Auto</option>
                 </select>
             </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/pitfalls/" selected>English</option></select>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/dynamic-programming-ii-text-justification-blackjack/" selected>English</option></select>
                 </a></div>
     </div>
 </header>
@@ -149,14 +153,14 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">Contents</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Pitfalls in C</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DP 2</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1431 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;<span id="/pitfalls/" class="leancloud_visitors" data-flag-title="Pitfalls in C">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;203 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;<span id="/dynamic-programming-ii-text-justification-blackjack/" class="leancloud_visitors" data-flag-title="DP 2">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
-                    </span>&nbsp;<span id="/pitfalls/" class="comment_count" data-flag-title="Pitfalls in C">
+                    </span>&nbsp;<span id="/dynamic-programming-ii-text-justification-blackjack/" class="comment_count" data-flag-title="DP 2">
                         <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -164,209 +168,88 @@
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>关于C的函数套娃！以下为错误案例！</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void LevelOne(Obj* ptr)
-{LevelTwo(ptr)}
-
-void LevelTwo(Obj* ptr){...}
-{LevelThree(&amp;ptr)}
-
-void LevelThree(Obj** ptr){...}
-{......}
-
-
-int main(void)
-{
-    Object* ptr = BuildObjArr();
-    
-    LevelOne(ptr);
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>上述code中，我们试图在第三层函数中对main中ptr指针本身进行修改。</p>
-<p>然而在第二层函数向第三层函数传参数时，传入的是第二层函数中（ptr的拷贝）的地址，并非main中ptr的地址，所以在第三层函数，我们操作的指针实际上是levelTwo中的ptr的内容！</p>
-<p>修改code应为</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void LevelOne(Obj** ptrptr)
-{LevelTwo(ptrptr)}
-
-void LevelTwo(Obj** ptrptr){...}
-{LevelThree(ptrptr)}
-
-void LevelThree(Obj** ptrptr){...}
-{......}
-
-
-int main(void)
-{
-    Object* ptr = BuildObjArr();
-    
-    LevelOne(&amp;ptr);
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>当然，实际的code不需要这样实现，只要层层传入的参数是main中ptr的地址即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void GetMemory( char *p )
-{
- p = (char *) malloc( 100 );
-}
-void Test( void )
-{
- char *str = NULL;
- GetMemory( str );
- strcpy( str, &#34;hello world&#34; );
- printf( str );
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>程序崩溃: 更改的是函数内的str的copy的指向，形参的改变未影响实参</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">char *GetMemory( void )
-{
- char p[] = &#34;hello world&#34;;
- return p;
-}
-void Test( void )
-{
- char *str = NULL;
- str = GetMemory();
- printf( str );
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>可能返回乱码： 因为 GetMemory 返回的是指向“栈内存”的指针，该指针的地址不是 NULL，但其原现的内容已经被清除，新内容不可知。
-p[]数组为函数内的局部自动变量,在函数返回后,内存已经被释放。这是许多程序员常犯的错误,其根源在于不理解变量的生存期</p>
-<p><em>p[0] []和</em>的优先度一定要注意 否则access的逻辑完全不同 编译器也不一定会报错 因为语法上没问题！！</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">//assign NULL to the pointer after free() to avoid wild pointer!
-free(ptr);
-ptr = NULL;
-</code></pre></td></tr></table>
-</div>
-</div><p>各种语言下的不同默认初始化值</p>
-<p>同种语言下 class struct global local的初始化默认值</p>
-<p>在struct里 不能初始化成员</p>
-<p>当对pointer所指向的对象进行操作时，边界条件一定要考虑空指针的情况，否则会出现错误！</p>
-<p>free时，也要考虑是否会free空指针！</p>
-<p>a可以被看做指向数组首地址的指针。但是！这种说法在以下两种情况下不成立：</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#dynamic-programming-ii-text-justification-blackjack">Dynamic Programming II: Text Justification, Blackjack</a>
+          <ul>
+            <li><a href="#5-easy-steps-to-dp">5 &ldquo;easy&rdquo; steps to DP</a></li>
+            <li><a href="#text-justification">Text justification</a></li>
+            <li><a href="#parent-pointers">Parent pointers</a></li>
+            <li><a href="#blackjack">Blackjack</a>
+              <ul>
+                <li><a href="#perfect-information">Perfect-information</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="dynamic-programming-ii-text-justification-blackjack">Dynamic Programming II: Text Justification, Blackjack</h3>
+<h4 id="5-easy-steps-to-dp">5 &ldquo;easy&rdquo; steps to DP</h4>
 <ol>
-<li>sizeof(a);</li>
-<li>&amp;a;</li>
+<li>define subprob</li>
+<li>guess(part of solution)</li>
+<li>relate subprob solution (recurrence)</li>
+<li>recurse &amp; memoize or build DP table bottom-up
+<ul>
+<li>acyclic</li>
+<li>topo order</li>
+<li>time = #subprobs•time per subprob</li>
+</ul>
+</li>
+<li>solve original problem?</li>
 </ol>
-<p>c语言中不允许在函数外部给全局变量赋值</p>
-<p>全局中无法用变量作为数组长度，除非用macro</p>
-<p>（一部分编译器即使变量已经在生命时初始化了也不行）</p>
-<p>注意各种遍历方式的区别和坑</p>
-<p>掌握递归与非递归的遍历</p>
-<p>怎么用 C 语言画出二叉树的图形：绘制2dbuffer？ 按层打印？ 怎么加线</p>
-<p>波兰表示法与表达式树</p>
-<p>归并排序 空间复杂度O(1)的实现方法 有没有退化 怎么实现的？（手摇算法 or 其他）</p>
-<p>路由算法</p>
-<p>双递归的进出栈</p>
-<p>解释一下双递归：（遇到双递归问题时，当第一个递归执行的时候，第二个递归并不是不执行，而是先进栈，根据顺序来，简单明了的解释就是，第一个递归你该怎么走就怎么走，完全没什么可以阻挡你，第二个递归就不同了，他是在第一个递归的基础上执行的，但不是立刻执行，而是执行递归进栈，当第一个递归完全执行技术的时候，第二个递归出栈，开始慢慢执行！）</p>
-<p>把arr为结构体数组，把arr赋值给结构体指针p，free(p)之后，arr指向的之前malloc的内存块都free了，但是p仍指向原地址，成为了野指针！记得要assign NULL!</p>
-<p>允许可独立编译单元内存在未定义的函数 不允许可独立编译单元内存在未定义存储（数据类型）！ 可独立编译单元就是指.c文件</p>
-<p>也就是说，在.h里声明一个struct 但是没有写具体定义，如果对应的.c文件没有具体定义，则编译失败，因为不清楚结构体的大小。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">switch(foo) {
-  case 1:
-    int i = 42; // i exists all the way to the end of the switch
-    dostuff(i);
-    break;
-  case 2:
-    dostuff(i*2); // i is *also* in scope here, but is not initialized!
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>报错的原因在于，switch语句中，在一个case里声明的变量，如果没有被{}包含，则在后续的cases中是可见的，但是
-they will not be initialized because the initialization code belongs to another case.</p>
-<p>In the code above, if foo equals 1, everything is ok, but if it equals 2, we&rsquo;ll accidentally use the i variable which does exist but probably contains garbage.</p>
+<p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec20.pdf" target="_blank" rel="noopener noreffer">Note</a></p>
+<h4 id="text-justification">Text justification</h4>
+<ul>
+<li>split text into &ldquo;good&rdquo; lines</li>
+<li>text = list of words</li>
+<li>badness(i-j): how bad it is as words[i:j] fit a line<br>
+if don&rsquo;t fit =&gt; infinity<br>
+otherwise (page width - total width)<sup>3</sup></li>
+<li>Goal is to have a least sum of badness
+<ol>
+<li>subprob: suffixes words[ i : ]<br>
+#subprobs: n</li>
+<li>guess: where to start 2nd line<br>
+#choices ≤ n-i = O(n)</li>
+<li>recurrence: DP(i) which is the solution of the subprob with suffixes of words{i:}<br>
+min(DP(i) = badness(i,j) + DP(j) for j in range(i+1,n+1))</li>
+<li>topological order<br>
+i = n, n-1,&hellip;,0<br>
+total time: O(n<sup>2</sup>)</li>
+<li>if original prob solved: DP(0)</li>
+</ol>
+</li>
+</ul>
+<h4 id="parent-pointers">Parent pointers</h4>
+<p>remember which guess was best</p>
+<p>parent[i] = argmin(&hellip;) = j value<br>
+0 -&gt; parent[0] -&gt; parent(parent(0))&hellip;&hellip;</p>
+<h4 id="blackjack">Blackjack</h4>
+<h5 id="perfect-information">Perfect-information</h5>
+<p>deck: C<sub>0</sub>,C<sub>1</sub>,&hellip;,C<sub>n-1</sub><br>
+player vs dealer<br>
+$1 bet/hand</p>
+<ol>
+<li>subprob: suffix C<sub>i:</sub><br>
+num of subprobs: n</li>
+<li>guess: how many hits are left?<br>
+#choices &lt; n</li>
+<li>recurrence:<br>
+BJ(i) = max(<br>
+outcome∈{-1,0,1}
+<ul>
+<li>BJ(j)  where j = i + 4 + #hits + #dealerhits<br>
+for #ofHits in range(0,n)<br>
+if valid play</li>
+</ul>
+</li>
+</ol>
 </div>
 
         <div class="sponsor">
@@ -387,23 +270,23 @@ they will not be initialized because the initialization code belongs to another 
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/pitfalls/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                            <a class="link-to-markdown" href="/dynamic-programming-ii-text-justification-blackjack/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/pitfalls/" data-title="Pitfalls in C" data-hashtags="C"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/pitfalls/" data-hashtag="C"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/pitfalls/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/pitfalls/" data-title="Pitfalls in C" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/pitfalls/" data-title="Pitfalls in C"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/pitfalls/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/pitfalls/" data-title="Pitfalls in C"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/pitfalls/" data-title="Pitfalls in C"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" data-title="DP 2" data-hashtags="Algorithm"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" data-hashtag="Algorithm"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" data-title="DP 2" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" data-title="DP 2"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" data-title="DP 2"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/dynamic-programming-ii-text-justification-blackjack/" data-title="DP 2"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c/">C</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/single-source-shortest-paths-problem/" class="prev" rel="prev" title="Single-Source Shortest Paths Problem"><i class="fas fa-angle-left fa-fw"></i>Single-Source Shortest Paths Problem</a>
-            <a href="/speeding-up-dijkstra/" class="next" rel="next" title="Optimized Dijkstra">Optimized Dijkstra<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/dp-iii-parenthesization-edit-distance-knapsack/" class="prev" rel="prev" title="DP 3"><i class="fas fa-angle-left fa-fw"></i>DP 3</a>
+            <a href="/dynamic-programming-i-fibonacci-shortest-paths/" class="next" rel="next" title="DP">DP<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="twikoo"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.

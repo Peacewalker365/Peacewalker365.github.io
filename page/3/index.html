@@ -154,30 +154,6 @@
         <a href="/breadth-first-search-bfs/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/readme/">Binary Search</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Bisection Search
-def bisect_search1(L, e):
-if L == []:
-return False
-elif len(L) == 1:
-return L[0] == e
-else:
-half = len(L)//2
-if L[half] &gt; e:
-return bisect_search1( L[:half], e)
-else:
-return bisect_search1( L[half:], e)
-O(nlgn) for this one
-It takes lgn steps until the len(L) is 1.
-In every step, it takes O(n) to copy a list.
-Revision aiming to achieve O(lgn)
-def bisect_search2(L, e):
-def bisect_search_helper(L, e, low, high):</div><div class="post-footer">
-        <a href="/readme/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/c#-advanced/">C# Advanced</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
@@ -217,6 +193,18 @@ NP = {decision problems solvable in poly time via a &ldquo;lucky&rdquo; algorith
 EXP = {problems solvable in exponential time 2nC}</div><div class="post-footer">
         <a href="/computational-complexity/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/design-patterns-for-ool/">Design Patterns</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Design Patterns For OOL Terms Association
+Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
+SOLID Design Principles S: Single-responsibility principle
+O: Open-closed principle
+L: Liskov&rsquo;s substitution principle</div><div class="post-footer">
+        <a href="/design-patterns-for-ool/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/design-pattern/">Design Pattern</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
