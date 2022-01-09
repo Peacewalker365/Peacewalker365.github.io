@@ -147,25 +147,6 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/dp-iv-guitar-fingering-tetris-super-mario-bros/">DP 4</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">DP IV: Guitar Fingering, Tetris, Super Mario Bros. 2 kinds of guessing in step 2&amp;3: guessing which subprob to use to solve bigger subprob
-in step 1: add more subprobs to guess(remember more features of the solution)
-Piano/guitar fingering given sequence of n notes, find fingering for each note(single)
- fingers 1,&hellip;, F difficulty measure d(p,f,q,g) some note p on finger f, and we want to transition to note q on finger g    subproblem = how to play notes[i:] when use f for notes[i]</div><div class="post-footer">
-        <a href="/dp-iv-guitar-fingering-tetris-super-mario-bros/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/dual-boot/">Dual Boot Tips</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Tips About Dual Boot If you are using MBR for dual boot&hellip;
-When you are installing the Linux sys, git the make a partition with a size of 1 or 2 GB to mount /boot, where saves several kernels and the booting info. This action ensures the booting of your Linux don&rsquo;t affect that of your Windows sys.
-After you install the Linux sys, in my case, the Pop OS, don&rsquo;t forget to install os-prober sudo os-prober sudo update-grub</div><div class="post-footer">
-        <a href="/dual-boot/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/dual-boot/">Dual Boot</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/ftp-sftp-tftp/">FTP</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
@@ -182,18 +163,6 @@ TFTP (Trivial) It mainly used to transfer file in local network.</div><div class
         </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Git First Run 1 2 3 4 5 6 7 8 9 10 11 12 13 #need sudo /etc/gitconfig git config --system #work on all git repos of the current user, ~/.gitconfig 或 ~/.config/git/config git config --global #this is by default. If you are at a git repo, this r/w .git/config for this repo git config --local #每一个级别会覆盖上一级别</div><div class="post-footer">
         <a href="/gitreview/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/git/">git</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/golang/">Golang</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Golang why golang
-c/c++ fast but have to carry historical burdens, slow compile
-java kinda same
-python, easy to use but slow.
-None of these are developed toward to the best performance in terms of concurrency
- Strong and staticaaly typed excellent comm. Key features  simplicity fast compile times garbage collected compile to standaline binaries(all dependencies are in there) built-in concurrency    1 2 3 4 5 6 7 8 9 10  package main // have to specify the package name  import ( &#34;fmt&#34; ) func main() { fmt.</div><div class="post-footer">
-        <a href="/golang/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/golang/">Golang</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/hackspaining/">Hacking Defense Note</a>
     </h1><div class="post-meta">
@@ -214,6 +183,30 @@ The first vm set in the group will need to generate a new key pair of SSH public
 Others can just use the SSH we had already.</div><div class="post-footer">
         <a href="/setup-hadoop-cluster-on-ms-azure/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hadoop/">Hadoop</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/hashing-with-chaining/">Hashing</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Hashing with Chaining ADT: Dictionary  Python: Dict Motivation  docdist database login system compilers &amp; interpreters network router for looking up local machines server virtual memory substring search file and directory synchronization cryptography    Simple approach
+ Direct-access table  store items in array indexed by key  it may end up wasting spaces since many indices of array are unused keys may not be integers gigantic memory hog      Solutions</div><div class="post-footer">
+        <a href="/hashing-with-chaining/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/open-addressing-cryptographic-hashing/">Hashing 2</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Open Addressing, Cryptographic Hashing Open Addressing  no chaining one item per slot =&gt; m ≥ n where m is the # of slot and n is the # of keys  Probing   Hash function specifies order of slots to probe for a key (for insert/search/delete)
+  h: U x {0,1,&hellip;,m-1} -&gt; {0,1,&hellip;,m-1}
+ U is universe of keys first {} is the trial count the latter {} is the slot in table we want to design a function h, with the property that for all k in U:  h(k,1), h(k,2),&hellip;,h(k,m-1)  k is an arbitrary key to be permutation of 0,1,&hellip;,m-1 i.</div><div class="post-footer">
+        <a href="/open-addressing-cryptographic-hashing/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/java-2/">Java 2</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Java 可变参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public void show(String ... strs){ System.out.println(&#34;sths&#34;); } public void show(String str){ System.out.println(&#34;sth&#34;); } //public void show(String[] strs){} 冲突 /* Test test = new Test(); test.show(&#34;hey&#34;); 此时调用的是后者 因为它更加确定 */ 可变个数形参的格</div><div class="post-footer">
+        <a href="/java-2/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/java/">Java</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -241,10 +234,8 @@ Others can just use the SSH we had already.</div><div class="post-footer">
                         <a href="/page/7/">7</a>
                     </span>
                 </li><li class="page-item ">
-                    <span class="page-link" aria-hidden="true">&hellip;</span>
-                </li><li class="page-item ">
                     <span class="page-link">
-                        <a href="/page/9/">9</a>
+                        <a href="/page/8/">8</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">
