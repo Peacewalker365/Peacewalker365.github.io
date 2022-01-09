@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Advice - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/advice/</link>
+        <description>Advice - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/advice/" rel="self" type="application/rss+xml" /><item>
+    <title>Advice for Solo Dev</title>
+    <link>https://Peacewalker365.github.io/advice/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/advice/</guid>
+    <description><![CDATA[Advice Read book for learning in depth
+Learn and talk to successful people (in terms of indie dev, not the money)
+ Your friends may not know your field, though they may support you mentally or the otherwise Don&rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
+ The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&rsquo;s your problem?]]></description>
+</item></channel>
+</rss>

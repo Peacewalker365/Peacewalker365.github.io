@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Maven - myStack</title><meta name="Description" content="Hugo DoIt 主题官方文档"><meta property="og:title" content="Maven" />
+<meta property="og:description" content="浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/zh-cn/maven/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-09T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="Maven"/>
+<meta name="twitter:description" content="浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri"/>
+<meta name="application-name" content="DoIt">
+<meta name="apple-mobile-web-app-title" content="DoIt">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/zh-cn/maven/" /><link rel="prev" href="https://Peacewalker365.github.io/zh-cn/spring5/" /><link rel="next" href="https://Peacewalker365.github.io/zh-cn/javase/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
+    
+    
+    
+    <meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Maven",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/zh-cn\/maven\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "Maven","wordcount":  1380 ,
+        "url": "https:\/\/Peacewalker365.github.io\/zh-cn\/maven\/","datePublished": "2022-01-09T00:00:00+00:00","dateModified": "2022-01-09T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
+                    "@type": "Person",
+                    "name": "PceWlkr"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/series/"> 系列 </a><a class="menu-item" href="/zh-cn/authors/"> 作者 </a><a class="menu-item" href="/zh-cn/showcase/"> 作品 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/HEIGE-PCloud/DoIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/maven/">English</option><option value="/zh-cn/maven/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/series/" title="">系列</a><a class="menu-item" href="/zh-cn/authors/" title="">作者</a><a class="menu-item" href="/zh-cn/showcase/" title="">作品</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/HEIGE-PCloud/DoIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/maven/">English</option><option value="/zh-cn/maven/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Maven</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/zh-cn/authors/pcewlkr'>PceWlkr</a></span>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/note/"><i class="far fa-folder fa-fw"></i>笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-09">2022-01-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-01-09">2022-01-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1380 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/zh-cn/maven/" class="leancloud_visitors" data-flag-title="Maven">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;次阅读
+                    </span>&nbsp;<span id="/zh-cn/maven/" class="comment_count" data-flag-title="Maven">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;条评论
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#pom-project-object-model">POM (Project Object Model)</a></li>
+    <li><a href="#coordinates">Coordinates</a></li>
+    <li><a href="#repo">Repo</a></li>
+    <li><a href="#dependency">Dependency</a></li>
+    <li><a href="#lifecycle">Lifecycle</a></li>
+    <li><a href="#plug-in-and-goal">Plug-in and Goal</a></li>
+    <li><a href="#advanced-dependency">Advanced Dependency</a></li>
+    <li><a href="#inheritence">Inheritence</a></li>
+    <li><a href="#aggregation">Aggregation</a></li>
+    <li><a href="#deploy">Deploy</a></li>
+    <li><a href="#the-websitehttpsmvnrepositorycom"><a href="https://mvnrepository.com/">The Website!</a></a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>浏览器
+｜
+表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP
+｜  -&gt; 控制层-&gt; Servlet/Action/Handler
+｜
+业务逻辑层(Spring IOC AOP)
+｜
+持久化层(JDBC/DBUtils/Spring JDBCTemplate/Hibernate/MyBatis)
+｜
+DB(MySQL/Oracle)</p>
+<p>目前的问题：</p>
+<ol>
+<li>一个项目就是一个工程</li>
+</ol>
+<ul>
+<li>如果一个项目非常庞大，就不适合继续使用package来划分模块。最好是每一个模块对应一个工程，利于协作分工。借助于Maven就可以将一个项目拆分成多个工程，工程之间可以互相访问沟通。</li>
+</ul>
+<ol start="2">
+<li>项目中需要的jar包必须手动复制粘贴到WEB-INF/lib目录下</li>
+</ol>
+<ul>
+<li>同样的jar包重复出现在不同的工程中。臃肿不轻巧。</li>
+<li>Maven可以让jar包仅仅保存在仓库中，让有需要的工程引用这个文件接口，不需要把jar包复制过来。</li>
+</ul>
+<ol start="3">
+<li>jar包需要别人替我们准备好或到官网下载</li>
+</ol>
+<ul>
+<li>不同技术的官网提供jar包下载的形式是五花八门的。</li>
+<li>有些技术的官网就是通过Maven或SVN等专门的工具来提供下载。</li>
+<li>如果是以非正规方式下载的jar包，内容也可能不规范。</li>
+<li>借助Maven可以用一种规范的方式下载jar包。因为所有知名框架或第三方工具的jar包以及按照统一的规范存放在了Maven的中央仓库中。</li>
+</ul>
+<ol start="4">
+<li>一个jar包的依赖需要自己手动加入到项目中</li>
+</ol>
+<h1 id="maven">Maven</h1>
+<p>clean &ndash;&gt; compile &ndash;&gt; compile-test &ndash;&gt; package &ndash;&gt; install &ndash;&gt; deploy</p>
+<ul>
+<li>clean</li>
+<li>compile</li>
+<li>test-compile</li>
+<li>package: 打包</li>
+<li>install: 将打包得到的文件安装到仓库</li>
+<li>deploy: 将动态Web工程生成的war包复制到Servlet容器的指定目录下，使其可以运行</li>
+</ul>
+<h2 id="pom-project-object-model">POM (Project Object Model)</h2>
+<p>DOM(Document Object Model)</p>
+<h2 id="coordinates">Coordinates</h2>
+<p>GAV:</p>
+<ol>
+<li>groupid: com.myteam.projectName</li>
+<li>artifactid: moduleName</li>
+<li>version: 1.0.0</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;groupId&gt;</span> org.springframework<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;version&gt;</span>4.0.0.RELEASE<span class="nt">&lt;/version&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The path of the module will be: <strong>org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar</strong></p>
+<h2 id="repo">Repo</h2>
+<ol>
+<li>
+<p>local repository: <code>~/.m2</code> by default</p>
+</li>
+<li>
+<p>remote repository</p>
+<ol>
+<li>private(LAN) &ndash;&gt; usually refer to <strong>Nexus</strong></li>
+<li>central(on Internet, for worldwide Maven services)</li>
+<li>central mirror(to release the press of central)</li>
+</ol>
+</li>
+</ol>
+<p>First check of the module is in Nexus, if not, go to Maven Central to download to Nexus.</p>
+<ul>
+<li>What&rsquo;s in the repo?
+<ul>
+<li>plug-ins of Maven</li>
+<li>jar of 3rd party tool or framework</li>
+<li>the maven project built by ourselves</li>
+</ul>
+</li>
+</ul>
+<h2 id="dependency">Dependency</h2>
+<ol>
+<li>While compiling, Maven will try to find the dependencies in local repo, it will fail if they are not there. Use install command.</li>
+<li>Scope
+<ol>
+<li>compile &ndash;&gt; main and test &ndash;&gt; will be in the package</li>
+<li>test &ndash;&gt; test &ndash;&gt; will not be in the package</li>
+<li>provided &ndash;&gt; main and test &ndash;&gt; will not be in the package (only participate development, will not participate deploy and run, for the run stage, the server will provide the module)</li>
+</ol>
+</li>
+</ol>
+<h2 id="lifecycle">Lifecycle</h2>
+<ol>
+<li>Clean Lifecycle
+<ol>
+<li>pre-clean</li>
+<li>clean</li>
+<li>post-clean</li>
+</ol>
+</li>
+<li>Default Lifecycle: core part, which responsiable for compile, test, package, install, and deploy&hellip;
+<ol>
+<li>pre-default</li>
+<li>default</li>
+<li>post-default</li>
+</ol>
+</li>
+<li>Site Lifecycle: generate project report, site, and release site
+<ol>
+<li>pre-site</li>
+<li>site</li>
+<li>post-site</li>
+</ol>
+</li>
+</ol>
+<p>We can do <code>mvn clean install site</code> for everything in one time.</p>
+<h2 id="plug-in-and-goal">Plug-in and Goal</h2>
+<table>
+<thead>
+<tr>
+<th>Lifecycle</th>
+<th>Goal</th>
+<th>Plug-in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile</td>
+<td>compile</td>
+<td>maven-compile-plugin</td>
+</tr>
+<tr>
+<td>test-compile</td>
+<td>testCompile</td>
+<td>maven-compile-plugin</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>The phases of lifecycle define the tasks to execute.</li>
+<li>The phase and the goal of plug-in is corresponding.</li>
+<li>Similar goal will use a specific plug-in to achieve.</li>
+<li>We can see goals as commands to invoke the plug-in functions.</li>
+</ol>
+<h2 id="advanced-dependency">Advanced Dependency</h2>
+<ul>
+<li>
+<p>Transitivity</p>
+<ul>
+<li>test and provided scope&rsquo;s dependencies cannot transmit</li>
+<li>A depends on X, B depends on A, then B will include X</li>
+</ul>
+</li>
+<li>
+<p>Exclude a dependency (only work in the current proj and all sub projs)</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;exclusions&gt;</span>
+    <span class="nt">&lt;exclusion&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/gourpId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/exclusion&gt;</span>
+<span class="nt">&lt;/exclusions&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>A &ndash;&gt;</th>
+<th>B &ndash;&gt;</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log4j.1.2.1?</td>
+<td>log4j.1.2.14</td>
+<td>log4j.1.2.17</td>
+</tr>
+</tbody>
+</table>
+<p>If A depends on B and B depends on C, C use 17 and B use 14, what does A use by default?
+14, since the path is nearer!</p>
+<p>A -&gt; B -&gt; log4j.1.2.14 == 2
+A -&gt; B -&gt; C -&gt; log4j.1.2.17 == 3</p>
+<p>But what if B and C have the same length of path?</p>
+<p>Then it&rsquo;s decided by the order of the declaration in A, for example, if B is declared first, then A goes with B&rsquo;s log4j&rsquo;s version.</p>
+<p>Version Managment</p>
+<p>How to upgrade to several module from version 1.0.0 to 2.0.0?</p>
+<ul>
+<li>use properties tag</li>
+<li>then reference it at where you need it</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;com.ace.spring.version&gt;</span>5.0.0.RELEASE<span class="nt">&lt;/com.ace.spring.version&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+
+...
+        <span class="nt">&lt;version&gt;</span>${com.ace.spring.version}<span class="nt">&lt;/version&gt;</span>
+...
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="inheritence">Inheritence</h2>
+<p>Case:
+A &ndash;&gt; junit4.0
+B &ndash;&gt; junit4.0
+C &ndash;&gt; junit4.9</p>
+<p>How to manage the version of all junit? (Notice that module in test scope cannot transit to others)</p>
+<ul>
+<li>Set the dependency in the higher level proj, and do not set it again in current level projs.
+<ul>
+<li>Create a Maven proj, here we call it S. (Notice: <strong>Packaging tag</strong> must be <strong>POM</strong>)</li>
+<li>Let all sub projs depends on S</li>
+<li>Delete all duplicated coordinates between proj and its super-proj S</li>
+<li>Use properties tag to manage junit</li>
+<li>Delete the junit version tag in all S' sub classes</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- This is the pom.xml in sub classes of S --&gt;</span>
+<span class="nt">&lt;parent&gt;</span>
+    <span class="c">&lt;!-- Here is the super proj&#39;s coordinate --&gt;</span>
+    <span class="nt">&lt;gourpId&gt;</span>com.ace.myProj.maven<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>Parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="c">&lt;!-- relative path starting from this proj --&gt;</span>
+    <span class="nt">&lt;relativePath&gt;</span>../Parent/pom.xml<span class="nt">&lt;/relativePath&gt;</span>
+<span class="nt">&lt;/parent&gt;</span>
+
+```xml
+<span class="c">&lt;!-- This is the pom.xml of S --&gt;</span>
+<span class="nt">&lt;dependencyManagement&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>4.9<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="aggregation">Aggregation</h2>
+<p>You have to install the super proj before install the current one!</p>
+<p>Can we have a one-stop solution?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Aggregation config --&gt;</span>
+<span class="nt">&lt;modules&gt;</span>
+    <span class="nt">&lt;module&gt;</span>../A<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;module&gt;</span>../B<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;module&gt;</span>../C<span class="nt">&lt;/module&gt;</span>
+<span class="nt">&lt;/modules&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now we can just <code>mvn install</code> under the super proj path</p>
+<p><strong>Notice</strong>: If the order doesn&rsquo;t matter since Maven will figure it out.</p>
+<h2 id="deploy">Deploy</h2>
+<p>Usually, we manually put it in Tomcat&rsquo;s dir and use command <code>catalina run</code> to deploy.</p>
+<p>But NOW!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  Special config during building  --&gt;</span>
+<span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;finalName&gt;</span>TheBigWeb<span class="nt">&lt;/finalName&gt;</span>
+
+    <span class="c">&lt;!--  plug-ins needed during building  --&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="c">&lt;!-- cargo is a company focus on booting Servlet containers --&gt;</span>
+            <span class="c">&lt;!-- https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-core-uberjar --&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.codehaus.cargo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>cargo-core-uberjar<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.9.9<span class="nt">&lt;/version&gt;</span>
+            <span class="c">&lt;!-- config for plugin --&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="c">&lt;!-- path for containers in curr sys --&gt;</span>
+                <span class="nt">&lt;container&gt;</span>
+                    <span class="nt">&lt;containerId&gt;</span>tomcat6x<span class="nt">&lt;/containerId&gt;</span>
+                    <span class="nt">&lt;home&gt;</span>~/Dev/testMavenCargoContainer<span class="nt">&lt;/home&gt;</span>
+                <span class="nt">&lt;/container&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>existing<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;home&gt;</span>~/Dev/testMavenCargoContainer<span class="nt">&lt;/home&gt;</span>
+                    <span class="c">&lt;!-- if the Tomcat port is 8080 then we do not need this --&gt;</span>
+                    <span class="nt">&lt;properties&gt;</span>
+                        <span class="nt">&lt;cargo.servlet.port&gt;</span>8989<span class="nt">&lt;/cargo.servlet.port&gt;</span>
+                    <span class="nt">&lt;/properties&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+
+            <span class="c">&lt;!-- config for when will this plugin run --&gt;</span>
+            <span class="nt">&lt;executions&gt;</span>
+                <span class="nt">&lt;execution&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>cargo-run<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;phase&gt;</span>install<span class="nt">&lt;/phase&gt;</span>
+                    <span class="nt">&lt;goals&gt;</span>
+                        <span class="nt">&lt;goal&gt;</span>run<span class="nt">&lt;/goal&gt;</span>
+                    <span class="nt">&lt;/goals&gt;</span>
+                <span class="nt">&lt;/execution&gt;</span>
+            <span class="nt">&lt;/executions&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="the-websitehttpsmvnrepositorycom"><a href="https://mvnrepository.com/" target="_blank" rel="noopener noreffer">The Website!</a></h2>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar_trans.png"
+        data-srcset="/avatar_trans.png, /avatar_trans.png 1.5x, /avatar_trans.png 2x"
+        data-sizes="auto"
+        alt="/avatar_trans.png"
+        title="/avatar_trans.png"
+    /></div><p class="sponsor-bio"><em>如果你觉得这篇文章对你有所帮助，欢迎赞赏~</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/PceWlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/maven/index.md" target="_blank" rel="noopener noreferrer">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/zh-cn/maven/" data-title="Maven" data-hashtags="Maven"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/zh-cn/maven/" data-hashtag="Maven"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/zh-cn/maven/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/zh-cn/maven/" data-title="Maven" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/zh-cn/maven/" data-title="Maven"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/zh-cn/maven/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="https://Peacewalker365.github.io/zh-cn/maven/" data-title="Maven"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/zh-cn/maven/" data-title="Maven"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-cn/tags/maven/">Maven</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/spring5/" class="prev" rel="prev" title="Spring5"><i class="fas fa-angle-left fa-fw"></i>Spring5</a>
+            <a href="/zh-cn/javase/" class="next" rel="next" title="JavaSE">JavaSE<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/lunr/lunr.min.08a93c0120364b01159db3c287f39b2180bb740334472bda0675bd3f18981676.js" integrity="sha256-CKk8ASA2SwEVnbPCh/ObIYC7dAM0RyvaBnW9PxiYFnY="></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.115461812ca5b093f9bcc2f15d2693a6c90e8fe38dabf2375e5f18e1c348d97c.js" integrity="sha256-EVRhgSylsJP5vMLxXSaTpskOj&#43;ONq/I3Xl8Y4cNI2Xw="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.b3aab24bd69b746d28f433f4a82ecfa1556a75ba5ef9f4caa2bcc7ab8d327c14.js" integrity="sha256-s6qyS9abdG0o9DP0qC7PoVVqdbpe&#43;fTKorzHq40yfBQ="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://twikoo-comment-ochre.vercel.app/","lang":"zh-cn"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4=" defer></script><script type="text/javascript" src="/js/twikoo.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>

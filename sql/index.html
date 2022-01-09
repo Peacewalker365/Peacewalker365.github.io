@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">SQL - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="SQL" />
+<meta property="og:description" content="SQL Intro DB is any collection of related info Computer is great for storing databases DBMS is the software to create, maintain, and secure a database. SQL is a language DBMS allow you to perform the CRUD operations and other administrative tasks Two types of DB, Relational and Non-Relational Relational DB use SQL and store data in tables with rows and columes Non-Relational data store data using other data structures" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/sql/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-25T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="SQL"/>
+<meta name="twitter:description" content="SQL Intro DB is any collection of related info Computer is great for storing databases DBMS is the software to create, maintain, and secure a database. SQL is a language DBMS allow you to perform the CRUD operations and other administrative tasks Two types of DB, Relational and Non-Relational Relational DB use SQL and store data in tables with rows and columes Non-Relational data store data using other data structures"/>
+<meta name="application-name" content="myStack">
+<meta name="apple-mobile-web-app-title" content="myStack">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/sql/" /><link rel="prev" href="https://Peacewalker365.github.io/sshd-setup/" /><link rel="next" href="https://Peacewalker365.github.io/software-architectural-patterns/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
+    
+    
+    
+    <meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SQL",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/sql\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "SQL","wordcount":  1530 ,
+        "url": "https:\/\/Peacewalker365.github.io\/sql\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
+                    "@type": "Person",
+                    "name": "PceWlkr"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/sql/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/showcase/" title="">Showcase</a><a class="menu-item" href="/categories/note/" title="">Notes</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/sql/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SQL</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1530 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;<span id="/sql/" class="leancloud_visitors" data-flag-title="SQL">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
+                    </span>&nbsp;<span id="/sql/" class="comment_count" data-flag-title="SQL">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#table-and-keys">Table and Keys</a></li>
+        <li><a href="#sql-basics">SQL Basics</a>
+          <ul>
+            <li><a href="#queries">Queries</a></li>
+          </ul>
+        </li>
+        <li><a href="#installment">Installment</a>
+          <ul>
+            <li><a href="#mysql">mySQL</a></li>
+            <li><a href="#popsql">PopSQL</a></li>
+          </ul>
+        </li>
+        <li><a href="#sql-1">SQL</a>
+          <ul>
+            <li><a href="#create-a-table">Create a table</a></li>
+            <li><a href="#insert-data">Insert data</a></li>
+            <li><a href="#c">C</a></li>
+            <li><a href="#update-and-delete">Update and Delete</a></li>
+            <li><a href="#basic-queries">Basic Queries</a></li>
+            <li><a href="#company-database-into">Company Database Into</a></li>
+            <li><a href="#more-basic-queries">More Basic Queries</a></li>
+            <li><a href="#function">Function</a></li>
+            <li><a href="#wildcards">Wildcards</a></li>
+            <li><a href="#union">Union</a></li>
+            <li><a href="#joins">Joins</a></li>
+            <li><a href="#nested-queries">Nested Queries</a></li>
+            <li><a href="#on-delete">On Delete</a></li>
+            <li><a href="#triggers">Triggers</a></li>
+            <li><a href="#er-diagrams-intro">ER Diagrams Intro</a></li>
+            <li><a href="#designing-an-erd">Designing an ERD</a></li>
+            <li><a href="#converting-erd-to-schema">Converting ERD to Schema</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="sql">SQL</h1>
+<h3 id="intro">Intro</h3>
+<ul>
+<li>DB is any collection of related info</li>
+<li>Computer is great for storing databases</li>
+<li>DBMS is the software to create, maintain, and secure a database.<br>
+SQL is a language</li>
+<li>DBMS allow you to perform the CRUD operations and other administrative tasks</li>
+<li>Two types of DB, Relational and Non-Relational</li>
+<li>Relational DB use SQL and store data in tables with rows and columes</li>
+<li>Non-Relational data store data using other data structures</li>
+</ul>
+<h3 id="table-and-keys">Table and Keys</h3>
+<table>
+<thead>
+<tr>
+<th>emp ID</th>
+<th>Name</th>
+<th>date</th>
+<th>Supervisors ID</th>
+<th>Branch ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td></td>
+<td></td>
+<td>Null</td>
+<td>1</td>
+</tr>
+<tr>
+<td>101</td>
+<td></td>
+<td></td>
+<td>100</td>
+<td>3</td>
+</tr>
+<tr>
+<td>102</td>
+<td></td>
+<td></td>
+<td>101</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Here emp ID is the primary key of the table</p>
+<p>brach ID is the foreign key that is the primary key of another table(or itselt)</p>
+<p>Foreign key helps to define the relationship of tables</p>
+<p>Sometimes we need composite keys which contains multiple atributes(more than one keys) since any one of keys is not able to uniquely identify a row</p>
+<table>
+<thead>
+<tr>
+<th>emp id</th>
+<th>client id</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>107</td>
+<td>500</td>
+<td>55456</td>
+</tr>
+<tr>
+<td>107</td>
+<td>403</td>
+<td>8765</td>
+</tr>
+<tr>
+<td>102</td>
+<td>403</td>
+<td>9963</td>
+</tr>
+</tbody>
+</table>
+<p>emp id and client id can be foreign keys linking to other tables, and these 2 keys construct the composite key.</p>
+<h3 id="sql-basics">SQL Basics</h3>
+<ul>
+<li>SQL varies depending on systems but the concepts are the same</li>
+<li>SQL is a hybrid lang, a 4-in-1 lang
+<ul>
+<li>Data Query Language(DQL)
+<ul>
+<li>query the database for info</li>
+<li>get info already stored there</li>
+</ul>
+</li>
+<li>Data Definition Lang(DDL)
+<ul>
+<li>define database schemas</li>
+</ul>
+</li>
+<li>Data Control Lang(DCL)
+<ul>
+<li>control access to the data</li>
+<li>permission management</li>
+</ul>
+</li>
+<li>Data Manipulation Lang(DML)
+<ul>
+<li>insert, update, delete data</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="queries">Queries</h4>
+<ul>
+<li>SELECT employee.name, employee.age</li>
+<li>FROM employee</li>
+<li>WHERE employee.salary &gt; 30000</li>
+</ul>
+<h3 id="installment">Installment</h3>
+<h4 id="mysql">mySQL</h4>
+<ul>
+<li>download mySQL database server</li>
+<li><code>echo 'export PATH=/usr/local/mysql/bin:$PATH' &gt;&gt; ~/.bash_profile </code> Notice it varies, just add the path to the configuration</li>
+</ul>
+<h4 id="popsql">PopSQL</h4>
+<ul>
+<li>popSQL which is kinda textediter</li>
+</ul>
+<h3 id="sql-1">SQL</h3>
+<h4 id="create-a-table">Create a table</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="nb">INT</span><span class="w">
+</span><span class="w"></span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w">               </span><span class="c1">--total length of 10 and 4 after decimal point
+</span><span class="c1"></span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">                  
+</span><span class="w"></span><span class="nb">BLOB</span><span class="w">                        </span><span class="c1">--binary large object, stores large data
+</span><span class="c1"></span><span class="nb">DATE</span><span class="w">                        </span><span class="c1">--YYYY-MM-DD
+</span><span class="c1"></span><span class="k">TIMESTAMP</span><span class="w">                   </span><span class="c1">--YYYY-MM-DD HH:MM:SS
+</span><span class="c1"></span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">	</span><span class="n">student_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">major</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w">
+</span><span class="w">  </span><span class="c1">-- PRIMARY KEY(student_id)
+</span><span class="c1"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--or you can define the primary key afterwards like above
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">DESCRIBE</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">gpa</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">--add column
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">gpa</span><span class="p">;</span><span class="w"> </span><span class="c1">--drop column
+</span><span class="c1"></span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="insert-data">Insert data</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Biology&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kate&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sociology&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span><span class="c1">--grab all the info from the table
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Claire&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Biology&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mike&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Computer Science&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="c">C</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="n">student_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="c1">--student_id INT AUTO_INCREMENT,
+</span><span class="c1"></span><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">major</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;undecided&#39;</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--then insert all data
+</span><span class="c1">--primary key is both not null and unique
+</span><span class="c1"></span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="update-and-delete">Update and Delete</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bio&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Biology&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Comp Sci&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">student_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Chemistry&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Undecided&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">student_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;undecided&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span><span class="c1">--delete all columns and rows
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">student_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;undecided&#39;</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="basic-queries">Basic Queries</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">major</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">student_id</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">major</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">major</span><span class="p">,</span><span class="w"> </span><span class="n">student_id</span><span class="w">
+</span><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Biology&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;Kate&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- &lt;, &gt;, &lt;=, &gt;=, =, &lt;&gt;, AND, OR
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Claire&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kate&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mike&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="company-database-into">Company Database Into</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="n">emp_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">birth_day</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">sex</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">salary</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">super_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">branch_id</span><span class="w"> </span><span class="nb">INT</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="n">branch_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">branch_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">mgr_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">mgr_start_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">mgr_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">employee</span><span class="p">(</span><span class="n">emp_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">ADD</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">branch_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">branch</span><span class="p">(</span><span class="n">branch_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">ADD</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">super_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">employee</span><span class="p">(</span><span class="n">emp_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="n">client_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">client_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">branch_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">branch_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">branch</span><span class="p">(</span><span class="n">branch_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="n">emp_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">client_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">total_sales</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">emp_id</span><span class="p">,</span><span class="w"> </span><span class="n">client_id</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">emp_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">employee</span><span class="p">(</span><span class="n">emp_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">client</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="n">branch_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">supplier_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">supply_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">branch_id</span><span class="p">,</span><span class="w"> </span><span class="n">supplier_name</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">branch_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">branch</span><span class="p">(</span><span class="n">branch_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- -----------------------------------------------------------------------------
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="c1">-- Corporate
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;David&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Wallace&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1967-11-17&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">250000</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Corporate&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2006-02-09&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">branch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Levinson&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1961-05-11&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">110000</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- Scranton
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Scott&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1964-03-15&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">75000</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Scranton&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1992-04-06&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">branch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">102</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Angela&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Martin&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1971-06-25&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">63000</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kelly&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kapoor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1980-02-05&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">55000</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Stanley&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hudson&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1958-02-19&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">69000</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- Stamford
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Josh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Porter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1969-09-05&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">78000</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Stamford&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1998-02-13&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">branch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">106</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Andy&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bernard&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1973-07-22&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">65000</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Halpert&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1978-10-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">71000</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- BRANCH SUPPLIER
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hammer Mill&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paper&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Uni-ball&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Writing Utensils&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Patriot Paper&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paper&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;J.T. Forms &amp; Labels&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Custom Forms&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Uni-ball&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Writing Utensils&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hammer Mill&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paper&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Stamford Lables&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Custom Forms&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- CLIENT
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dunmore Highschool&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Lackawana Country&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">402</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FedEx&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">403</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;John Daly Law, LLC&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Scranton Whitepages&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">405</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Times Newspaper&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">406</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FedEx&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- WORKS_WITH
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="mi">55000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w"> </span><span class="mi">267000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">402</span><span class="p">,</span><span class="w"> </span><span class="mi">22500</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w"> </span><span class="mi">12000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w"> </span><span class="mi">33000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">405</span><span class="p">,</span><span class="w"> </span><span class="mi">26000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">406</span><span class="p">,</span><span class="w"> </span><span class="mi">15000</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">works_with</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">406</span><span class="p">,</span><span class="w"> </span><span class="mi">130000</span><span class="p">);</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Notice that there are some cyclic relations among tables so that we have to insert data by a resonable sequence</p>
+<h4 id="more-basic-queries">More Basic Queries</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">--Find all employees
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="n">FORM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find first 5 emp ordered by salary
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find all emp ordered by sex than name
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find the forename and surnames of all emp
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">forename</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">surname</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find out all the different genders
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">sex</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="function">Function</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- Find the number of emp
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">emp_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--How many emo have supervisor
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">super_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find the num of female emp born after 1970
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">emp_id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">birth_date</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;1971-01-01&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"> </span><span class="c1">--Find the average of all male emp&#39;s salary
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">SEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find the sum of all emp&#39;s salaries
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find out how many males and females there are
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">sex</span><span class="p">),</span><span class="n">sex</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sex</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find the total sales of each salesman
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">total_sales</span><span class="p">),</span><span class="w"> </span><span class="n">emp_id</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">works_with</span><span class="w">
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">emp_id</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="wildcards">Wildcards</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">--% = any # characters, _ = one character
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="c1">--Find any client&#39;s who are an LLC
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">client</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">client_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%LLC&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">branch_supplier</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">supplier_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;% Label%&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">birth_day</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;____-02%&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">client</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">client_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%school%&#39;</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="union">Union</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">--Find a list of employee and branch names
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">UNION</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">branch_name</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">branch</span><span class="w">
+</span><span class="w"></span><span class="k">UNION</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">client_name</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">client</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find a list of all clients &amp; branch suppliers&#39; names
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">client_name</span><span class="p">,</span><span class="w"> </span><span class="n">branch_id</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">client</span><span class="w">
+</span><span class="w"></span><span class="k">UNION</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">supplier_name</span><span class="p">,</span><span class="w"> </span><span class="n">branch_id</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">branch_supplier</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find a list of all money spent or earned by the company
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">UNION</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">total_sales</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">works_with</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="joins">Joins</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Buffalo&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--find all branches and the names of their managers
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ID</span><span class="p">,</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">first_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">forename</span><span class="p">,</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">branch_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Branch</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">branch</span><span class="w">
+</span><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">mgr_id</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ID</span><span class="p">,</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">first_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">forename</span><span class="p">,</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">branch_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Branch</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">branch</span><span class="w">
+</span><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">mgr_id</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ID</span><span class="p">,</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">first_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">forename</span><span class="p">,</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">branch_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Branch</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">branch</span><span class="w">
+</span><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">mgr_id</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="nested-queries">Nested Queries</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">--Find names of all employees who have
+</span><span class="c1">--sold over 30,000 to a single client
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">last_name</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee</span><span class="p">.</span><span class="n">emp_id</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">works_with</span><span class="p">.</span><span class="n">emp_id</span><span class="w">
+</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">works_with</span><span class="w">
+</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">works_with</span><span class="p">.</span><span class="n">total_sales</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30000</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">--Find all clients who are handled by the branch
+</span><span class="c1">--that MIchael Scott manages
+</span><span class="c1">--Assume you know Michael&#39;s ID
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">client_name</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">client</span><span class="w">
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">branch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">branch_id</span><span class="w">
+</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">branch</span><span class="w">
+</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">branch</span><span class="p">.</span><span class="n">mgr_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">102</span><span class="w">
+</span><span class="w">    </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="on-delete">On Delete</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="w"> </span><span class="p">...(</span><span class="w">
+</span><span class="w">   </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">branch</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span><span class="w"> </span><span class="c1">-- if b in table branch is deleted, a in the current table would be set to null
+</span><span class="c1"></span><span class="w"> 
+</span><span class="w">  </span><span class="p">...(</span><span class="w">
+</span><span class="w">   </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">branch</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w">
+</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span><span class="w"> </span><span class="c1">-- if b in table branch is deleted, the row contains a in the current table would be deleted
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="triggers">Triggers</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="n">message</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="c1">------------------------------------
+</span><span class="c1">-- write on terminal!
+</span><span class="c1"></span><span class="n">USE</span><span class="w"> </span><span class="n">giraffe</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w">
+</span><span class="w">    </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">my_trigger</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="k">INSERT</span><span class="w">
+</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">BEGIN</span><span class="w">
+</span><span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added new employee&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">    </span><span class="k">END</span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="c1">--------------------------------------------
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">VALUES</span><span class="p">(</span><span class="mi">109</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Oscar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Martinez&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1968-02-19&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">69000</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">trigger_test</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">------------------------------------
+</span><span class="c1">-- write on terminal!
+</span><span class="c1"></span><span class="n">USE</span><span class="w"> </span><span class="n">giraffe</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w">
+</span><span class="w">    </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">my_trigger1</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="k">INSERT</span><span class="w">
+</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">BEGIN</span><span class="w">
+</span><span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">first_name</span><span class="p">);</span><span class="w">
+</span><span class="w">    </span><span class="k">END</span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="c1">--------------------------------------------
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">VALUES</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kevin&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Malone&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1978-02-19&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">69000</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">trigger_test</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">------------------------------------
+</span><span class="c1">-- write on terminal!
+</span><span class="c1"></span><span class="n">USE</span><span class="w"> </span><span class="n">giraffe</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w">
+</span><span class="w">    </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">my_trigger2</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="k">INSERT</span><span class="w">
+</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">BEGIN</span><span class="w">
+</span><span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span><span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added male employee&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">        </span><span class="n">ELSEIF</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span><span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added female&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added other employee&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">        </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="k">END</span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="c1">------------------------------------------------
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w"></span><span class="k">VALUES</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pam&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Beesly&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1988-02-19&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">69000</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">trigger_test</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">------------------------------------
+</span><span class="c1">-- write on terminal!
+</span><span class="c1"></span><span class="n">USE</span><span class="w"> </span><span class="n">giraffe</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w">
+</span><span class="w">    </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">my_trigger3</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="k">DELETE</span><span class="w">
+</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">employee</span><span class="w">
+</span><span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">BEGIN</span><span class="w">
+</span><span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span><span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added male employee&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">        </span><span class="n">ELSEIF</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span><span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added female&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_test</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;added other employee&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">        </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="k">END</span><span class="err">$$</span><span class="w">
+</span><span class="w"></span><span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="c1">------------------------------------------------
+</span><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">my_trigger3</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>But how to add varibles in to those strings?</strong></p>
+<h4 id="er-diagrams-intro">ER Diagrams Intro</h4>
+<p>We can uses ER Diagrams to design database schemas</p>
+<ul>
+<li>Entity: Student</li>
+<li>Attribute: name, grade, gpa
+<ul>
+<li>Primary Key: student_id, gpa</li>
+<li>Composite Attribute:
+<ul>
+<li>name
+<ul>
+<li>first_name</li>
+<li>last_name</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multi-valued Attribute: clubs</li>
+<li>Derived Attribute: has_honors (can be derived from gpa) (no need to track)</li>
+</ul>
+</li>
+<li>Multiple Entitles: Class</li>
+<li>class_id</li>
+<li>department</li>
+<li>Relationships: Student &mdash;&mdash;- Takes ======== Class
+<ul>
+<li>partial participation: not all students need to participate the Takes relationship since not all student need to take the class</li>
+<li>total participation: all classes need to participate the Takes relationship since every class need to be taken by at least one student</li>
+</ul>
+</li>
+<li>Relationship Carinality: N:M
+<ul>
+<li>a student can take any numbers of class</li>
+<li>a class can be taken by any num of student</li>
+</ul>
+</li>
+<li>Weak Entity</li>
+<li>Identifying relationship</li>
+</ul>
+<p><code>![ER Diagrams](img/ER Diagrams.png)</code></p>
+<h4 id="designing-an-erd">Designing an ERD</h4>
+<h4 id="converting-erd-to-schema">Converting ERD to Schema</h4>
+<p><code>![ConvertingERD](img/ConvertingERD.png)</code></p>
+<p><code>![ConvertedERD](img/ConvertedERD.png)</code></p>
+<ol>
+<li>mapping of regular entity types
+<ul>
+<li>For each regular entity type create a relation(table) that includes all the simple attributes of that entity</li>
+</ul>
+</li>
+<li>mapping of weak entity types
+<ul>
+<li>For each weak entity type create a relation(table) that includes all simple attributes of the weak entity</li>
+<li>The primary key of the new relation should be the partial key of the weak entity plus the primary key of its owner</li>
+<li>in this case, we have the branch_id and supplier_name come together as a composite key</li>
+</ul>
+</li>
+<li>mapping of Binary 1:1 relationship types
+<ul>
+<li>include one side of the relationship as a foreign key in the other favor total participation, which mean the table of which has a total participation will include the primary key of the other as a foreign key</li>
+</ul>
+</li>
+<li>mapping of Binary 1:n relationship types
+<ul>
+<li>inlcudes 1&rsquo;s side&rsquo;s primary key as the n&rsquo;s side&rsquo;s foreign key</li>
+</ul>
+</li>
+<li>mapping of Binary m:n relationship types
+<ul>
+<li>create a new relation who&rsquo;s primary key is a combination of both entites' primary key.<br>
+also include any relationship attributes</li>
+</ul>
+</li>
+<li>link all foreign keys to the place it points to if it&rsquo;s not messy&hellip;</li>
+</ol>
+<p><strong>NOTICE: This is a basic ERD, so there may be more advanced and complex ERD in a real situation, keep up your self-learning pace.</strong></p>
+<p><a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" rel="noopener noreffer">Explanation</a></p>
+<p>读写分离（atlas）&mdash;垂直分库&mdash;垂直分表&mdash;水平分表</p>
+<p>了解：主从，atlas，高可用</p>
+<p><a href="https://www.bilibili.com/video/BV1GJ411K7it?p=8" target="_blank" rel="noopener noreffer">mysql+redis+mongoDB+TCP/IP</a></p>
+<p><a href="https://www.bilibili.com/video/BV157411K7sf?p=172" target="_blank" rel="noopener noreffer">another</a></p>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar_trans.png"
+        data-srcset="/avatar_trans.png, /avatar_trans.png 1.5x, /avatar_trans.png 2x"
+        data-sizes="auto"
+        alt="/avatar_trans.png"
+        title="/avatar_trans.png"
+    /></div><p class="sponsor-bio"><em>Find this post helpful?</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/pcewlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/sql/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/sql/" data-title="SQL" data-hashtags="SQL"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/sql/" data-hashtag="SQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/sql/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/sql/" data-title="SQL" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/sql/" data-title="SQL"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/sql/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/sql/" data-title="SQL"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/sql/" data-title="SQL"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sql/">SQL</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/sshd-setup/" class="prev" rel="prev" title="SSHD Setup"><i class="fas fa-angle-left fa-fw"></i>SSHD Setup</a>
+            <a href="/software-architectural-patterns/" class="next" rel="next" title="Software Arch Patterns">Software Arch Patterns<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/fuse/fuse.min.d3e13f020a1205ff114005e71493513b696e4a7a3b88229e6ec2c36d34b61d75.js" integrity="sha256-0&#43;E/AgoSBf8RQAXnFJNRO2luSno7iCKebsLDbTS2HXU="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://twikoo-comment-ochre.vercel.app/","lang":"en"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":300,"threshold":0.1,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4=" defer></script><script type="text/javascript" src="/js/twikoo.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>
