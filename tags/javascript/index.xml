@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>JavaScript - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/javascript/</link>
+        <description>JavaScript - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+    <title>JavaScript</title>
+    <link>https://Peacewalker365.github.io/javascript/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/javascript/</guid>
+    <description><![CDATA[JS Let/Const 1 2 3 4 5 6 7 8 9 10 11  function sayHello() { for (var i = 0; i &lt; 5; i++) { console.log(i); } console.log(i); } sayHello();   problem with var: the scope! To solve this problem, we have let.
+Scope var -&gt; function let -&gt; block const -&gt; block
+1 2 3 4 5 6 7 8 9 10 11  const person = { name: &#39;Mosh&#39;, walk: function() {}, talk() {} //neat way }; person.]]></description>
+</item></channel>
+</rss>

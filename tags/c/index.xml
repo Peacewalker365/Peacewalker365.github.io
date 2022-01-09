@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>C - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/c/</link>
+        <description>C - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/c/" rel="self" type="application/rss+xml" /><item>
+    <title>Pitfalls in C</title>
+    <link>https://Peacewalker365.github.io/pitfalls/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/pitfalls/</guid>
+    <description><![CDATA[关于C的函数套娃！以下为错误案例！ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 void LevelOne(Obj* ptr) {LevelTwo(ptr)} void LevelTwo(Obj* ptr){...} {LevelThree(&amp;ptr)} void LevelThree(Obj** ptr){...} {......} int main(void) { Object* ptr = BuildObjArr(); LevelOne(ptr); } 上述code中，我们试图在第三层]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">OS 2 - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="OS 2" />
+<meta property="og:description" content="Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/os_slides_note/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-25T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="OS 2"/>
+<meta name="twitter:description" content="Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!"/>
+<meta name="application-name" content="myStack">
+<meta name="apple-mobile-web-app-title" content="myStack">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/os_slides_note/" /><link rel="prev" href="https://Peacewalker365.github.io/persistence/" /><link rel="next" href="https://Peacewalker365.github.io/os_reading_note/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
+    
+    
+    
+    <meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OS 2",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/os_slides_note\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "OS","wordcount":  4259 ,
+        "url": "https:\/\/Peacewalker365.github.io\/os_slides_note\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
+                    "@type": "Person",
+                    "name": "PceWlkr"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/os_slides_note/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/showcase/" title="">Showcase</a><a class="menu-item" href="/categories/note/" title="">Notes</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/os_slides_note/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">OS 2</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4259 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;20 minutes&nbsp;<span id="/os_slides_note/" class="leancloud_visitors" data-flag-title="OS 2">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
+                    </span>&nbsp;<span id="/os_slides_note/" class="comment_count" data-flag-title="OS 2">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#memory-sharing">Memory Sharing</a></li>
+            <li><a href="#copy-on-write">Copy on Write</a>
+              <ul>
+                <li><a href="#notice-that-both-hardware-and-software-know-pte-but-only-kernel-knows-the-copy-on-write">Notice that both hardware and software know PTE, but only kernel knows the Copy-on-write</a></li>
+              </ul>
+            </li>
+            <li><a href="#fill-on-demand">Fill On Demand</a></li>
+            <li><a href="#design-a-page-fault-handler">Design a page fault handler</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lecture-16-concurrency-ii">Lecture 16: Concurrency II</a>
+      <ul>
+        <li><a href="#locks">Locks</a></li>
+        <li><a href="#only-in-lecture">ONLY IN LECTURE</a>
+          <ul>
+            <li><a href="#how-to-implement-thread_yield">How to implement thread_yield()?</a>
+              <ul>
+                <li><a href="#why-disable-the-interrupt">why disable the interrupt?</a></li>
+              </ul>
+            </li>
+            <li><a href="#never-acquire-a-lock-in-interrupt-handler">Never acquire a lock in interrupt handler!!!</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lecture-18">Lecture 18</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#thread_create">Thread_create()</a></li>
+            <li><a href="#subtlety">Subtlety</a></li>
+          </ul>
+        </li>
+        <li><a href="#involuntary">Involuntary</a>
+          <ul>
+            <li><a href="#faster-threadprocess-switch">Faster Thread/Process Switch</a></li>
+            <li><a href="#can-we-support-user-level-threads-without-the-help-of-kernel">Can we support user level threads without the help of kernel?</a>
+              <ul>
+                <li><a href="#reason-kernel-only-has-one-way-of-scheduling-which-is-less-flexible-for-the-need-from-app-to-app">reason: kernel only has one way of scheduling, which is less flexible for the need from app to app.</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lecture-19">Lecture 19</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#green-threadearly-java">Green thread(early JAVA)</a></li>
+            <li><a href="#more-modern-way">More modern way</a></li>
+          </ul>
+        </li>
+        <li><a href="#spinlock-issue">Spinlock issue</a>
+          <ul>
+            <li><a href="#how-to-solve-it">How to solve it?</a></li>
+            <li><a href="#why-we-want-interrupt">why we want interrupt</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lecture-20-ordering-condition-variable">Lecture 20 Ordering, Condition Variable</a>
+      <ul>
+        <li><a href="#ordering">Ordering</a>
+          <ul>
+            <li><a href="#shared-bounded-buffer">Shared Bounded Buffer</a>
+              <ul>
+                <li><a href="#implementation">implementation</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#condition-variables">Condition Variables</a></li>
+        <li><a href="#cv-design-pattern">CV Design Pattern</a></li>
+        <li><a href="#shared-bounded-buffer-1">Shared Bounded Buffer</a></li>
+        <li><a href="#key-pionts-for-cv">Key Pionts for CV</a></li>
+        <li><a href="#cv-implementation">CV implementation</a></li>
+      </ul>
+    </li>
+    <li><a href="#lecture-21-semaphore">Lecture 21 Semaphore</a>
+      <ul>
+        <li><a href="#semaphore-concept">Semaphore Concept</a>
+          <ul>
+            <li><a href="#init-val">Init val!</a></li>
+            <li><a href="#using-sem-for-mutual-exclusion">Using Sem for Mutual Exclusion</a></li>
+            <li><a href="#using-sem-for-ordering">Using Sem for Ordering</a>
+              <ul>
+                <li><a href="#why-you-cant-do-sem_mutexp-first">why you can&rsquo;t do sem_mutex.P() first?</a></li>
+                <li><a href="#sem-for-cv">Sem for CV?</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#bottom-like-regarding-semaphore">Bottom Like regarding Semaphore</a></li>
+        <li><a href="#concurrency-bugs">Concurrency Bugs</a>
+          <ul>
+            <li><a href="#the-dining-philosopher-problem">The Dining Philosopher Problem</a></li>
+            <li><a href="#principled-synchronization">Principled Synchronization</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h4 id="memory-sharing">Memory Sharing</h4>
+<ul>
+<li>can we share memory between processors?
+<ul>
+<li>some page table entries need to be mapped to the same physical frames</li>
+<li>One can read, other can write?: yes, control bits can be diff</li>
+<li>Does the shared mem must be the same VA in the two processes?: no</li>
+<li>How can we know a shared mem can be reclaimed?: have a counter like a ref bit</li>
+</ul>
+</li>
+</ul>
+<h4 id="copy-on-write">Copy on Write</h4>
+<ul>
+<li>UNIX fork with copy on write
+<ol>
+<li>copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs
+Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!</li>
+<li>read is fine, but if anyone want to write&hellip; We need the help from the hardware
+which means we need to turn on the read-only bit on hardware.
+When a write happens on either process, exception happens due to read-only bit. Kernel handler will find out the exception is due to copy on write.</li>
+<li>Kernel then allocate a new physical frame, and copy the content from the current shared frame to the new frame.
+The offending PTE(whichever need to write) will point to this new frame.
+So now the shared mem is not shared.</li>
+<li>Clear copy-on-write bit on the offending PTE, decrease the ref bit for that shared frame, and if the is no body else sharing that shared mem(ref bit is 0), then also clear the other PTE&rsquo;s copy-on-write bit.
+We here also need a reverse pointer pointing to the PTE who points to the shared mem.
+if ref bit is now 0, then follow reverse pointer to clear copy-on-write and read-only bit on the last process.
+copy-on-write can be implement in the software level since hardware don&rsquo;t care.</li>
+</ol>
+</li>
+</ul>
+<h5 id="notice-that-both-hardware-and-software-know-pte-but-only-kernel-knows-the-copy-on-write">Notice that both hardware and software know PTE, but only kernel knows the Copy-on-write</h5>
+<h4 id="fill-on-demand">Fill On Demand</h4>
+<ul>
+<li>Can I start running a program before its code is in physical memory?</li>
+</ul>
+<h4 id="design-a-page-fault-handler">Design a page fault handler</h4>
+<ol>
+<li>OS must book-keeping whereabouts of all the physical frames on persistent storage</li>
+</ol>
+<ul>
+<li>
+<p>What info shall the kernel maintain?</p>
+<ul>
+<li>For every swapped out VPN of a process, the disk location of the page content</li>
+</ul>
+</li>
+<li>
+<p>when does such book-keeping info need to be create?</p>
+<ul>
+<li>the first time a virtual page is swapped out from a process</li>
+<li>Subsequent swap out of the page amy result in change of the mapping, depending on OS policy</li>
+</ul>
+</li>
+<li>
+<p>What needs to happen during the page fault handler?
+allocate a free physical frame to copy the page data to</p>
+<ul>
+<li>how to locate the page data on the persistent storage?
+<ul>
+<li>use the book-keeping info stored.</li>
+</ul>
+</li>
+<li>what kernel data needs to be updated?
+<ul>
+<li>PTE entry for the virtual page</li>
+<li>can also update the TLB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>what other actions need to take place?</p>
+<ul>
+<li>load the page content from persistent storage into mem</li>
+<li>while waiting for disk I/O to complete, schedule a diff process to run, mark the offending process as &ldquo;blocked&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>How does the OS know which physical frame this offending PTE used to point?
+This question is wrong!
+You should not go to find that physical frame, it might have been used by another process. We should copy the disk data to a new physical frame. Or you might overwrite the data being used by other processor.</p>
+</li>
+<li>
+<p>Transfer the data stored on the persistent storage into mem.</p>
+</li>
+</ol>
+<h2 id="lecture-16-concurrency-ii">Lecture 16: Concurrency II</h2>
+<p>Synchronization: Mutual Exclusive + Ordering</p>
+<p>By the definition of thread, its access to shared memory space is unfettered.</p>
+<p>And its scheduling is completely unpredictable.</p>
+<p>So, from this angle, all threads race to access data! ==&gt; very bad design</p>
+<p>Defs:
+<strong>Race condition</strong>
+<strong>Mutual exclusion</strong>
+<strong>Lock</strong>
+<strong>Critical section</strong></p>
+<h3 id="locks">Locks</h3>
+<p>Lock::acquire
+Lock::release</p>
+<p>Milk problem:</p>
+<ol>
+<li>Liveness: Someone buys if needed</li>
+<li>Safety: At most one person buys</li>
+<li>Fairness: Everyone has fair chances to get the lock</li>
+</ol>
+<p>1 &amp; 2 are the most important, 3 is good to have.</p>
+<p>If you only have a single processor, we should disable the interrupt, or we may have a dead lock.</p>
+<h3 id="only-in-lecture">ONLY IN LECTURE</h3>
+<p>Once you acquire the lock, you can assume that it&rsquo;s in persistant state.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// Basic programming pattern for Critical section
+Lock::acquire
+  Manipulation of shared data
+Lock::release
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>One lock per shared data</li>
+<li>To be effective, all threads must apply locking on the data</li>
+</ol>
+<p>The difference between Concurrency access in OS v.s. program:
+OS does not trust others.
+The program can behave like designed, there is no enforcement.</p>
+<p>So Synchronization is kinda weird for the OS since it&rsquo;s more of a cooperation rather than enforcement.
+The lock does not really lock it, it just signal others that the data is occupied by me, do not come.</p>
+<p>When you have some threads, you&rsquo;ll never know when they will be executed.</p>
+<p>Implementing Threads:</p>
+<ol>
+<li>
+<p>kernel Threads: to the kernel, a kernel thread and a single threaded user processor looks quite similar.</p>
+</li>
+<li>
+<p>multithreads processes using kernel threads</p>
+</li>
+<li>
+<p>User-level threads</p>
+</li>
+</ol>
+<p>We are going to focus on the first possibility.</p>
+<p>Thread data structure:
+TCB and stack
+TCB &ndash;&gt; stack info, saved registers, thread meta data
+shared state are shared among all threads: code global vars, heap</p>
+<p>Thread Context Switch</p>
+<ol>
+<li>Voluntary
+yield and join</li>
+<li>Involuntary
+Interrupt or exception
+Some other thread is higher priority</li>
+<li>How does it happen?
+return to a new place</li>
+</ol>
+<p>The key trick:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void thread_switch(oldThreadTCB, newTheadTCB){
+    pushad;
+    oldThreadTCB-&gt;sp = %esp;
+    %esp = newThreadTCB-&gt;sp;
+    popad;
+    return;
+  }
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="how-to-implement-thread_yield">How to implement thread_yield()?</h4>
+<p>in the thread_yield(), there is thread_switch()</p>
+<p>in the yield() after the swith(), the it&rsquo;s resumed to the old TCB NOT THE chosen TCB.</p>
+<p>And the eableInterrupt() is not re-eable the one at the beginning of the yield(), but that in another thread.</p>
+<p>the yield() is very fast so that do not worry about the length of the time of interrupt.(for single core)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">thread_yield</span><span class="p">(){</span>
+  <span class="n">TCB</span> <span class="o">*</span><span class="n">previous_runningTCB</span><span class="p">,</span> <span class="o">*</span><span class="n">chosenTCB</span><span class="p">,</span> <span class="o">*</span><span class="n">finishedTCB</span><span class="p">;</span>
+  
+  <span class="c1">//Prevent an interrupt from stopping us in the middle of a switch
+</span><span class="c1"></span>  <span class="n">disableInterrupts</span><span class="p">();</span>
+  
+  <span class="c1">// choose another TCB from the ready list
+</span><span class="c1"></span>  <span class="n">chosenTCB</span> <span class="o">=</span> <span class="n">readyList</span><span class="p">.</span><span class="n">getNextThread</span><span class="p">();</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="n">chosenTCB</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">){</span>
+    <span class="c1">//Nothing, go back to the original thread
+</span><span class="c1"></span>  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="n">runningThread</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">ready</span><span class="p">;</span>
+    <span class="n">readyList</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">runningThread</span><span class="p">);</span>
+    <span class="n">previous_runningTCB</span> <span class="o">=</span> <span class="n">runningThread</span><span class="p">;</span>
+    <span class="n">runningThread</span> <span class="o">=</span> <span class="n">chosenTCB</span><span class="p">;</span>
+    <span class="n">thread_switch</span><span class="p">(</span><span class="o">*</span><span class="n">previous_runningTCB</span><span class="p">,</span> <span class="n">chosenTCB</span><span class="p">);</span>
+    <span class="n">runningThread</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">running</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">while</span><span class="p">((</span><span class="n">finishedTCB</span> <span class="o">=</span> <span class="n">finishedList</span><span class="o">-&gt;</span><span class="n">getNextThread</span><span class="p">())</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+    <span class="k">delete</span> <span class="n">finishedTCB</span><span class="o">-&gt;</span><span class="n">stack</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="n">finishedTCB</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">enableInterrupts</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="why-disable-the-interrupt">why disable the interrupt?</h5>
+<p>to protect the shared data: ready list!</p>
+<p>If this is not kernel code, we have to use other tricks like locks.</p>
+<h4 id="never-acquire-a-lock-in-interrupt-handler">Never acquire a lock in interrupt handler!!!</h4>
+<p>because if the interrupt handler tries to acquire a lock that being held by others, DEAD LOK!!</p>
+<p>In this case, one CPU core own their own ready list. Or there still may be a race condition on the ready list since the disableInterrupt() only works on the current CPU. The downside is that if a thread is ready but other cores are not doing anything.</p>
+<h2 id="lecture-18">Lecture 18</h2>
+<p>EXAM: what does this line do? Is there anything wrong? yield() switch() join() &hellip; we should be able to implement those.</p>
+<p>All these funtions have nothing special that make them can be only done in kernel, you can implement similar things in user mode with proper coding.</p>
+<h4 id="thread_create">Thread_create()</h4>
+<p>need a wrapper, to call the create() and exit once created, since we might not use it immediately after creating it.</p>
+<ul>
+<li>allocate TCB</li>
+<li>allocate stack</li>
+<li>build stack frame for base of stack (stub)</li>
+<li>put thread on ready list</li>
+<li>will run sometime later (maybe right away)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">thread_create(thread_t thread, void (*func)(int), int arg){
+    TCB* tcb = new TCB();
+    thread-&gt;tcb = tcb;
+    tcb-&gt;stack_size = INIT_STACK_SIZE;
+    tcb-&gt;stack = new Stack(INIT_STACK_SIZE);
+    // now the TCB and stack are allocated
+
+    tcb-&gt;sp = stack + INIT_STACK_SIZE;
+    tcb-&gt;pc = stub;
+    // init the register to let the program run at the stub
+    
+    *(tcb-&gt;sp--) = stub;
+    *(tcb-&gt;sp) = func;
+    tcb-&gt;sp -= SizeOfPopad;
+
+    tcb-&gt;state = READY;
+    readyList.add(tcb); // put tcb on ready readyList
+    
+  }
+
+
+  stub(func, args){
+      (*func)(args);
+      thread_exit();
+    }
+
+</code></pre></td></tr></table>
+</div>
+</div><p>Notice here the tcb&rsquo;s member vars: tcb, stack_size, stack, sp, pc, state&hellip;</p>
+<p>the create() function  pretend it&rsquo;s resuming from another thread, so that every function is in a unified format, which means they can all use thread_swith(). When it gets resumed, it needs certain words int the stack to fufill the popad instructions in thread_switch(). Thus, we need a fake funcion like stub() to create that stack space.</p>
+<p>The popad will add those random vals into the stack but it doesn&rsquo;t matter since a new thread should not trust any un-init vals.</p>
+<h4 id="subtlety">Subtlety</h4>
+<ul>
+<li>thread_create() puts new thread on ready list</li>
+<li>When it first runs, some thread needs to call thread_switch()
+<ul>
+<li>save old thread state to stack</li>
+<li>pop the new thread state from stack into the registers</li>
+</ul>
+</li>
+<li>Set up new thread&rsquo;s stack as if it has saved its state in thread_switch()
+<ul>
+<li>return to the sub at the base address of the stack to run the func</li>
+</ul>
+</li>
+</ul>
+<h3 id="involuntary">Involuntary</h3>
+<ol>
+<li>timer or I/O interrput
+lernel can decide that some other thread should run</li>
+<li>once you are in the kernel, the process are seen as threads.</li>
+<li>notice that user process has the kernel stack and the user stack, but the kernel thread only has the kernel stack</li>
+<li>we can use switch() as context switch</li>
+<li>simple version
+End of interrupt handler calls thread_switch()
+when resumed, return from handler resumes kernel thread or uer process.
+Thus, processor context is saved/restored twice.(once by thread switch, and once by interrupt handler)</li>
+</ol>
+<p>![After an interrupt at x86](img/After an interrupt at x86.png)</p>
+<p>It seems that we need to do sth like in the yield(), call the scheduler to run to give us a chosen pcb and call swith(), in the switch() we use iret after popad.</p>
+<p>However, think about this. Since you are already in an interrupt, we have states saved in the trap frame, on top of that we also do pushad in the swith(), which is redundant.</p>
+<p>Resuming a thread from the switch() which is also interrupted let the resumed thread start at the interrupt handler, which will next do the popad again followed by an iret.</p>
+<h4 id="faster-threadprocess-switch">Faster Thread/Process Switch</h4>
+<ul>
+<li>Essentially tail call elimination &lt;== if the context switch is cause by interrupt
+<ul>
+<li>interrupt handler will saved all the states</li>
+<li>decide to run a new thread</li>
+<li>throw away current state of interrupt handler
+<ul>
+<li>you DO NOT really call thread_switch() and create a new frame for it, which would save the registers and return address. Instead it become a jump.</li>
+<li>reuse the thread&rsquo;s saved state when entering the interrupt handler</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Set saved stack pointer to trap frame (on x86, including the saved registers and six vals)</li>
+<li>On resume, pops trap frame to restore interrupt thread</li>
+<li>This requires thread_switch() use the same format stack frame as trap frame. On x86, this also means thread_switch() will use iret, instead of ret instruction. Now both voluntary and involuntary context switch are all looks like resume from an interrupt so that they are uniform.</li>
+</ul>
+<h4 id="can-we-support-user-level-threads-without-the-help-of-kernel">Can we support user level threads without the help of kernel?</h4>
+<h5 id="reason-kernel-only-has-one-way-of-scheduling-which-is-less-flexible-for-the-need-from-app-to-app">reason: kernel only has one way of scheduling, which is less flexible for the need from app to app.</h5>
+<p>In this case, the kernel may not know the existence of the user threads since the thread context swith is not down throught kernel.</p>
+<ol>
+<li>What if there is an I/O request and the kernel block the whole processor?</li>
+<li>How do we preempt other threads when kernel does not kick in (one way to do is to use yield() everywhere to let threads balance the workload but this is unpractical)?</li>
+</ol>
+<h2 id="lecture-19">Lecture 19</h2>
+<p>We can use <strong>signal</strong>. Like in the terminal &lt;ctr + c&gt; is s signal to do a <strong>up call</strong>, and kernel will ask the user processor to do something. And then we can write our own signal handler.</p>
+<p>For example, kernel has timer interrupt, so kernel can decide to send a signal to a process who need it periodically.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
+</span><span class="cm">
+</span><span class="cm">An upcall is a mechanism that allows the kernel to execute a function
+</span><span class="cm">in userspace, and potentially be returned information as a result.
+</span><span class="cm">
+</span><span class="cm">An upcall is like a signal, except that the kernel may use it at any
+</span><span class="cm">time, for any purpose, including in an interrupt handler.
+</span><span class="cm">
+</span><span class="cm">This means that an upcall can potentially destroy the behaviour of the
+</span><span class="cm">kernel. If an interrupt handler decides to ask a user space function
+</span><span class="cm">for some information, and the function page faults or does blocking
+</span><span class="cm">IO, your kernel is quite likely trashed.
+</span><span class="cm">
+</span><span class="cm">So, upcalls aren&#39;t there for everyday software development. But for
+</span><span class="cm">specific purposes, they can be extremely useful. 
+</span><span class="cm">
+</span><span class="cm">*/</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="green-threadearly-java">Green thread(early JAVA)</h4>
+<ul>
+<li>user level lib, within a process</li>
+<li>lub does thread context swtich</li>
+<li>preemption via upcall/UNIX signal on timer interrupt</li>
+<li>use multiple processes for multi-core parallelism
+<ul>
+<li>shared mem region mapped into each process</li>
+</ul>
+</li>
+</ul>
+<p>Since the process can change the user level stack for the threads</p>
+<p>Say if we have a multi-core CPU, this does not work. Because when you want to let a core to take care of a thread, it needs kernel to kick in. However, the green thread does everthing at user level.</p>
+<p>The solution is to use shared mem region mapped into each process.</p>
+<h4 id="more-modern-way">More modern way</h4>
+<ul>
+<li>Scheduler activations
+<ul>
+<li>kernel allocates processors to user-level thread lib (after the specific core take over, the scheduling will be done in that core, which are decided by the user level processors in that core, and we have the following 2 bullet points)</li>
+<li>thread lib implements context switch</li>
+<li>thread lib decides what thread to run next</li>
+</ul>
+</li>
+<li>upcall whenever kernel needs a user level scheduling decision (if there is I/O interrupt, kernel will ask the process to do sth or it will be blocked)
+<ul>
+<li>process assigned a new processor</li>
+<li>processor removed from process</li>
+<li>sys call blocks in kernel</li>
+</ul>
+</li>
+</ul>
+<h3 id="spinlock-issue">Spinlock issue</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">Spinlock</span><span class="o">::</span><span class="n">acquire</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">testAndSet</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lockValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">BUSY</span><span class="p">){</span>
+    
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Spinlock</span><span class="o">::</span><span class="n">release</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">lockValue</span> <span class="o">=</span> <span class="n">FREE</span>
+<span class="p">}</span>
+<span class="c1">// downside: a waste of cpu resources
+</span><span class="c1">// fairness issues: generally cannot assure fairness
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="how-to-solve-it">How to solve it?</h4>
+<p>we may try to make the spinlock less aggressive. for perfomance</p>
+<p>and we should have a wait queue? for fairness</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">// There might be multiple threads trying to acquire the lock and put themselves into the wait list. So there will be race conditions(since you will have the pointers to move and change).
+</span><span class="c1">// Thus, they have to be synchronized ==&gt; they have to be protected by another lock -- a spinlock
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Lock</span> <span class="p">{</span>
+	<span class="k">private</span><span class="o">:</span>
+  	<span class="n">SpinLock</span> <span class="n">spinLock</span><span class="p">;</span> <span class="c1">// ==&gt; to protext the lock data structure
+</span><span class="c1"></span>		<span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">FREE</span><span class="p">;</span>
+  	<span class="n">Queue</span> <span class="n">waiting</span><span class="p">;</span>
+  <span class="k">public</span><span class="o">:</span>
+  	<span class="kt">void</span> <span class="n">acquire</span><span class="p">();</span>
+  	<span class="kt">void</span> <span class="nf">release</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="n">Lock</span><span class="o">::</span><span class="n">acquire</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">spinLock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="n">BUSY</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">waiting</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">myTCB</span><span class="p">);</span>
+    <span class="n">scheduler</span><span class="o">-&gt;</span><span class="n">suspend</span><span class="p">(</span><span class="o">&amp;</span><span class="n">spinLock</span><span class="p">);</span>
+  <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">BUSY</span><span class="p">;</span>
+    <span class="n">spinLock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Lock</span><span class="o">::</span><span class="n">release</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">spinLock</span><span class="p">.</span><span class="n">aquire</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">waiting</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">next</span> <span class="o">=</span> <span class="n">waiting</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+    <span class="n">scheduler</span><span class="o">-&gt;</span><span class="n">makeReady</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+  <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">FREE</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">spinLock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Sched</span><span class="o">::</span><span class="n">suspend</span><span class="p">(</span><span class="n">SpinLock</span> <span class="o">*</span><span class="n">spinLock</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">TCB</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+  
+  <span class="n">disableInterrupts</span><span class="p">();</span> <span class="c1">// we need to disable interrupt to ensure the data consistancy?
+</span><span class="c1"></span>  <span class="n">schedSpinLock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span> <span class="c1">// we need a seperate spin lock to protect the ready list
+</span><span class="c1"></span>  <span class="n">spinLock</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+  <span class="n">runningThread</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">WAITING</span><span class="p">;</span>
+  <span class="n">next</span> <span class="o">=</span> <span class="n">readyList</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+  <span class="n">runningThread</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+  <span class="n">thread_switch</span><span class="p">(</span><span class="n">myTCB</span><span class="p">,</span> <span class="n">next</span><span class="p">);</span>
+  <span class="n">runningThread</span><span class="o">-&gt;</span> <span class="n">RUNNING</span><span class="p">;</span>
+  <span class="n">schedSpinLock</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+  <span class="n">enableInterrupts</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+</code></pre></td></tr></table>
+</div>
+</div><p>Notice that the suspend() can resume the thread stopped by yield().</p>
+<h4 id="why-we-want-interrupt">why we want interrupt</h4>
+<p>if the interrupt handler need to modify the ready list, then it will acquire the spin lock that may be held by others. DEAD LOCK!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Sched</span><span class="o">::</span><span class="n">makeReady</span><span class="p">(</span><span class="n">TCB</span><span class="o">*</span> <span class="kr">thread</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">disableInterrupt</span><span class="p">();</span>
+  <span class="n">schedSpinLock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="n">readyList</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="kr">thread</span><span class="p">);</span>
+  <span class="kr">thread</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">READY</span><span class="p">;</span>
+  <span class="n">schedSpinLock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="n">enableInterrupts</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>IMPORTANT:</strong></p>
+<ul>
+<li>in Lock::acquire(), can we release the spinLock right after the waiting.add()?
+<ul>
+<li>Because other threads may do sth before we change the readyList.</li>
+<li>maybe makeReady the thread that we are about to suspend.</li>
+<li>You won&rsquo;t have a dead lock.</li>
+<li>But I&rsquo;m about to put myself to waitList having a state of WAITING after someone put me in the readyList.
+<ul>
+<li>The problem here is that every thread in ready list should have a state of ready, it&rsquo;s about the data consistency.</li>
+<li>It&rsquo;s not a bug though</li>
+</ul>
+</li>
+<li>We really need to acqurie the lock in a order so that we don&rsquo;t generate a gap between and may produce flaws.</li>
+</ul>
+</li>
+</ul>
+<h2 id="lecture-20-ordering-condition-variable">Lecture 20 Ordering, Condition Variable</h2>
+<p><strong>IMPORTANT</strong>, <strong>EXAM</strong>:</p>
+<ul>
+<li>
+<p>why should we release the lock in suspend() rather than in the acquire() after waiting.add()</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// If we release the spinLock right after the waiting.add(), we will fail to keep the consistency. Other thread may get in and put that thread we just added in to the waiting list in the ready list.
+</span><span class="c1">// And since the state update and switch() does not get to run, the vals of the TCB get put in the ready list is stale.
+</span><span class="c1">// So when get resumed, it kind of walking back the time. Since the pointer to the code section may still point to somewhere it has executed in the past.
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Exam may ask where the lastest timing we can put the release()</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ordering">Ordering</h3>
+<p>we can do thread_join() for every thread</p>
+<p>thread_join() is like a waiting list to synchronize all threads</p>
+<h4 id="shared-bounded-buffer">Shared Bounded Buffer</h4>
+<ul>
+<li>A bounded buffer is shared among multiple threads for message exchange</li>
+<li>producer threads put items into the buffer (sending the message)</li>
+<li>consumerj thread get items from the buffer (receiving a message)</li>
+<li><strong>Requirement: each message is received by only one thread.</strong></li>
+</ul>
+<h5 id="implementation">implementation</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Consumer
+</span><span class="c1"></span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">tryget</span><span class="p">()))</span> <span class="p">{</span>
+  
+<span class="p">}</span>
+<span class="n">use</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+
+<span class="c1">// producer
+</span><span class="c1"></span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">tryput</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+      
+<span class="n">tryget</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">item</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">front</span> <span class="o">&lt;</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">buf</span><span class="p">(</span><span class="n">front</span> <span class="o">%</span> <span class="n">MAX</span><span class="p">);</span>
+    <span class="n">front</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">notify</span> <span class="n">threads</span> <span class="n">waiting</span> <span class="n">on</span> <span class="nf">condition</span> <span class="p">(</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">go</span> <span class="n">to</span> <span class="n">sleep</span> <span class="n">on</span> <span class="n">condition</span> <span class="n">front</span> <span class="o">&lt;</span> <span class="n">tail</span>
+    <span class="n">put</span> <span class="kr">thread</span> <span class="n">on</span> <span class="n">waiting</span> <span class="n">list</span> <span class="n">and</span> <span class="n">release</span> <span class="n">the</span> <span class="n">lock</span>
+    <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span>
+  <span class="p">}</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">item</span><span class="p">;</span>
+<span class="p">}</span>
+      
+<span class="n">tryput</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">success</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">buf</span><span class="p">(</span><span class="n">tail</span> <span class="o">%</span> <span class="n">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+    <span class="n">tail</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">notify</span> <span class="n">threads</span> <span class="n">waiting</span> <span class="n">on</span> <span class="n">condition</span> <span class="n">front</span> <span class="o">&lt;</span> <span class="n">tail</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">go</span> <span class="n">to</span> <span class="n">sleep</span> <span class="n">on</span> <span class="nf">condition</span> <span class="p">(</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX</span>
+    <span class="n">put</span> <span class="kr">thread</span> <span class="n">on</span> <span class="n">waiting</span> <span class="n">list</span> <span class="n">and</span> <span class="n">release</span> <span class="n">the</span> <span class="n">lock</span>
+    <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span>
+  <span class="p">}</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
+<span class="p">}</span>
+      
+<span class="c1">// need to have separate waiting queues for differnent conditions of interest
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Should we assume the condition is right after being waken up.</p>
+<p>NO!! Since other threads may take over in between right after the thread was woken up.</p>
+<p>How to fix this?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">tryget</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">item</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">front</span> <span class="o">&lt;</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">go</span> <span class="n">to</span> <span class="n">sleep</span> <span class="n">on</span> <span class="n">condition</span> <span class="n">front</span> <span class="o">&lt;</span> <span class="n">tail</span>
+    <span class="n">put</span> <span class="kr">thread</span> <span class="n">on</span> <span class="n">waiting</span> <span class="n">list</span> <span class="n">and</span> <span class="n">release</span> <span class="n">the</span> <span class="n">lock</span> <span class="c1">// context switch (suspend or yield)
+</span><span class="c1"></span>    <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span>
+  <span class="p">}</span>
+  <span class="n">item</span> <span class="o">=</span> <span class="n">buf</span><span class="p">(</span><span class="n">front</span> <span class="o">%</span> <span class="n">MAX</span><span class="p">);</span>
+  <span class="n">front</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">notify</span> <span class="n">threads</span> <span class="n">waiting</span> <span class="n">on</span> <span class="nf">condition</span> <span class="p">(</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">item</span><span class="p">;</span>
+<span class="p">}</span>
+      
+<span class="n">tryput</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">success</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">go</span> <span class="n">to</span> <span class="n">sleep</span> <span class="n">on</span> <span class="nf">condition</span> <span class="p">(</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX</span>
+    <span class="n">put</span> <span class="kr">thread</span> <span class="n">on</span> <span class="n">waiting</span> <span class="n">list</span> <span class="n">and</span> <span class="n">release</span> <span class="n">the</span> <span class="n">lock</span> <span class="c1">// context switch (suspend or yield)
+</span><span class="c1"></span>    <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span>
+  <span class="p">}</span> 
+  <span class="n">buf</span><span class="p">(</span><span class="n">tail</span> <span class="o">%</span> <span class="n">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+  <span class="n">tail</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">success</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">notify</span> <span class="n">threads</span> <span class="n">waiting</span> <span class="n">on</span> <span class="n">condition</span> <span class="n">front</span> <span class="o">&lt;</span> <span class="n">tail</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="condition-variables">Condition Variables</h3>
+<ul>
+<li>Indicates a condition that needs to be satisfied for a thread to proceed.</li>
+<li>if condition is not satisfied, a thread can be put on a wait queue associated with the condition variable.
+<ul>
+<li>Must <strong>call wait()</strong> inside a critical section, <strong>while holding the lock</strong></li>
+<li>wait() <strong>atomically</strong> releases the lock and put the thread on the wait queue.</li>
+<li>when woken, <strong>reacquires the lock before returning from wait()</strong></li>
+</ul>
+</li>
+<li>A thread can wake thread(s) waiting on a condition variable
+<ul>
+<li>signal</li>
+<li>broadcast</li>
+</ul>
+</li>
+</ul>
+<h3 id="cv-design-pattern">CV Design Pattern</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">methodThatWaits</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="c1">// R/W shared state
+</span><span class="c1"></span>  
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">testSharedState</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// R/W shared state
+</span><span class="c1"></span>  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">methodThatSignals</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="c1">// R/W shared state
+</span><span class="c1"></span>  
+  <span class="c1">// if testSharedState is no true
+</span><span class="c1"></span>  <span class="n">cv</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+  
+  <span class="c1">// R/W shared state
+</span><span class="c1"></span>  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="shared-bounded-buffer-1">Shared Bounded Buffer</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">get</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">front</span> <span class="o">==</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">empty</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">item</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">front</span> <span class="o">%</span> <span class="n">MAX</span><span class="p">];</span>
+  <span class="n">front</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">full</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">item</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">put</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">((</span><span class="n">tail</span> <span class="o">-</span> <span class="n">front</span><span class="p">)</span> <span class="o">==</span> <span class="n">MAX</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">full</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">buf</span><span class="p">[</span><span class="n">tail</span> <span class="o">%</span> <span class="n">MAX</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+  <span class="n">tail</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">empty</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+  <span class="n">lock</span><span class="p">.</span><span class="n">release</span><span class="o">*</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Initially: front = tail = 0; MAX is buffer capacity
+</span><span class="c1">// empty/full are condition variables
+</span></code></pre></td></tr></table>
+</div>
+</div><p>pre/post CV</p>
+<h3 id="key-pionts-for-cv">Key Pionts for CV</h3>
+<ul>
+<li>
+<p>ALWAYS hold lock when calling wait, signal, broadcast</p>
+<ul>
+<li>Condition variable is sync FOR shared state</li>
+<li>ALWAYS hold lock when accessing shared state</li>
+</ul>
+</li>
+<li>
+<p>CV is memoryless</p>
+<ul>
+<li>if signal when no one is waiting, no op</li>
+<li>if wait before signal, waiter wakes up</li>
+</ul>
+</li>
+<li>
+<p>Wait atomically releases lock and put the thread into waiting list</p>
+<ul>
+<li>why?
+<ul>
+<li>we might lost the signal, since before putting the thread into the waiting list, the signal might be emitted.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>When a thread is woken up from wait, it may not run immediately (this is why we need to put it in a loop)</p>
+<ul>
+<li>signal/broadcast put thread on ready list</li>
+</ul>
+</li>
+<li>
+<p>Wait MUST be in a loop</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span><span class="p">(</span><span class="n">needToWait</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">condition</span><span class="p">.</span><span class="n">Wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>simplified implementation</p>
+<ul>
+<li>of condition vars and locks</li>
+<li>of code that uses condition vars and locks</li>
+</ul>
+</li>
+</ul>
+<h3 id="cv-implementation">CV implementation</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">CV</span> <span class="p">{</span>
+  <span class="k">private</span><span class="o">:</span>
+  <span class="n">Queue</span> <span class="n">waiting</span><span class="p">;</span>
+  <span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">wait</span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">isHeld</span><span class="p">());</span>
+  <span class="kt">void</span> <span class="nf">signal</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">broadcast</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="n">CV</span><span class="o">::</span><span class="n">wait</span><span class="p">(</span><span class="n">Lock</span> <span class="o">*</span><span class="n">lock</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">isHeld</span><span class="p">());</span>
+  <span class="n">waiting</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">myTCB</span><span class="p">);</span>
+  <span class="n">scheduler</span><span class="p">.</span><span class="n">suspend</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+  <span class="n">lock</span><span class="o">-&gt;</span><span class="n">acquire</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="n">CV</span><span class="o">::</span><span class="n">signal</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">waiting</span><span class="p">.</span><span class="n">notEmpty</span><span class="p">())</span> <span class="p">{</span>
+    <span class="kr">thread</span> <span class="o">=</span> <span class="n">waiting</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+    <span class="n">scheduler</span><span class="p">.</span><span class="n">makeReady</span><span class="p">(</span><span class="kr">thread</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">CV</span><span class="o">::</span><span class="n">broadcast</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">waiting</span><span class="p">.</span><span class="n">notEmpty</span><span class="p">())</span> <span class="p">{</span>
+    <span class="kr">thread</span> <span class="o">=</span> <span class="n">waiting</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+    <span class="n">scheduler</span><span class="p">.</span><span class="n">makeReady</span><span class="p">(</span><span class="kr">thread</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="lecture-21-semaphore">Lecture 21 Semaphore</h2>
+<p>(Dijkstra again)</p>
+<p><strong>One execution sequence waits for another</strong></p>
+<p>purpose 1: mutual exclusion</p>
+<p>purpose 2: ordering (we use CV)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Block oneself</th>
+<th>Unblock others</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutual Exclusion</td>
+<td>Lock.acquire()</td>
+<td>Lock.release()</td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>Cond.wait()</td>
+<td>Cond.signal()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="semaphore-concept">Semaphore Concept</h3>
+<ul>
+<li>Semaphore has a non-negative integer value
+<ul>
+<li>P() <strong>atomically</strong> waits for value to become &gt; 0,. then decrements</li>
+<li>V() <strong>atomically</strong> increments value (waking up waiter if needed)</li>
+<li>Operations are <strong>atomic</strong>
+<ul>
+<li>e.g., if value is 1, two P&rsquo;s will result in value 0 and one waiter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Block oneself</th>
+<th>Unblock others</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutual Exclusion</td>
+<td>Sem.P()</td>
+<td>Sem.V()</td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>Sem.P()</td>
+<td>Sem.V()</td>
+</tr>
+</tbody>
+</table>
+<p>Prob: it may hard to understand the code since this is too elegant</p>
+<h4 id="init-val">Init val!</h4>
+<p>Sem.init(N) sets an initial value of the semaphore</p>
+<p>The init val determines the behavior of the semaphore in subsequent use</p>
+<h4 id="using-sem-for-mutual-exclusion">Using Sem for Mutual Exclusion</h4>
+<p>Sem.init(1)</p>
+<p>![Sem for Mutual Exclusion](img/Sem for Mutual Exclusion.png)</p>
+<p>EXAM: how to implement sth in Semaphore!</p>
+<p>The atomic means the whole things have to be atomic. From sem operations to wake up funciont and increment/decrement are all atomic!</p>
+<p>When we use with a init of 1, we call it binary sem, since it works like a lock.</p>
+<h4 id="using-sem-for-ordering">Using Sem for Ordering</h4>
+<p>![Sem for Ordering](img/Sem for Ordering.png)</p>
+<h5 id="why-you-cant-do-sem_mutexp-first">why you can&rsquo;t do sem_mutex.P() first?</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Becase if you do a sem_full.P(), you can potentially get blocked.
+</span><span class="c1">// You can only be woken up by another thread using V().
+</span><span class="c1">// However, you are holding the sem_mutex.P() so that nobody can get in
+</span><span class="c1">// DEAD LOCK!
+</span></code></pre></td></tr></table>
+</div>
+</div><p>empty is init with 0 and full is init with MAX.
+Since the put() will work first and get() will wait first.</p>
+<p>Notice:
+For singals, they can emit singals and nobody is waiting.
+But for V(), if no one is waiting, then we will change the val!
+Which is not acceptable.
+V() will increment the val by 1.
+Signal is memoryless, but V() is not.</p>
+<p>Thus,semaphore is harder to implement.</p>
+<p>Also, for signal, when you wake up, you have to check the condition since
+it can be false by then. However, semaphore is differnent.</p>
+<h5 id="sem-for-cv">Sem for CV?</h5>
+<h3 id="bottom-like-regarding-semaphore">Bottom Like regarding Semaphore</h3>
+<ul>
+<li>an elegant and uniform solution for Synchronization</li>
+<li>Require careful design, in particular mapping the semaphore&rsquo;s initial value to
+problem domain</li>
+<li>can be confusing, especially since it can be used for two very differnent purposes</li>
+<li>Recommendation for general programming: stick with lock and CV</li>
+</ul>
+<h3 id="concurrency-bugs">Concurrency Bugs</h3>
+<p>(safty: race condition   progress: dead lock or starvation)</p>
+<ul>
+<li>did not apply Synchronization</li>
+<li>deadlock or starvation</li>
+</ul>
+<h4 id="the-dining-philosopher-problem">The Dining Philosopher Problem</h4>
+<h4 id="principled-synchronization">Principled Synchronization</h4>
+<ul>
+<li>identfy objs or data structures that can be accessed by multiple threads Concurrency
+<ul>
+<li>in OS kernel, everything</li>
+</ul>
+</li>
+<li>Add locks to objs/module
+<ul>
+<li>grab lock on start to every method/procedure</li>
+<li>Release lock on finish</li>
+</ul>
+</li>
+<li>If need to wait
+<ul>
+<li>while (needToWait()){condition.Wait(lock);}</li>
+<li>do not assume when you wake up the condition has become true</li>
+</ul>
+</li>
+<li>if do sth that might wake someone up
+<ul>
+<li>signal or broadcast</li>
+</ul>
+</li>
+<li>always leave shared state vars in a consistent state
+<ul>
+<li>when lock is released, or when entering waiting</li>
+</ul>
+</li>
+<li>if need to acquire multiple locks, use the same order across all threads</li>
+</ul>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar_trans.png"
+        data-srcset="/avatar_trans.png, /avatar_trans.png 1.5x, /avatar_trans.png 2x"
+        data-sizes="auto"
+        alt="/avatar_trans.png"
+        title="/avatar_trans.png"
+    /></div><p class="sponsor-bio"><em>Find this post helpful?</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/pcewlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/os_slides_note/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/os_slides_note/" data-title="OS 2" data-hashtags="OS"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/os_slides_note/" data-hashtag="OS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/os_slides_note/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/os_slides_note/" data-title="OS 2" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/os_slides_note/" data-title="OS 2"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/os_slides_note/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/os_slides_note/" data-title="OS 2"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/os_slides_note/" data-title="OS 2"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/persistence/" class="prev" rel="prev" title="OS 3"><i class="fas fa-angle-left fa-fw"></i>OS 3</a>
+            <a href="/os_reading_note/" class="next" rel="next" title="OS">OS<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/fuse/fuse.min.d3e13f020a1205ff114005e71493513b696e4a7a3b88229e6ec2c36d34b61d75.js" integrity="sha256-0&#43;E/AgoSBf8RQAXnFJNRO2luSno7iCKebsLDbTS2HXU="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://twikoo-comment-ochre.vercel.app/","lang":"en"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":300,"threshold":0.1,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4=" defer></script><script type="text/javascript" src="/js/twikoo.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>
