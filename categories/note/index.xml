@@ -16,6 +16,22 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/docker_cn/</guid>
     <description><![CDATA[Docker 容器操作 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 docker version #版本信息 docker info #系统信息 docker images # 可选项 -a --all #列出所有镜像 -q --quiet #只显示镜像的id，-aq常用]]></description>
 </item><item>
+    <title>Git vs SVN</title>
+    <link>https://Peacewalker365.github.io/git-vs-svn/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/git-vs-svn/</guid>
+    <description><![CDATA[Git vs SVN 版本控制，版本迭代。 GIt and SVN SVN是集中式的版本控制系统，版本库在中央服务器，首先要从中央服务器更新到最新的版本才可以开发。必须联网，对]]></description>
+</item><item>
+    <title>How to Speak</title>
+    <link>https://Peacewalker365.github.io/how-to-speak/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/how-to-speak/</guid>
+    <description><![CDATA[How to Speak &ndash;by Patrick Winston How to Start A joke? &ndash; Not recommended.
+The reason is while the others are not quite concentrate on the talk, your joke may just fall flat.
+A Promise? &ndash; Great idea
+e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you don&rsquo;t know now, and something among those will make a difference in your life.&rdquo;
+4 Samples Cycle the Subjects You&rsquo;ll need to talk about the subject multiple times with different approaches, or people will not remember.]]></description>
+</item><item>
     <title>HTML5</title>
     <link>https://Peacewalker365.github.io/html5-cn/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -33,12 +49,6 @@
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/maven/</guid>
     <description><![CDATA[浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri]]></description>
-</item><item>
-    <title>Serialization</title>
-    <link>https://Peacewalker365.github.io/serialization-java/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/serialization-java/</guid>
-    <description><![CDATA[Serialization and Deserialization in Java What 把Java对象转换为字节序列的过程&mdash;&mdash;&mdash;&ndash;&gt; 序列化 把字节序列恢复为Java]]></description>
 </item><item>
     <title>Spring5</title>
     <link>https://Peacewalker365.github.io/spring5/</link>
@@ -60,11 +70,5 @@
 Learn and talk to successful people (in terms of indie dev, not the money)
  Your friends may not know your field, though they may support you mentally or the otherwise Don&rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
  The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&rsquo;s your problem?]]></description>
-</item><item>
-    <title>Bellman Ford</title>
-    <link>https://Peacewalker365.github.io/bellman-ford/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/bellman-ford/</guid>
-    <description><![CDATA[Bellman-Ford Generic S.P. Algo review  Complexity could be exponential time (even for +ve weights) might not even terminate if there is a -ve weight cycle reachable from the source  Bellman-Ford(G,W,s) to solve prob 2 above 1 2 3 4 5 6 7  Initialize() for i=1 to |v|-1 for each edge(u,v)∈E Relax(u,v,w) for each edge(u,v)∈E if d[v] &gt; d[u] + w(u,v) then report -ve cycle exists    O(VE) Correctness  Theorem: If G = (V,E) contains no -ve weight cycles then after B-F executes, d[v] = ẟ[s,v] for all v∈V Corollary: If a value d[v] fails to converge after |v|-1 passes, there exists a -ve weight cycle reachable from s Proof by induction  Proof      Notice B-F algo doesn&rsquo;t sovle the -ve cycle but give an option to abort for the sake of termination]]></description>
 </item></channel>
 </rss>
