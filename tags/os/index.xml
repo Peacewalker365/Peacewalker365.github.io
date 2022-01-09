@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>OS - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/os/</link>
+        <description>OS - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/os/" rel="self" type="application/rss+xml" /><item>
+    <title>OS</title>
+    <link>https://Peacewalker365.github.io/os_reading_note/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/os_reading_note/</guid>
+    <description><![CDATA[OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
+Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
+Paging gives us flexibility so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
+Paging also gives us the simplicity of free-space management that paging affords.]]></description>
+</item><item>
+    <title>OS 2</title>
+    <link>https://Peacewalker365.github.io/os_slides_note/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/os_slides_note/</guid>
+    <description><![CDATA[Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!]]></description>
+</item><item>
+    <title>OS Review</title>
+    <link>https://Peacewalker365.github.io/os_review/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/os_review/</guid>
+    <description><![CDATA[von Neumann Architecture (realization of Turing Machine)
+What are programs?   Process – a running program
+  To allow for running multiple processes, a running program must be able to be interrupted
+  OS provides a virtualization of CPUs, so each program can assume they have their “own” virtual CPU at its disposal
+  Memory Space of a Program   A variable of a program corresponds to a location in memory]]></description>
+</item></channel>
+</rss>

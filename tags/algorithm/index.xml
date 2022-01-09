@@ -72,14 +72,12 @@ Piano/guitar fingering given sequence of n notes, find fingering for each note(s
     <description><![CDATA[Hashing with Chaining ADT: Dictionary  Python: Dict Motivation  docdist database login system compilers &amp; interpreters network router for looking up local machines server virtual memory substring search file and directory synchronization cryptography    Simple approach
  Direct-access table  store items in array indexed by key  it may end up wasting spaces since many indices of array are unused keys may not be integers gigantic memory hog      Solutions]]></description>
 </item><item>
-    <title>Karp-Rabin</title>
-    <link>https://Peacewalker365.github.io/table-doubling-karp-rabin/</link>
+    <title>Hashing 2</title>
+    <link>https://Peacewalker365.github.io/open-addressing-cryptographic-hashing/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/table-doubling-karp-rabin/</guid>
-    <description><![CDATA[Table Doubling, Karp-Rabin how to choose m?
-  want m = Θ(n) =&gt; 𝛼 = Θ(1)
-  Idea: start small: m = 8
- grow/shrink as necessary If m &gt; n, grow a table  make table of size m' build new hash f' rehash insert them in new table T' Θ(n+m+m')      in the case above
- if m' = m + 1  the cost of n insert is Θ(1+2+3+&hellip;+n) = Θ(n2)   if m' = 2m Oh, Golden  cost of n insert is Θ(1+2+4+8+&hellip;+n) = Θ(n)      Table Doubling =&gt; Amortization]]></description>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/open-addressing-cryptographic-hashing/</guid>
+    <description><![CDATA[Open Addressing, Cryptographic Hashing Open Addressing  no chaining one item per slot =&gt; m ≥ n where m is the # of slot and n is the # of keys  Probing   Hash function specifies order of slots to probe for a key (for insert/search/delete)
+  h: U x {0,1,&hellip;,m-1} -&gt; {0,1,&hellip;,m-1}
+ U is universe of keys first {} is the trial count the latter {} is the slot in table we want to design a function h, with the property that for all k in U:  h(k,1), h(k,2),&hellip;,h(k,m-1)  k is an arbitrary key to be permutation of 0,1,&hellip;,m-1 i.]]></description>
 </item></channel>
 </rss>

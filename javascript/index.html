@@ -5,32 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">Karp-Rabin - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="Karp-Rabin" />
-<meta property="og:description" content="Table Doubling, Karp-Rabin how to choose m?
-  want m = Θ(n) =&gt; 𝛼 = Θ(1)
-  Idea: start small: m = 8
- grow/shrink as necessary If m &gt; n, grow a table  make table of size m&#39; build new hash f&#39; rehash insert them in new table T&#39; Θ(n&#43;m&#43;m&#39;)      in the case above
- if m&#39; = m &#43; 1  the cost of n insert is Θ(1&#43;2&#43;3&#43;&hellip;&#43;n) = Θ(n2)   if m&#39; = 2m Oh, Golden  cost of n insert is Θ(1&#43;2&#43;4&#43;8&#43;&hellip;&#43;n) = Θ(n)      Table Doubling =&gt; Amortization" />
+    <title class="pjax-title">JavaScript - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="JavaScript" />
+<meta property="og:description" content="JS Let/Const 1 2 3 4 5 6 7 8 9 10 11  function sayHello() { for (var i = 0; i &lt; 5; i&#43;&#43;) { console.log(i); } console.log(i); } sayHello();   problem with var: the scope! To solve this problem, we have let.
+Scope var -&gt; function let -&gt; block const -&gt; block
+1 2 3 4 5 6 7 8 9 10 11  const person = { name: &#39;Mosh&#39;, walk: function() {}, talk() {} //neat way }; person." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Peacewalker365.github.io/table-doubling-karp-rabin/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://Peacewalker365.github.io/javascript/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-12-25T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
 
-<meta name="twitter:title" content="Karp-Rabin"/>
-<meta name="twitter:description" content="Table Doubling, Karp-Rabin how to choose m?
-  want m = Θ(n) =&gt; 𝛼 = Θ(1)
-  Idea: start small: m = 8
- grow/shrink as necessary If m &gt; n, grow a table  make table of size m&#39; build new hash f&#39; rehash insert them in new table T&#39; Θ(n&#43;m&#43;m&#39;)      in the case above
- if m&#39; = m &#43; 1  the cost of n insert is Θ(1&#43;2&#43;3&#43;&hellip;&#43;n) = Θ(n2)   if m&#39; = 2m Oh, Golden  cost of n insert is Θ(1&#43;2&#43;4&#43;8&#43;&hellip;&#43;n) = Θ(n)      Table Doubling =&gt; Amortization"/>
+<meta name="twitter:title" content="JavaScript"/>
+<meta name="twitter:description" content="JS Let/Const 1 2 3 4 5 6 7 8 9 10 11  function sayHello() { for (var i = 0; i &lt; 5; i&#43;&#43;) { console.log(i); } console.log(i); } sayHello();   problem with var: the scope! To solve this problem, we have let.
+Scope var -&gt; function let -&gt; block const -&gt; block
+1 2 3 4 5 6 7 8 9 10 11  const person = { name: &#39;Mosh&#39;, walk: function() {}, talk() {} //neat way }; person."/>
 <meta name="application-name" content="myStack">
 <meta name="apple-mobile-web-app-title" content="myStack">
 
 <meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/table-doubling-karp-rabin/" /><link rel="prev" href="https://Peacewalker365.github.io/linux/" /><link rel="next" href="https://Peacewalker365.github.io/javascript/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/javascript/" /><link rel="prev" href="https://Peacewalker365.github.io/table-doubling-karp-rabin/" /><link rel="next" href="https://Peacewalker365.github.io/java2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
     
@@ -40,13 +36,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Karp-Rabin",
+        "headline": "JavaScript",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/Peacewalker365.github.io\/table-doubling-karp-rabin\/"
-        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "Algorithm","wordcount":  391 ,
-        "url": "https:\/\/Peacewalker365.github.io\/table-doubling-karp-rabin\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/Peacewalker365.github.io\/javascript\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "JavaScript","wordcount":  374 ,
+        "url": "https:\/\/Peacewalker365.github.io\/javascript\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
                     "@type": "Person",
@@ -78,7 +74,7 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/table-doubling-karp-rabin/" selected>English</option></select>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/javascript/" selected>English</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
@@ -143,7 +139,7 @@
                     <option value="auto">Auto</option>
                 </select>
             </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/table-doubling-karp-rabin/" selected>English</option></select>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/javascript/" selected>English</option></select>
                 </a></div>
     </div>
 </header>
@@ -157,14 +153,14 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">Contents</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Karp-Rabin</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">JavaScript</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;391 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;<span id="/table-doubling-karp-rabin/" class="leancloud_visitors" data-flag-title="Karp-Rabin">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;374 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;<span id="/javascript/" class="leancloud_visitors" data-flag-title="JavaScript">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
-                    </span>&nbsp;<span id="/table-doubling-karp-rabin/" class="comment_count" data-flag-title="Karp-Rabin">
+                    </span>&nbsp;<span id="/javascript/" class="comment_count" data-flag-title="JavaScript">
                         <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -174,156 +170,204 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#letconst">Let/Const</a>
       <ul>
-        <li><a href="#table-doubling-karp-rabin">Table Doubling, Karp-Rabin</a>
+        <li>
           <ul>
-            <li><a href="#string-matching">String Matching</a>
-              <ul>
-                <li><a href="#rolling-hash-adt">Rolling hash ADT</a></li>
-                <li><a href="#karp-rabin-algorithm">Karp-Rabin algorithm</a></li>
-                <li><a href="#notice">Notice</a></li>
-              </ul>
-            </li>
+            <li><a href="#scope">Scope</a></li>
           </ul>
         </li>
       </ul>
     </li>
+    <li><a href="#objects">Objects</a></li>
+    <li><a href="#this">this</a>
+      <ul>
+        <li><a href="#building-this">Building this</a></li>
+      </ul>
+    </li>
+    <li><a href="#arrow-funcs">Arrow Funcs</a>
+      <ul>
+        <li><a href="#arow-funcs-and-this">Arow Funcs and this</a></li>
+      </ul>
+    </li>
+    <li><a href="#destructuring">Destructuring</a></li>
+    <li><a href="#spread">Spread</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#modules">Modules</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="table-doubling-karp-rabin">Table Doubling, Karp-Rabin</h3>
-<p>how to choose m?</p>
-<ul>
-<li>
-<p>want m = Θ(n) =&gt; 𝛼 = Θ(1)</p>
-</li>
-<li>
-<p>Idea: start small: m = 8</p>
-<ul>
-<li>grow/shrink as necessary</li>
-<li><strong>If m &gt; n, grow a table</strong>
-<ul>
-<li>make table of size m'</li>
-<li>build new hash f'</li>
-<li>rehash</li>
-<li>insert them in new table T'</li>
-<li>Θ(n+m+m')</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>in the case above</p>
-<ul>
-<li>if m' = m + 1
-<ul>
-<li>the cost of n insert is Θ(1+2+3+&hellip;+n) = Θ(n<sup>2</sup>)</li>
-</ul>
-</li>
-<li>if m' = 2m Oh, Golden
-<ul>
-<li>cost of n insert is Θ(1+2+4+8+&hellip;+n) = Θ(n)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Table Doubling =&gt; <strong>Amortization</strong></p>
-<ul>
-<li>operation take &ldquo;T(n) amortized&rdquo;<br>
-if k operations<br>
-take ≤ k•T(n) time</li>
-<li>think of meaning<br>
-&ldquo;T(n) on average&rdquo;, where average over all operations</li>
-<li>SO! table doubling:<br>
-k insertions<br>
-take Θ(k) time<br>
-=&gt; Θ(1) amortized per insertion</li>
-<li>also: k insertions &amp; deletions<br>
-take O(k)</li>
-</ul>
-</li>
-<li>
-<p>Deletion</p>
-<ul>
-<li>if m = n/2 then shrink to m/2<br>
-slow: from 2<sup>k</sup> &lt;&ndash;&gt; 2<sup>k</sup>+1<br>
-=&gt;Θ(n) per operaiton (BAD!)</li>
-<li>if m = n/4 then shrink to m/2<br>
-amortized time to Θ(1)</li>
-</ul>
-</li>
-</ul>
-<h4 id="string-matching">String Matching</h4>
-<ul>
-<li>
-<p>given two strings s &amp; t:<br>
-does s occur as a substring of t?</p>
-</li>
-<li>
-<p>Simple algo:</p>
-<ul>
-<li>
+            </div><div class="content" id="content"><h1 id="js">JS</h1>
+<h2 id="letconst">Let/Const</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript">
+<span class="kd">function</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+      <span class="p">}</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="nx">sayHello</span><span class="p">();</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>problem with var: the scope!
+To solve this problem, we have <code>let</code>.</p>
+<h4 id="scope">Scope</h4>
+<p>var -&gt; function
+let -&gt; block
+const -&gt; block</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Mosh&#39;</span><span class="p">,</span>
+  <span class="nx">walk</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="nx">talk</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">//neat way
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">talk</span><span class="p">();</span>
+<span class="nx">person</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;John&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">targetMember</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">;</span> <span class="c1">// think about this can be user input
+</span><span class="c1"></span><span class="nx">person</span><span class="p">[</span><span class="nx">targetMember</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;John&#39;</span><span class="p">;</span> <span class="c1">// dynamically manage the access
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="objects">Objects</h2>
+<h2 id="this">this</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Mosh&#34;</span><span class="p">,</span>
+  <span class="nx">walk</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">walk</span><span class="p">();</span> <span class="c1">// {name: &#34;Mosh&#34;, walk: f}
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">walk</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">walk</span><span class="p">;</span>
+<span class="nx">walk</span><span class="p">();</span> <span class="c1">// undefined   since the browser runs it in the strict mode
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><p>What is &lsquo;this&rsquo;?</p>
+<p>&lsquo;this&rsquo; always return the current object.</p>
+<p>The value of &lsquo;this&rsquo; is determined by how the function is called.</p>
+<p>If we call a function as a method of a object, &lsquo;this&rsquo; returns the ref of the obj.</p>
+<p>However, if we call a function as a standalone object or outside of an obj, &lsquo;this&rsquo; will return the global obj &ndash; the browser.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">any</span><span class="p">(</span><span class="n">s</span><span class="o">==</span><span class="n">t</span><span class="p">)[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">walk</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">walk</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// now the walk will always be binded to person obj for the new function walk created permanently.
+</span><span class="c1"></span><span class="nx">walk</span><span class="p">();</span> 
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>running time: Θ(|s|•(|t|-|s|)) ≈ Θ(|s|•|t|)</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="rolling-hash-adt">Rolling hash ADT</h5>
-<ul>
-<li>r.append(c):<br>
-add the char to end of x</li>
-<li>r.skip(c):<br>
-delete the first char of x</li>
-<li>r maintains a string x</li>
-<li>r():<br>
-hash value of x is r(x)</li>
-</ul>
-<h5 id="karp-rabin-algorithm">Karp-Rabin algorithm</h5>
-<ul>
-<li>for c in s:<br>
-rs.append(c)   here it means to append all chars in s</li>
-<li>for c in t[:len(s)]:<br>
-rt.append(c)   here it means to apend first chars of len(s) in t</li>
-<li>if rs() == rt()   see if two hash values are equivalent</li>
-<li>for i in range(len(s), len(t)):<br>
-<strong>{<strong>rt.skip(t[i - len(s)])<br>
-rt.append(t[i])<br>
-if rs() == rt()<br>
-if true<br>
-check whether s == t[i-len(s)+1 : i+1]<br>
-if equal:<br>
-found match<br>
-else:<br>
-continue the algo   this happens with probability ≤ 1/|s|</strong>}</strong> <strong>=&gt; O(1) expected time</strong></li>
-<li><strong>O(|s|+|t|+ #match•|s|)</strong></li>
-</ul>
-<p>For example<br>
-we use division method: h(k) = k mod m where m is a random prime ≥ |s|</p>
-<h5 id="notice">Notice</h5>
-<ol>
-<li>We treat <strong>x</strong> as multi-digit number <strong>u</strong> in base <strong>a</strong> where a is the alphabet size<br>
-if it&rsquo;s ASCII, a = 256<br>
-if it&rsquo;s UTF 8 or 16 a will be larger</li>
-<li>r.append(c):<br>
-u -&gt; u•a + ord(c)</li>
-<li>r.skip(c):<br>
-u -&gt; u - ord(c)•a<sup>|u|-1</sup></li>
-<li>say if we use division method:<br>
-r -&gt; (r•a +ord(c) - ord(c)•a<sup>|x|-1</sup>) mod m   here it&rsquo;s order of |x|-1 because r multiplied a at first</li>
-</ol>
+</div><h3 id="building-this">Building this</h3>
+<p>How to fix the prob: no matter how we call the function, &lsquo;this&rsquo; always returns the person obj.</p>
+<p><strong>notice that in JS, functions are objs</strong></p>
+<p>So, <code>person.walk</code> is actually an obj.</p>
+<p><code>person.walk.bind(person);</code> will bind the it to the person obj, and &lsquo;this&rsquo; will return the person obj.</p>
+<h2 id="arrow-funcs">Arrow Funcs</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">square</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">square</span> <span class="o">=</span> <span class="nx">number</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">square</span> <span class="o">=</span> <span class="nx">number</span> <span class="p">=&gt;</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">square</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">jobs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">isActive</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">isActive</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">isActive</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">activeJobs</span> <span class="o">=</span> <span class="nx">jobs</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">job</span><span class="p">){</span> <span class="k">return</span> <span class="nx">job</span><span class="p">.</span><span class="nx">isActive</span><span class="p">;});</span>
+<span class="kr">const</span> <span class="nx">activeJobs</span> <span class="o">=</span> <span class="nx">jobs</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">job</span> <span class="p">=&gt;</span> <span class="nx">job</span><span class="p">.</span><span class="nx">isActive</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="arow-funcs-and-this">Arow Funcs and this</h3>
+<h2 id="destructuring">Destructuring</h2>
+<h2 id="spread">Spread</h2>
+<h2 id="classes">Classes</h2>
+<h2 id="modules">Modules</h2>
 </div>
 
         <div class="sponsor">
@@ -344,23 +388,23 @@ r -&gt; (r•a +ord(c) - ord(c)•a<sup>|x|-1</sup>) mod m   here it&rsquo;s ord
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/table-doubling-karp-rabin/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                            <a class="link-to-markdown" href="/javascript/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/" data-title="Karp-Rabin" data-hashtags="Algorithm"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/" data-hashtag="Algorithm"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/" data-title="Karp-Rabin" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/" data-title="Karp-Rabin"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/" data-title="Karp-Rabin"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/table-doubling-karp-rabin/" data-title="Karp-Rabin"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/javascript/" data-title="JavaScript" data-hashtags="JavaScript"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/javascript/" data-hashtag="JavaScript"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/javascript/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/javascript/" data-title="JavaScript" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/javascript/" data-title="JavaScript"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/javascript/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/javascript/" data-title="JavaScript"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/javascript/" data-title="JavaScript"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">JavaScript</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/linux/" class="prev" rel="prev" title="Linux"><i class="fas fa-angle-left fa-fw"></i>Linux</a>
-            <a href="/javascript/" class="next" rel="next" title="JavaScript">JavaScript<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/table-doubling-karp-rabin/" class="prev" rel="prev" title="Karp-Rabin"><i class="fas fa-angle-left fa-fw"></i>Karp-Rabin</a>
+            <a href="/java2/" class="next" rel="next" title="Java 3">Java 3<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="twikoo"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
