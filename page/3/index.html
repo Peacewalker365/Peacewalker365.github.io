@@ -147,12 +147,43 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/breadth-first-search-bfs/">BFS</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Breadth-First Search (BFS) Basic Graph Review Graph search  find paths from one state to another  Recall: graph G = (V,E)  V = set of vertices E = set of edges  undirected e = {v,w} unordered pairs directed e = (v,w) ordered pairs    Aplications of graph search  web crawling social networking (search the friend near you than friends of a friend) network broadcast garbage collection model checking check mathematical conj.</div><div class="post-footer">
+        <a href="/breadth-first-search-bfs/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/readme/">Binary Search</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Bisection Search
+def bisect_search1(L, e):
+if L == []:
+return False
+elif len(L) == 1:
+return L[0] == e
+else:
+half = len(L)//2
+if L[half] &gt; e:
+return bisect_search1( L[:half], e)
+else:
+return bisect_search1( L[half:], e)
+O(nlgn) for this one
+It takes lgn steps until the len(L) is 1.
+In every step, it takes O(n) to copy a list.
+Revision aiming to achieve O(lgn)
+def bisect_search2(L, e):
+def bisect_search_helper(L, e, low, high):</div><div class="post-footer">
+        <a href="/readme/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/c#-advanced/">C# Advanced</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">C# advanced Delegate 委托 vs 接口 委托可以解决的问题，接口也可以 什么时候更适合用委托？ 接口只能定义一个方法 需要多播能力 订阅者需要多次实现接口 委托的兼容性 委托类</div><div class="post-footer">
         <a href="/c#-advanced/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href=""></a></div></div>
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c/">C</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/c-self-learn/">C&#43;&#43;</a>
     </h1><div class="post-meta">
@@ -186,26 +217,6 @@ NP = {decision problems solvable in poly time via a &ldquo;lucky&rdquo; algorith
 EXP = {problems solvable in exponential time 2nC}</div><div class="post-footer">
         <a href="/computational-complexity/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/design-patterns-for-ool/">Design Patterns</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Design Patterns For OOL Terms Association
-Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
-Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
-SOLID Design Principles S: Single-responsibility principle
-O: Open-closed principle
-L: Liskov&rsquo;s substitution principle</div><div class="post-footer">
-        <a href="/design-patterns-for-ool/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/design-pattern/">Design Pattern</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/depth-first-search-dfs-topological-sort/">DFS</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Depth-First Search (DFS), Topological Sort DFS   recursively explore graph, backtracking as necessary
-  1 2 3 4 5 6  parent = {s: None} DFS-Visit(Adj,s): for v in Adj[s]: if v not in parent: parent[v] = s DFS-Visit(Adj,v)     1 2 3 4 5 6  DFS(V,adj): parent = {} for s in V: if s not in parent: parent[s] = None DFS-Visit(Adj,s)     Analysis</div><div class="post-footer">
-        <a href="/depth-first-search-dfs-topological-sort/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -230,7 +241,7 @@ L: Liskov&rsquo;s substitution principle</div><div class="post-footer">
                     <span class="page-link" aria-hidden="true">&hellip;</span>
                 </li><li class="page-item ">
                     <span class="page-link">
-                        <a href="/page/7/">7</a>
+                        <a href="/page/8/">8</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">

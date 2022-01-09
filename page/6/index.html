@@ -147,15 +147,6 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/javascript/">JavaScript</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">JS Let/Const 1 2 3 4 5 6 7 8 9 10 11  function sayHello() { for (var i = 0; i &lt; 5; i++) { console.log(i); } console.log(i); } sayHello();   problem with var: the scope! To solve this problem, we have let.
-Scope var -&gt; function let -&gt; block const -&gt; block
-1 2 3 4 5 6 7 8 9 10 11  const person = { name: &#39;Mosh&#39;, walk: function() {}, talk() {} //neat way }; person.</div><div class="post-footer">
-        <a href="/javascript/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">JavaScript</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/table-doubling-karp-rabin/">Karp-Rabin</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
@@ -186,33 +177,49 @@ xn+1 = ( √a ( 1 + 𝛆n ) + a / ( √a ( 1 + 𝛆n ) ) / 2
         <a href="/square-roots-newtons-method/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/os_reading_note/">OS</a>
+        <a href="/speeding-up-dijkstra/">Optimized Dijkstra</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
-Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
-Paging gives us flexibility so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
-Paging also gives us the simplicity of free-space management that paging affords.</div><div class="post-footer">
-        <a href="/os_reading_note/">Read more...</a><div class="post-tags">
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Speeding up Dijkstra Optimize Dijkstra Single-Source, single target: s -&gt; t 1 2 3 4 5 6  Initialize() where d[s] = 0 d[u≠s] = ∞ Q &lt;- V[a] while Q ≠ 𝜑 do u &lt;- EXTRACT-MIN(Q) for each vertex v∈Adj[u] do Relax(u,v,w)   you can add (stop if u == t) rather than quit until Q is null to accelerate it
+Bi-Directional Search Alternate forward search from s and backward search from t, and we sorts of doubles all the data structures, like we have Qf and Qb, df[u] and db[u] &hellip;</div><div class="post-footer">
+        <a href="/speeding-up-dijkstra/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/persistence/">OS 3</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">persistence Closer to the CPU, faster
+CPU&ndash;Mem&ndash;Graphics&ndash;
+canonical protocol for programmed I/O Interface:
+statue: busy or not
+command
+data
+internal:
+CPU
+MEM
+other chips
+Q should the program running in kernel or user mode?
+in kernel.
+you don&rsquo;t want the user level program to touch the devices directly, since devices are shared bewteen processes. Device doesn&rsquo;t not have any protection from other processes. It can change the data on behalf of anyone.</div><div class="post-footer">
+        <a href="/persistence/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/os_slides_note/">OS 2</a>
+        <a href="/pitfalls/">Pitfalls in C</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Memory Sharing  can we share memory between processors?  some page table entries need to be mapped to the same physical frames One can read, other can write?: yes, control bits can be diff Does the shared mem must be the same VA in the two processes?: no How can we know a shared mem can be reclaimed?: have a counter like a ref bit    Copy on Write  UNIX fork with copy on write  copy the parent page table entries to the child, and turn on a special bit called copy-on-write bit on both parent and child&rsquo;s PTEs Notice this is a OS bit (unused bit modified by the OS), hardware don&rsquo;t know what it is!</div><div class="post-footer">
-        <a href="/os_slides_note/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">关于C的函数套娃！以下为错误案例！ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 void LevelOne(Obj* ptr) {LevelTwo(ptr)} void LevelTwo(Obj* ptr){...} {LevelThree(&amp;ptr)} void LevelThree(Obj** ptr){...} {......} int main(void) { Object* ptr = BuildObjArr(); LevelOne(ptr); } 上述code中，我们试图在第三层</div><div class="post-footer">
+        <a href="/pitfalls/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c/">C</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/os_review/">OS Review</a>
+        <a href="/single-source-shortest-paths-problem/">Single-Source Shortest Paths Problem</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">von Neumann Architecture (realization of Turing Machine)
-What are programs?   Process – a running program
-  To allow for running multiple processes, a running program must be able to be interrupted
-  OS provides a virtualization of CPUs, so each program can assume they have their “own” virtual CPU at its disposal
-  Memory Space of a Program   A variable of a program corresponds to a location in memory</div><div class="post-footer">
-        <a href="/os_review/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></div></div>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Single-Source Shortest Paths Problem Motivation G(V,E,W) where V is the vertices, E is the edges, W is the weights
+Dijkstra (for non-negative weight edges)  O(VlgV + E) where E = O(V2)  Bellmen-Ford  O(VE)  Weighted graphs   path p = &lt; v0, v1,&hellip;, vk&gt;
+( vi, vi+1 ) ∈ E for 0 ≤ i &lt; k
+w(p) = ∑w( vi, vi+1 ) from 0 to k-1</div><div class="post-footer">
+        <a href="/single-source-shortest-paths-problem/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -234,6 +241,10 @@ What are programs?   Process – a running program
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/7/">7</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/8/">8</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">

@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Architectural Pattern - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/architectural-pattern/</link>
+        <description>Architectural Pattern - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/architectural-pattern/" rel="self" type="application/rss+xml" /><item>
+    <title>Software Arch Patterns</title>
+    <link>https://Peacewalker365.github.io/software-architectural-patterns/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/software-architectural-patterns/</guid>
+    <description><![CDATA[Software Architectural Patterns Layered pattern Client-server pattern Master-slave pattern Pipe-filter pattern Broker pattern Peer-to-peer pattern Event-bus pattern Model-view-controller pattern Blackboard pattern Interpreter pattern ]]></description>
+</item></channel>
+</rss>

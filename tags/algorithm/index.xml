@@ -16,6 +16,29 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/breadth-first-search-bfs/</guid>
     <description><![CDATA[Breadth-First Search (BFS) Basic Graph Review Graph search  find paths from one state to another  Recall: graph G = (V,E)  V = set of vertices E = set of edges  undirected e = {v,w} unordered pairs directed e = (v,w) ordered pairs    Aplications of graph search  web crawling social networking (search the friend near you than friends of a friend) network broadcast garbage collection model checking check mathematical conj.]]></description>
 </item><item>
+    <title>Binary Search</title>
+    <link>https://Peacewalker365.github.io/readme/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/readme/</guid>
+    <description><![CDATA[Bisection Search
+def bisect_search1(L, e):
+if L == []:
+return False
+elif len(L) == 1:
+return L[0] == e
+else:
+half = len(L)//2
+if L[half] &gt; e:
+return bisect_search1( L[:half], e)
+else:
+return bisect_search1( L[half:], e)
+O(nlgn) for this one
+It takes lgn steps until the len(L) is 1.
+In every step, it takes O(n) to copy a list.
+Revision aiming to achieve O(lgn)
+def bisect_search2(L, e):
+def bisect_search_helper(L, e, low, high):]]></description>
+</item><item>
     <title>Complexity</title>
     <link>https://Peacewalker365.github.io/computational-complexity/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -71,13 +94,5 @@ Piano/guitar fingering given sequence of n notes, find fingering for each note(s
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/hashing-with-chaining/</guid>
     <description><![CDATA[Hashing with Chaining ADT: Dictionary  Python: Dict Motivation  docdist database login system compilers &amp; interpreters network router for looking up local machines server virtual memory substring search file and directory synchronization cryptography    Simple approach
  Direct-access table  store items in array indexed by key  it may end up wasting spaces since many indices of array are unused keys may not be integers gigantic memory hog      Solutions]]></description>
-</item><item>
-    <title>Hashing 2</title>
-    <link>https://Peacewalker365.github.io/open-addressing-cryptographic-hashing/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/open-addressing-cryptographic-hashing/</guid>
-    <description><![CDATA[Open Addressing, Cryptographic Hashing Open Addressing  no chaining one item per slot =&gt; m ≥ n where m is the # of slot and n is the # of keys  Probing   Hash function specifies order of slots to probe for a key (for insert/search/delete)
-  h: U x {0,1,&hellip;,m-1} -&gt; {0,1,&hellip;,m-1}
- U is universe of keys first {} is the trial count the latter {} is the slot in table we want to design a function h, with the property that for all k in U:  h(k,1), h(k,2),&hellip;,h(k,m-1)  k is an arbitrary key to be permutation of 0,1,&hellip;,m-1 i.]]></description>
 </item></channel>
 </rss>

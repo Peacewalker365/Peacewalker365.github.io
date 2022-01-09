@@ -60,20 +60,16 @@ e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/maven/</guid>
     <description><![CDATA[浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri]]></description>
 </item><item>
+    <title>Serialization</title>
+    <link>https://Peacewalker365.github.io/serialization-java/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/serialization-java/</guid>
+    <description><![CDATA[Serialization and Deserialization in Java What 把Java对象转换为字节序列的过程&mdash;&mdash;&mdash;&ndash;&gt; 序列化 把字节序列恢复为Java]]></description>
+</item><item>
     <title>Spring5</title>
     <link>https://Peacewalker365.github.io/spring5/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/spring5/</guid>
     <description><![CDATA[Spring5 IOC AOP 1 2 3 4 5 6 7 8 9 10 11 12 13 ------------------------- ----------------------- |Data Access/Integration| | Web | | JDBC ORM | |WebSocket WebMVC | | OXM JMS | |Web WebFlux | | Transactions | | | ------------------------- ----------------------- AOP Aspects Instrument Messaging ----------------------------------------------------- | Core Container | | Beans Core Context Expression | ----------------------------------------------------- Installation Spring Download Spring Framework Unzip it libs &ndash;&gt; jars]]></description>
-</item><item>
-    <title>Wiing Wiing</title>
-    <link>https://Peacewalker365.github.io/wing-wing-lyrics/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/wing-wing-lyrics/</guid>
-    <description><![CDATA[Wing Wing &ndash;by Hyukoh pi teul bi teul keo leo ga neun na e ta li
-o neul do ui mi eom neun do ha lu ga heul leo ga jyo
-sa sang do gi li gi li ha neun geo la min neun na neun
-com ceo leom tu geun du geun geo lil yi li ceo nyeo eop jyo
-wing ying wing ying ha lu sa li do]]></description>
 </item></channel>
 </rss>

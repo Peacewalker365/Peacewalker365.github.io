@@ -147,6 +147,13 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/software-architectural-patterns/">Software Arch Patterns</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Software Architectural Patterns Layered pattern Client-server pattern Master-slave pattern Pipe-filter pattern Broker pattern Peer-to-peer pattern Event-bus pattern Model-view-controller pattern Blackboard pattern Interpreter pattern </div><div class="post-footer">
+        <a href="/software-architectural-patterns/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/architectural-pattern/">Architectural Pattern</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/sql/">SQL</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
@@ -159,6 +166,18 @@
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">SSHD Setup  Install openssh-server sudo apt-get install openssh-server Check if the sshd service is running ps -e | grep sshd If not, sudo /etc/init.d/ssh start  If it&rsquo;s for your LAN, then you may want to setup the static IP for your server  Check your current ip ifconfig en0 Check current gateway  For macOS user: netstat -nr | grep default For Linux user: ip route | grep default     Notice that the sshd will start automatically on boot.</div><div class="post-footer">
         <a href="/sshd-setup/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/network/">Network</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/set-up-static-ip/">Static IP Setup</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">#Solve the Prob: No Internet After Static IP Setup
+The reason is that we didn&rsquo;t manually set up the DNS. So you may Ping 8.8.8.8 successfully, but not a regular website.
+sudo nano /etc/resolvconf/resolv.conf.d/head
+Write nameserver x.x.x.x y.y.y.y z.z.z.z
+Then reboot.
+This should solve your problem.</div><div class="post-footer">
+        <a href="/set-up-static-ip/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/network/">Network</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/swift_note/">Swift</a>
@@ -184,27 +203,6 @@ The diagram consists of a rectangle broken up vertically into three sections:
   Class name. In this case, the fully qualified name of the class is given.</div><div class="post-footer">
         <a href="/uml-class-diagrams/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/uml/">UML</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/vim/">Vim</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Termial Oriented Programming Some Useful Info https://vim-adventures.com/
-This is a game for vim beginner.
-https://www.destroyallsoftware.com/screencasts
-This is an amazing guy introducing the power of the terminal.
-Doing everything in one terminal window is powerful.
-Jobs Control jobs
-ps
-fg
-bg
-fg %1
-kill %2
-kill -9 24153
-./some_codes.sh &amp;
-ctrl + z to suspend the current job including when you are in the Vim
-ctrl + c to kill the current job</div><div class="post-footer">
-        <a href="/vim/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">Vim</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -222,6 +220,10 @@ ctrl + c to kill the current job</div><div class="post-footer">
                 </li><li class="page-item active">
                     <span class="page-link">
                         <a href="/page/7/">7</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/8/">8</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">
