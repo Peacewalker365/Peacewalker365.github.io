@@ -16,6 +16,62 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/breadth-first-search-bfs/</guid>
     <description><![CDATA[Breadth-First Search (BFS) Basic Graph Review Graph search  find paths from one state to another  Recall: graph G = (V,E)  V = set of vertices E = set of edges  undirected e = {v,w} unordered pairs directed e = (v,w) ordered pairs    Aplications of graph search  web crawling social networking (search the friend near you than friends of a friend) network broadcast garbage collection model checking check mathematical conj.]]></description>
 </item><item>
+    <title>Complexity</title>
+    <link>https://Peacewalker365.github.io/computational-complexity/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/computational-complexity/</guid>
+    <description><![CDATA[Computational Complexity P = {problems solvable in polynomial}
+NP = {decision problems solvable in poly time via a &ldquo;lucky&rdquo; algorithm, which a Nondeterministic model, algorithm makes guesses and output yes or no, guesses are guaranteed to lead to a yes if possible} or {decision problem with &ldquo;solution&rdquo; that can be &ldquo;checked&rdquo; in polynomial time, whenever the answer is yes, you can prove it and check it in poly time}
+EXP = {problems solvable in exponential time 2nC}]]></description>
+</item><item>
+    <title>DFS</title>
+    <link>https://Peacewalker365.github.io/depth-first-search-dfs-topological-sort/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/depth-first-search-dfs-topological-sort/</guid>
+    <description><![CDATA[Depth-First Search (DFS), Topological Sort DFS   recursively explore graph, backtracking as necessary
+  1 2 3 4 5 6  parent = {s: None} DFS-Visit(Adj,s): for v in Adj[s]: if v not in parent: parent[v] = s DFS-Visit(Adj,v)     1 2 3 4 5 6  DFS(V,adj): parent = {} for s in V: if s not in parent: parent[s] = None DFS-Visit(Adj,s)     Analysis]]></description>
+</item><item>
+    <title>Dijkstra</title>
+    <link>https://Peacewalker365.github.io/dijkstra-also-check-a-algo/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/dijkstra-also-check-a-algo/</guid>
+    <description><![CDATA[Dijkstra (also check A* algo) Relax(u,v,w) 1 2 3 4  Relax(u,v,w) if d[v] &gt; d[u] + w(u,v) d[v] = d[u] + w(u,v) 𝜋[v] = u //predecessor relationship   Safety Lemma: The relaxation operation maintains the invariance that d[v] ≥ 𝛿(S,v) for all v∈V
+Proof: By induction on the number of steps
+ d[u] ≥ 𝛿(S,u) 𝛿(S,v) ≤ 𝛿(S,u) + 𝛿(u,v) 𝛿(S,v) ≤ d[u] + w(u,v)  DAGs (Directed Acyclic Graphs)  NO -ve cycles Topological sort the DAG.]]></description>
+</item><item>
+    <title>DP</title>
+    <link>https://Peacewalker365.github.io/dynamic-programming-i-fibonacci-shortest-paths/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/dynamic-programming-i-fibonacci-shortest-paths/</guid>
+    <description><![CDATA[Dynamic Programming I: Fibonacci, Shortest Paths Dynamic programming (DP)  DP ≈ careful brute force DP ≈ guessing + recurrsion + memoization time = #subprobs • time of each subprob (treating recurrsive calls as Θ(1) since we only pay it on the first call)  Fibonacci numbers 1 2 3 4  fib(n): if n≤2: f=1 else: f=fib(n-1)+fib(n-2) return f   T(n) = T(n-1) + T(n-2) + c ≥ 2T(n-2) = Θ(2n/2)]]></description>
+</item><item>
+    <title>DP 3</title>
+    <link>https://Peacewalker365.github.io/dp-iii-parenthesization-edit-distance-knapsack/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/dp-iii-parenthesization-edit-distance-knapsack/</guid>
+    <description><![CDATA[DP III: Parenthesization, Edit Distance, Knapsack Subprblem for strings/sequences  suffixes x[i:] for any i Θ(n) prefixes x[:i] for any i Θ(n) substrings x[i:j] for all i ≤ j Θ(n2)  Parenthesization  optimal evaluation of associative expression
+A0•A1•&hellip;•An-1
+how to put the parenthesis note   subprob: the optimal evaluation of Ai to Aj-1 which is i:j
+#subprobs = Θ(n2) guess: outermost/last multiplication
+(Ai&hellip;Ak-1)•(Ak&hellip;Aj-1)
+#choices = O(j-i+1) = O(n) recurrence]]></description>
+</item><item>
+    <title>DP 4</title>
+    <link>https://Peacewalker365.github.io/dp-iv-guitar-fingering-tetris-super-mario-bros/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/dp-iv-guitar-fingering-tetris-super-mario-bros/</guid>
+    <description><![CDATA[DP IV: Guitar Fingering, Tetris, Super Mario Bros. 2 kinds of guessing in step 2&amp;3: guessing which subprob to use to solve bigger subprob
+in step 1: add more subprobs to guess(remember more features of the solution)
+Piano/guitar fingering given sequence of n notes, find fingering for each note(single)
+ fingers 1,&hellip;, F difficulty measure d(p,f,q,g) some note p on finger f, and we want to transition to note q on finger g    subproblem = how to play notes[i:] when use f for notes[i]]]></description>
+</item><item>
+    <title>Hashing</title>
+    <link>https://Peacewalker365.github.io/hashing-with-chaining/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/hashing-with-chaining/</guid>
+    <description><![CDATA[Hashing with Chaining ADT: Dictionary  Python: Dict Motivation  docdist database login system compilers &amp; interpreters network router for looking up local machines server virtual memory substring search file and directory synchronization cryptography    Simple approach
+ Direct-access table  store items in array indexed by key  it may end up wasting spaces since many indices of array are unused keys may not be integers gigantic memory hog      Solutions]]></description>
+</item><item>
     <title>Karp-Rabin</title>
     <link>https://Peacewalker365.github.io/table-doubling-karp-rabin/</link>
     <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
@@ -25,22 +81,5 @@
   Idea: start small: m = 8
  grow/shrink as necessary If m &gt; n, grow a table  make table of size m' build new hash f' rehash insert them in new table T' Θ(n+m+m')      in the case above
  if m' = m + 1  the cost of n insert is Θ(1+2+3+&hellip;+n) = Θ(n2)   if m' = 2m Oh, Golden  cost of n insert is Θ(1+2+4+8+&hellip;+n) = Θ(n)      Table Doubling =&gt; Amortization]]></description>
-</item><item>
-    <title>Newton&#39;s Method</title>
-    <link>https://Peacewalker365.github.io/square-roots-newtons-method/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/square-roots-newtons-method/</guid>
-    <description><![CDATA[Square Roots, Newton&rsquo;s Method Square Roots  recall the sqrt(2) problem
-xi+1 = (xi + a/xi) / 2
-Notice the division in it
-that&rsquo;s what we&rsquo;ll settle down  Error Analysis of Newton&rsquo;s Method  xn = √a (1 + 𝛆n) 𝛆n may +/-
-xn+1 = ( √a ( 1 + 𝛆n ) + a / ( √a ( 1 + 𝛆n ) ) / 2
-= ( √a ( 1 + 𝛆n ) + 1 / ( 1 + 𝛆n ) ) / 2]]></description>
-</item><item>
-    <title>Topics in Algorithm Research</title>
-    <link>https://Peacewalker365.github.io/topics-in-algorithms-research/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/topics-in-algorithms-research/</guid>
-    <description><![CDATA[Topics in Algorithms Research Heometric folding algorithm  folding a crease pattern -&gt; NP-complete design a crease pattern from a folded shape -&gt; P   ]]></description>
 </item></channel>
 </rss>
