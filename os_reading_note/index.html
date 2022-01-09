@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">OS - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="OS" />
+<meta property="og:description" content="OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
+Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
+Paging gives us flexibility so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
+Paging also gives us the simplicity of free-space management that paging affords." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/os_reading_note/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-25T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="OS"/>
+<meta name="twitter:description" content="OS_notes_for book_reading Virtual Memory Paging Segmentation leads to fragmentation so that we need the new idea of paging.
+Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.
+Paging gives us flexibility so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.
+Paging also gives us the simplicity of free-space management that paging affords."/>
+<meta name="application-name" content="myStack">
+<meta name="apple-mobile-web-app-title" content="myStack">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/os_reading_note/" /><link rel="prev" href="https://Peacewalker365.github.io/os_slides_note/" /><link rel="next" href="https://Peacewalker365.github.io/speeding-up-dijkstra/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
+    
+    
+    
+    <meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OS",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/os_reading_note\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "OS","wordcount":  3965 ,
+        "url": "https:\/\/Peacewalker365.github.io\/os_reading_note\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
+                    "@type": "Person",
+                    "name": "PceWlkr"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/os_reading_note/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/showcase/" title="">Showcase</a><a class="menu-item" href="/categories/note/" title="">Notes</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/os_reading_note/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">OS</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3965 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;19 minutes&nbsp;<span id="/os_reading_note/" class="leancloud_visitors" data-flag-title="OS">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
+                    </span>&nbsp;<span id="/os_reading_note/" class="comment_count" data-flag-title="OS">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#virtual-memory">Virtual Memory</a>
+      <ul>
+        <li><a href="#paging">Paging</a></li>
+        <li><a href="#page-table">Page Table</a>
+          <ul>
+            <li><a href="#notice">Notice</a></li>
+            <li><a href="#translation">Translation</a></li>
+            <li><a href="#where-are-page-tables-stored">Where are page tables stored?</a></li>
+            <li><a href="#whats-in-the-page-table">What&rsquo;s in the page table?</a></li>
+            <li><a href="#problem-paging-is-so-slow">Problem: paging is so slow</a></li>
+          </ul>
+        </li>
+        <li><a href="#tlbs">TLBs</a>
+          <ul>
+            <li><a href="#translation-lookaside-buffertlb">Translation-lookaside Buffer(TLB)</a></li>
+            <li><a href="#tlb-basic-algorithm">TLB Basic Algorithm</a></li>
+            <li><a href="#who-handle-the-tlb-miss">Who handle the TLB miss?</a></li>
+            <li><a href="#aside-tlb-valid-bit--page-table-valid-bit">Aside: TLB valid bit != page table valid bit</a></li>
+            <li><a href="#important">IMPORTANT:</a>
+              <ul>
+                <li><a href="#my-question-here-is-whether-the-same-tlb-is-shared-by-processes-or-even-cores">My QUESTION here is whether the same TLB is shared by processes or even cores?</a></li>
+              </ul>
+            </li>
+            <li><a href="#whats-in-the-tlb">What&rsquo;s in the TLB?</a></li>
+            <li><a href="#tlb-issue-context-switches">TLB Issue: Context Switches</a></li>
+            <li><a href="#issue-replacement-policy">Issue: Replacement Policy</a>
+              <ul>
+                <li><a href="#how-to-design-tlb-replacement-policy">How to design TLB replacement policy?</a></li>
+              </ul>
+            </li>
+            <li><a href="#a-real-tlb-entry">A Real TLB Entry</a>
+              <ul>
+                <li><a href="#ram-isnt-always-ram">RAM isn&rsquo;t always RAM</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#smaller-tables">Smaller Tables</a>
+          <ul>
+            <li><a href="#page-tables-are-too-big">Page tables are too big</a></li>
+            <li><a href="#simple-solution-bigger-pages">Simple Solution: Bigger Pages</a>
+              <ul>
+                <li><a href="#side-note-many-archs-now-support-multiple-page-sizes">Side note: many archs now support multiple page sizes.</a></li>
+              </ul>
+            </li>
+            <li><a href="#hybrid-approach-paging-and-segments">Hybrid Approach: Paging and Segments</a></li>
+            <li><a href="#idea-when-you-have-two-good-and-seemly-opposite-ideas-you-should-always-see-if-you-can-combine-them-into-hybrid-that-manage-to-achieve-the-best-of-both-worlds">IDEA: When you have two good and seemly opposite ideas, you should always see if you can combine them into hybrid that manage to achieve the best of both worlds.</a></li>
+            <li><a href="#multi-level-page-tables">Multi-level Page Tables</a>
+              <ul>
+                <li><a href="#advantage">Advantage:</a></li>
+                <li><a href="#disadvantage">Disadvantage:</a></li>
+              </ul>
+            </li>
+            <li><a href="#more-than-two-levels">More Than Two Levels</a></li>
+            <li><a href="#important-the-pdts-pa-will-be-stored-in-a-register-but-it-does-not-mean-that-the-addr-of-pdt-has-to-be-in-a-fixed-pa-it-just-has-to-be-memorized">IMPORTANT: The PDT&rsquo;s PA will be stored in a register, but it does not mean that the addr of PDT has to be in a fixed PA, it just has to be memorized.</a></li>
+            <li><a href="#inverted-page-tables">Inverted Page Tables</a></li>
+          </ul>
+        </li>
+        <li><a href="#swapping-mechanisms">Swapping: Mechanisms</a>
+          <ul>
+            <li><a href="#swap-space">Swap space</a></li>
+            <li><a href="#the-present-bit">The Present Bit</a></li>
+            <li><a href="#the-page-fault">The Page Fault</a>
+              <ul>
+                <li><a href="#how-will-the-os-know-where-to-find-the-desired-page">How will the OS know where to find the desired page?</a></li>
+                <li><a href="#why-hardware-doesnt-handle-page-faults">Why hardware doesn&rsquo;t handle page faults?</a></li>
+              </ul>
+            </li>
+            <li><a href="#what-if-memory-is-full">What if memory is full?</a></li>
+            <li><a href="#page-fault-control-flow">Page Fault Control Flow</a></li>
+            <li><a href="#when-replacement-really-occur">When Replacement Really occur</a></li>
+          </ul>
+        </li>
+        <li><a href="#swapping-policies">Swapping Policies</a>
+          <ul>
+            <li><a href="#cache-management">Cache management</a></li>
+            <li><a href="#the-optimal-replacement-policy">The Optimal Replacement Policy</a></li>
+            <li><a href="#fifo">FIFO</a></li>
+            <li><a href="#random">Random</a></li>
+            <li><a href="#lru">LRU</a></li>
+            <li><a href="#approximating-lru">Approximating LRU</a></li>
+            <li><a href="#thrashing">Thrashing</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#concurrency">Concurrency</a>
+      <ul>
+        <li><a href="#intro">Intro</a>
+          <ul>
+            <li><a href="#why-thread">why thread?</a></li>
+            <li><a href="#thread-creation">Thread Creation</a></li>
+            <li><a href="#why-it-gets-worse-shared-data">Why It Gets Worse: Shared Data</a>
+              <ul>
+                <li><a href="#recall-the-concept-if-the-hazard">[recall the concept if the Hazard]</a></li>
+              </ul>
+            </li>
+            <li><a href="#core-problem-uncontrolled-scheduling">Core Problem: Uncontrolled Scheduling</a></li>
+            <li><a href="#one-more-problem-waiting-for-another">One More Problem: Waiting For Another</a></li>
+          </ul>
+        </li>
+        <li><a href="#interlude-thread-api">Interlude: Thread API</a>
+          <ul>
+            <li><a href="#thread-creation-1">Thread Creation</a></li>
+            <li><a href="#thread-completion">Thread Completion</a></li>
+            <li><a href="#locks">Locks</a></li>
+            <li><a href="#condition-variables">Condition Variables</a></li>
+            <li><a href="#compile-and-run">Compile and Run</a></li>
+            <li><a href="#summary">Summary</a></li>
+          </ul>
+        </li>
+        <li><a href="#locks-1">Locks</a>
+          <ul>
+            <li><a href="#the-basic-idea">The Basic Idea</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="os_notes_for-book_reading">OS_notes_for book_reading</h1>
+<h2 id="virtual-memory">Virtual Memory</h2>
+<h3 id="paging">Paging</h3>
+<p>Segmentation leads to fragmentation so that we need the new idea of paging.</p>
+<p>Pages are memory chunks with fixed size, we can view physical memory as an array of fixed-sized slots called page frames.</p>
+<p>Paging gives us <strong>flexibility</strong> so that we don&rsquo;t need to whether the way a process uses to address space will cause external fragmentation.</p>
+<p>Paging also gives us the <strong>simplicity</strong> of free-space management that paging affords.</p>
+<p>The OS keeps a <strong>free list</strong> of all free pages.</p>
+<h3 id="page-table">Page Table</h3>
+<p>The major role of page table is to store <strong>address translations</strong> for each of the virtual pages of the address space, thus letting us know where in physical memory each page resides.</p>
+<p>It&rsquo;s important to know that page table is a <strong>per-process</strong> data structure. An exception of this is the <strong>inverted page table</strong>.</p>
+<h4 id="notice">Notice</h4>
+<p>Notice that two same virtual addresses in different processes may lead to a same physical frame.</p>
+<h4 id="translation">Translation</h4>
+<p>VA &ndash;&gt; VPN(Virtual Address Number) + offset</p>
+<p>For example, the page size is 16 bytes in a 64-byte address space.
+Then we need 4 pages, the virtual page number will be indicated by the first 2-bit.</p>
+<p>VPN &ndash;&gt; PFN(Physical Frame Number)
+Physical Address = VFN + offset</p>
+<h4 id="where-are-page-tables-stored">Where are page tables stored?</h4>
+<p>Page tables can get terribly large, much larger than the small segment table or base/bounds pair.
+For example, for a typical 32-bit address space, with 4KB pages. This VA splits into 20-bit VPN and 12-bit offset. 20 bits implies 2^20 translations that the OS would have to manage for each process.
+Assuming we need 4 bytes per PTE to hold the PFN + control bits, then we need an immense 4MB of memory for each page table. And this is only for one process.</p>
+<h4 id="whats-in-the-page-table">What&rsquo;s in the page table?</h4>
+<p>The simplest one is the <strong>linear page table</strong>, which is just an array.
+The OS indexes the array by the virtual page number, and looks up the page-table entry at that VPN to find the desired PFN.</p>
+<p>We also have control bits such as:</p>
+<p><strong>Valid bit</strong> ==&gt; indicating whether the particular translation is valid. All unused space will be marked invalid.</p>
+<p><strong>Protection bit</strong> ==&gt; indicating whether the page can be read, written, or executed.</p>
+<p><strong>Present bit</strong> ==&gt; indicating whether this page is in physical memory or on disk.</p>
+<p><strong>Dirty bit</strong> ==&gt; indicating whether the page has been modified</p>
+<p><strong>Reference bit</strong>(accessed bit) ==&gt; track whether a page has been accessed, and this is useful to tell which page is popular so that we should keep in memory.</p>
+<h4 id="problem-paging-is-so-slow">Problem: paging is so slow</h4>
+<p>To fetch the desired data:</p>
+<ol>
+<li>fetch the proper page table entry from the process&rsquo;s page table.</li>
+<li>Perform the translation.</li>
+<li>Load the data from ther physical memory.</li>
+</ol>
+<p>To do so, the hardware must know where to find the page table of the current running process. Thus we need a <strong>page-table base register</strong> holding the location.</p>
+<p>However, implementing paging without care will lead to a slower machine as well as memory waste.</p>
+<h3 id="tlbs">TLBs</h3>
+<h4 id="translation-lookaside-buffertlb">Translation-lookaside Buffer(TLB)</h4>
+<p>A TLB is a part of memory-management unit(MMU), and is a hardware cache.</p>
+<h4 id="tlb-basic-algorithm">TLB Basic Algorithm</h4>
+<p>Extract the VPN from the VA and check if the TLB holds it.</p>
+<p>If yes, then we have a <strong>TLB hit</strong>. We can now extract the PFN from the relevant TLB entry, concatenate that onto the offset from the original VA, and form the PA we want. If protection checks do not fail, then we can perform the operation correctly.</p>
+<p>If no, then we have a <strong>TLB miss</strong>. Then we have to walk the page table, the memory, or even copy the data from disk. And then update the TLB.</p>
+<p>Note that page fault can be triggered by both TLB hit and TLB miss.</p>
+<p>The TLB hit rate will greatly affect the performance, so we need to find the sweet spot for the TLB size. Also, if the TLB size is too large, walk the TLB will consume more time. And also, if you want a fast cache, it has to be small. This is the physical limit.</p>
+<p>TLB also improves the performance due to <strong>spatial locality</strong> even if it&rsquo;s the first time to visit that memory space.</p>
+<h4 id="who-handle-the-tlb-miss">Who handle the TLB miss?</h4>
+<p>Could be hardware or software.</p>
+<p>Hardware: the hardware has to know where exactly the page tables are located in memory(<strong>page-table base register</strong>), as well as the format. On a miss, the hardware will walk through the page table, find the right PTE and extract the desired translation, update the TLB with the translation, and retry the instruction.</p>
+<p>For example, the Intel x86 architecture uses a fixed multi-level page table, and the current table is pointed to by the CR3 register.</p>
+<p>Software: More modern architecture such as RISC, has a software-managed TLB. On a TLB miss, the hardware will raise an exception to pause the current instruction stream. Then it traps into kernel mode and jumps to a trap handler dealing with TLB misses. The code will look up the page table and update the TLB and return from the trap. The hardware will retry the instruction.</p>
+<p>Notice that the return-from-trap behaves differently from that in a system call. In the system call case, it should resume execution at the instruction after the trap into the OS. However, in this case, the hardware must resume execution at the instruction that cause the trap and retry it so that it will has a TLB hit this time. We need be aware of the OS need to save different PC in these two cases.</p>
+<p>Also, when running the TLB miss-handling code, the OS need to be extra careful not to cause an infinite chain of TLB misses to occur. The solution would be to keep TLB miss handlers in physical memory that are unmapped and not subject to address translation. Or reserve some entries in the TLB for permanently-valid translations and use some of those permanent translation slots for the handler code itself, these wired translations always hit in the TLB.</p>
+<h4 id="aside-tlb-valid-bit--page-table-valid-bit">Aside: TLB valid bit != page table valid bit</h4>
+<p>TLB valid bit indicates whether a TLB entry has a valid translation in it.</p>
+<p>The page table valid bit indicates the page has not been allocated by the process, and should not be accessed by a correctly working program.</p>
+<p>The TLB valid bit is quite useful when performing a context switch too. By setting all TLB entries to invalid, the system can ensure that the about-to-run process does not accidentally use a virtual-to-physical translation from a previous process.</p>
+<h4 id="important">IMPORTANT:</h4>
+<p>The dirty bit in PTE indicates where the PTE is modified rather than whether the memory location is modified, which is indicated by the dirty bit of that memory location.</p>
+<p>Based on this fact, we can know that the content of PTE in TLB does not need to be the same as the one in the page table since whether the memory is modified is indicated by the memory itself rather than the PTE.</p>
+<p>In addition, TLB PTE doesn&rsquo;t need to be the as same as the one in the page table because the OS can keep just TLB updated rather than both. Think of about this, if we have the PTE in TLB, when we want to go to that PA, we always get a TLB hit and will never walk the page table.</p>
+<p>The additional work would be to update the PTE in the page table when the PTE in the TLB is evicted.</p>
+<h5 id="my-question-here-is-whether-the-same-tlb-is-shared-by-processes-or-even-cores">My QUESTION here is whether the same TLB is shared by processes or even cores?</h5>
+<h4 id="whats-in-the-tlb">What&rsquo;s in the TLB?</h4>
+<p>VPN | PFN | other bits</p>
+<p>A typical TLB might have 32, 64, 128 entries and be <strong>fully associative</strong>, which means any given translation can be anywhere in the TLB, and that the hardware will search the entire TLB in parallel to find the desired translation.</p>
+<h4 id="tlb-issue-context-switches">TLB Issue: Context Switches</h4>
+<p>The virtual-to-physical translations are not meaningful for other processes.</p>
+<p>*<strong>How do we manage TLB contents on a context switch?</strong></p>
+<ol>
+<li>Flush the TLB on context Switches. But the cost is that each time a process runs, it must incur TLB misses as it touches its data and code pages. The cost will be high, if the OS Switches between processes frequently.</li>
+<li>Some hardware provide ASID(address space identifier) field in the TLB, which usually has fewer bits than PID. The ASID is used to distinguish/mark PTEs from different processes.</li>
+</ol>
+<h4 id="issue-replacement-policy">Issue: Replacement Policy</h4>
+<p>We have to consider cache replacement. Specifically, when we are installing a new entry in the TLB, which one should we replace?</p>
+<h5 id="how-to-design-tlb-replacement-policy">How to design TLB replacement policy?</h5>
+<ol>
+<li>LRU(least-recently-used)</li>
+<li>Random policy &ndash;&gt; avoid corner-case behaviors + simplicity</li>
+</ol>
+<h4 id="a-real-tlb-entry">A Real TLB Entry</h4>
+<p><img
+        class="lazyload"
+        data-src="img/MISP_TLB_Entry.png"
+        data-srcset="img/MISP_TLB_Entry.png, img/MISP_TLB_Entry.png 1.5x, img/MISP_TLB_Entry.png 2x"
+        data-sizes="auto"
+        alt="img/MISP_TLB_Entry.png"
+        title="MISP TLB Entry.png"
+    /></p>
+<p>G is the global bit indicating whether the page is global shared among processes. Thus if global bit is set, the ASID is ignored.</p>
+<p>C is the coherence bits indicating how a page is cached by the hardware.</p>
+<p>D is the dirty bit indicating whether the page has been written to. (notice that this is the Intel&rsquo;s way of implementation.)</p>
+<p>V is the valid bit telling the hardware if the there is a valid translation present in the entry.</p>
+<h5 id="ram-isnt-always-ram">RAM isn&rsquo;t always RAM</h5>
+<p>If the number of pages you want to access exceeds the TLB coverage, it can lead to severe performance issue. <strong>Culler&rsquo;s Law</strong> TLB as the source of many performance problems.</p>
+<p>TLB actually brings many problems. Check the book for details.</p>
+<h3 id="smaller-tables">Smaller Tables</h3>
+<h4 id="page-tables-are-too-big">Page tables are too big</h4>
+<p>Linear page tables are pretty big. Assuming a 32-bit address space, with 4KB pages and a 4-byte page-table size. There are roughly one million virtual pages in it, which will occupy 4MB memory.</p>
+<h4 id="simple-solution-bigger-pages">Simple Solution: Bigger Pages</h4>
+<h5 id="side-note-many-archs-now-support-multiple-page-sizes">Side note: many archs now support multiple page sizes.</h5>
+<p>Bigger pages may cause <strong>internal fragmentation</strong>.</p>
+<h4 id="hybrid-approach-paging-and-segments">Hybrid Approach: Paging and Segments</h4>
+<p>Most of the page table is unused, full of invalid entries.</p>
+<p>Instead of havin a single page table for the entris, why not one per logical segment.</p>
+<p>Base tells us the address of each segment. It holds the pysical address of the page table of that segment.</p>
+<p>Bound tells us the size of each segment.</p>
+<p>Thus the VA looks like:
+Seg | VPN | Offset</p>
+<p>The hardware use segment bit(SN) to determine which base and bound pair to use.</p>
+<h4 id="idea-when-you-have-two-good-and-seemly-opposite-ideas-you-should-always-see-if-you-can-combine-them-into-hybrid-that-manage-to-achieve-the-best-of-both-worlds">IDEA: When you have two good and seemly opposite ideas, you should always see if you can combine them into hybrid that manage to achieve the best of both worlds.</h4>
+<p>So if the code segment just have three entries, then the bound will be set to 3. This greatly reduces the waste of space for page tables.</p>
+<p>However, the problem is that if we have a large but sparsely-used heap. This will cause the <strong>external fragmentation</strong> again.</p>
+<h4 id="multi-level-page-tables">Multi-level Page Tables</h4>
+<p>It turns the linear page table like a tree.
+We use <strong>page directory</strong> to find the valid page tables.</p>
+<p><img
+        class="lazyload"
+        data-src="img/Multi-level_Page_Tables.png"
+        data-srcset="img/Multi-level_Page_Tables.png, img/Multi-level_Page_Tables.png 1.5x, img/Multi-level_Page_Tables.png 2x"
+        data-sizes="auto"
+        alt="img/Multi-level_Page_Tables.png"
+        title="Multi-level Page Tables"
+    /></p>
+<p>The page directory, in a simple two-level table, contains of a number of <strong>PDE</strong>(page directory entry).</p>
+<p>A PDE has a valid bit and a PFN, similar to PTE. However, the valid bit in PDE indcates whether at least one of the PTEs on the page pointed to by this PDE is valid. If the PDE is not valid, then the rest of the PDE is not defined. (The valid bit is the first bit in PDE)</p>
+<h5 id="advantage">Advantage:</h5>
+<ol>
+<li>Better supports sparse address spaces.</li>
+<li>If carefully constructed, each portion of the page table fits neatly within a page, so it&rsquo;s easier to manage memory to avoid internal fragmentation.</li>
+</ol>
+<h5 id="disadvantage">Disadvantage:</h5>
+<p>If we have a TLB miss, two loads from memory will be required to get the right translation, one for the page directory and one for the PTE itself.</p>
+<p>So there is a <strong>time-space trade-off</strong>. Smaller cache is faster but not for free. The TLB miss suffers from higher cost with this smaller table.</p>
+<p><img
+        class="lazyload"
+        data-src="img/PDE.png"
+        data-srcset="img/PDE.png, img/PDE.png 1.5x, img/PDE.png 2x"
+        data-sizes="auto"
+        alt="img/PDE.png"
+        title="PDE"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="img/Page_Directory_and_Page_of_PT.png"
+        data-srcset="img/Page_Directory_and_Page_of_PT.png, img/Page_Directory_and_Page_of_PT.png 1.5x, img/Page_Directory_and_Page_of_PT.png 2x"
+        data-sizes="auto"
+        alt="img/Page_Directory_and_Page_of_PT.png"
+        title="Page Directory and Page of PT"
+    /></p>
+<h4 id="more-than-two-levels">More Than Two Levels</h4>
+<p><img
+        class="lazyload"
+        data-src="img/More_than_two_levels.png"
+        data-srcset="img/More_than_two_levels.png, img/More_than_two_levels.png 1.5x, img/More_than_two_levels.png 2x"
+        data-sizes="auto"
+        alt="img/More_than_two_levels.png"
+        title="More than two levels"
+    /></p>
+<h4 id="important-the-pdts-pa-will-be-stored-in-a-register-but-it-does-not-mean-that-the-addr-of-pdt-has-to-be-in-a-fixed-pa-it-just-has-to-be-memorized">IMPORTANT: The PDT&rsquo;s PA will be stored in a register, but it does not mean that the addr of PDT has to be in a fixed PA, it just has to be memorized.</h4>
+<h4 id="inverted-page-tables">Inverted Page Tables</h4>
+<p><strong>Inverted page tables</strong> are even more space saving.</p>
+<p>We keep a single page table that has an entry for each physical page of the system. The entry tells use which prcess is using this page, and which virtual page of that process maps to this physical page.</p>
+<h3 id="swapping-mechanisms">Swapping: Mechanisms</h3>
+<h4 id="swap-space">Swap space</h4>
+<p>Firstly, we need to reserve some space on the disk for moving pages back and forth.</p>
+<p>Then the OS need to remember the disk address of a given page.</p>
+<p>The size of the swap space is important since it determines the maximum number of memory pages that can be in use by a system in a ginven time.</p>
+<p><img
+        class="lazyload"
+        data-src="img/Physical_Memory_and_Swap_Space.png"
+        data-srcset="img/Physical_Memory_and_Swap_Space.png, img/Physical_Memory_and_Swap_Space.png 1.5x, img/Physical_Memory_and_Swap_Space.png 2x"
+        data-sizes="auto"
+        alt="img/Physical_Memory_and_Swap_Space.png"
+        title="Physical Memory and Swap Space"
+    /></p>
+<h4 id="the-present-bit">The Present Bit</h4>
+<p>The hardware first extract the VPN from the VA, the check the TLB for a match. If a miss, the hardware locates the PDT and corresponding page tables and look up the PTE, and the present bit on the PTE is 0, it means that the page is not in physical memory, which is commonly referred to as a <strong>page fault</strong>.</p>
+<p>Nowadays not only swapping will trigger page fault but also illegal memory accesses and so on. It becomes a more general term for &ldquo;page missing&rdquo;.</p>
+<h4 id="the-page-fault">The Page Fault</h4>
+<p>Upon a page fault, the OS invokes <strong>page-fault handler</strong> to deal with the issue, no matter for a hardware or software managed TLBs.</p>
+<p>When a page fault happens, the OS needs to swap the page into memory in order to service the page fault.</p>
+<p>When the disk I/O completes, the OS will then update the page table to mark the page as present, update the PFN of the PTE, and retry the instruction.</p>
+<p>Notice that this next attampt still may generate a TLB miss, which would the be serviced and update the TLB with the translation.(The other approach is to update the TLB when handling the page fault.)</p>
+<p>Finally, a last attampt will get a TLB hit.</p>
+<p>Note that while the I/O is in flight, the process will be blocked, and other processes will execute.</p>
+<h5 id="how-will-the-os-know-where-to-find-the-desired-page">How will the OS know where to find the desired page?</h5>
+<p>The OS could use the bits in the PTE normally used for data such as the PFN of the page for a disk address. When the OS receives a page fault for a page, it looks in the PTE to find the address, and issues the request to disk to fetch the page into memory.</p>
+<h5 id="why-hardware-doesnt-handle-page-faults">Why hardware doesn&rsquo;t handle page faults?</h5>
+<ol>
+<li>Page fault to disk is slow, even if the OS takes a long time to handle it, there is not to much of a difference.</li>
+<li>To deal with the page fault, the hardware need to know the swap space, the I/Os to disk, and a lot of other details.</li>
+</ol>
+<h4 id="what-if-memory-is-full">What if memory is full?</h4>
+<p>The OS may lie to first page out one or more pages to make room for the new pages. The process of picking a page to kick out, or replace is known as the <strong>page-replacement policy</strong>.</p>
+<h4 id="page-fault-control-flow">Page Fault Control Flow</h4>
+<p>If the page was both present and valid, the TLB miss handler will just grab the PFN from the PTE into TLB and try again.</p>
+<p>If the page was not present but valid, then the page fault handler will run.</p>
+<p>If the page is not valid, in this case, no other bits matter. The hardware traps this invalid access, and the OS trap handler runs, likely terminating the offending process.</p>
+<h4 id="when-replacement-really-occur">When Replacement Really occur</h4>
+<p>PLACEHOLDER</p>
+<h3 id="swapping-policies">Swapping Policies</h3>
+<h4 id="cache-management">Cache management</h4>
+<h4 id="the-optimal-replacement-policy">The Optimal Replacement Policy</h4>
+<h4 id="fifo">FIFO</h4>
+<h4 id="random">Random</h4>
+<h4 id="lru">LRU</h4>
+<h4 id="approximating-lru">Approximating LRU</h4>
+<p>The key is the use bit and clock algorithm.</p>
+<h4 id="thrashing">Thrashing</h4>
+<h2 id="concurrency">Concurrency</h2>
+<h3 id="intro">Intro</h3>
+<p>Each thread is very much like a separate process, except for one difference: they share the same address space and thus can access the same data.</p>
+<p>Context switch between threads are similar to that between processes. We save the PC, registers, state and so on in TCB. The difference is that the address space remains the same.</p>
+<h4 id="why-thread">why thread?</h4>
+<ol>
+<li>Parallelism</li>
+<li>To avoid blocking program progress due to slow I/O</li>
+</ol>
+<h4 id="thread-creation">Thread Creation</h4>
+<p>After the threads are created, the OS scheduler decides who runs the next.</p>
+<h4 id="why-it-gets-worse-shared-data">Why It Gets Worse: Shared Data</h4>
+<h5 id="recall-the-concept-if-the-hazard">[recall the concept if the Hazard]</h5>
+<ul>
+<li>
+<p>Data Hazards</p>
+<ul>
+<li>
+<p>RAW</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">i1. R2 &lt;- R5 + R3
+i2. R4 &lt;- R2 + R3
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>WAR</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">i1. R4 &lt;- R1 + R5
+i2. R5 &lt;- R1 + R2
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>WAW</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">i1. R2 &lt;- R4 + R7
+i2. R2 &lt;- R1 + R3
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>Structural Hazards</p>
+</li>
+<li>
+<p>Control Hazards</p>
+</li>
+</ul>
+<p>// compile with -g will include symbol info in the program. Then `prompt &gt; objdump -d main will give you the assembly code neatly labeled.</p>
+<p>// You may want to master debugger gdb, memory profilers valgrind or purify, and the compiler itself.</p>
+<h4 id="core-problem-uncontrolled-scheduling">Core Problem: Uncontrolled Scheduling</h4>
+<p>We may have a race condition, or so to speak, a data race.</p>
+<p>An<strong>indeterminate</strong>programconsistsofoneormoreraceconditions; the output of the program varies from run to run, depending on which threads ran when. The outcome is thus not <strong>deterministic</strong>, something we usually expect from computer systems.</p>
+<p>A critical section is a piece of code that accesses a shared variable (or more generally, a shared resource) and must not be concurrently executed by more than one thread.</p>
+<p>What we really want for this code is what we call <strong>mutual exclusion</strong>. This property guarantees that if one thread is executing within the critical section, the others will be prevented from doing so.</p>
+<h4 id="one-more-problem-waiting-for-another">One More Problem: Waiting For Another</h4>
+<h3 id="interlude-thread-api">Interlude: Thread API</h3>
+<h4 id="thread-creation-1">Thread Creation</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span><span class="o">*</span> <span class="kr">thread</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_attr_t</span> <span class="o">*</span> <span class="n">attr</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm">
+</span><span class="cm">The second argument, attr, is used to specify any attributes this thread might have. Some examples include setting the stack size or perhaps in- formation about the scheduling priority of the thread. An attribute is initialized with a separate call to pthread attr init(); see the man- ual page for details. However, in most cases, the defaults will be fine; in this case, we will simply pass the value NULL in.
+</span><span class="cm">The third argument is the most complex, but is really just asking: which function should this thread start running in? In C, we call this a function pointer, and this one tells us the following is expected: a function name (start routine), which is passed a single argument of type void * (as indicated in the parentheses after start routine), and which returns a value of type void * (i.e., a void pointer).
+</span><span class="cm">Finally, the fourth argument, arg, is exactly the argument to be passed to the function where the thread begins execution.
+</span><span class="cm">*/</span>
+
+<span class="cm">/*
+</span><span class="cm">having a void pointer as an argument to the function start routine allows us to pass in any type of argument; having it as a return value allows the thread to return any type of result.
+</span><span class="cm">*/</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pthread.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">myarg_t</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">mythread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">myarg_t</span> <span class="o">*</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">myarg_t</span><span class="o">*</span><span class="p">)</span> <span class="n">arg</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">args</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">-&gt;</span><span class="n">b</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span> 
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[]){</span>
+  <span class="n">pthread_t</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">myarg_t</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
+  <span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">mythread</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="thread-completion">Thread Completion</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">// What if you want to wait for a thread to complete?
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span> <span class="kr">thread</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">value_ptr</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm">This routine takes two arguments. The first is of type pthread t, and is used to specify which thread to wait for. This variable is initialized by the thread creation routine (when you pass a pointer to it as an argument to pthread create()); if you keep it around, you can use it to wait for that thread to terminate.
+</span><span class="cm">The second argument is a pointer to the return value you expect to get back. Because the routine can return anything, it is defined to return a pointer to void; because the pthread join() routine changes the value of the passed in argument, you need to pass in a pointer to that value, not just the value itself.
+</span><span class="cm">*/</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span> <span class="n">myarg_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span> <span class="n">myret_t</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="o">*</span><span class="nf">mythread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">myret_t</span> <span class="o">*</span><span class="n">rvals</span> <span class="o">=</span> <span class="n">Malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">myret_t</span><span class="p">));</span>
+	<span class="n">rvals</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">rvals</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+	<span class="k">return</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="n">rvals</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="n">pthread_t</span> <span class="n">p</span><span class="p">;</span>
+<span class="n">myret_t</span> <span class="o">*</span><span class="n">rvals</span><span class="p">;</span>
+<span class="n">myarg_t</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
+<span class="n">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">mythread</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">args</span><span class="p">);</span>
+<span class="n">Pthread_join</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">rvals</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&#34;returned %d %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">rvals</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span> <span class="n">rvals</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">rvals</span><span class="p">);</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>If we just create a thread with no args, we can pass <code>NULL</code> in as an arg.</li>
+<li>Similarly, we can pass <code>NULL</code> into <code>pthread_join()</code> if we care nothing about the return value.</li>
+<li>If we are just passing in a single value, then we don&rsquo;t need to package it up as a arg.</li>
+<li>We should be extremely careful with how values are returned from a thread. Never return a pointer which refers to something allocated on the thread&rsquo;s call stack.</li>
+<li>We have a <code>pthread_create()</code> followed by<code>pthread_join()</code>. We can use <strong>procedure call</strong> instead.</li>
+</ol>
+<h4 id="locks">Locks</h4>
+<p>The routines should be easy to understand and use. When you have a region of code that is a <strong>critical section</strong>, and thus needs to be protected to ensure correct operation, locks are quite useful.</p>
+<p><code>int pthread_mutex_lock(pthread_mutex_t *mutex)</code></p>
+<p><code>int pthread_mutex_unlock(pthread_mutex_t *mutex)</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">pthread_mutex_t</span> <span class="n">lock</span> <span class="o">=</span> <span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span> <span class="c1">// we must do the init for locks
+</span><span class="c1">// or we can do as
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// always check success!
+</span><span class="c1"></span>
+
+<span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// or whatever your critical section is
+</span><span class="c1"></span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Also, <code>pthread mutex destroy() </code> should be called afterwards.</p>
+<p>There is a problem in the code above, which is that we didn&rsquo;t check the errors. If it fails, it fails silently.</p>
+<p>The lock and unlock routines are not the only routines within the</p>
+<p>pthreads library to interact with locks. Two other routines of interest:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">pthread_mutex_trylock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">pthread_mutex_timedlock</span><span class="p">(</span><span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> <span class="k">struct</span> <span class="n">timespec</span> <span class="o">*</span><span class="n">abs_timeout</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>These two calls are used in lock acquisition. The trylock version returns failure if the lock is already held; the timedlock version of acquiring a lock returns after a timeout or after acquiring the lock, whichever happens first. Thus, the timedlock with a timeout of zero degenerates to the trylock case. Both of these versions should generally be avoided; however, there are a few cases where avoiding getting stuck (perhaps indefinitely) in a lock acquisition routine can be useful.</p>
+<h4 id="condition-variables">Condition Variables</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">pthread_cond_wait</span><span class="p">(</span><span class="n">pthread_cond_t</span> <span class="o">*</span><span class="n">cond</span><span class="p">,</span> <span class="n">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">pthread_cond_signal</span><span class="p">(</span><span class="n">pthread_cond_t</span> <span class="o">*</span><span class="n">cond</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm">The first routine, pthread cond wait(), puts the calling thread to sleep, and thus waits for some other thread to signal it, usually when something in the program has changed that the now-sleeping thread might care about.
+</span><span class="cm">*/</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="compile-and-run">Compile and Run</h4>
+<p>All of the code examples in this chapter are relatively easy to get up and running. To compile them, you must include the header pthread.h in your code. On the link line, you must also explicitly link with the pthreads library, by adding the -pthread flag.</p>
+<p>For example, to compile a simple multi-threaded program, all you have to do is the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">gcc</span> <span class="n">-o</span> <span class="n">main</span> <span class="n">main</span><span class="p">.</span><span class="n">c</span> <span class="n">-Wall</span> <span class="n">-pthread</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="summary">Summary</h4>
+<ul>
+<li>Keep it simple</li>
+<li>Minimize thread interactions</li>
+<li>Initialize locks and conditon variables</li>
+<li>Check you return codes</li>
+<li>Be careful with how you pass arguments to, and return values from, threads</li>
+<li>Each thread has its own stack</li>
+<li>Always use condition variables to signal beween threads</li>
+<li>Use the manual pages</li>
+</ul>
+<h3 id="locks-1">Locks</h3>
+<h4 id="the-basic-idea">The Basic Idea</h4>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar_trans.png"
+        data-srcset="/avatar_trans.png, /avatar_trans.png 1.5x, /avatar_trans.png 2x"
+        data-sizes="auto"
+        alt="/avatar_trans.png"
+        title="/avatar_trans.png"
+    /></div><p class="sponsor-bio"><em>Find this post helpful?</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/pcewlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/os_reading_note/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/os_reading_note/" data-title="OS" data-hashtags="OS"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/os_reading_note/" data-hashtag="OS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/os_reading_note/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/os_reading_note/" data-title="OS" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/os_reading_note/" data-title="OS"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/os_reading_note/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/os_reading_note/" data-title="OS"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/os_reading_note/" data-title="OS"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/os/">OS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/os_slides_note/" class="prev" rel="prev" title="OS 2"><i class="fas fa-angle-left fa-fw"></i>OS 2</a>
+            <a href="/speeding-up-dijkstra/" class="next" rel="next" title="Optimized Dijkstra">Optimized Dijkstra<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/fuse/fuse.min.d3e13f020a1205ff114005e71493513b696e4a7a3b88229e6ec2c36d34b61d75.js" integrity="sha256-0&#43;E/AgoSBf8RQAXnFJNRO2luSno7iCKebsLDbTS2HXU="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://twikoo-comment-ochre.vercel.app/","lang":"en"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":300,"threshold":0.1,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4=" defer></script><script type="text/javascript" src="/js/twikoo.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>

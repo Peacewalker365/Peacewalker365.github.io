@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Docker - myStack</title><meta name="Description" content="My personal website to document my projects and growth"><meta property="og:title" content="Docker" />
+<meta property="og:description" content="Why Docker? Your proj can only run on your machine but not others.
+ One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
+HYPERVISORS  VitualBox VMware Hyper-v (win only)  Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)  Arch of Docker Installing 1 2 3 4 5  # docs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Peacewalker365.github.io/docker/" /><meta property="og:image" content="https://Peacewalker365.github.io/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-25T00:00:00+00:00" /><meta property="og:site_name" content="myStack" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Peacewalker365.github.io/avatar.png"/>
+
+<meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="Why Docker? Your proj can only run on your machine but not others.
+ One or more file missing. Software version mismatch. Diff config setting.  Docker can pack everything in an isolated env and make it run anywhere. And diff docker containers can run on same machine.
+HYPERVISORS  VitualBox VMware Hyper-v (win only)  Probs With Virtual Machines  Each VM needs a full-blown OS Slow to start Resource intensive (it takes a slice of the hardware)  Containers  Allow running multiple apps in isolation Lightweight Use OS of the host (all containers share the same host OS) Start quickly Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)  Arch of Docker Installing 1 2 3 4 5  # docs."/>
+<meta name="application-name" content="myStack">
+<meta name="apple-mobile-web-app-title" content="myStack">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/docker/" /><link rel="prev" href="https://Peacewalker365.github.io/dynamic-programming-i-fibonacci-shortest-paths/" /><link rel="next" href="https://Peacewalker365.github.io/dijkstra-also-check-a-algo/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.6328be206ec1cd42fdc39b615017e2c160fd5ca222a515d3b6a9dded75cf7498.css" integrity="sha256-Yyi&#43;IG7BzUL9w5thUBfiwWD9XKIipRXTtqnd7XXPdJg="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
+    
+    
+    
+    <meta name="google-site-verification" content="MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Peacewalker365.github.io\/docker\/"
+        },"image": ["https:\/\/Peacewalker365.github.io\/avatar.png"],"genre": "posts","keywords": "Docker","wordcount":  835 ,
+        "url": "https:\/\/Peacewalker365.github.io\/docker\/","datePublished": "2021-12-25T00:00:00+00:00","dateModified": "2021-12-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "PceWlkr","logo": "https:\/\/Peacewalker365.github.io\/avatar_trans.png"},"authors": [{
+                    "@type": "Person",
+                    "name": "PceWlkr"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/showcase/"> Showcase </a><a class="menu-item" href="/categories/note/"> Notes </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/docker/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="myStack"><img
+        class="lazyload logo"
+        data-src="/stack.png"
+        data-srcset="/stack.png, /stack.png 1.5x, /stack.png 2x"
+        data-sizes="auto"
+        alt="/stack.png"
+        title="/stack.png"
+    /><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/showcase/" title="">Showcase</a><a class="menu-item" href="/categories/note/" title="">Notes</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Peacewalker365" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/docker/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-12-25">2021-12-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;835 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;<span id="/docker/" class="leancloud_visitors" data-flag-title="Docker">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;views
+                    </span>&nbsp;<span id="/docker/" class="comment_count" data-flag-title="Docker">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;comments
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#why-docker">Why Docker?</a>
+          <ul>
+            <li><a href="#hypervisors">HYPERVISORS</a></li>
+            <li><a href="#probs-with-virtual-machines">Probs With Virtual Machines</a></li>
+            <li><a href="#containers">Containers</a></li>
+          </ul>
+        </li>
+        <li><a href="#arch-of-docker">Arch of Docker</a></li>
+        <li><a href="#installing">Installing</a></li>
+        <li><a href="#dev-workflow">Dev Workflow</a></li>
+        <li><a href="#docker-in-action">Docker in Action</a>
+          <ul>
+            <li><a href="#instructions">Instructions</a></li>
+            <li><a href="#but-now-we-can-write-this-instructions-in-the-dockerfile">BUT NOW we can write this instructions in the dockerfile!</a></li>
+          </ul>
+        </li>
+        <li><a href="#linux-distros">Linux Distros</a>
+          <ul>
+            <li><a href="#ubuntu">Ubuntu</a></li>
+            <li><a href="#package-manager">Package Manager</a></li>
+          </ul>
+        </li>
+        <li><a href="#file-system">File System</a>
+          <ul>
+            <li><a href="#redirectory">Redirectory</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#demo-project">Demo Project</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="why-docker">Why Docker?</h3>
+<p>Your proj can only run on your machine but not others.</p>
+<ul>
+<li>One or more file missing.</li>
+<li>Software version mismatch.</li>
+<li>Diff config setting.</li>
+</ul>
+<p>Docker can pack everything in an isolated env and make it run anywhere.
+And diff docker containers can run on same machine.</p>
+<h4 id="hypervisors">HYPERVISORS</h4>
+<ul>
+<li>VitualBox</li>
+<li>VMware</li>
+<li>Hyper-v (win only)</li>
+</ul>
+<p><img
+        class="lazyload"
+        data-src="/img/Hypervisor.png"
+        data-srcset="/img/Hypervisor.png, /img/Hypervisor.png 1.5x, /img/Hypervisor.png 2x"
+        data-sizes="auto"
+        alt="/img/Hypervisor.png"
+        title="Hypervisor"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="/img/Virtual_Machines.png"
+        data-srcset="/img/Virtual_Machines.png, /img/Virtual_Machines.png 1.5x, /img/Virtual_Machines.png 2x"
+        data-sizes="auto"
+        alt="/img/Virtual_Machines.png"
+        title="Virtual Machines"
+    /></p>
+<h4 id="probs-with-virtual-machines">Probs With Virtual Machines</h4>
+<ul>
+<li>Each VM needs a full-blown OS</li>
+<li>Slow to start</li>
+<li>Resource intensive (it takes a slice of the hardware)</li>
+</ul>
+<h4 id="containers">Containers</h4>
+<ul>
+<li>Allow running multiple apps in isolation</li>
+<li>Lightweight</li>
+<li>Use OS of the host (all containers share the same host OS)</li>
+<li>Start quickly</li>
+<li>Need less hardware resource (share the host resources so that we don&rsquo;t need to give cores to it specifically)</li>
+</ul>
+<h3 id="arch-of-docker">Arch of Docker</h3>
+<p><img
+        class="lazyload"
+        data-src="/img/Arch_of_Docker.png"
+        data-srcset="/img/Arch_of_Docker.png, /img/Arch_of_Docker.png 1.5x, /img/Arch_of_Docker.png 2x"
+        data-sizes="auto"
+        alt="/img/Arch_of_Docker.png"
+        title="Arch of Docker"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="/img/Container_As_a_Process_And_Sharing_the_Kernel.png"
+        data-srcset="/img/Container_As_a_Process_And_Sharing_the_Kernel.png, /img/Container_As_a_Process_And_Sharing_the_Kernel.png 1.5x, /img/Container_As_a_Process_And_Sharing_the_Kernel.png 2x"
+        data-sizes="auto"
+        alt="/img/Container_As_a_Process_And_Sharing_the_Kernel.png"
+        title="Container As a Process And Sharing the Kernel"
+    /></p>
+<p><img
+        class="lazyload"
+        data-src="/img/Docker_on_Diff_OS.png"
+        data-srcset="/img/Docker_on_Diff_OS.png, /img/Docker_on_Diff_OS.png 1.5x, /img/Docker_on_Diff_OS.png 2x"
+        data-sizes="auto"
+        alt="/img/Docker_on_Diff_OS.png"
+        title="Docker on Diff OS"
+    /></p>
+<h3 id="installing">Installing</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># docs.docker.com/get-docker/</span>
+<span class="c1"># open dockerHub</span>
+
+docker version
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="dev-workflow">Dev Workflow</h3>
+<p><img
+        class="lazyload"
+        data-src="/img/Dockerfile_to_Image.png"
+        data-srcset="/img/Dockerfile_to_Image.png, /img/Dockerfile_to_Image.png 1.5x, /img/Dockerfile_to_Image.png 2x"
+        data-sizes="auto"
+        alt="/img/Dockerfile_to_Image.png"
+        title="Dockerfile to Image"
+    /></p>
+<p>The images get loaded in a container.</p>
+<p><code>docker run appName</code> to run it in a container.</p>
+<p><img
+        class="lazyload"
+        data-src="/img/Docker_Registry_Like_github_to_git.png"
+        data-srcset="/img/Docker_Registry_Like_github_to_git.png, /img/Docker_Registry_Like_github_to_git.png 1.5x, /img/Docker_Registry_Like_github_to_git.png 2x"
+        data-sizes="auto"
+        alt="/img/Docker_Registry_Like_github_to_git.png"
+        title="Docker Registry Like github to git"
+    /></p>
+<h3 id="docker-in-action">Docker in Action</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">
+mkdir hello-docker
+<span class="nb">cd</span> hello-docker
+code . <span class="c1"># open in vsCode, you can use others like vim</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>add a new file -&gt; app.js
+add one line -&gt; <code>console.log(&quot;Hello Docker!&quot;);</code>
+You need Node installed.
+<code>node app.js</code>
+then it should print Hello Docker! in terminal</p>
+<h4 id="instructions">Instructions</h4>
+<ul>
+<li>start with an others</li>
+<li>install Node</li>
+<li>Copy app files</li>
+<li>Run node app.js</li>
+</ul>
+<h4 id="but-now-we-can-write-this-instructions-in-the-dockerfile">BUT NOW we can write this instructions in the dockerfile!</h4>
+<p>add another file named <code>Dockerfile</code> with no extensions.
+install the docker extension for vsCode.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> node:alpine</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> . /app <span class="c1"># we gonna copy all the files in the current dir to the /app of that image</span><span class="err">
+</span><span class="err"></span><span class="k">CMD</span> node /app/app.js<span class="err">
+</span><span class="err">
+</span><span class="err"></span>or use<span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span><span class="err"></span><span class="k">CMD</span> node app.js<span class="err">
+</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># go to dockerHub to find these image like linux or node etc.</span><span class="err">
+</span><span class="err"></span><span class="c"># after the : is the tag of the image, for example alpine is a specific ver of linux</span><span class="err">
+</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker build -t hello-docker .
+<span class="c1"># -t for tag that to identify the image</span>
+<span class="c1"># then the app name</span>
+<span class="c1"># then the dir to find it</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>notice that the image is not in the app dir.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker image ls 
+
+</code></pre></td></tr></table>
+</div>
+</div><p>![Docker Image(latest) with Node, Linux alpine, and the app files](/img/Docker_Image(latest)_with_Node,_Linux alpine,_and_the_app_files.png)</p>
+<p><code>docker run hello-docker</code> run it using image name</p>
+<p>You can publish it on dockerhub to run it anywhere.</p>
+<p>you can also go to play with docker to have a try.
+<code>docker run PceWlkr/hello-docker</code></p>
+<h3 id="linux-distros">Linux Distros</h3>
+<ul>
+<li>Ubuntu</li>
+<li>Debian</li>
+<li>Alpine</li>
+<li>Fedora</li>
+<li>CentOS</li>
+</ul>
+<h4 id="ubuntu">Ubuntu</h4>
+<p>go to dockerhub, search for Ubuntu.
+we can use <code>docker pull ubuntu</code>
+but here I will use a shortcut
+we can use <code>docker run ubuntu</code>, if docker cannot find it locally then it will download it and run it in a container.
+However, since we didn&rsquo;t interact with the container, it stopped.
+if we <code>docker ps</code> we cannot see it
+if we <code>docker ps -a</code> we can see it&rsquo;s stopped
+We need to use <code>docker run -it ubuntu</code> to start it in interactive mode</p>
+<p>And then we entered its shell.
+<code>root@2f856e34654e5:/# </code>
+root indicates I&rsquo;m having the root user mode having the highest access permission
+After the @ is the name of the container.
+The / means the dir we are at.
+And there is a # meaning we have the highest privilege since we are in root mode.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">whoami
+<span class="nb">echo</span> <span class="nv">$0</span>
+<span class="c1"># /bin/bash</span>
+<span class="c1"># we can see the location of shell program</span>
+
+<span class="nb">history</span>
+
+!2
+<span class="c1"># will run the 2nd command in history</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="package-manager">Package Manager</h4>
+<p><code>apt</code>
+list - list oackages based on names
+search - search in package descriptions
+show - show package details
+install
+reinstall
+remove
+autoremove - remove automatically all unused packages
+update - update list of available packages
+upgrade - upgrade the sys by installing/upgrading packages
+full-upgrade - upgrade the sys by removing/installing/upgrading
+edit-sources - edit the source information file
+satisfy - satisfy dependency strings</p>
+<p><code>apt-get</code> - look it up yourself LMAO</p>
+<p><code>apt install nano</code> will give a error msg since you may not have nano in your package list
+<code>apt update</code> to update the package database
+<code>apt install nano</code></p>
+<h3 id="file-system">File System</h3>
+<p><img
+        class="lazyload"
+        data-src="/img/Linux_File_Tree.png"
+        data-srcset="/img/Linux_File_Tree.png, /img/Linux_File_Tree.png 1.5x, /img/Linux_File_Tree.png 2x"
+        data-sizes="auto"
+        alt="/img/Linux_File_Tree.png"
+        title="Linux File Tree"
+    /></p>
+<p>bin: binaries
+boot: booting related
+dev: devices, in linux, everything is a file
+etc: editable text configuration
+home: the home dir of users
+root: the home dir of root user
+lib: libs, e.g. software dependencies
+var: varibles, updated frequently, like logs or app data
+proc: running processes (as files)</p>
+<p><code>pwd</code> print current dir
+<code>ls</code>
+<code>ls -1</code> one item per line
+<code>ls -l</code> full info list
+<code>cd ../..</code> 2 level up
+<code>cd ~</code>
+<code>mv hello.txt /etc hello123.txt</code>
+notice that &lt;ctrl + w&gt; remove one word in shell
+<code>rm file1.txt file2.txt</code>
+<code>rm file*</code>
+<code>rm -r fileDir/</code>
+<code>touch file1.txt</code>
+<code>cat file1.txt</code>
+<code>more fileLong.txt</code> use more if the file is long. we can use space or enter
+<code>apt install less</code>
+<code>less file1.txt</code> we can you up and down and space and enter</p>
+<p><code>head -n 5 file1.txt</code>
+<code>tail -n 2 file2.txt</code></p>
+<h4 id="redirectory">Redirectory</h4>
+<p><code>cat file1.txt &gt; file2.txt</code>
+<code>cat file1.txt file2.txt &gt; combined.txt</code>
+<code>echo hello &gt; hello.txt</code>
+<code>ls -l /etc &gt; files.txt</code></p>
+<p><code>&lt;</code> Redirectory for input</p>
+<p><img
+        class="lazyload"
+        data-src="/img/Workflow_with_Docker.png"
+        data-srcset="/img/Workflow_with_Docker.png, /img/Workflow_with_Docker.png 1.5x, /img/Workflow_with_Docker.png 2x"
+        data-sizes="auto"
+        alt="/img/Workflow_with_Docker.png"
+        title="Workflow with Docker"
+    /></p>
+<h2 id="demo-project">Demo Project</h2>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"><img
+        class="lazyload"
+        data-src="/avatar_trans.png"
+        data-srcset="/avatar_trans.png, /avatar_trans.png 1.5x, /avatar_trans.png 2x"
+        data-sizes="auto"
+        alt="/avatar_trans.png"
+        title="/avatar_trans.png"
+    /></div><p class="sponsor-bio"><em>Find this post helpful?</em></p><div class="sponsor-custom"><a href="https://www.buymeacoffee.com/pcewlkr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145 !important;" ></a></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/docker/index.md" target="_blank" rel="noopener noreferrer">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://Peacewalker365.github.io/docker/" data-title="Docker" data-hashtags="Docker"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://Peacewalker365.github.io/docker/" data-hashtag="Docker"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://Peacewalker365.github.io/docker/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://Peacewalker365.github.io/docker/" data-title="Docker" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Hacker News" data-sharer="hackernews" data-url="https://Peacewalker365.github.io/docker/" data-title="Docker"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://Peacewalker365.github.io/docker/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Line" data-sharer="line" data-url="https://Peacewalker365.github.io/docker/" data-title="Docker"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://Peacewalker365.github.io/docker/" data-title="Docker"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/dynamic-programming-i-fibonacci-shortest-paths/" class="prev" rel="prev" title="DP"><i class="fas fa-angle-left fa-fw"></i>DP</a>
+            <a href="/dijkstra-also-check-a-algo/" class="next" rel="next" title="Dijkstra">Dijkstra<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="twikoo"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Peacewalker365" target="_blank" rel="noopener noreferrer">PceWlkr</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.e9b4c0b7cbc185698966f352caee9cb7f89be3bcc924616599af74886f910d12.js" integrity="sha256-6bTAt8vBhWmJZvNSyu6ct/ib47zJJGFlma90iG&#43;RDRI="></script><script type="text/javascript" src="/lib/fuse/fuse.min.d3e13f020a1205ff114005e71493513b696e4a7a3b88229e6ec2c36d34b61d75.js" integrity="sha256-0&#43;E/AgoSBf8RQAXnFJNRO2luSno7iCKebsLDbTS2HXU="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys="></script><script type="text/javascript" src="/lib/topbar/topbar.min.e4f7cfd8532854ae8dae29c39bff2371fa2576c07dd638634135f68482c3afc5.js" integrity="sha256-5PfP2FMoVK6NrinDm/8jcfoldsB91jhjQTX2hILDr8U="></script><script type="text/javascript" src="/lib/pjax/pjax.min.dad2dd7a35adf0b10fafaa0376f305c226578ddb3d26472aba131a82c4a9828e.js" integrity="sha256-2tLdejWt8LEPr6oDdvMFwiZXjds9JkcquhMagsSpgo4="></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"twikoo":{"commentCount":true,"el":"#twikoo","envId":"https://twikoo-comment-ochre.vercel.app/","lang":"en"}},"data":{"desktop-header-typeit":"myStack","mobile-header-typeit":"myStack"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":300,"threshold":0.1,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/twikoo/twikoo.all.min.5e4a0ad52f0485345b6347ffe291a87ea5389212d407b0b0d261b3512f96352e.js" integrity="sha256-XkoK1S8EhTRbY0f/4pGofqU4khLUB7Cw0mGzUS&#43;WNS4=" defer></script><script type="text/javascript" src="/js/twikoo.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.0c4d9db673dd19489cfa134ab15ef8b9237ae72aaa65d8490d55658442b3a2d3.js" integrity="sha256-DE2dtnPdGUic&#43;hNKsV74uSN65yqqZdhJDVVlhEKzotM="></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.72ceb0f87691041e9e0bea2f2468b9aa3ed544e8f7f6dc9f76d8c8f997699e41.js" integrity="sha256-cs6w&#43;HaRBB6eC&#43;ovJGi5qj7VROj39tyfdtjI&#43;ZdpnkE="></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.5b0e82e9a1ae0b52d07a52da1eb4640da77eb3ca7e78c3a428c1f3b712858d3c.js" integrity="sha256-Ww6C6aGuC1LQelLaHrRkDad&#43;s8p&#43;eMOkKMHztxKFjTw="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko="></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ="></script><script type="text/javascript" src="/lib/typeit/typeit.min.491c13689db70b6adb3176a9a792644be7578a2f931521f5cb199d313a21c359.js" integrity="sha256-SRwTaJ23C2rbMXapp5JkS&#43;dXii&#43;TFSH1yxmdMTohw1k="></script><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM=">
+    <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.b38ee65d6456beb2d034bf554505f4ca47e421548b7cd26e8a7805fd2673b6c3.css" integrity="sha256-s47mXWRWvrLQNL9VRQX0ykfkIVSLfNJuingF/SZztsM="></noscript></div>
+</body>
+
+</html>

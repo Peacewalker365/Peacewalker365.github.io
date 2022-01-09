@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Music - Category - myStack</title>
+        <link>https://Peacewalker365.github.io/categories/music/</link>
+        <description>Music - Category - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/categories/music/" rel="self" type="application/rss+xml" /><item>
+    <title>Wiing Wiing</title>
+    <link>https://Peacewalker365.github.io/wing-wing-lyrics/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/wing-wing-lyrics/</guid>
+    <description><![CDATA[Wing Wing &ndash;by Hyukoh pi teul bi teul keo leo ga neun na e ta li
+o neul do ui mi eom neun do ha lu ga heul leo ga jyo
+sa sang do gi li gi li ha neun geo la min neun na neun
+com ceo leom tu geun du geun geo lil yi li ceo nyeo eop jyo
+wing ying wing ying ha lu sa li do]]></description>
+</item></channel>
+</rss>

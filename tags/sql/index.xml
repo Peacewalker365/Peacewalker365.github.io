@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>SQL - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/sql/</link>
+        <description>SQL - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>SQL</title>
+    <link>https://Peacewalker365.github.io/sql/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/sql/</guid>
+    <description><![CDATA[SQL Intro DB is any collection of related info Computer is great for storing databases DBMS is the software to create, maintain, and secure a database. SQL is a language DBMS allow you to perform the CRUD operations and other administrative tasks Two types of DB, Relational and Non-Relational Relational DB use SQL and store data in tables with rows and columes Non-Relational data store data using other data structures]]></description>
+</item></channel>
+</rss>

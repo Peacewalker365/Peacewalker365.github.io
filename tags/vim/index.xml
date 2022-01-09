@@ -1,0 +1,27 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Vim - Tag - myStack</title>
+        <link>https://Peacewalker365.github.io/tags/vim/</link>
+        <description>Vim - Tag - myStack</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/vim/" rel="self" type="application/rss+xml" /><item>
+    <title>Vim</title>
+    <link>https://Peacewalker365.github.io/vim/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/vim/</guid>
+    <description><![CDATA[Termial Oriented Programming Some Useful Info https://vim-adventures.com/
+This is a game for vim beginner.
+https://www.destroyallsoftware.com/screencasts
+This is an amazing guy introducing the power of the terminal.
+Doing everything in one terminal window is powerful.
+Jobs Control jobs
+ps
+fg
+bg
+fg %1
+kill %2
+kill -9 24153
+./some_codes.sh &amp;
+ctrl + z to suspend the current job including when you are in the Vim
+ctrl + c to kill the current job]]></description>
+</item></channel>
+</rss>
