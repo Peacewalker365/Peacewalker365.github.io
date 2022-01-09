@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build_errors on myStack</title>
+    <link>https://Peacewalker365.github.io/build_error/</link>
+    <description>Recent content in Build_errors on myStack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 25 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/build_error/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 3</title>
+      <link>https://Peacewalker365.github.io/build_error/java2/</link>
+      <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Peacewalker365.github.io/build_error/java2/</guid>
+      <description>JAVA
+Java_Ternary Conditional Operator
+1 2 3 4 5 6  String name = &amp;#34;Jessie&amp;#34;; int i = name.equals(&amp;#34;Jessie&amp;#34;) ? 1 : 3; //If true, i = 1. If false, i = 3.    Java_Continue
+//Different from break that let the program jump out of a loop, continue will skip the code after it in the current loop and then enter the next time of the loop.
+Java_toString() and deepToString()</description>
+    </item>
+    
+  </channel>
+</rss>
