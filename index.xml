@@ -26,22 +26,6 @@
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/docker_cn/</guid>
     <description><![CDATA[Docker 容器操作 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 docker version #版本信息 docker info #系统信息 docker images # 可选项 -a --all #列出所有镜像 -q --quiet #只显示镜像的id，-aq常用]]></description>
 </item><item>
-    <title>Git vs SVN</title>
-    <link>https://Peacewalker365.github.io/git-vs-svn/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/git-vs-svn/</guid>
-    <description><![CDATA[Git vs SVN 版本控制，版本迭代。 GIt and SVN SVN是集中式的版本控制系统，版本库在中央服务器，首先要从中央服务器更新到最新的版本才可以开发。必须联网，对]]></description>
-</item><item>
-    <title>How to Speak</title>
-    <link>https://Peacewalker365.github.io/how-to-speak/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/how-to-speak/</guid>
-    <description><![CDATA[How to Speak &ndash;by Patrick Winston How to Start A joke? &ndash; Not recommended.
-The reason is while the others are not quite concentrate on the talk, your joke may just fall flat.
-A Promise? &ndash; Great idea
-e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you don&rsquo;t know now, and something among those will make a difference in your life.&rdquo;
-4 Samples Cycle the Subjects You&rsquo;ll need to talk about the subject multiple times with different approaches, or people will not remember.]]></description>
-</item><item>
     <title>HTML5</title>
     <link>https://Peacewalker365.github.io/html5-cn/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
@@ -60,16 +44,35 @@ e.g.: &ldquo;At the end of this 60 mins, you will know things about speaking you
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/maven/</guid>
     <description><![CDATA[浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri]]></description>
 </item><item>
-    <title>Serialization</title>
-    <link>https://Peacewalker365.github.io/serialization-java/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/serialization-java/</guid>
-    <description><![CDATA[Serialization and Deserialization in Java What 把Java对象转换为字节序列的过程&mdash;&mdash;&mdash;&ndash;&gt; 序列化 把字节序列恢复为Java]]></description>
-</item><item>
     <title>Spring5</title>
     <link>https://Peacewalker365.github.io/spring5/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/spring5/</guid>
     <description><![CDATA[Spring5 IOC AOP 1 2 3 4 5 6 7 8 9 10 11 12 13 ------------------------- ----------------------- |Data Access/Integration| | Web | | JDBC ORM | |WebSocket WebMVC | | OXM JMS | |Web WebFlux | | Transactions | | | ------------------------- ----------------------- AOP Aspects Instrument Messaging ----------------------------------------------------- | Core Container | | Beans Core Context Expression | ----------------------------------------------------- Installation Spring Download Spring Framework Unzip it libs &ndash;&gt; jars]]></description>
+</item><item>
+    <title>Wiing Wiing</title>
+    <link>https://Peacewalker365.github.io/wing-wing-lyrics/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/wing-wing-lyrics/</guid>
+    <description><![CDATA[Wing Wing &ndash;by Hyukoh pi teul bi teul keo leo ga neun na e ta li
+o neul do ui mi eom neun do ha lu ga heul leo ga jyo
+sa sang do gi li gi li ha neun geo la min neun na neun
+com ceo leom tu geun du geun geo lil yi li ceo nyeo eop jyo
+wing ying wing ying ha lu sa li do]]></description>
+</item><item>
+    <title>设计模式</title>
+    <link>https://Peacewalker365.github.io/design-pattern-cn/</link>
+    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-pattern-cn/</guid>
+    <description><![CDATA[设计模式 Watch the Video Watch the Video2 设计模式： 模式名称 问题，或应用范围 解决方案 效果及其权衡（优缺点） 创建型模式： 单例模式， 工厂模式，抽象工厂模式，建造者模式]]></description>
+</item><item>
+    <title>Advice for Solo Dev</title>
+    <link>https://Peacewalker365.github.io/advice/</link>
+    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/advice/</guid>
+    <description><![CDATA[Advice Read book for learning in depth
+Learn and talk to successful people (in terms of indie dev, not the money)
+ Your friends may not know your field, though they may support you mentally or the otherwise Don&rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
+ The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&rsquo;s your problem?]]></description>
 </item></channel>
 </rss>
