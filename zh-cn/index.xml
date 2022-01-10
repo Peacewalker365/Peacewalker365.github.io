@@ -3,7 +3,7 @@
         <title>myStack</title>
         <link>https://Peacewalker365.github.io/zh-cn/</link>
         <description>Hugo DoIt 主题官方文档</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://Peacewalker365.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>First Post</title>
@@ -13,6 +13,23 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/blackhole.webp" referrerpolicy="no-referrer">
             </div>Better late than never.]]></description>
+</item><item>
+    <title>Design Patterns</title>
+    <link>https://Peacewalker365.github.io/zh-cn/design-patterns-for-ool/</link>
+    <pubDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/zh-cn/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
+Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
+SOLID Design Principles S: Single-responsibility principle
+O: Open-closed principle
+L: Liskov&rsquo;s substitution principle]]></description>
+</item><item>
+    <title>Spring5</title>
+    <link>https://Peacewalker365.github.io/zh-cn/spring5/</link>
+    <pubDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/zh-cn/spring5/</guid>
+    <description><![CDATA[Spring5 IOC AOP 1 2 3 4 5 6 7 8 9 10 11 12 13 ------------------------- ----------------------- |Data Access/Integration| | Web | | JDBC ORM | |WebSocket WebMVC | | OXM JMS | |Web WebFlux | | Transactions | | | ------------------------- ----------------------- AOP Aspects Instrument Messaging ----------------------------------------------------- | Core Container | | Beans Core Context Expression | ----------------------------------------------------- Installation Spring Download Spring Framework Unzip it libs &ndash;&gt; jars]]></description>
 </item><item>
     <title>CSS</title>
     <link>https://Peacewalker365.github.io/zh-cn/css-cn/</link>
@@ -59,20 +76,5 @@ wing ying wing ying ha lu sa li do]]></description>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/zh-cn/design-pattern-cn/</guid>
     <description><![CDATA[设计模式 Watch the Video Watch the Video2 设计模式： 模式名称 问题，或应用范围 解决方案 效果及其权衡（优缺点） 创建型模式： 单例模式， 工厂模式，抽象工厂模式，建造者模式]]></description>
-</item><item>
-    <title>Advice for Solo Dev</title>
-    <link>https://Peacewalker365.github.io/zh-cn/advice/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/zh-cn/advice/</guid>
-    <description><![CDATA[Advice Read book for learning in depth
-Learn and talk to successful people (in terms of indie dev, not the money)
- Your friends may not know your field, though they may support you mentally or the otherwise Don&rsquo;t be satisfied with only talking about your ideas with your friends Books can also be seen as a communication to successes  Getting Real
- The smarter, faster, easier way to build a successful web application Becoming big is not the only way to success Small, elegant, and targeted application may be better You can develop something for yourself first  What&rsquo;s your problem?]]></description>
-</item><item>
-    <title>Bellman Ford</title>
-    <link>https://Peacewalker365.github.io/zh-cn/bellman-ford/</link>
-    <pubDate>Sat, 25 Dec 2021 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/zh-cn/bellman-ford/</guid>
-    <description><![CDATA[Bellman-Ford Generic S.P. Algo review  Complexity could be exponential time (even for +ve weights) might not even terminate if there is a -ve weight cycle reachable from the source  Bellman-Ford(G,W,s) to solve prob 2 above 1 2 3 4 5 6 7  Initialize() for i=1 to |v|-1 for each edge(u,v)∈E Relax(u,v,w) for each edge(u,v)∈E if d[v] &gt; d[u] + w(u,v) then report -ve cycle exists    O(VE) Correctness  Theorem: If G = (V,E) contains no -ve weight cycles then after B-F executes, d[v] = ẟ[s,v] for all v∈V Corollary: If a value d[v] fails to converge after |v|-1 passes, there exists a -ve weight cycle reachable from s Proof by induction  Proof      Notice B-F algo doesn&rsquo;t sovle the -ve cycle but give an option to abort for the sake of termination]]></description>
 </item></channel>
 </rss>

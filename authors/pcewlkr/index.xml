@@ -3,7 +3,7 @@
         <title>PceWlkr - Author - myStack</title>
         <link>https://Peacewalker365.github.io/authors/pcewlkr/</link>
         <description>PceWlkr - Author - myStack</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/authors/pcewlkr/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/authors/pcewlkr/" rel="self" type="application/rss+xml" /><item>
     <title>First Post</title>
     <link>https://Peacewalker365.github.io/first-post/</link>
     <pubDate>Sun, 12 Dec 2021 21:29:01 &#43;0800</pubDate><author>
@@ -11,6 +11,34 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/blackhole.webp" referrerpolicy="no-referrer">
             </div>Better late than never.]]></description>
+</item><item>
+    <title>Design Patterns</title>
+    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <pubDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
+Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
+SOLID Design Principles S: Single-responsibility principle
+O: Open-closed principle
+L: Liskov&rsquo;s substitution principle]]></description>
+</item><item>
+    <title>Golang</title>
+    <link>https://Peacewalker365.github.io/golang/</link>
+    <pubDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/golang/</guid>
+    <description><![CDATA[Golang why golang
+c/c++ fast but have to carry historical burdens, slow compile
+java kinda same
+python, easy to use but slow.
+None of these are developed toward to the best performance in terms of concurrency
+ Strong and staticaaly typed excellent comm. Key features  simplicity fast compile times garbage collected compile to standaline binaries(all dependencies are in there) built-in concurrency    1 2 3 4 5 6 7 8 9 10  package main // have to specify the package name  import ( &#34;fmt&#34; ) func main() { fmt.]]></description>
+</item><item>
+    <title>Spring5</title>
+    <link>https://Peacewalker365.github.io/spring5/</link>
+    <pubDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/spring5/</guid>
+    <description><![CDATA[Spring5 IOC AOP 1 2 3 4 5 6 7 8 9 10 11 12 13 ------------------------- ----------------------- |Data Access/Integration| | Web | | JDBC ORM | |WebSocket WebMVC | | OXM JMS | |Web WebFlux | | Transactions | | | ------------------------- ----------------------- AOP Aspects Instrument Messaging ----------------------------------------------------- | Core Container | | Beans Core Context Expression | ----------------------------------------------------- Installation Spring Download Spring Framework Unzip it libs &ndash;&gt; jars]]></description>
 </item><item>
     <title>CSS</title>
     <link>https://Peacewalker365.github.io/css-cn/</link>
@@ -47,27 +75,5 @@
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
                     <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/maven/</guid>
     <description><![CDATA[浏览器 ｜ 表示层-&gt; 视图层-&gt; HTML5/CSS/JS/JSP ｜ -&gt; 控制层-&gt; Servlet/Action/Handler ｜ 业务逻辑层(Spring IOC AOP) ｜ 持久化层(JDBC/DBUtils/Spri]]></description>
-</item><item>
-    <title>Serialization</title>
-    <link>https://Peacewalker365.github.io/serialization-java/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/serialization-java/</guid>
-    <description><![CDATA[Serialization and Deserialization in Java What 把Java对象转换为字节序列的过程&mdash;&mdash;&mdash;&ndash;&gt; 序列化 把字节序列恢复为Java]]></description>
-</item><item>
-    <title>Wiing Wiing</title>
-    <link>https://Peacewalker365.github.io/wing-wing-lyrics/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/wing-wing-lyrics/</guid>
-    <description><![CDATA[Wing Wing &ndash;by Hyukoh pi teul bi teul keo leo ga neun na e ta li
-o neul do ui mi eom neun do ha lu ga heul leo ga jyo
-sa sang do gi li gi li ha neun geo la min neun na neun
-com ceo leom tu geun du geun geo lil yi li ceo nyeo eop jyo
-wing ying wing ying ha lu sa li do]]></description>
-</item><item>
-    <title>设计模式</title>
-    <link>https://Peacewalker365.github.io/design-pattern-cn/</link>
-    <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
-                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-pattern-cn/</guid>
-    <description><![CDATA[设计模式 Watch the Video Watch the Video2 设计模式： 模式名称 问题，或应用范围 解决方案 效果及其权衡（优缺点） 创建型模式： 单例模式， 工厂模式，抽象工厂模式，建造者模式]]></description>
 </item></channel>
 </rss>

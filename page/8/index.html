@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Peacewalker365.github.io/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="myStack">
-    <link rel="feed" href="/index.xml" type="application/rss+xml" title="myStack"><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.182e1b2f714253193a398b38b3cec6336cb014fed223e9f7c0b40b1855b177e1.css" integrity="sha256-GC4bL3FCUxk6OYs4s87GM2ywFP7SI&#43;n3wLQLGFWxd&#43;E="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="myStack"><link rel="stylesheet" href="/lib/normalize/normalize.min.055364f5be272caa092b0e6654c165828707f8ab971e2656383a6d6392bc345e.css" integrity="sha256-BVNk9b4nLKoJKw5mVMFlgocH&#43;KuXHiZWODptY5K8NF4="><link rel="stylesheet" href="/css/style.min.a1140025a2f69e3c58f44e0336155b885dc41fb228fb87f5c696f119a405a6fc.css" integrity="sha256-oRQAJaL2njxY9E4DNhVbiF3EH7Io&#43;4f1xpbxGaQFpvw="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc=">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.43202d5486e011f9684a17bd6846b5c16a2619002bfc783f7e32e20dfb6bf857.css" integrity="sha256-QyAtVIbgEfloShe9aEa1wWomGQAr/Hg/fjLiDftr&#43;Fc="></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="></noscript>
     
@@ -147,6 +147,30 @@
         title="/avatar_trans.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/Peacewalker365" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://www.buymeacoffee.com/pcewlkr" title="BuyMeaCoffee" target="_blank" rel="noopener noreffer me"><i data-svg-src="/lib/simple-icons/icons/buymeacoffee.min.svg"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/pitfalls/">Pitfalls in C</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">关于C的函数套娃！以下为错误案例！ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 void LevelOne(Obj* ptr) {LevelTwo(ptr)} void LevelTwo(Obj* ptr){...} {LevelThree(&amp;ptr)} void LevelThree(Obj** ptr){...} {......} int main(void) { Object* ptr = BuildObjArr(); LevelOne(ptr); } 上述code中，我们试图在第三层</div><div class="post-footer">
+        <a href="/pitfalls/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c/">C</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/single-source-shortest-paths-problem/">Single-Source Shortest Paths Problem</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Single-Source Shortest Paths Problem Motivation G(V,E,W) where V is the vertices, E is the edges, W is the weights
+Dijkstra (for non-negative weight edges)  O(VlgV + E) where E = O(V2)  Bellmen-Ford  O(VE)  Weighted graphs   path p = &lt; v0, v1,&hellip;, vk&gt;
+( vi, vi+1 ) ∈ E for 0 ≤ i &lt; k
+w(p) = ∑w( vi, vi+1 ) from 0 to k-1</div><div class="post-footer">
+        <a href="/single-source-shortest-paths-problem/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/software-architectural-patterns/">Software Arch Patterns</a>
+    </h1><div class="post-meta">
+        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
+        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Software Architectural Patterns Layered pattern Client-server pattern Master-slave pattern Pipe-filter pattern Broker pattern Peer-to-peer pattern Event-bus pattern Model-view-controller pattern Blackboard pattern Interpreter pattern </div><div class="post-footer">
+        <a href="/software-architectural-patterns/">Read more...</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/architectural-pattern/">Architectural Pattern</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/sql/">SQL</a>
     </h1><div class="post-meta">
         <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
@@ -179,44 +203,6 @@ This should solve your problem.</div><div class="post-footer">
         </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Swift Optional Pointer ~&gt; is as closure 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31  let coffee: [String] = [&#34;Cappuccino&#34;, &#34;Espresso&#34;, &#34;Latte&#34;, &#34;Ristretto&#34;] // normal func backward(_ n1: String, _ n2: String) -&gt; Bool { return n1 &gt; n2 } var reverseOrder = coffee.sorted(by: backward) /* RESULT: [&#34;Ristretto&#34;, &#34;Latte&#34;, &#34;Espresso&#34;, &#34;Cappuccino&#34;] */ // inline reverseOrder = coffee.</div><div class="post-footer">
         <a href="/swift_note/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/swift/">Swift</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/topics-in-algorithms-research/">Topics in Algorithm Research</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Topics in Algorithms Research Heometric folding algorithm  folding a crease pattern -&gt; NP-complete design a crease pattern from a folded shape -&gt; P   </div><div class="post-footer">
-        <a href="/topics-in-algorithms-research/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/uml-class-diagrams/">UML</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">UML Class Diagrams Introduction In object-oriented programming, it&rsquo;s not uncommon to visualize classes and their relationships using the Unified Modeling Language (UML). While UML has many different types of diagrams, this reading focusses only on UML class diagrams.
-Basic Class Diagram Consider the following UML class diagram:
-The diagram consists of a rectangle broken up vertically into three sections:
-  Class name. In this case, the fully qualified name of the class is given.</div><div class="post-footer">
-        <a href="/uml-class-diagrams/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/uml/">UML</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/vim/">Vim</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://Peacewalker365.github.io/authors/pcewlkr'>PceWlkr</a></span>
-        </span>&nbsp;<span class="post-publish">published on <time datetime="2021-12-25">2021-12-25</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/note/"><i class="far fa-folder fa-fw"></i>Note</a></span></div><div class="content">Termial Oriented Programming Some Useful Info https://vim-adventures.com/
-This is a game for vim beginner.
-https://www.destroyallsoftware.com/screencasts
-This is an amazing guy introducing the power of the terminal.
-Doing everything in one terminal window is powerful.
-Jobs Control jobs
-ps
-fg
-bg
-fg %1
-kill %2
-kill -9 24153
-./some_codes.sh &amp;
-ctrl + z to suspend the current job including when you are in the Vim
-ctrl + c to kill the current job</div><div class="post-footer">
-        <a href="/vim/">Read more...</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">Vim</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -234,6 +220,10 @@ ctrl + c to kill the current job</div><div class="post-footer">
                 </li><li class="page-item active">
                     <span class="page-link">
                         <a href="/page/8/">8</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/9/">9</a>
                     </span>
                 </li></ul></div></div>
         </main><footer class="footer">

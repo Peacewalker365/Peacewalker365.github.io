@@ -3,7 +3,18 @@
         <title>Design Pattern - Tag - myStack</title>
         <link>https://Peacewalker365.github.io/tags/design-pattern/</link>
         <description>Design Pattern - Tag - myStack</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/design-pattern/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://Peacewalker365.github.io/tags/design-pattern/" rel="self" type="application/rss+xml" /><item>
+    <title>Design Patterns</title>
+    <link>https://Peacewalker365.github.io/design-patterns-for-ool/</link>
+    <pubDate>Mon, 10 Jan 2022 00:00:00 &#43;0000</pubDate><author>
+                    <name>PceWlkr</name><uri>https://github.com/Peacewalker365</uri></author><guid>https://Peacewalker365.github.io/design-patterns-for-ool/</guid>
+    <description><![CDATA[Design Patterns For OOL Terms Association
+Aggregation implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.
+Composition implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.
+SOLID Design Principles S: Single-responsibility principle
+O: Open-closed principle
+L: Liskov&rsquo;s substitution principle]]></description>
+</item><item>
     <title>设计模式</title>
     <link>https://Peacewalker365.github.io/design-pattern-cn/</link>
     <pubDate>Sun, 09 Jan 2022 00:00:00 &#43;0000</pubDate><author>
